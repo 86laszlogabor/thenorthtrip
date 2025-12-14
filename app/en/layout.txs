@@ -1,0 +1,71 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+
+export default function EnLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="bg-black text-white">
+        {/* HEADER */}
+        <header className="border-b border-white/10">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6 flex-wrap">
+            <Link href="/en" className="font-semibold tracking-wide">
+              TheNorthTrip
+            </Link>
+
+            <nav className="flex gap-5 text-sm opacity-80">
+              <Link className="hover:opacity-100" href="/en/car-rental-finland">Car rental</Link>
+              <Link className="hover:opacity-100" href="/en/camper-rental-finland">Camper</Link>
+              <Link className="hover:opacity-100" href="/en/lapland-tours">Lapland tours</Link>
+              <Link className="hover:opacity-100" href="/en/get-help">Get help</Link>
+            </nav>
+          </div>
+        </header>
+
+        {/* PAGE CONTENT */}
+        <main className="max-w-6xl mx-auto px-6 py-12">
+          {children}
+        </main>
+
+        {/* FOOTER */}
+        <footer className="border-t border-white/10">
+          <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm">
+            <div className="space-y-2">
+              <div className="font-semibold">TheNorthTrip</div>
+              <p className="opacity-80">
+                Independent guides for car rental, camper rental, and Lapland travel in Finland.
+              </p>
+              <p className="opacity-70">
+                We don’t sell. We don’t upsell. We help you choose what actually works.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="font-semibold">Sections</div>
+              <div className="flex flex-col gap-1 opacity-80">
+                <Link href="/en/car-rental-finland" className="underline underline-offset-4 w-fit">Car rental</Link>
+                <Link href="/en/camper-rental-finland" className="underline underline-offset-4 w-fit">Camper rental</Link>
+                <Link href="/en/lapland-tours" className="underline underline-offset-4 w-fit">Lapland tours</Link>
+                <Link href="/en/blog" className="underline underline-offset-4 w-fit">Blog</Link>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="font-semibold">Legal</div>
+              <div className="flex flex-col gap-1 opacity-80">
+                <Link href="/en/terms" className="underline underline-offset-4 w-fit">Terms</Link>
+                <Link href="/en/privacy" className="underline underline-offset-4 w-fit">Privacy</Link>
+                <Link href="/en/affiliate-disclosure" className="underline underline-offset-4 w-fit">
+                  Affiliate disclosure
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-6xl mx-auto px-6 pb-8 text-xs opacity-60">
+            © {new Date().getFullYear()} TheNorthTrip. All rights reserved.
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
