@@ -1,24 +1,23 @@
 import React from "react";
 
-export type StickyMobileCTAProps =
-  | { label: string; href: string }
-  | { text: string; href: string };
+export type StickyMobileCTAProps = {
+  text: string;
+  href: string;
+};
 
-function isTextVariant(p: StickyMobileCTAProps): p is { text: string; href: string } {
-  return (p as any).text !== undefined;
-}
-
-export default function StickyMobileCTA(props: StickyMobileCTAProps) {
-  const label = isTextVariant(props) ? props.text : props.label;
-
+export default function StickyMobileCTA({ text, href }: StickyMobileCTAProps) {
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
-      <a
-        href={props.href}
-        className="block w-full rounded-2xl bg-blue-600 px-5 py-4 text-center font-semibold text-white shadow-lg hover:bg-blue-500 transition"
-      >
-        {label}
-      </a>
+    <div className="fixed inset-x-0 bottom-0 z-50 md:hidden">
+      <div className="mx-auto max-w-6xl px-4 pb-4">
+        <div className="rounded-2xl border border-white/10 bg-black/80 backdrop-blur p-3 shadow-sm">
+          <a
+            href={href}
+            className="w-full inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500 transition"
+          >
+            {text}
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
