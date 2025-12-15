@@ -1,0 +1,59 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import CTABox from "@/components/CTABox";
+import SectionCard from "@/components/SectionCard";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Get help before booking: deposit, insurance, winter add-ons sanity-check",
+  description:
+    "Send your booking offer and get a practical sanity-check: deposit holds, credit/debit requirements, winter add-ons, tour inclusions and cancellation terms.",
+  path: "/get-help",
+  keywords: [
+    "car rental deposit hold check helsinki",
+    "debit card pickup rules helsinki airport",
+    "winter add-ons finland rental car",
+    "lapland tour inclusions cancellation check",
+  ],
+});
+
+export default function GetHelpPage() {
+  return (
+    <main className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
+      <header className="space-y-4">
+        <h1 className="text-3xl font-semibold sm:text-5xl">Ask before booking</h1>
+        <p className="max-w-2xl text-white/70">
+          Share your offer details (screenshot or summary). We’ll flag the traps: deposit holds, card rules, winter add-ons,
+          and tour inclusions.
+        </p>
+      </header>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <SectionCard title="What to send">
+          <ul className="mt-2 space-y-2 text-sm">
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Pickup location + time window</li>
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Deposit amount + payment method rules</li>
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Insurance/coverage options shown</li>
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />For tours: inclusions + cancellation terms</li>
+          </ul>
+        </SectionCard>
+
+        <SectionCard title="What you get back">
+          <ul className="mt-2 space-y-2 text-sm">
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />A short list of “red flags”</li>
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Cost reality-check (what inflates the total)</li>
+            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Practical alternatives (city vs airport, small group vs big bus)</li>
+          </ul>
+        </SectionCard>
+      </div>
+
+      <CTABox
+        title="Next step"
+        text="Hook this page to your preferred contact method (form/email/DM). The UI is ready. The human part is on you."
+        primaryHref="/"
+        primaryLabel="Back to home"
+        secondaryHref="/car-rental-helsinki"
+        secondaryLabel="Start with Helsinki car rental"
+      />
+    </main>
+  );
+}
