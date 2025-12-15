@@ -1,4 +1,3 @@
-// components/JsonLd.tsx
 import React from "react";
 
 export default function JsonLd({ data }: { data: Record<string, any> }) {
