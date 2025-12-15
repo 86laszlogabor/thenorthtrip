@@ -59,3 +59,34 @@ a:hover {
 ::selection {
   background: rgba(249, 115, 22, 0.35);
 }
+/* LIGHT default */
+:root {
+  --bg: 248 250 252;     /* slate-50 */
+  --card: 255 255 255;   /* white */
+  --text: 15 23 42;      /* slate-900 */
+  --muted: 71 85 105;    /* slate-600 */
+
+  --primary: 249 115 22;       /* orange-500 */
+  --primaryHover: 234 88 12;   /* orange-600 */
+
+  --secondary: 37 99 235;      /* blue-600 */
+  --secondaryHover: 29 78 216; /* blue-700 */
+
+  --accent: 2 132 199;         /* sky-600 */
+}
+
+/* DARK only when html has .dark */
+html.dark {
+  --bg: 4 9 26;
+  --card: 17 24 39;
+  --text: 243 244 246;
+  --muted: 180 190 210;
+
+  --primary: 249 115 22;
+  --primaryHover: 234 88 12;
+
+  --secondary: 37 99 235;
+  --secondaryHover: 29 78 216;
+
+  --accent: 34 211 238;
+}
