@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-[rgb(var(--bg))] text-[rgb(var(--text))]">
         <SiteHeader />
         {children}
