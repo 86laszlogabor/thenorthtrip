@@ -1,22 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens */
 :root {
   /* Page BG */
-  --bg: 4 9 26;          /* #04091A */
+  --bg: 4 9 26; /* #04091A */
 
   /* Card BG – világosabb kontraszt */
-  --card: 17 24 39;      /* #111827 (gray-900) */
+  --card: 17 24 39; /* #111827 (gray-900) */
 
   /* Text */
-  --text: 243 244 246;   /* #F3F4F6 */
-  --muted: 180 190 210;  /* readable */
+  --text: 243 244 246; /* #F3F4F6 */
+  --muted: 180 190 210; /* readable */
 
   /* Primary CTA – ORANGE (conversion) */
   --primary: 249 115 22; /* #F97316 (orange-500) */
   --primaryHover: 234 88 12; /* #EA580C (orange-600) */
 
   /* Secondary CTA – BLUE */
-  --secondary: 37 99 235;    /* #2563EB (blue-600) */
+  --secondary: 37 99 235; /* #2563EB (blue-600) */
   --secondaryHover: 29 78 216; /* #1D4ED8 (blue-700) */
 
   /* Accent links */
-  --accent: 34 211 238;  /* #22D3EE */
+  --accent: 34 211 238; /* #22D3EE */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: rgb(var(--accent));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
 }

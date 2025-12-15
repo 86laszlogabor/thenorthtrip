@@ -7,7 +7,6 @@ export default function SEOJsonLd() {
     "@type": "Organization",
     name: SITE.name,
     url: SITE.url,
-    email: SITE.email,
   };
 
   return (
