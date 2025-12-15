@@ -1,33 +1,27 @@
-import type { MetadataRoute } from "next";
+import { blogSlugList } from "@/lib/blogUtils";
 import { SITE } from "@/lib/site";
-import { BLOG } from "@/lib/blog";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+export default function sitemap() {
+  const base = SITE.url.replace(/\/+$/, "");
 
   const staticRoutes = [
-    "",
+    "/",
+    "/blog",
+    "/get-help",
     "/car-rental-helsinki",
     "/camper-rental-finland",
     "/lapland-tours",
-    "/get-help",
-    "/blog",
     "/privacy",
     "/terms",
     "/affiliate-disclosure",
-  ].map((path) => ({
-    url: `${SITE.url}${path}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.7,
-  }));
+  ];
 
-  const blogRoutes = BLOG.map((p) => ({
-    url: `${SITE.url}/blog/${p.slug}`,
-    lastModified: new Date(p.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const blogRoutes = blogSlugList().map((slug) => `/blog/${slug}`);
 
-  return [...staticRoutes, ...blogRoutes];
+  const all = [...staticRoutes, ...blogRoutes];
+
+  return all.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+  }));
 }

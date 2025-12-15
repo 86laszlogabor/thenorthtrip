@@ -1,6 +1,7 @@
 import HeroSplit from "@/components/HeroSplit";
 import TopicGrid from "@/components/TopicGrid";
 import CTABox from "@/components/CTABox";
+import RelatedPosts from "@/components/RelatedPosts";
 
 export default function HomePage() {
   return (
@@ -8,7 +9,7 @@ export default function HomePage() {
       <HeroSplit />
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Start with the small-market questions</h2>
+        <h2 className="text-2xl font-semibold text-white">Start with the small-market questions</h2>
         <p className="max-w-2xl text-sm leading-relaxed text-white/70">
           We focus on the boring details people search right before paying: deposit holds, debit pickup rules, winter
           add-ons, and tour inclusions.
@@ -24,6 +25,19 @@ export default function HomePage() {
         secondaryHref="/blog"
         secondaryLabel="Read the blog"
       />
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-white">Featured posts</h2>
+        <p className="max-w-2xl text-sm text-white/70">
+          Short reads that prevent expensive “oops”.
+        </p>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          <RelatedPosts pillar="/car-rental-helsinki" limit={2} />
+          <RelatedPosts pillar="/camper-rental-finland" limit={2} />
+          <RelatedPosts pillar="/lapland-tours" limit={2} />
+        </div>
+      </section>
     </main>
   );
 }
