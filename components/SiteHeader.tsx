@@ -1,6 +1,7 @@
-import React from "react";
+import Link from "next/link";
+import { SITE } from "@/lib/site";
 
-const nav = [
+const NAV = [
   { href: "/car-rental-helsinki", label: "Car rental" },
   { href: "/camper-rental-finland", label: "Camper" },
   { href: "/lapland-tours", label: "Lapland" },
@@ -9,34 +10,34 @@ const nav = [
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
-      <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
-        <a href="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-xl bg-gray-800 border border-white/10" />
-          <div>
-            <div className="font-semibold text-white">NordicDrive</div>
-            <div className="text-xs text-gray-400">Finland travel offers</div>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgb(var(--bg))]/85 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-xl border border-white/10 bg-[rgb(var(--card))]" />
+          <div className="leading-tight">
+            <div className="font-semibold text-[rgb(var(--text))]">{SITE.name}</div>
+            <div className="text-xs text-[rgb(var(--muted))]">{SITE.tagline}</div>
           </div>
-        </a>
+        </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
-          {nav.map((x) => (
-            <a
-              key={x.href}
-              href={x.href}
-              className="px-3 py-2 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/5 transition"
+        <nav className="hidden items-center gap-6 text-sm text-[rgb(var(--muted))] md:flex">
+          {NAV.map((n) => (
+            <Link
+              key={n.href}
+              href={n.href}
+              className="hover:text-[rgb(var(--text))]"
             >
-              {x.label}
-            </a>
+              {n.label}
+            </Link>
           ))}
         </nav>
 
-        <a
+        <Link
           href="/offer-checklist"
-          className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 transition"
+          className="rounded-xl bg-[rgb(var(--primary))] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
         >
           Offer checklist
-        </a>
+        </Link>
       </div>
     </header>
   );
