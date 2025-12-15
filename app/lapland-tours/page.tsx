@@ -6,12 +6,14 @@ import FAQ from "@/components/FAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CTACluster from "@/components/CTACluster";
 import TopPosts from "@/components/TopPosts";
+import CompareCTA from "@/components/CompareCTA";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Lapland tours: what’s worth it and what to avoid",
-  description: "Northern lights, huskies, snowmobiles. Learn how to choose Lapland tours without overpaying.",
+  description:
+    "Northern lights, huskies, snowmobiles. Learn how to choose Lapland tours without overpaying.",
   path: "/lapland-tours",
 });
 
@@ -33,20 +35,43 @@ export default function Page() {
           subtitle="Book smarter. Fewer tourist traps, more real expectations."
           primaryCtaText="Open offer checklist"
           primaryCtaHref="/offer-checklist"
+          secondaryCtaText="Read blog posts"
+          secondaryCtaHref="/blog?pillar=%2Flapland-tours"
         />
       }
       trust={<TrustStrip items={["Operator selection tips", "Season reality", "Clear expectations"]} />}
       sections={[
-        { title: "Northern lights reality", body: "You’re buying probability, not certainty. Weather and cloud cover decide." },
-        { title: "Activities compared", body: "Group size, duration, transport matter more than glossy photos." },
-        { title: "Avoid overpriced packages", body: "Prefer clear inclusions + cancellation rules + realistic itineraries." },
+        {
+          title: "Northern lights reality",
+          body: "You’re buying probability, not certainty. Weather and cloud cover decide.",
+        },
+        {
+          title: "Activities compared",
+          body: "Group size, duration, and transport matter more than glossy photos.",
+        },
+        {
+          title: "Avoid overpriced packages",
+          body: "Prefer clear inclusions, cancellation rules, and realistic itineraries.",
+        },
       ]}
-      compare={{ title: "Compare Lapland tour offers", primaryLabel: "Offer checklist", primaryHref: "/offer-checklist" }}
+      compare={
+        <CompareCTA
+          title="Compare Lapland tour offers"
+          primaryLabel="Offer checklist"
+          primaryHref="/offer-checklist"
+        />
+      }
       faq={
         <FAQ
           items={[
-            { q: "Best time to visit?", a: "Depends on light, weather, and activities. There is no perfect month." },
-            { q: "Winter gear included?", a: "Sometimes. If it’s not explicit, assume you need to bring or rent." },
+            {
+              q: "What’s the best time to visit?",
+              a: "Depends on light, weather, and activities. There is no perfect month.",
+            },
+            {
+              q: "Is winter gear included?",
+              a: "Sometimes. If it’s not explicit, assume you need to bring or rent.",
+            },
           ]}
         />
       }
@@ -60,7 +85,11 @@ export default function Page() {
               { label: "Read blog posts", href: "/blog?pillar=%2Flapland-tours", variant: "secondary" },
             ]}
           />
-          <TopPosts pillar="/lapland-tours" title="Top posts: Lapland tours" limit={6} />
+          <TopPosts
+            pillar="/lapland-tours"
+            title="Top posts: Lapland tours"
+            limit={6}
+          />
         </>
       }
       sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}
