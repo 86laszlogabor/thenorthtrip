@@ -10,6 +10,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { getPostBySlug, getRelatedPosts } from "@/lib/blogUtils";
 import { PILLARS } from "@/lib/pillars";
 import { SITE } from "@/lib/site";
+import { markdownToHtml } from "@/lib/markdown";
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getPostBySlug(params.slug);
@@ -39,6 +40,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     author: { "@type": "Organization", name: SITE.name },
   };
 
+  const html = post.content ? markdownToHtml(post.content) : null;
+
   return (
     <>
       <Breadcrumbs
@@ -56,13 +59,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <h1 className="mt-2 text-3xl font-bold text-white">{post.title}</h1>
         <p className="mt-4 text-white/80 leading-relaxed">{post.description}</p>
 
-        {/* Content placeholder: safe, no MDX dependency */}
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-          <p className="text-white/80 leading-relaxed">
-            This article currently renders from metadata only. If you want full long-form content rendering (MDX/HTML),
-            we’ll wire it in next. For now: the internal linking, SEO, and navigation are live.
-          </p>
-        </div>
+        {html ? (
+          <article
+            className="prose prose-invert mt-10 max-w-none rounded-2xl border border-white/10 bg-white/5 p-6"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        ) : (
+          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p className="text-white/80 leading-relaxed">
+              Content not added yet for this post. Add <code>content</code> (markdown) in <code>lib/blog.ts</code>.
+            </p>
+          </div>
+        )}
 
         <div className="mt-10 flex flex-wrap gap-3">
           <a

@@ -3,8 +3,9 @@ import PillarPage from "@/components/PillarPage";
 import HeroSplit from "@/components/HeroSplit";
 import TrustStrip from "@/components/TrustStrip";
 import FAQ from "@/components/FAQ";
-import BlogList from "@/components/BlogList";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import CTACluster from "@/components/CTACluster";
+import TopPosts from "@/components/TopPosts";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
@@ -29,32 +30,40 @@ export default function Page() {
       hero={
         <HeroSplit
           title="Camper rental in Finland"
-          subtitle="Season pricing, insurance, and checklists without nonsense."
-          primaryCtaText="Open checklist"
+          subtitle="Season pricing, insurance exclusions, and inspection steps without nonsense."
+          primaryCtaText="Open offer checklist"
           primaryCtaHref="/offer-checklist"
         />
       }
       trust={<TrustStrip items={["Season-aware pricing", "Inspection checklist", "Nordic driving tips"]} />}
       sections={[
-        { title: "Season pricing", body: "Summer is expensive and sells out. Shoulder seasons can be better value." },
-        { title: "Insurance basics", body: "Focus on excess and exclusions. ‘Full cover’ often has exceptions." },
-        { title: "Pickup inspection", body: "Photos + equipment checklist saves you from expensive arguments later." },
+        { title: "Season pricing", body: "Summer sells out. Shoulder seasons can be better value if your plan is flexible." },
+        { title: "Insurance basics", body: "Focus on excess and exclusions. ‘Full cover’ often still has exceptions." },
+        { title: "Pickup inspection", body: "Photos + checklist prevent expensive arguments later." },
       ]}
-      compare={{
-        title: "Compare camper rentals",
-        primaryLabel: "Open offer checklist",
-        primaryHref: "/offer-checklist",
-      }}
+      compare={{ title: "Compare camper offers", primaryLabel: "Offer checklist", primaryHref: "/offer-checklist" }}
       faq={
         <FAQ
           items={[
-            { q: "Do I need a special license?", a: "Usually no, but weight limits vary. Verify vehicle category." },
-            { q: "Can I wild camp?", a: "Rules exist for motor vehicles. Use designated spots when unsure." },
+            { q: "Need a special license?", a: "Usually no, but weight limits vary. Verify the vehicle category." },
+            { q: "Can I wild camp?", a: "Rules exist for motor vehicles. Use designated spots if unsure." },
           ]}
         />
       }
-      blog={<BlogList title="Latest camper guides" pillar="/camper-rental-finland" limit={6} />}
-      sticky={<StickyMobileCTA text="Open checklist" href="/offer-checklist" />}
+      blog={
+        <>
+          <CTACluster
+            title="Camper quick actions"
+            subtitle="Checklist first, then read the pillar-specific guides."
+            buttons={[
+              { label: "Offer checklist", href: "/offer-checklist", variant: "primary" },
+              { label: "Read blog posts", href: "/blog?pillar=%2Fcamper-rental-finland", variant: "secondary" },
+            ]}
+          />
+          <TopPosts pillar="/camper-rental-finland" title="Top posts: Camper rentals" limit={6} />
+        </>
+      }
+      sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}
       jsonLd={jsonLd}
     />
   );

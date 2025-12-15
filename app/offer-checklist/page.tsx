@@ -1,59 +1,75 @@
+import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { pageMetadata } from "@/lib/seo";
+import { buildMetadata } from "@/lib/metadata";
+import CTACluster from "@/components/CTACluster";
+import AffiliateLink from "@/components/AffiliateLink";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Offer checklist: what to verify before paying",
-  description:
-    "Copy-paste checklist for car rentals, campers, and tours: deposits, card rules, winter add-ons, inclusions, and cancellation.",
+export const metadata: Metadata = buildMetadata({
+  title: "Offer checklist",
+  description: "A no-nonsense checklist to compare travel offers and avoid hidden costs.",
   path: "/offer-checklist",
-  keywords: ["offer checklist", "car rental deposit hold checklist", "debit card pickup checklist"],
 });
 
 export default function OfferChecklistPage() {
-  const template = `OFFER CHECKLIST (copy-paste)
-
-1) Link:
-2) Pickup location + time/date:
-3) Dropoff location + time/date:
-4) Driver age:
-5) Card type at pickup (credit/debit):
-6) Deposit shown (amount + currency):
-7) Deposit: hold or payment?
-8) Airport surcharge / out-of-hours fee?
-9) Fuel policy:
-10) Winter add-ons (tires, chains, windshield, etc):
-11) Insurance: what’s excluded?
-12) Cancellation rules:
-13) Notes / concerns:
-`;
-
   return (
-    <main className="mx-auto max-w-3xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
-      <header className="space-y-3">
-        <h1 className="text-3xl font-semibold text-white sm:text-5xl">Offer checklist</h1>
-        <p className="text-white/70">Use this before paying. Saves money and prevents pickup drama.</p>
-      </header>
+    <main className="mx-auto max-w-6xl px-4 pt-10 pb-16">
+      <h1 className="text-3xl font-bold text-white">Offer checklist</h1>
+      <p className="mt-3 text-white/80 leading-relaxed">
+        Use this to compare offers like an adult. Deposits, insurance, desk rules, cancellation. The stuff that actually matters.
+      </p>
 
-      <section className="rounded-2xl border border-white/15 bg-white/5 p-6 space-y-4">
-        <h2 className="text-xl font-semibold text-white">Copy-paste template</h2>
-        <pre className="whitespace-pre-wrap rounded-xl border border-white/10 bg-black/30 p-4 text-sm text-white/80">
-{template}
-        </pre>
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <CTACluster
+          title="Car rental: before you book"
+          subtitle="Make sure the payment method and deposit policy match what you can actually provide at pickup."
+          buttons={[
+            { label: "Go to Helsinki car rental pillar", href: "/car-rental-helsinki", variant: "primary" },
+            { label: "Browse car-rental blog posts", href: "/blog?pillar=%2Fcar-rental-helsinki", variant: "secondary" },
+          ]}
+        />
 
-        <div className="flex gap-3">
-          <Link
-            href="/get-help"
-            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+        <CTACluster
+          title="Camper rentals: avoid surprise costs"
+          subtitle="Season pricing + insurance exclusions + inspection steps. Don’t skip them."
+          buttons={[
+            { label: "Go to camper pillar", href: "/camper-rental-finland", variant: "primary" },
+            { label: "Browse camper blog posts", href: "/blog?pillar=%2Fcamper-rental-finland", variant: "secondary" },
+          ]}
+        />
+
+        <CTACluster
+          title="Lapland tours: pick smarter"
+          subtitle="You’re buying probability (weather, aurora), not certainty. Optimize for value."
+          buttons={[
+            { label: "Go to Lapland pillar", href: "/lapland-tours", variant: "primary" },
+            { label: "Browse Lapland blog posts", href: "/blog?pillar=%2Flapland-tours", variant: "secondary" },
+          ]}
+        />
+
+        <CTACluster
+          title="Affiliate offers (example wiring)"
+          subtitle="These are example external links showing correct rel/target. Replace with your real affiliate destinations."
+          buttons={[
+            { label: "Example external offer link", href: "https://example.com", variant: "primary", external: true },
+            { label: "Read affiliate disclosure", href: "/affiliate-disclosure", variant: "secondary" },
+          ]}
+        />
+      </div>
+
+      <section className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-6">
+        <h2 className="text-xl font-semibold text-white">Affiliate link example</h2>
+        <p className="mt-2 text-white/80">
+          This is what you’ll use inside articles and CTA blocks. It automatically adds <code>nofollow sponsored</code> etc.
+        </p>
+
+        <div className="mt-4">
+          <AffiliateLink
+            href="https://example.com"
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500 transition"
+            label="Example affiliate link"
           >
-            Ask before booking
-          </Link>
-          <Link
-            href="/blog"
-            className="rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white/85 transition hover:bg-white/10"
-          >
-            Read the blog
-          </Link>
+            Example affiliate link (replace)
+          </AffiliateLink>
         </div>
       </section>
     </main>
