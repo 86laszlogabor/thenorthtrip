@@ -5,29 +5,36 @@ import { BLOG_CONTENT } from "@/lib/blogContent";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return BLOG.map((p) => ({ slug: p.slug }));
+function normalizeSlug(value: string) {
+  return value
+    .replace(/^\/+/, "")        // leading /
+    .replace(/^blog\/+/, "")    // blog/
+    .replace(/^\/?blog\/+/, "") // /blog/
+    .replace(/\/+$/, "");       // trailing /
 }
 
-function Paragraph({ text }: { text: string }) {
-  const isInternal = text.startsWith("/");
-  if (isInternal) {
-    return (
-      <p>
-        <a href={text} className="underline decoration-white/30 hover:decoration-white/60">
-          {text}
-        </a>
-      </p>
-    );
-  }
-  return <p>{text}</p>;
+export function generateStaticParams() {
+  return BLOG.map((p) => ({
+    slug: normalizeSlug(String(p.slug)),
+  }));
 }
 
 export default function BlogPostPage({ params }: { params: Params }) {
-  const post = BLOG.find((p) => p.slug === params.slug);
+  const incoming = normalizeSlug(params.slug);
+
+  const post =
+    BLOG.find((p) => normalizeSlug(String(p.slug)) === incoming) ??
+    null;
+
   if (!post) return notFound();
 
-  const related = BLOG.filter((p) => p.pillar === post.pillar && p.slug !== post.slug).slice(0, 4);
+  const blocks = BLOG_CONTENT[normalizeSlug(String(post.slug))]?.blocks ?? [];
+
+  const related = BLOG.filter(
+    (p) =>
+      p.pillar === post.pillar &&
+      normalizeSlug(String(p.slug)) !== incoming
+  ).slice(0, 4);
 
   const pillarLabel =
     post.pillar === "/car-rental-helsinki"
@@ -36,15 +43,14 @@ export default function BlogPostPage({ params }: { params: Params }) {
       ? "Camper rental Finland"
       : "Lapland tours";
 
-  const blocks = BLOG_CONTENT[post.slug]?.blocks ?? [];
-
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{post.publishedAt}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">
+          {post.publishedAt}
+        </p>
 
         <h1 className="text-3xl font-semibold sm:text-5xl">{post.title}</h1>
-
         <p className="text-white/70">{post.description}</p>
 
         <div className="flex flex-wrap gap-2 pt-1">
@@ -62,7 +68,8 @@ export default function BlogPostPage({ params }: { params: Params }) {
       <article className="mt-10 space-y-6 text-white/75 leading-relaxed">
         {blocks.length === 0 ? (
           <p>
-            Content missing for this post. Add blocks in <code className="text-white/90">lib/blogContent.ts</code>.
+            Content missing for this post. Add blocks in{" "}
+            <code className="text-white/90">lib/blogContent.ts</code>.
           </p>
         ) : (
           blocks.map((b, i) => {
@@ -76,7 +83,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
 
             if (b.type === "ul") {
               return (
-                <ul key={i} className="list-disc space-y-2 pl-6 text-white/75">
+                <ul key={i} className="list-disc space-y-2 pl-6">
                   {(b.items ?? []).map((it) => (
                     <li key={it}>{it}</li>
                   ))}
@@ -84,8 +91,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
               );
             }
 
-            // paragraph
-            return <Paragraph key={i} text={b.text ?? ""} />;
+            return <p key={i}>{b.text}</p>;
           })
         )}
       </article>
@@ -94,7 +100,10 @@ export default function BlogPostPage({ params }: { params: Params }) {
         <h2 className="text-lg font-semibold">Next step</h2>
         <p className="mt-2 text-sm text-white/70">
           Read the full guide:{" "}
-          <Link className="text-white underline decoration-white/30 hover:decoration-white/60" href={post.pillar}>
+          <Link
+            className="text-white underline decoration-white/30 hover:decoration-white/60"
+            href={post.pillar}
+          >
             {pillarLabel}
           </Link>
         </p>
@@ -107,10 +116,12 @@ export default function BlogPostPage({ params }: { params: Params }) {
             {related.map((p) => (
               <Link
                 key={p.slug}
-                href={`/blog/${p.slug}`}
+                href={`/blog/${normalizeSlug(String(p.slug))}`}
                 className="rounded-2xl border border-white/20 bg-white/5 p-5 transition hover:bg-white/10"
               >
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{p.publishedAt}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                  {p.publishedAt}
+                </p>
                 <p className="mt-2 font-semibold">{p.title}</p>
                 <p className="mt-2 text-sm text-white/70">{p.description}</p>
               </Link>
