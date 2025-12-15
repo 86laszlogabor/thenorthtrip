@@ -1,44 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { pageMetadata } from "@/lib/seo";
-import TrustStrip from "@/components/TrustStrip";
-import CompareCTA from "@/components/CompareCTA";
-
-export const metadata: Metadata = pageMetadata({
-  title: "Camper rental Finland: winter readiness, power costs, mileage caps",
-  description:
-    "Finland camper rental guide: winter heating + power realities, mileage caps, and what 'winter-ready' should actually mean.",
-  path: "/camper-rental-finland",
-  keywords: [
-    "camper rental finland winter",
-    "camper heating power costs finland",
-    "camper mileage cap overage fees",
-    "winterised camper checklist finland",
-  ],
-});
+import { BLOG } from "@/lib/blog";
 
 export default function CamperRentalFinlandPage() {
-  const checks = [
-    "What ‘winter-ready’ actually includes (insulation, heating, water system)",
-    "Power source: hookup vs battery vs generator",
-    "Mileage caps + overage fees",
-    "Cold-weather comfort: condensation, ventilation, bedding",
-    "Pickup rules + deposit/insurance gotchas",
-    "Route reality: distances, charging, service points",
-  ];
+  const posts = BLOG.filter((p) => p.pillar === "/camper-rental-finland");
 
   return (
-    <main className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-5xl space-y-12 px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">Pillar guide</p>
-        <h1 className="text-3xl font-semibold sm:text-5xl text-white">
-          Camper rental in Finland (winter edition, not brochure edition)
-        </h1>
+        <h1 className="text-4xl font-semibold">Camper rental in Finland</h1>
         <p className="max-w-2xl text-white/70">
-          Heating + power costs, winter-readiness checklist, and mileage caps. The stuff that matters after day one.
+          The practical guide to camper rentals in Finland: winter readiness, heating & power costs, mileage caps, and
+          the hidden fees that turn “cheap” into expensive.
         </p>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
             href="/get-help"
             className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
@@ -49,21 +24,55 @@ export default function CamperRentalFinlandPage() {
             href="/blog"
             className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
           >
-            Read the winter posts
+            Read the blog
           </Link>
         </div>
       </header>
 
-      <TrustStrip items={checks} />
+      <section className="rounded-2xl border border-white/15 bg-white/5 p-6 space-y-3">
+        <h2 className="text-2xl font-semibold">What we cover</h2>
+        <ul className="list-disc space-y-2 pl-6 text-white/75">
+          <li>Winter-ready: what it should mean, and what to verify</li>
+          <li>Heating & power costs: the “unsexy” reality</li>
+          <li>Mileage caps & overage fees: route planning without regret</li>
+          <li>What to ask before booking (so you don’t find out at pickup)</li>
+        </ul>
+      </section>
 
-      <CompareCTA
-        title="Send your camper offer for a reality check"
-        text="We’ll flag mileage cap traps, winter-readiness gaps, and power/heating mismatches."
-        primaryHref="/get-help"
-        primaryLabel="Send an offer"
-        secondaryHref="/blog"
-        secondaryLabel="Blog"
-      />
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Guides you should read first</h2>
+        {posts.length === 0 ? (
+          <p className="text-white/70">No posts yet. Add entries in <code>lib/blog.ts</code>.</p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:bg-white/10"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{p.publishedAt}</p>
+                <p className="mt-2 text-lg font-semibold">{p.title}</p>
+                <p className="mt-2 text-sm text-white/70">{p.description}</p>
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="rounded-2xl border border-white/15 bg-white/5 p-6">
+        <h2 className="text-lg font-semibold">Need help before booking?</h2>
+        <p className="mt-2 text-sm text-white/70">
+          Send your camper offer. We’ll check winter readiness, heating/power assumptions, and mileage limits before you
+          pay.
+        </p>
+        <Link
+          href="/get-help"
+          className="mt-4 inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+        >
+          Ask before booking
+        </Link>
+      </section>
     </main>
   );
 }

@@ -1,44 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { pageMetadata } from "@/lib/seo";
-import CompareCTA from "@/components/CompareCTA";
-import TrustStrip from "@/components/TrustStrip";
-
-export const metadata: Metadata = pageMetadata({
-  title: "Car rental Helsinki: deposits, debit rules, airport fees, winter add-ons",
-  description:
-    "Helsinki car rental guide focused on what actually bites: deposit holds, debit pickup rules, airport vs city fees, and winter add-ons.",
-  path: "/car-rental-helsinki",
-  keywords: [
-    "car rental helsinki deposit hold",
-    "helsinki airport car rental fees",
-    "debit card car rental helsinki",
-    "winter tires add-ons finland rental",
-  ],
-});
+import { BLOG } from "@/lib/blog";
 
 export default function CarRentalHelsinkiPage() {
-  const checks = [
-    "Deposit hold size and when it’s released",
-    "Credit vs debit acceptance at pickup",
-    "Airport vs city pickup real cost differences",
-    "Fuel policy + out-of-hours fees",
-    "Winter add-ons: tires, chains, windshield coverage",
-    "Insurance: what you think you bought vs what you actually bought",
-  ];
+  const posts = BLOG.filter((p) => p.pillar === "/car-rental-helsinki");
 
   return (
-    <main className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-5xl space-y-12 px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">Pillar guide</p>
-        <h1 className="text-3xl font-semibold sm:text-5xl text-white">
-          Car rental in Helsinki, without the “surprise” costs
-        </h1>
+        <h1 className="text-4xl font-semibold">Car rental in Helsinki</h1>
         <p className="max-w-2xl text-white/70">
-          We focus on what people google right before paying: deposit holds, debit rules, airport fees, winter add-ons.
+          The practical guide to renting a car in Helsinki: deposit holds, credit vs debit rules, airport vs city pickup,
+          winter add-ons, and the fine print that changes the real price.
         </p>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
             href="/get-help"
             className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
@@ -49,51 +24,54 @@ export default function CarRentalHelsinkiPage() {
             href="/blog"
             className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
           >
-            Read deposit + debit articles
+            Read the blog
           </Link>
         </div>
       </header>
 
-      <TrustStrip items={checks} />
+      <section className="rounded-2xl border border-white/15 bg-white/5 p-6 space-y-3">
+        <h2 className="text-2xl font-semibold">What we cover</h2>
+        <ul className="list-disc space-y-2 pl-6 text-white/75">
+          <li>Deposit holds: what they are, and what “paid online” still doesn’t solve</li>
+          <li>Credit vs debit pickup rules (and why counters refuse people)</li>
+          <li>Airport vs city pickup: timing, fees, and convenience tax</li>
+          <li>Winter add-ons: what matters vs pure upsell</li>
+        </ul>
+      </section>
 
-      <CompareCTA
-        title="Quick path: book cleaner, not cheaper"
-        text="If an offer looks too good, it’s usually deposit/card rules or airport fees. Send it and we’ll flag the traps."
-        primaryHref="/get-help"
-        primaryLabel="Send an offer for review"
-        secondaryHref="/blog"
-        secondaryLabel="See the blog"
-      />
-
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl border border-white/15 bg-white/5 p-6 lg:col-span-2">
-          <h2 className="text-2xl font-semibold text-white">Start with these questions</h2>
-          <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm text-white/75">
-            <li>Is the “deposit” a hold or an extra payment?</li>
-            <li>Does pickup require a credit card, or is debit allowed?</li>
-            <li>Is it Helsinki Airport pickup, and are there airport surcharges?</li>
-            <li>What’s mandatory in winter (and what’s just upsell)?</li>
-            <li>What does the insurance actually exclude?</li>
-          </ol>
-        </div>
-
-        <div className="rounded-2xl border border-white/15 bg-white/5 p-6">
-          <h3 className="text-lg font-semibold text-white">Related posts</h3>
-          <div className="mt-3 space-y-2 text-sm">
-            <Link className="block text-white/80 hover:text-white" href="/blog">
-              → Deposit holds & card rules
-            </Link>
-            <Link className="block text-white/80 hover:text-white" href="/blog">
-              → Airport vs city pickup cost
-            </Link>
-            <Link className="block text-white/80 hover:text-white" href="/blog">
-              → Winter add-ons explained
-            </Link>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Guides you should read first</h2>
+        {posts.length === 0 ? (
+          <p className="text-white/70">No posts yet. Add entries in <code>lib/blog.ts</code>.</p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:bg-white/10"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{p.publishedAt}</p>
+                <p className="mt-2 text-lg font-semibold">{p.title}</p>
+                <p className="mt-2 text-sm text-white/70">{p.description}</p>
+              </Link>
+            ))}
           </div>
-          <p className="mt-4 text-xs text-white/60">
-            We keep posts small and high-intent because nobody wants a novel while trying to book a Yaris.
-          </p>
-        </div>
+        )}
+      </section>
+
+      <section className="rounded-2xl border border-white/15 bg-white/5 p-6">
+        <h2 className="text-lg font-semibold">Need help before booking?</h2>
+        <p className="mt-2 text-sm text-white/70">
+          Send your offer (screenshot or summary). We’ll flag deposit traps, card requirements, and winter add-ons before
+          you pay.
+        </p>
+        <Link
+          href="/get-help"
+          className="mt-4 inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+        >
+          Ask before booking
+        </Link>
       </section>
     </main>
   );
