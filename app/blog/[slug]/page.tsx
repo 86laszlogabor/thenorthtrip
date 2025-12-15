@@ -6,13 +6,12 @@ import { SITE } from "@/lib/site";
 import InlineCTA from "@/components/InlineCTA";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
-// ⬅️ KRITIKUS: ne legyen SSG
 export const dynamic = "force-dynamic";
 
 type Params = { slug: string };
 
-// -------- helpers --------
 function toSlug(value: unknown) {
   return String(value ?? "")
     .trim()
@@ -34,19 +33,20 @@ function Paragraph({ text }: { text: string }) {
   return <p>{text}</p>;
 }
 
-// -------- page --------
 export default function BlogPostPage({ params }: { params: Params }) {
   const incoming = toSlug(params.slug);
   if (!incoming) return notFound();
 
-  const post = BLOG.find((p) => toSlug(p.slug) === incoming);
-  if (!post) return notFound();
+  const postIndex = BLOG.findIndex((p) => toSlug(p.slug) === incoming);
+  if (postIndex === -1) return notFound();
 
+  const post = BLOG[postIndex];
   const blocks = BLOG_CONTENT[incoming]?.blocks ?? [];
 
-  const related = BLOG.filter(
-    (p) => p.pillar === post.pillar && toSlug(p.slug) !== incoming
-  ).slice(0, 4);
+  const related = BLOG.filter((p) => p.pillar === post.pillar && toSlug(p.slug) !== incoming).slice(0, 4);
+
+  const prev = BLOG[postIndex - 1] ?? null;
+  const next = BLOG[postIndex + 1] ?? null;
 
   const pillarLabel =
     post.pillar === "/car-rental-helsinki"
@@ -55,7 +55,6 @@ export default function BlogPostPage({ params }: { params: Params }) {
       ? "Camper rental Finland"
       : "Lapland tours";
 
-  // CTA config
   const primaryCtaHref = "/get-help";
   const primaryCtaLabel = "Ask before booking";
   const secondaryCtaHref = post.pillar || "/blog";
@@ -65,7 +64,6 @@ export default function BlogPostPage({ params }: { params: Params }) {
 
   return (
     <>
-      {/* ---- SEO / Schema ---- */}
       <ArticleJsonLd
         url={`${SITE.url.replace(/\/+$/, "")}/blog/${incoming}`}
         title={post.title}
@@ -74,14 +72,19 @@ export default function BlogPostPage({ params }: { params: Params }) {
       />
 
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* ---- Header ---- */}
+        <div className="mb-6">
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Home" },
+              { href: "/blog", label: "Blog" },
+              { href: `/blog/${incoming}`, label: post.title },
+            ]}
+          />
+        </div>
+
         <header className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-white/60">
-            {post.publishedAt}
-          </p>
-          <h1 className="text-3xl font-semibold text-white sm:text-5xl">
-            {post.title}
-          </h1>
+          <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{post.publishedAt}</p>
+          <h1 className="text-3xl font-semibold text-white sm:text-5xl">{post.title}</h1>
           <p className="text-white/70">{post.description}</p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -96,7 +99,6 @@ export default function BlogPostPage({ params }: { params: Params }) {
           </div>
         </header>
 
-        {/* ---- Content ---- */}
         <article className="mt-10 space-y-6 text-white/75 leading-relaxed">
           {blocks.map((b, i) => {
             if (i === insertAt) {
@@ -133,21 +135,50 @@ export default function BlogPostPage({ params }: { params: Params }) {
           })}
         </article>
 
-        {/* ---- Next step ---- */}
         <section className="mt-10 rounded-2xl border border-white/20 bg-white/5 p-6">
           <h2 className="text-lg font-semibold text-white">Next step</h2>
           <p className="mt-2 text-sm text-white/70">
             Read the full guide:{" "}
-            <Link
-              href={secondaryCtaHref}
-              className="underline decoration-white/30 hover:decoration-white/60"
-            >
+            <Link className="underline decoration-white/30 hover:decoration-white/60" href={secondaryCtaHref}>
               {pillarLabel}
             </Link>
           </p>
         </section>
 
-        {/* ---- Related ---- */}
+        {(prev || next) && (
+          <section className="mt-10 grid gap-4 sm:grid-cols-2">
+            {prev ? (
+              <Link
+                href={`/blog/${toSlug(prev.slug)}`}
+                className="rounded-2xl border border-white/15 bg-white/5 p-5 transition hover:bg-white/10"
+              >
+                <p className="text-xs text-white/60">Previous</p>
+                <p className="mt-2 font-semibold text-white">{prev.title}</p>
+              </Link>
+            ) : (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 opacity-60">
+                <p className="text-xs text-white/60">Previous</p>
+                <p className="mt-2 text-sm text-white/70">None</p>
+              </div>
+            )}
+
+            {next ? (
+              <Link
+                href={`/blog/${toSlug(next.slug)}`}
+                className="rounded-2xl border border-white/15 bg-white/5 p-5 transition hover:bg-white/10"
+              >
+                <p className="text-xs text-white/60">Next</p>
+                <p className="mt-2 font-semibold text-white">{next.title}</p>
+              </Link>
+            ) : (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 opacity-60">
+                <p className="text-xs text-white/60">Next</p>
+                <p className="mt-2 text-sm text-white/70">None</p>
+              </div>
+            )}
+          </section>
+        )}
+
         {related.length > 0 && (
           <section className="mt-10 space-y-4">
             <h2 className="text-xl font-semibold text-white">Related posts</h2>
@@ -159,9 +190,7 @@ export default function BlogPostPage({ params }: { params: Params }) {
                   className="rounded-xl border border-white/20 bg-white/5 p-4 transition hover:bg-white/10"
                 >
                   <p className="text-sm font-semibold text-white">{p.title}</p>
-                  <p className="mt-1 text-sm text-white/70">
-                    {p.description}
-                  </p>
+                  <p className="mt-1 text-sm text-white/70">{p.description}</p>
                 </Link>
               ))}
             </div>
@@ -175,7 +204,6 @@ export default function BlogPostPage({ params }: { params: Params }) {
         </div>
       </main>
 
-      {/* ---- Mobile CTA ---- */}
       <StickyMobileCTA
         primaryHref={primaryCtaHref}
         primaryLabel={primaryCtaLabel}
