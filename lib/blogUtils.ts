@@ -1,20 +1,9 @@
-import { BLOG } from "@/lib/blog";
+import { BLOG, type BlogPost } from "@/lib/blog";
 
-export function toSlug(value: unknown) {
-  return String(value ?? "")
-    .trim()
-    .replace(/^\/+/, "")
-    .replace(/^blog\/+/, "")
-    .replace(/^\/?blog\/+/, "")
-    .replace(/\/+$/, "");
+export function getAllPosts(): BlogPost[] {
+  return [...BLOG].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 }
 
-export function blogSlugList() {
-  return BLOG.map((p) => toSlug((p as any).slug))
-    .filter((s) => s && s !== "undefined" && !s.includes("/"));
-}
-
-export function blogBySlug(slug: string) {
-  const s = toSlug(slug);
-  return BLOG.find((p) => toSlug((p as any).slug) === s) ?? null;
+export function getPostsByPillar(pillar: BlogPost["pillar"], limit = 6): BlogPost[] {
+  return getAllPosts().filter((p) => p.pillar === pillar).slice(0, limit);
 }

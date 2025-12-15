@@ -1,13 +1,16 @@
-// app/lapland-tours/page.tsx
 import type { Metadata } from "next";
 import PillarPage from "@/components/PillarPage";
+import HeroSplit from "@/components/HeroSplit";
+import TrustStrip from "@/components/TrustStrip";
+import FAQ from "@/components/FAQ";
+import BlogList from "@/components/BlogList";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Lapland tours: what’s worth it, what’s overpriced, and how to book",
-  description:
-    "Plan Lapland tours smarter: northern lights, huskies, snowmobiles, and day trips. Learn pricing traps and how to choose operators.",
+  title: "Lapland tours: what’s worth it and what to avoid",
+  description: "Northern lights, huskies, snowmobiles. Learn how to choose Lapland tours without overpaying.",
   path: "/lapland-tours",
 });
 
@@ -17,57 +20,41 @@ export default function Page() {
     "@type": "WebPage",
     name: "Lapland tours",
     url: `${SITE.url}/lapland-tours`,
-    description: metadata?.description,
+    description: metadata.description,
   };
 
   return (
     <PillarPage
       pillar="lapland-tours"
-      heroProps={{
-        title: "Lapland tours",
-        subtitle: "Northern lights, winter activities, and day trips without paying tourist-tax for nonsense.",
-        primaryCtaText: "See booking checklist",
-        primaryCtaHref: "/offer-checklist",
-        secondaryCtaText: "Read guides",
-        secondaryCtaHref: "/blog",
-      }}
-      trustProps={{
-        items: ["Operator selection tips", "Season and weather reality", "Transparent expectations"],
-      }}
+      hero={
+        <HeroSplit
+          title="Lapland tours"
+          subtitle="Book smarter. Fewer tourist traps, more real experiences."
+          primaryCtaText="See checklist"
+          primaryCtaHref="/offer-checklist"
+        />
+      }
+      trust={<TrustStrip items={["Operator selection tips", "Season reality", "Clear expectations"]} />}
       sections={[
-        {
-          title: "Northern lights: expectations vs reality",
-          body: "You’re buying probability, not certainty. Weather, cloud cover, and timing matter more than marketing photos.",
-        },
-        {
-          title: "Snowmobiles, huskies, reindeer",
-          body: "Compare duration, group size, transport included, and insurance/liability rules. Details matter a lot.",
-        },
-        {
-          title: "How to avoid overpriced packages",
-          body: "Look for clear inclusions, cancellation terms, and realistic itineraries. Vague offers are usually expensive chaos.",
-        },
+        { title: "Northern lights reality", body: "You’re buying probability, not certainty. Weather matters." },
+        { title: "Activities compared", body: "Group size, duration, and transport matter more than glossy photos." },
+        { title: "Avoid overpriced packages", body: "Look for clear inclusions, cancellation terms, and realistic itineraries." },
       ]}
-      compareProps={{
-        title: "Compare tours properly",
-        subtitle: "Same checklist, fewer regrets.",
-        ctaText: "Open offer checklist",
-        ctaHref: "/offer-checklist",
+      compare={{
+        title: "Compare Lapland tours",
+        primaryLabel: "Open offer checklist",
+        primaryHref: "/offer-checklist",
       }}
-      faqItems={[
-        { q: "Best time to visit Lapland?", a: "Depends: lights season is strong in winter, but daylight and activities vary by month." },
-        { q: "Do tours include winter gear?", a: "Some do, some don’t. If it’s not explicit, assume you need to bring/rent gear." },
-        { q: "Are small groups worth it?", a: "Often yes: better pacing and less waiting. But verify what ‘small’ actually means." },
-      ]}
-      blogProps={{
-        title: "Latest Lapland guides",
-        pillar: "/lapland-tours",
-        limit: 6,
-      }}
-      stickyCtaProps={{
-        text: "Booking checklist",
-        href: "/offer-checklist",
-      }}
+      faq={
+        <FAQ
+          items={[
+            { q: "Best time to visit?", a: "Depends on light, weather, and activities. There is no perfect month." },
+            { q: "Do tours include winter gear?", a: "Sometimes. If it’s not explicit, assume you need to bring/rent gear." },
+          ]}
+        />
+      }
+      blog={<BlogList title="Latest Lapland guides" pillar="/lapland-tours" limit={6} />}
+      sticky={<StickyMobileCTA text="Open checklist" href="/offer-checklist" />}
       jsonLd={jsonLd}
     />
   );
