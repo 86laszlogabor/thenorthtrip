@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-import CTABox from "@/components/CTABox";
 import SectionCard from "@/components/SectionCard";
+import CTABox from "@/components/CTABox";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Get help before booking: deposit, insurance, winter add-ons sanity-check",
+  title: "Get help before booking: deposits, card rules, winter add-ons sanity-check",
   description:
     "Send your booking offer and get a practical sanity-check: deposit holds, credit/debit requirements, winter add-ons, tour inclusions and cancellation terms.",
   path: "/get-help",
@@ -22,37 +22,71 @@ export default function GetHelpPage() {
       <header className="space-y-4">
         <h1 className="text-3xl font-semibold sm:text-5xl">Ask before booking</h1>
         <p className="max-w-2xl text-white/70">
-          Share your offer details (screenshot or summary). We’ll flag the traps: deposit holds, card rules, winter add-ons,
-          and tour inclusions.
+          Send your offer (link or screenshot). We’ll reply with a short red-flag checklist: deposit traps, card rules,
+          winter add-ons, and tour inclusions.
         </p>
       </header>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <SectionCard title="What to send">
           <ul className="mt-2 space-y-2 text-sm">
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Pickup location + time window</li>
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Deposit amount + payment method rules</li>
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Insurance/coverage options shown</li>
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />For tours: inclusions + cancellation terms</li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              Pickup location + time window
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              Deposit amount + payment method rules
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              Coverage/insurance options shown
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              For tours: inclusions + cancellation terms
+            </li>
           </ul>
         </SectionCard>
 
         <SectionCard title="What you get back">
           <ul className="mt-2 space-y-2 text-sm">
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />A short list of “red flags”</li>
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Cost reality-check (what inflates the total)</li>
-            <li className="flex gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />Practical alternatives (city vs airport, small group vs big bus)</li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              A short list of red flags
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              Real cost checklist (what inflates totals)
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+              Practical alternatives (airport vs city, small group vs big bus)
+            </li>
           </ul>
         </SectionCard>
       </div>
 
+      <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
+        <h2 className="text-xl font-semibold">Send your offer</h2>
+        <p className="mt-2 text-sm text-white/70">
+          Email the link or attach a screenshot. This is a placeholder contact method for now.
+        </p>
+        <a
+          className="mt-4 inline-flex rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+          href="mailto:hello@thenorthtrip.com?subject=Booking%20sanity-check&body=Paste%20your%20offer%20link%20here%20and%20include%20pickup%20time/location."
+        >
+          Email hello@thenorthtrip.com
+        </a>
+      </div>
+
       <CTABox
-        title="Next step"
-        text="Hook this page to your preferred contact method (form/email/DM). The UI is ready. The human part is on you."
-        primaryHref="/"
-        primaryLabel="Back to home"
-        secondaryHref="/car-rental-helsinki"
-        secondaryLabel="Start with Helsinki car rental"
+        title="Prefer to start with a guide?"
+        text="Pick the category first, then send the exact offer for a sanity-check."
+        primaryHref="/car-rental-helsinki"
+        primaryLabel="Car rental Helsinki"
+        secondaryHref="/camper-rental-finland"
+        secondaryLabel="Camper rental Finland"
       />
     </main>
   );
