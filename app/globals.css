@@ -13,3 +13,11 @@ html, body {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+html, body {
+  height: 100%;
+}
+
+body {
+  background: rgb(17 24 39); /* gray-900 */
+  color: white;
+}
