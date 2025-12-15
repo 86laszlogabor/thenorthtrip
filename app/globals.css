@@ -2,28 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens */
+/* LIGHT is default */
 :root {
-  /* Page BG */
-  --bg: 4 9 26; /* #04091A */
+  --bg: 248 250 252;     /* slate-50 */
+  --card: 255 255 255;   /* white */
+  --text: 15 23 42;      /* slate-900 */
+  --muted: 71 85 105;    /* slate-600 */
 
-  /* Card BG – világosabb kontraszt */
-  --card: 17 24 39; /* #111827 (gray-900) */
+  --primary: 249 115 22;       /* orange-500 */
+  --primaryHover: 234 88 12;   /* orange-600 */
 
-  /* Text */
+  --secondary: 37 99 235;      /* blue-600 */
+  --secondaryHover: 29 78 216; /* blue-700 */
+
+  --accent: 2 132 199;         /* sky-600 */
+}
+
+/* DARK only when html has .dark */
+html.dark {
+  --bg: 4 9 26;        /* #04091A */
+  --card: 17 24 39;    /* #111827 */
   --text: 243 244 246; /* #F3F4F6 */
-  --muted: 180 190 210; /* readable */
+  --muted: 180 190 210;
 
-  /* Primary CTA – ORANGE (conversion) */
-  --primary: 249 115 22; /* #F97316 (orange-500) */
-  --primaryHover: 234 88 12; /* #EA580C (orange-600) */
+  --primary: 249 115 22;
+  --primaryHover: 234 88 12;
 
-  /* Secondary CTA – BLUE */
-  --secondary: 37 99 235; /* #2563EB (blue-600) */
-  --secondaryHover: 29 78 216; /* #1D4ED8 (blue-700) */
+  --secondary: 37 99 235;
+  --secondaryHover: 29 78 216;
 
-  /* Accent links */
-  --accent: 34 211 238; /* #22D3EE */
+  --accent: 34 211 238;
 }
 
 html,
