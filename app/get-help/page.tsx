@@ -14,19 +14,16 @@ export const metadata: Metadata = pageMetadata({
   ],
 });
 
-export default function ThanksPage() {
+export default function GetHelpPage() {
   return (
-    <main className="mx-auto max-w-3xl space-y-6 px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold sm:text-5xl">Got it.</h1>
-      <p className="text-white/70">
-        We received your request. We’ll reply with a short checklist: deposit traps, card rules, winter add-ons, and tour inclusions.
-      </p>
-      <a href="/" className="text-sm text-white/70 hover:text-white/90">
-        ← Back home
-      </a>
-    </main>
-  );
-}
+    <main className="mx-auto max-w-4xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
+      <header className="space-y-4">
+        <h1 className="text-3xl font-semibold sm:text-5xl">Ask before booking</h1>
+        <p className="max-w-2xl text-white/70">
+          Send your offer (link or screenshot). We reply with a short checklist of red flags and real costs.
+        </p>
+      </header>
+
       <section className="grid gap-6 sm:grid-cols-2">
         <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
           <h2 className="text-xl font-semibold">What to send</h2>
@@ -53,6 +50,7 @@ export default function ThanksPage() {
         <p className="mt-2 text-sm text-white/70">
           This uses email for now. You can switch to a form later.
         </p>
+
         <a
           href="mailto:hello@thenorthtrip.com?subject=Booking%20sanity-check"
           className="mt-4 inline-flex rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
