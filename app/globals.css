@@ -1,33 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  /* === Palette from your HEX === */
+  /* Page BG */
   --bg: 4 9 26;          /* #04091A */
-  --card: 15 23 42;      /* #0F172A */
-  --primary: 37 99 235;  /* #2563EB */
-  --secondary: 55 65 81; /* #374151 */
+
+  /* Card BG – világosabb kontraszt */
+  --card: 17 24 39;      /* #111827 (gray-900) */
+
+  /* Text */
   --text: 243 244 246;   /* #F3F4F6 */
+  --muted: 180 190 210;  /* readable */
+
+  /* Primary CTA – ORANGE (conversion) */
+  --primary: 249 115 22; /* #F97316 (orange-500) */
+  --primaryHover: 234 88 12; /* #EA580C (orange-600) */
+
+  /* Secondary CTA – BLUE */
+  --secondary: 37 99 235;    /* #2563EB (blue-600) */
+  --secondaryHover: 29 78 216; /* #1D4ED8 (blue-700) */
+
+  /* Accent links */
   --accent: 34 211 238;  /* #22D3EE */
-
-  /* Helper tokens (sane defaults) */
-  --muted: 180 190 210;  /* readable grey-blue */
-  --border: 255 255 255; /* we use with low opacity */
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: rgb(var(--bg));
-  color: rgb(var(--text));
-}
-
-/* kill 2005 link styling */
-a {
-  color: inherit;
-  text-decoration: none;
 }

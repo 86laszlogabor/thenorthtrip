@@ -33,8 +33,8 @@ const TOPICS = [
 export default function Home() {
   return (
     <main className="relative bg-[rgb(var(--bg))] text-[rgb(var(--text))]">
-      {/* soft glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-[rgb(var(--primary))]/10 to-transparent" />
+      {/* subtle glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-[rgb(var(--secondary))]/10 to-transparent" />
 
       {/* HERO */}
       <section className="relative py-20">
@@ -54,18 +54,18 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            {/* Primary CTA */}
+            {/* Primary CTA (orange) */}
             <Link
               href="/car-rental-helsinki"
-              className="rounded-xl bg-[rgb(var(--primary))] px-5 py-3 font-semibold text-white hover:opacity-90"
+              className="rounded-xl bg-[rgb(var(--primary))] px-5 py-3 font-semibold text-white hover:bg-[rgb(var(--primaryHover))]"
             >
               Compare car rental costs
             </Link>
 
-            {/* Secondary CTA */}
+            {/* Secondary CTA (blue) */}
             <Link
               href="/get-help"
-              className="rounded-xl bg-[rgb(var(--secondary))] px-5 py-3 font-semibold text-[rgb(var(--text))] hover:opacity-90"
+              className="rounded-xl bg-[rgb(var(--secondary))] px-5 py-3 font-semibold text-white hover:bg-[rgb(var(--secondaryHover))]"
             >
               Ask before booking
             </Link>
@@ -90,7 +90,6 @@ export default function Home() {
 
                 <p className="mt-3 text-[rgb(var(--muted))]">{p.desc}</p>
 
-                {/* Image placeholder - modern, not 2005 */}
                 <div className="mt-5 h-44 rounded-xl bg-gradient-to-br from-white/10 to-white/5" />
 
                 <div className="mt-6">
@@ -137,7 +136,7 @@ export default function Home() {
           </div>
 
           {/* CTA BOX */}
-          <div className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-r from-[rgb(var(--primary))]/15 to-white/5 p-8">
+          <div className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-r from-[rgb(var(--secondary))]/15 to-white/5 p-8">
             <h3 className="text-2xl font-bold">Unsure if an offer is actually fair?</h3>
             <p className="mt-2 max-w-2xl text-[rgb(var(--muted))]">
               Send us the listing. We’ll tell you what’s missing before you pay.
@@ -146,14 +145,14 @@ export default function Home() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/offer-checklist"
-                className="inline-flex rounded-xl bg-[rgb(var(--primary))] px-5 py-3 font-semibold text-white hover:opacity-90"
+                className="inline-flex rounded-xl bg-[rgb(var(--primary))] px-5 py-3 font-semibold text-white hover:bg-[rgb(var(--primaryHover))]"
               >
                 Check an offer
               </Link>
 
               <Link
                 href="/get-help"
-                className="inline-flex rounded-xl bg-[rgb(var(--secondary))] px-5 py-3 font-semibold text-[rgb(var(--text))] hover:opacity-90"
+                className="inline-flex rounded-xl bg-[rgb(var(--secondary))] px-5 py-3 font-semibold text-white hover:bg-[rgb(var(--secondaryHover))]"
               >
                 Ask a quick question
               </Link>
