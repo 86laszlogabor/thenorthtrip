@@ -6,14 +6,13 @@ import FAQ from "@/components/FAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CTACluster from "@/components/CTACluster";
 import TopPosts from "@/components/TopPosts";
-import CompareCTA from "@/components/CompareCTA";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Car rental in Helsinki: compare offers and avoid deposit surprises",
+  title: "Car rental in Helsinki – deposits, cards, and real desk rules",
   description:
-    "Compare car rental options in Helsinki and at HEL airport. Learn how deposits, credit cards, and insurance really work before you book.",
+    "Car rental in Helsinki explained. Deposits, credit cards, insurance, and airport pickup rules without marketing fluff.",
   path: "/car-rental-helsinki",
 });
 
@@ -32,72 +31,52 @@ export default function Page() {
       hero={
         <HeroSplit
           title="Car rental in Helsinki"
-          subtitle="Compare real offers. Understand deposit rules. Avoid desk drama."
+          subtitle="Deposits, credit cards, insurance, and HEL airport pickup – explained without nonsense."
           primaryCtaText="Open offer checklist"
           primaryCtaHref="/offer-checklist"
-          secondaryCtaText="Read blog posts"
-          secondaryCtaHref="/blog?pillar=%2Fcar-rental-helsinki"
         />
       }
-      trust={
-        <TrustStrip
-          items={[
-            "Transparent deposit rules",
-            "No fluff comparisons",
-            "Airport pickup reality",
-          ]}
-        />
-      }
+      trust={<TrustStrip items={["Real deposit rules", "Credit vs debit explained", "Airport pickup reality"]} />}
       sections={[
         {
           title: "Deposits and card holds",
-          body: "Most issues come from credit card holds and desk rules. Know what gets blocked and why.",
+          body: "Most issues come from credit card holds. Know the amount and release timing.",
         },
         {
           title: "Insurance that matters",
-          body: "Ignore marketing names. Focus on excess/deductible, exclusions, and what the desk actually accepts.",
+          body: "Focus on excess and exclusions. Ignore marketing labels.",
         },
         {
           title: "HEL airport pickup reality",
-          body: "Queues and upsells happen. Arrive with the right card and documents, and you keep control.",
+          body: "Arrive prepared and you avoid the classic desk traps.",
         },
       ]}
-      compare={
-        <CompareCTA
-          title="Compare Helsinki rental offers"
-          primaryLabel="Offer checklist"
-          primaryHref="/offer-checklist"
-        />
-      }
+      compare={{
+        title: "Compare Helsinki rental offers",
+        primaryLabel: "Offer checklist",
+        primaryHref: "/offer-checklist",
+        secondaryLabel: "Read blog posts",
+        secondaryHref: "/blog?pillar=%2Fcar-rental-helsinki",
+      }}
       faq={
         <FAQ
           items={[
-            {
-              q: "Can I rent with a debit card?",
-              a: "Sometimes, but many desks still require a credit card for the deposit hold.",
-            },
-            {
-              q: "Why is the deposit so high?",
-              a: "It’s a risk buffer. Release timing depends on your bank.",
-            },
+            { q: "Debit card ok?", a: "Sometimes, but many desks still require a credit card for the deposit." },
+            { q: "Why is the deposit high?", a: "It’s a risk buffer. Release time depends on your bank." },
           ]}
         />
       }
       blog={
         <>
           <CTACluster
-            title="Do this before booking"
-            subtitle="If you do one thing: run the checklist, then compare providers."
+            title="Before you book"
+            subtitle="Checklist first, then the targeted guides."
             buttons={[
               { label: "Offer checklist", href: "/offer-checklist", variant: "primary" },
-              { label: "Read blog posts", href: "/blog?pillar=%2Fcar-rental-helsinki", variant: "secondary" },
+              { label: "Read guides", href: "/blog?pillar=%2Fcar-rental-helsinki", variant: "secondary" },
             ]}
           />
-          <TopPosts
-            pillar="/car-rental-helsinki"
-            title="Top posts: Helsinki rentals"
-            limit={6}
-          />
+          <TopPosts pillar="/car-rental-helsinki" title="Top posts: Helsinki rentals" limit={6} />
         </>
       }
       sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}

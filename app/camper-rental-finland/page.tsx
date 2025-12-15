@@ -6,14 +6,13 @@ import FAQ from "@/components/FAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CTACluster from "@/components/CTACluster";
 import TopPosts from "@/components/TopPosts";
-import CompareCTA from "@/components/CompareCTA";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Camper rental in Finland: pricing, seasons, and what to check",
+  title: "Camper rental in Finland – pricing, seasons, and inspections",
   description:
-    "Compare campervan rentals in Finland. Learn season pricing, insurance basics, and inspection tips.",
+    "Camper rental in Finland explained. Season pricing, insurance exclusions, and inspection tips.",
   path: "/camper-rental-finland",
 });
 
@@ -32,49 +31,47 @@ export default function Page() {
       hero={
         <HeroSplit
           title="Camper rental in Finland"
-          subtitle="Season pricing, insurance exclusions, and inspection steps without nonsense."
+          subtitle="Season pricing, insurance exclusions, and inspections – without tourist traps."
           primaryCtaText="Open offer checklist"
           primaryCtaHref="/offer-checklist"
-          secondaryCtaText="Read blog posts"
-          secondaryCtaHref="/blog?pillar=%2Fcamper-rental-finland"
         />
       }
       trust={
         <TrustStrip
-          items={["Season-aware pricing", "Inspection checklist", "Nordic driving tips"]}
+          items={["Season-aware pricing", "Insurance reality", "Inspection checklist"]}
         />
       }
       sections={[
         {
           title: "Season pricing",
-          body: "Summer sells out. Shoulder seasons can be better value if your plan is flexible.",
+          body: "Summer sells out fast. Shoulder seasons can be better value if flexible.",
         },
         {
           title: "Insurance basics",
-          body: "Focus on excess and exclusions. “Full cover” often still has exceptions.",
+          body: "Focus on excess and exclusions. ‘Full cover’ rarely means full.",
         },
         {
           title: "Pickup inspection",
-          body: "Photos plus a checklist prevent expensive arguments later.",
+          body: "Photos and checklists prevent expensive disputes later.",
         },
       ]}
-      compare={
-        <CompareCTA
-          title="Compare camper offers"
-          primaryLabel="Offer checklist"
-          primaryHref="/offer-checklist"
-        />
-      }
+      compare={{
+        title: "Compare camper rental offers",
+        primaryLabel: "Offer checklist",
+        primaryHref: "/offer-checklist",
+        secondaryLabel: "Read blog posts",
+        secondaryHref: "/blog?pillar=%2Fcamper-rental-finland",
+      }}
       faq={
         <FAQ
           items={[
             {
               q: "Do I need a special license?",
-              a: "Usually no, but weight limits vary. Verify the vehicle category before booking.",
+              a: "Usually no, but weight limits vary. Always check the vehicle category.",
             },
             {
-              q: "Can I wild camp in Finland?",
-              a: "Rules exist for motor vehicles. Use designated spots if you’re unsure.",
+              q: "Is wild camping allowed?",
+              a: "Rules differ for motor vehicles. Use designated areas if unsure.",
             },
           ]}
         />
@@ -83,17 +80,13 @@ export default function Page() {
         <>
           <CTACluster
             title="Camper quick actions"
-            subtitle="Checklist first, then pillar-specific guides."
+            subtitle="Checklist first, guides second."
             buttons={[
               { label: "Offer checklist", href: "/offer-checklist", variant: "primary" },
-              { label: "Read blog posts", href: "/blog?pillar=%2Fcamper-rental-finland", variant: "secondary" },
+              { label: "Read guides", href: "/blog?pillar=%2Fcamper-rental-finland", variant: "secondary" },
             ]}
           />
-          <TopPosts
-            pillar="/camper-rental-finland"
-            title="Top posts: Camper rentals"
-            limit={6}
-          />
+          <TopPosts pillar="/camper-rental-finland" title="Top posts: Camper rentals" limit={6} />
         </>
       }
       sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}

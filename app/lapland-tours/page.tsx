@@ -6,14 +6,13 @@ import FAQ from "@/components/FAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CTACluster from "@/components/CTACluster";
 import TopPosts from "@/components/TopPosts";
-import CompareCTA from "@/components/CompareCTA";
 import { buildMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Lapland tours: what’s worth it and what to avoid",
+  title: "Lapland tours – what’s worth it and what to skip",
   description:
-    "Northern lights, huskies, snowmobiles. Learn how to choose Lapland tours without overpaying.",
+    "Lapland tours explained. Northern lights, activities, and how to avoid overpriced packages.",
   path: "/lapland-tours",
 });
 
@@ -32,46 +31,29 @@ export default function Page() {
       hero={
         <HeroSplit
           title="Lapland tours"
-          subtitle="Book smarter. Fewer tourist traps, more real expectations."
+          subtitle="Northern lights, huskies, snowmobiles – realistic expectations only."
           primaryCtaText="Open offer checklist"
           primaryCtaHref="/offer-checklist"
-          secondaryCtaText="Read blog posts"
-          secondaryCtaHref="/blog?pillar=%2Flapland-tours"
         />
       }
-      trust={<TrustStrip items={["Operator selection tips", "Season reality", "Clear expectations"]} />}
+      trust={<TrustStrip items={["Realistic expectations", "Operator selection tips", "Clear inclusions"]} />}
       sections={[
-        {
-          title: "Northern lights reality",
-          body: "You’re buying probability, not certainty. Weather and cloud cover decide.",
-        },
-        {
-          title: "Activities compared",
-          body: "Group size, duration, and transport matter more than glossy photos.",
-        },
-        {
-          title: "Avoid overpriced packages",
-          body: "Prefer clear inclusions, cancellation rules, and realistic itineraries.",
-        },
+        { title: "Northern lights reality", body: "You’re buying probability, not certainty. Weather decides." },
+        { title: "Activities compared", body: "Group size and duration matter more than glossy photos." },
+        { title: "Avoid overpriced packages", body: "Prefer clear inclusions and cancellation rules." },
       ]}
-      compare={
-        <CompareCTA
-          title="Compare Lapland tour offers"
-          primaryLabel="Offer checklist"
-          primaryHref="/offer-checklist"
-        />
-      }
+      compare={{
+        title: "Compare Lapland tour offers",
+        primaryLabel: "Offer checklist",
+        primaryHref: "/offer-checklist",
+        secondaryLabel: "Read blog posts",
+        secondaryHref: "/blog?pillar=%2Flapland-tours",
+      }}
       faq={
         <FAQ
           items={[
-            {
-              q: "What’s the best time to visit?",
-              a: "Depends on light, weather, and activities. There is no perfect month.",
-            },
-            {
-              q: "Is winter gear included?",
-              a: "Sometimes. If it’s not explicit, assume you need to bring or rent.",
-            },
+            { q: "Best time to visit?", a: "Depends on light, weather, and activities. No perfect month." },
+            { q: "Is winter gear included?", a: "Sometimes. If it’s not explicit, assume it’s not." },
           ]}
         />
       }
@@ -79,17 +61,13 @@ export default function Page() {
         <>
           <CTACluster
             title="Lapland quick actions"
-            subtitle="Checklist, then pillar guides. You’ll waste less money."
+            subtitle="Checklist first, then pillar guides."
             buttons={[
               { label: "Offer checklist", href: "/offer-checklist", variant: "primary" },
-              { label: "Read blog posts", href: "/blog?pillar=%2Flapland-tours", variant: "secondary" },
+              { label: "Read guides", href: "/blog?pillar=%2Flapland-tours", variant: "secondary" },
             ]}
           />
-          <TopPosts
-            pillar="/lapland-tours"
-            title="Top posts: Lapland tours"
-            limit={6}
-          />
+          <TopPosts pillar="/lapland-tours" title="Top posts: Lapland tours" limit={6} />
         </>
       }
       sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}
