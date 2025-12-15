@@ -3,79 +3,80 @@ import { pageMetadata } from "@/lib/seo";
 import CTABox from "@/components/CTABox";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Camper rental Finland: winter costs, mileage limits, real prices",
+  title: "Car rental Helsinki: deposit holds, credit/debit rules, winter costs",
   description:
-    "Straightforward camper rental Finland guide. Winter heating costs, mileage limits, hidden extras, and what actually makes a van winter-ready.",
-  path: "/camper-rental-finland",
+    "Car rental in Helsinki explained: deposit holds, credit vs debit pickup rules, airport vs city pickup, and winter add-ons that affect real cost.",
+  path: "/car-rental-helsinki",
   keywords: [
-    "camper rental finland winter",
-    "campervan winter heating cost finland",
-    "camper rental mileage limit finland",
-    "winterised camper finland meaning",
+    "car rental helsinki deposit hold",
+    "helsinki airport car rental credit card required",
+    "car rental finland debit card pickup rules",
+    "helsinki airport vs city pickup car rental",
+    "finland winter car rental add-ons",
   ],
 });
 
-export default function CamperRentalFinlandPage() {
+export default function CarRentalHelsinkiPage() {
   return (
     <main className="mx-auto max-w-6xl space-y-12 px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-4">
         <h1 className="text-3xl font-semibold sm:text-5xl">
-          Camper rental in Finland without winter surprises
+          Car Rental in Helsinki: deposits, cards & real costs
         </h1>
         <p className="max-w-2xl text-white/70">
-          This page focuses on the details that actually decide comfort and cost in Finland: heating, power, mileage
-          caps, and the extras that quietly inflate totals.
+          This page targets high-intent searches: deposit holds, credit vs debit pickup rules, airport vs city pickup,
+          and winter add-ons that quietly change your total.
         </p>
       </header>
 
       <section className="grid gap-6 lg:grid-cols-3">
         <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Best for winter travel</h2>
+          <h2 className="text-lg font-semibold">Best for flexibility</h2>
           <p className="mt-2 text-sm text-white/70">
-            Heating type, insulation, battery capacity, and cold-weather design matter more than brand or layout.
+            City pickup, clearer rules, fewer last-minute counter surprises.
           </p>
         </div>
         <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Best for budget</h2>
+          <h2 className="text-lg font-semibold">Best for price</h2>
           <p className="mt-2 text-sm text-white/70">
-            Cheap daily rates often hide strict mileage caps and mandatory add-ons.
+            Cheap rates can hide deposits, card rules, and mandatory add-ons.
           </p>
         </div>
         <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Best for long routes</h2>
+          <h2 className="text-lg font-semibold">Best for winter trips</h2>
           <p className="mt-2 text-sm text-white/70">
-            Kilometer limits and overage fees decide the real price on longer trips.
+            Tires + visibility + coverage matter more than car class.
           </p>
         </div>
       </section>
 
       <section className="space-y-6 max-w-3xl">
-        <h2 className="text-2xl font-semibold">What “winter-ready” really means</h2>
+        <h2 className="text-2xl font-semibold">Deposits & credit cards</h2>
         <p className="text-white/70">
-          In Finland, winter-ready is not marketing language. It means a reliable heater, insulated living space,
-          sufficient battery capacity, and systems designed to operate below freezing.
+          A “deposit” is usually a temporary card hold at pickup. Many providers prefer credit cards because holds and
+          liability handling are simpler for them.
         </p>
 
-        <h2 className="text-2xl font-semibold">Mileage limits and overage fees</h2>
+        <h2 className="text-2xl font-semibold">Helsinki Airport vs city pickup</h2>
         <p className="text-white/70">
-          Many offers include limited kilometers per day. Always calculate your planned route and check the per-km
-          overage fee before booking.
+          Airport pickup is convenient but often stricter on card rules and timing. City pickup can be simpler if your
+          situation is non-standard (debit card, late pickup, limited documents).
         </p>
 
-        <h2 className="text-2xl font-semibold">Hidden extras that change the total</h2>
+        <h2 className="text-2xl font-semibold">Winter driving in Finland</h2>
         <p className="text-white/70">
-          Cleaning fees, bedding packs, gas refills, power hookups, and winter equipment are common add-ons that appear
-          late in the booking process.
+          Focus on tires and visibility. Then consider coverage for windshield damage and roadside help if your route is
+          remote or weather-sensitive.
         </p>
       </section>
 
       <CTABox
-        title="Want a quick sanity-check?"
-        text="Send the camper listing and dates. We’ll flag winter readiness gaps, mileage traps, and hidden extras."
+        title="Need help before booking?"
+        text="Send your offer (link or screenshot). We’ll flag deposit traps, card requirements, and winter add-ons that change the real cost."
         primaryHref="/get-help"
         primaryLabel="Ask before booking"
         secondaryHref="/blog"
-        secondaryLabel="Read related posts"
+        secondaryLabel="Read the blog"
       />
     </main>
   );
