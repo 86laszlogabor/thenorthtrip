@@ -1,40 +1,43 @@
 import React from "react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CompareCTA from "@/components/CompareCTA";
 import JsonLd from "@/components/JsonLd";
 
 export type PillarKey = "car-rental-helsinki" | "camper-rental-finland" | "lapland-tours";
 
-export type PillarSection = {
+type Section = {
   title: string;
   body: string;
 };
 
-type CompareBlock = {
-  primaryHref: string;
-  primaryLabel: string;
+export type CompareBlock = {
   title?: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
 };
 
-type Props = {
+type PillarPageProps = {
   pillar: PillarKey;
-
-  // A “kényes” komponenseket a page rendereli, PillarPage csak elrendezi
   hero: React.ReactNode;
   trust?: React.ReactNode;
-
-  sections: PillarSection[];
-
-  // CompareCTA: csak azt adjuk át, amiről tudjuk, hogy létezik
+  sections: Section[];
   compare?: CompareBlock;
-
   faq?: React.ReactNode;
   blog?: React.ReactNode;
   sticky?: React.ReactNode;
+  jsonLd?: any;
+};
 
-  jsonLd?: Record<string, any>;
+const PILLAR_LABEL: Record<PillarKey, { label: string; href: string }> = {
+  "car-rental-helsinki": { label: "Car rental Helsinki", href: "/car-rental-helsinki" },
+  "camper-rental-finland": { label: "Camper rental Finland", href: "/camper-rental-finland" },
+  "lapland-tours": { label: "Lapland tours", href: "/lapland-tours" },
 };
 
 export default function PillarPage({
+  pillar,
   hero,
   trust,
   sections,
@@ -43,51 +46,62 @@ export default function PillarPage({
   blog,
   sticky,
   jsonLd,
-}: Props) {
-  const hasCompare = Boolean(compare?.primaryHref && compare?.primaryLabel);
+}: PillarPageProps) {
+  const p = PILLAR_LABEL[pillar];
 
   return (
     <>
-      {/* HERO */}
-      {hero}
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: p.label, href: p.href },
+        ]}
+      />
 
-      {/* TRUST */}
-      {trust ? <div className="mt-10">{trust}</div> : null}
+      <main className="pb-16">
+        {hero}
 
-      {/* SECTIONS */}
-      <div className="mt-12 space-y-6">
-        {sections.map((s, idx) => (
-          <section
-            key={`${s.title}-${idx}`}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm"
-          >
-            <h2 className="text-xl font-semibold text-white">{s.title}</h2>
-            <p className="mt-3 text-white/80 leading-relaxed">{s.body}</p>
-          </section>
-        ))}
-      </div>
+        {trust ? <div className="mx-auto max-w-6xl px-4 mt-8">{trust}</div> : null}
 
-      {/* COMPARE CTA */}
-      {hasCompare ? (
-        <div className="mt-12">
-          <CompareCTA
-            primaryHref={compare!.primaryHref}
-            primaryLabel={compare!.primaryLabel}
-            title={compare!.title}
-          />
-        </div>
-      ) : null}
+        <section className="mx-auto max-w-6xl px-4 mt-10">
+          <div className="rounded-3xl border border-white/10 bg-gray-900/30 p-6 md:p-8">
+            <h2 className="text-xl md:text-2xl font-semibold text-white">What you’ll learn</h2>
+            <p className="mt-2 text-gray-300 leading-relaxed">
+              The practical details that decide whether your booking is smooth or a mess.
+            </p>
 
-      {/* FAQ */}
-      {faq ? <div className="mt-12">{faq}</div> : null}
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {sections.map((s) => (
+                <div
+                  key={s.title}
+                  className="rounded-2xl border border-white/10 bg-gray-900/40 p-5 hover:bg-gray-900/60 transition"
+                >
+                  <div className="text-white font-semibold">{s.title}</div>
+                  <div className="mt-2 text-sm text-gray-300 leading-relaxed">{s.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      {/* BLOG */}
-      {blog ? <div className="mt-12">{blog}</div> : null}
+        {compare ? (
+          <div className="mx-auto max-w-6xl px-4 mt-10">
+            <CompareCTA
+              title={compare.title}
+              primaryLabel={compare.primaryLabel}
+              primaryHref={compare.primaryHref}
+              secondaryLabel={compare.secondaryLabel}
+              secondaryHref={compare.secondaryHref}
+            />
+          </div>
+        ) : null}
 
-      {/* STICKY CTA */}
-      {sticky ? sticky : null}
+        {faq ? <div className="mx-auto max-w-6xl px-4 mt-10">{faq}</div> : null}
+        {blog ? <div className="mx-auto max-w-6xl px-4 mt-10">{blog}</div> : null}
 
-      {/* JSON-LD */}
+        {sticky ? <div>{sticky}</div> : null}
+      </main>
+
       {jsonLd ? <JsonLd data={jsonLd} /> : null}
     </>
   );
