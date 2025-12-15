@@ -1,24 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root { color-scheme: dark; }
-
-html, body {
-  height: 100%;
-  background: #000;
-  color: #f5f5f5;
+:root {
+  color-scheme: dark;
 }
 
-::selection { background: rgba(59,130,246,0.3); }
+html,
+body {
+  height: 100%;
+}
 
-/* prose without plugin */
-.prose h1 { font-size: 1.875rem; font-weight: 700; margin-top: 0; color: #fff; }
-.prose h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; color: #fff; }
-.prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; color: #fff; }
-.prose p { margin-top: 1rem; line-height: 1.75; color: rgba(245,245,245,0.85); }
-.prose ul { margin-top: 1rem; padding-left: 1.5rem; list-style: disc; color: rgba(245,245,245,0.85); }
-.prose li { margin-top: 0.5rem; }
-.prose a { color: #93c5fd; text-decoration: underline; text-underline-offset: 3px; }
-.prose code { padding: 0.15rem 0.35rem; border-radius: 0.375rem; background: rgba(255,255,255,0.1); }
-.prose blockquote { margin-top: 1.5rem; padding-left: 1rem; border-left: 2px solid rgba(255,255,255,0.15); color: rgba(245,245,245,0.7); }
+/* Better default text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nice focus ring */
+:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.8);
+  outline-offset: 2px;
+}
+
+/* If you use .prose without the typography plugin, give it sane defaults */
+.prose h1,
+.prose h2,
+.prose h3 {
+  color: #fff;
+}
+.prose p,
+.prose li {
+  color: rgba(255, 255, 255, 0.82);
+}
+.prose a {
+  color: rgb(147, 197, 253);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.4rem;
+}
