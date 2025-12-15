@@ -29,6 +29,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const pillar = PILLARS[post.pillar];
   const related = getRelatedPosts(post, 6);
+  const html = post.content ? markdownToHtml(post.content) : null;
 
   const pageJsonLd = {
     "@context": "https://schema.org",
@@ -39,8 +40,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
     author: { "@type": "Organization", name: SITE.name },
   };
-
-  const html = post.content ? markdownToHtml(post.content) : null;
 
   return (
     <>
@@ -54,50 +53,44 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       />
 
       <main className="mx-auto max-w-3xl px-4 pt-6 pb-16">
-        <div className="text-sm text-white/60">{post.publishedAt}</div>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+          <div className="text-sm text-white/60">{post.publishedAt}</div>
+          <h1 className="mt-2 text-3xl md:text-4xl font-bold text-white">{post.title}</h1>
+          <p className="mt-4 text-white/80 leading-relaxed">{post.description}</p>
 
-        <h1 className="mt-2 text-3xl font-bold text-white">{post.title}</h1>
-        <p className="mt-4 text-white/80 leading-relaxed">{post.description}</p>
+          {post.tags?.length ? (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {post.tags.map((t) => (
+                <span key={t} className="rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/60">
+                  {t}
+                </span>
+              ))}
+            </div>
+          ) : null}
 
-        {html ? (
-          <article
-            className="prose prose-invert mt-10 max-w-none rounded-2xl border border-white/10 bg-white/5 p-6"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        ) : (
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-            <p className="text-white/80 leading-relaxed">
-              Content not added yet for this post. Add <code>content</code> (markdown) in <code>lib/blog.ts</code>.
-            </p>
+          {html ? (
+            <article
+              className="prose mt-8 max-w-none"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          ) : (
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p className="text-white/80 leading-relaxed">
+                Content not added yet. Add <code>content</code> (markdown) in <code>lib/blog.ts</code>.
+              </p>
+            </div>
+          )}
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href={pillar.href} className="rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500 transition">
+              Back to {pillar.title}
+            </a>
+            <a href="/offer-checklist" className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-white/90 hover:bg-white/10 transition">
+              Offer checklist
+            </a>
           </div>
-        )}
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a
-            href={pillar.href}
-            className="rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500 transition"
-          >
-            Back to {pillar.title}
-          </a>
-
-          <a
-            href="/offer-checklist"
-            className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-white/90 hover:bg-white/10 transition"
-          >
-            Offer checklist
-          </a>
         </div>
-
-        {post.tags?.length ? (
-          <div className="mt-8 flex flex-wrap gap-2">
-            {post.tags.map((t) => (
-              <span key={t} className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                {t}
-              </span>
-            ))}
-          </div>
-        ) : null}
       </main>
 
       <RelatedPosts posts={related} title="More from this pillar" />

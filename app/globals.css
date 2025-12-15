@@ -2,70 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-}
+:root { color-scheme: dark; }
 
-html,
-body {
+html, body {
   height: 100%;
-  background-color: #000;
+  background: #000;
   color: #f5f5f5;
 }
 
-body {
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
+::selection { background: rgba(59,130,246,0.3); }
 
-/* Selection */
-::selection {
-  background: rgba(59, 130, 246, 0.3);
-}
-
-/* ---- Prose styling (no plugin) ---- */
-.prose h1 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-top: 0;
-}
-
-.prose h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 2rem;
-}
-
-.prose h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-}
-
-.prose p {
-  margin-top: 1rem;
-  line-height: 1.7;
-  color: rgba(245, 245, 245, 0.85);
-}
-
-.prose ul {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-  list-style: disc;
-}
-
-.prose li {
-  margin-top: 0.5rem;
-}
-
-.prose a {
-  color: #93c5fd;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.prose code {
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.375rem;
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 0.875rem;
-}
+/* prose without plugin */
+.prose h1 { font-size: 1.875rem; font-weight: 700; margin-top: 0; color: #fff; }
+.prose h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; color: #fff; }
+.prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; color: #fff; }
+.prose p { margin-top: 1rem; line-height: 1.75; color: rgba(245,245,245,0.85); }
+.prose ul { margin-top: 1rem; padding-left: 1.5rem; list-style: disc; color: rgba(245,245,245,0.85); }
+.prose li { margin-top: 0.5rem; }
+.prose a { color: #93c5fd; text-decoration: underline; text-underline-offset: 3px; }
+.prose code { padding: 0.15rem 0.35rem; border-radius: 0.375rem; background: rgba(255,255,255,0.1); }
+.prose blockquote { margin-top: 1.5rem; padding-left: 1rem; border-left: 2px solid rgba(255,255,255,0.15); color: rgba(245,245,245,0.7); }

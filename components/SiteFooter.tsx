@@ -1,73 +1,43 @@
-import Link from "next/link";
-
-const links = [
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/offer-checklist", label: "Offer checklist" },
-  { href: "/blog", label: "Blog" },
-];
-
-const legal = [
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
-  { href: "/affiliate-disclosure", label: "Affiliate disclosure" },
-];
+import React from "react";
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-gray-950/80">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold text-white">thenorthtrip</p>
-            <p className="text-sm text-white/60">
-              Small, high-intent guides about deposits, card rules, winter add-ons, and inclusions.
-            </p>
-          </div>
+    <footer className="mt-16 border-t border-white/10">
+      <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div className="font-semibold text-white">NordicDrive</div>
+          <p className="mt-2 text-sm text-white/70 leading-relaxed">
+            Practical guides for comparing travel offers in Finland.
+            Deposits, insurance, desk rules, real-world gotchas.
+          </p>
+        </div>
 
-          <div className="space-y-2">
-            <p className="text-sm font-semibold text-white">Explore</p>
-            <ul className="space-y-2 text-sm">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <Link className="text-white/70 hover:text-white/90" href={l.href}>
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-sm font-semibold text-white">Legal</p>
-            <ul className="space-y-2 text-sm">
-              {legal.map((l) => (
-                <li key={l.href}>
-                  <Link className="text-white/70 hover:text-white/90" href={l.href}>
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-sm font-semibold text-white">Quick action</p>
-            <Link
-              href="/get-help"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
-            >
-              Ask before booking
-            </Link>
-            <p className="text-xs text-white/60">
-              Don’t send card numbers. Blurring screenshots is encouraged. Humans invented privacy for a reason.
-            </p>
+        <div>
+          <div className="font-semibold text-white">Explore</div>
+          <div className="mt-3 grid gap-2 text-sm">
+            <a className="text-white/70 hover:text-white transition" href="/car-rental-helsinki">Car rental Helsinki</a>
+            <a className="text-white/70 hover:text-white transition" href="/camper-rental-finland">Camper rental Finland</a>
+            <a className="text-white/70 hover:text-white transition" href="/lapland-tours">Lapland tours</a>
+            <a className="text-white/70 hover:text-white transition" href="/blog">Blog</a>
+            <a className="text-white/70 hover:text-white transition" href="/offer-checklist">Offer checklist</a>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} thenorthtrip</p>
-          <p>Built to reduce “surprise fees”. Not to cure capitalism.</p>
+        <div>
+          <div className="font-semibold text-white">Legal</div>
+          <div className="mt-3 grid gap-2 text-sm">
+            <a className="text-white/70 hover:text-white transition" href="/affiliate-disclosure">Affiliate disclosure</a>
+            <a className="text-white/70 hover:text-white transition" href="/privacy">Privacy</a>
+            <a className="text-white/70 hover:text-white transition" href="/terms">Terms</a>
+            <a className="text-white/70 hover:text-white transition" href="/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-white/50 flex flex-wrap gap-2 justify-between">
+          <span>© {new Date().getFullYear()} NordicDrive</span>
+          <span>Built to reduce desk drama.</span>
         </div>
       </div>
     </footer>
