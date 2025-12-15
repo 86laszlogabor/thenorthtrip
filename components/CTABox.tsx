@@ -1,38 +1,46 @@
 import Link from "next/link";
 
-export default function CTABox(props: {
+type CTABoxProps = {
   title: string;
   text: string;
   primaryHref: string;
   primaryLabel: string;
   secondaryHref?: string;
   secondaryLabel?: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-white/20 bg-white/5 p-8 shadow-sm backdrop-blur">
-      <div className="grid gap-6 lg:grid-cols-3 lg:items-center">
-        <div className="lg:col-span-2">
-          <h2 className="text-2xl font-semibold">{props.title}</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">{props.text}</p>
-        </div>
-        <div className="flex flex-col gap-3">
-          <Link
-            href={props.primaryHref}
-            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
-          >
-            {props.primaryLabel}
-          </Link>
+};
 
-          {props.secondaryHref && props.secondaryLabel ? (
-            <Link
-              href={props.secondaryHref}
-              className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 transition hover:bg-white/10"
-            >
-              {props.secondaryLabel}
-            </Link>
-          ) : null}
-        </div>
+export default function CTABox({
+  title,
+  text,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+}: CTABoxProps) {
+  return (
+    <section className="rounded-2xl border border-white/20 bg-white/5 p-6 sm:p-8">
+      <div className="space-y-3">
+        <h3 className="text-xl font-semibold">{title}</h3>
+        <p className="max-w-2xl text-sm text-white/70">{text}</p>
       </div>
-    </div>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          href={primaryHref}
+          className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-500"
+        >
+          {primaryLabel}
+        </Link>
+
+        {secondaryHref && secondaryLabel && (
+          <Link
+            href={secondaryHref}
+            className="rounded-lg border border-white/30 px-5 py-2 text-sm text-white/80 hover:bg-white/10"
+          >
+            {secondaryLabel}
+          </Link>
+        )}
+      </div>
+    </section>
   );
 }
