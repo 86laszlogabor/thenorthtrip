@@ -11,7 +11,7 @@ export default function RelatedPosts({
   if (!posts?.length) return null;
 
   return (
-    <section className="mx-auto max-w-6xl px-4">
+    <section className="mx-auto max-w-6xl px-4 mt-12">
       <h2 className="text-xl font-semibold text-white">{title}</h2>
 
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
