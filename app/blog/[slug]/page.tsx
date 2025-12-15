@@ -42,16 +42,63 @@ export default function BlogPostPage({ params }: { params: Params }) {
         </div>
       </header>
 
-      <article className="mt-10 space-y-4 text-white/75">
-        <p>
-          Placeholder body. Next step: write 700–1,000 words targeting the exact long-tail intent in the title and
-          include a short checklist.
-        </p>
-        <p>
-          If you want a fast win: answer “what is the rule?”, “what do I show at pickup?”, “what gets blocked?”, and
-          “what are the 3 red flags?”.
-        </p>
-      </article>
+      <article className="mt-10 space-y-6 text-white/75 leading-relaxed">
+  <p>
+    If you’re renting a car at <strong>Helsinki Airport (HEL)</strong>, there’s one thing that catches people off
+    guard more than snow or darkness: the <strong>credit card deposit hold</strong>.
+  </p>
+
+  <p>
+    You may have paid online. You may have “full insurance”. You may even have confirmation emails. And still,
+    at the counter, your card gets blocked for a large amount.
+  </p>
+
+  <h2 className="text-2xl font-semibold text-white">What is a deposit hold, really?</h2>
+
+  <p>
+    A deposit hold is <strong>not a charge</strong>. It’s a temporary authorization placed on your card at pickup.
+    The money is blocked, not taken.
+  </p>
+
+  <ul className="list-disc pl-6">
+    <li>The money is not spent</li>
+    <li>You can’t use that amount</li>
+    <li>It is released after the rental</li>
+  </ul>
+
+  <p>
+    At Helsinki Airport, deposit holds are typically between <strong>€300 and €2,500+</strong>, depending on
+    coverage, car type, and provider.
+  </p>
+
+  <h2 className="text-2xl font-semibold text-white">Why “paid online” changes nothing</h2>
+
+  <p>
+    Online payment covers the rental days. The deposit covers risk: damage, fuel, late return, and admin fees.
+    These are two completely different things.
+  </p>
+
+  <p>
+    That’s why “paid in full” does <strong>not</strong> mean “no deposit”.
+  </p>
+
+  <h2 className="text-2xl font-semibold text-white">Next step</h2>
+
+  <p>
+    Read the full guide here:{" "}
+    <a href="/car-rental-helsinki" className="underline">
+      Car Rental in Helsinki – Deposits, Cards & Real Costs
+    </a>
+  </p>
+
+  <p>
+    Already have an offer?{" "}
+    <a href="/get-help" className="underline">
+      Ask before booking
+    </a>
+  </p>
+</article>
+
 
       <section className="mt-10 rounded-2xl border border-white/20 bg-white/5 p-6">
         <h2 className="text-lg font-semibold">Next step</h2>
