@@ -1,11 +1,26 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG } from "@/lib/blog";
+import { BLOG_CONTENT } from "@/lib/blogContent";
 
 type Params = { slug: string };
 
 export function generateStaticParams() {
   return BLOG.map((p) => ({ slug: p.slug }));
+}
+
+function Paragraph({ text }: { text: string }) {
+  const isInternal = text.startsWith("/");
+  if (isInternal) {
+    return (
+      <p>
+        <a href={text} className="underline decoration-white/30 hover:decoration-white/60">
+          {text}
+        </a>
+      </p>
+    );
+  }
+  return <p>{text}</p>;
 }
 
 export default function BlogPostPage({ params }: { params: Params }) {
@@ -20,6 +35,8 @@ export default function BlogPostPage({ params }: { params: Params }) {
       : post.pillar === "/camper-rental-finland"
       ? "Camper rental Finland"
       : "Lapland tours";
+
+  const blocks = BLOG_CONTENT[post.slug]?.blocks ?? [];
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
@@ -43,62 +60,35 @@ export default function BlogPostPage({ params }: { params: Params }) {
       </header>
 
       <article className="mt-10 space-y-6 text-white/75 leading-relaxed">
-  <p>
-    If you’re renting a car at <strong>Helsinki Airport (HEL)</strong>, there’s one thing that catches people off
-    guard more than snow or darkness: the <strong>credit card deposit hold</strong>.
-  </p>
+        {blocks.length === 0 ? (
+          <p>
+            Content missing for this post. Add blocks in <code className="text-white/90">lib/blogContent.ts</code>.
+          </p>
+        ) : (
+          blocks.map((b, i) => {
+            if (b.type === "h2") {
+              return (
+                <h2 key={i} className="text-2xl font-semibold text-white">
+                  {b.text}
+                </h2>
+              );
+            }
 
-  <p>
-    You may have paid online. You may have “full insurance”. You may even have confirmation emails. And still,
-    at the counter, your card gets blocked for a large amount.
-  </p>
+            if (b.type === "ul") {
+              return (
+                <ul key={i} className="list-disc space-y-2 pl-6 text-white/75">
+                  {(b.items ?? []).map((it) => (
+                    <li key={it}>{it}</li>
+                  ))}
+                </ul>
+              );
+            }
 
-  <h2 className="text-2xl font-semibold text-white">What is a deposit hold, really?</h2>
-
-  <p>
-    A deposit hold is <strong>not a charge</strong>. It’s a temporary authorization placed on your card at pickup.
-    The money is blocked, not taken.
-  </p>
-
-  <ul className="list-disc pl-6">
-    <li>The money is not spent</li>
-    <li>You can’t use that amount</li>
-    <li>It is released after the rental</li>
-  </ul>
-
-  <p>
-    At Helsinki Airport, deposit holds are typically between <strong>€300 and €2,500+</strong>, depending on
-    coverage, car type, and provider.
-  </p>
-
-  <h2 className="text-2xl font-semibold text-white">Why “paid online” changes nothing</h2>
-
-  <p>
-    Online payment covers the rental days. The deposit covers risk: damage, fuel, late return, and admin fees.
-    These are two completely different things.
-  </p>
-
-  <p>
-    That’s why “paid in full” does <strong>not</strong> mean “no deposit”.
-  </p>
-
-  <h2 className="text-2xl font-semibold text-white">Next step</h2>
-
-  <p>
-    Read the full guide here:{" "}
-    <a href="/car-rental-helsinki" className="underline">
-      Car Rental in Helsinki – Deposits, Cards & Real Costs
-    </a>
-  </p>
-
-  <p>
-    Already have an offer?{" "}
-    <a href="/get-help" className="underline">
-      Ask before booking
-    </a>
-  </p>
-</article>
-
+            // paragraph
+            return <Paragraph key={i} text={b.text ?? ""} />;
+          })
+        )}
+      </article>
 
       <section className="mt-10 rounded-2xl border border-white/20 bg-white/5 p-6">
         <h2 className="text-lg font-semibold">Next step</h2>
