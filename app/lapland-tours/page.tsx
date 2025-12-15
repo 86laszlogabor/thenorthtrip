@@ -1,78 +1,68 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
-import CTABox from "@/components/CTABox";
+import TrustStrip from "@/components/TrustStrip";
+import CompareCTA from "@/components/CompareCTA";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Lapland tours explained: inclusions, group size, cancellations",
+  title: "Lapland tours: what’s included, what’s not, and common add-on traps",
   description:
-    "Clear comparison of Lapland tours. Group size, inclusions vs extras, pickup timing, and cancellation rules without marketing fluff.",
+    "Lapland tours guide: inclusions, exclusions, on-site costs, and how to compare offers without getting upsold.",
   path: "/lapland-tours",
   keywords: [
-    "lapland tours cancellation rules",
-    "lapland small group vs big bus",
     "lapland tour inclusions",
-    "northern lights tour refund",
+    "lapland tour hidden costs",
+    "rovaniemi tour what is included",
+    "lapland excursions upsell",
   ],
 });
 
 export default function LaplandToursPage() {
+  const checks = [
+    "What’s actually included vs marketed (gear, transport, meals)",
+    "Minimum group sizes + cancellation rules",
+    "On-site add-ons and ‘optional’ mandatory fees",
+    "Pick-up areas and extra transport cost",
+    "Duration vs real activity time",
+    "Weather constraints and rescheduling policy",
+  ];
+
   return (
-    <main className="mx-auto max-w-6xl space-y-12 px-4 py-12 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold sm:text-5xl">
-          Lapland tours without brochure fantasy
+        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">Pillar guide</p>
+        <h1 className="text-3xl font-semibold sm:text-5xl text-white">
+          Lapland tours: inclusions, exclusions, and upsells people miss
         </h1>
         <p className="max-w-2xl text-white/70">
-          This guide focuses on the details that actually affect your experience: group size, inclusions, timing, and
-          realistic cancellation policies.
+          Compare tours by what you get, not by the headline price. Inclusions matter. So do the fine-print “extras”.
         </p>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/get-help"
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+          >
+            Ask before booking
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
+          >
+            Read tour posts
+          </Link>
+        </div>
       </header>
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Northern lights reality</h2>
-          <p className="mt-2 text-sm text-white/70">
-            Aurora sightings depend on weather and solar activity. “No lights” rarely equals automatic refund.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Small group vs big bus</h2>
-          <p className="mt-2 text-sm text-white/70">
-            Smaller groups offer flexibility. Bigger buses trade experience for price.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-white/20 bg-white/5 p-6">
-          <h2 className="text-lg font-semibold">Included vs paid extras</h2>
-          <p className="mt-2 text-sm text-white/70">
-            Thermal suits, photos, snacks, and hotel pickup often cost extra.
-          </p>
-        </div>
-      </section>
+      <TrustStrip items={checks} />
 
-      <section className="space-y-6 max-w-3xl">
-        <h2 className="text-2xl font-semibold">Cancellations and refunds</h2>
-        <p className="text-white/70">
-          Always read the weather and cancellation terms. Legit operators explain rescheduling and refund rules clearly.
-        </p>
-
-        <h2 className="text-2xl font-semibold">What’s usually included</h2>
-        <p className="text-white/70">
-          Transport and guide are standard. Clothing, food, photos, and drop-off locations vary widely.
-        </p>
-
-        <h2 className="text-2xl font-semibold">Comparing tours properly</h2>
-        <p className="text-white/70">
-          Ignore marketing names. Compare duration, group size, pickup window, and cancellation flexibility instead.
-        </p>
-      </section>
-
-      <CTABox
-        title="Not sure which tour to book?"
-        text="Send the tour link. We’ll break down inclusions, timing, group size, and cancellation terms."
+      <CompareCTA
+        title="Send two tours, we’ll tell you which one is cleaner"
+        text="We’ll compare inclusions, add-ons, pickup rules, cancellation terms, and real activity time."
         primaryHref="/get-help"
-        primaryLabel="Ask before booking"
+        primaryLabel="Send tour offers"
         secondaryHref="/blog"
-        secondaryLabel="Read the blog"
+        secondaryLabel="Blog"
       />
     </main>
   );

@@ -1,60 +1,68 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
-import SectionCard from "@/components/SectionCard";
-import CTABox from "@/components/CTABox";
+import TrustStrip from "@/components/TrustStrip";
+import CompareCTA from "@/components/CompareCTA";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Camper rental Finland: winter heating costs, mileage caps, hidden fees",
+  title: "Camper rental Finland: winter readiness, power costs, mileage caps",
   description:
-    "Long-tail camper rental Finland guide: winter heating & power costs, mileage caps, cleaning fees, and what 'winter-ready' really includes.",
+    "Finland camper rental guide: winter heating + power realities, mileage caps, and what 'winter-ready' should actually mean.",
   path: "/camper-rental-finland",
   keywords: [
-    "camper rental finland winter heating cost",
-    "winter ready campervan finland what included",
-    "campervan mileage limit finland",
-    "camper rental cleaning fee finland",
+    "camper rental finland winter",
+    "camper heating power costs finland",
+    "camper mileage cap overage fees",
+    "winterised camper checklist finland",
   ],
 });
 
 export default function CamperRentalFinlandPage() {
+  const checks = [
+    "What ‘winter-ready’ actually includes (insulation, heating, water system)",
+    "Power source: hookup vs battery vs generator",
+    "Mileage caps + overage fees",
+    "Cold-weather comfort: condensation, ventilation, bedding",
+    "Pickup rules + deposit/insurance gotchas",
+    "Route reality: distances, charging, service points",
+  ];
+
   return (
     <main className="mx-auto max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold sm:text-5xl">
-          Camper Rental Finland: avoid hidden winter costs
+        <p className="text-xs font-semibold uppercase tracking-wider text-white/60">Pillar guide</p>
+        <h1 className="text-3xl font-semibold sm:text-5xl text-white">
+          Camper rental in Finland (winter edition, not brochure edition)
         </h1>
         <p className="max-w-2xl text-white/70">
-          This guide targets the smaller, high-intent queries: heating, insulation, power usage, mileage caps,
-          and the fees that appear after you “book the cheap one”.
+          Heating + power costs, winter-readiness checklist, and mileage caps. The stuff that matters after day one.
         </p>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/get-help"
+            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+          >
+            Ask before booking
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10"
+          >
+            Read the winter posts
+          </Link>
+        </div>
       </header>
 
-      <SectionCard title="Winter-ready: heating, insulation, power">
-        <p>
-          “Winter-ready” is not a vibe. It’s equipment and power capacity. If heating is weak or power is limited,
-          your trip becomes a cold logistics puzzle.
-        </p>
-      </SectionCard>
+      <TrustStrip items={checks} />
 
-      <SectionCard title="Mileage caps, fuel, and the ‘cheap listing’ problem">
-        <p>
-          Mileage caps and per-km charges are classic hidden costs. Check the included kilometers and the overage rate.
-        </p>
-      </SectionCard>
-
-      <SectionCard title="Cleaning, bedding, gas bottles, and small print">
-        <p>
-          Cleaning fees, bedding packs, and gas policies are where totals drift. Make a checklist before checkout.
-        </p>
-      </SectionCard>
-
-      <CTABox
-        title="Send your camper offer, we’ll sanity-check it"
-        text="We’ll flag winter readiness gaps, mileage traps, and add-ons that blow up your budget."
+      <CompareCTA
+        title="Send your camper offer for a reality check"
+        text="We’ll flag mileage cap traps, winter-readiness gaps, and power/heating mismatches."
         primaryHref="/get-help"
-        primaryLabel="Ask before booking"
-        secondaryHref="/lapland-tours"
-        secondaryLabel="Plan Lapland tours"
+        primaryLabel="Send an offer"
+        secondaryHref="/blog"
+        secondaryLabel="Blog"
       />
     </main>
   );
