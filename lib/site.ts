@@ -1,6 +1,14 @@
 export const SITE = {
-  name: "NordicDrive",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  name: "TheNorthTrip",
+  tagline: "Clear facts before you book",
+  description:
+    "Clear, practical Finland travel guides about deposits, card rules, winter add-ons, and tour inclusions.",
+  url: "https://thenorthtrip.com",
+
+  // contact (used in SEO JSON-LD)
+  email: "hello@thenorthtrip.com",
+
+  // metadata / og tags
   locale: "en_US",
-  email: process.env.NEXT_PUBLIC_SITE_EMAIL || "hello@example.com",
-};
+  language: "en",
+} as const;
