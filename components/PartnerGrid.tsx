@@ -1,6 +1,5 @@
-// components/PartnerGrid.tsx
+import { PARTNERS, PartnerKey } from "@/lib/partners";
 import SponsoredLink from "./SponsoredLink";
-import { PARTNERS, PartnerKey, isLivePartner } from "@/lib/partners";
 
 type Props = {
   keys: PartnerKey[];
@@ -12,21 +11,23 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {keys.map((k) => {
         const p = PARTNERS[k];
-        const live = isLivePartner(p);
+        if (!p) return null;
 
         return (
           <div
             key={p.key}
-            className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm"
+            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <div className="text-base font-semibold text-white">{p.name}</div>
-                <div className="mt-1 text-sm text-white/70">{p.blurb}</div>
+                <div className="text-base font-semibold text-slate-900">
+                  {p.name}
+                </div>
+                <div className="mt-1 text-sm text-slate-700">{p.blurb}</div>
               </div>
 
               {p.badge ? (
-                <div className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                <div className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                   {p.badge}
                 </div>
               ) : null}
@@ -34,11 +35,11 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
 
             <div className="mt-4">
               <SponsoredLink
-                href={live ? p.href : undefined}
-                disabled={!live}
+                href={p.href ?? "#"}
                 label={ctaLabel}
+                className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-orange-500 text-black hover:bg-orange-600 transition"
               />
-              <div className="mt-2 text-xs text-white/50">
+              <div className="mt-2 text-xs text-slate-500">
                 Affiliate disclosure applies. Links may be sponsored.
               </div>
             </div>
