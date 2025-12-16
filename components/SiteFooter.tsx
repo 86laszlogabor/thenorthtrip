@@ -2,7 +2,6 @@ import Link from "next/link";
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
-
   const discoverCarsHref = "https://www.discovercars.com?a_aid=86laszlogabor";
 
   return (
@@ -44,22 +43,22 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <div className="text-sm font-bold text-slate-900">Partners</div>
-            <div className="mt-3 space-y-2 text-sm">
+            <div className="text-sm font-bold text-slate-900">Partnereink</div>
+            <div className="mt-3 space-y-3 text-sm">
               <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/car-rental-helsinki">
                 Car rental partners
               </Link>
 
               <a
-                className="block text-slate-700 hover:text-slate-900 hover:underline"
                 href={discoverCarsHref}
                 target="_blank"
                 rel="sponsored nofollow noopener"
+                className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600 transition"
               >
-                DiscoverCars (compare prices)
+                DiscoverCars: compare prices
               </a>
 
-              <div className="pt-1 text-xs text-slate-500">
+              <div className="text-xs text-slate-500">
                 Some links may be sponsored.
               </div>
             </div>

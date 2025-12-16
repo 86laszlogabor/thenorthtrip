@@ -34,27 +34,27 @@ export default function PageHero({
           fetchPriority={priority ? "high" : "auto"}
         />
 
-        {/* Cinematic overlays: NO white wash */}
-        <div className="absolute inset-0 bg-black/50" />
+        {/* LIGHTER cinematic overlays (so images don't look like night-vision) */}
+        <div className="absolute inset-0 bg-black/30" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(1200px 600px at 20% 20%, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%)",
+              "radial-gradient(1200px 600px at 25% 18%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.20) 45%, rgba(0,0,0,0.55) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 100%)",
+              "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.15) 100%)",
           }}
         />
-        <div className="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.35)]" />
+        <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.25)]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4">
-        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-white/95 backdrop-blur p-6 sm:p-8 shadow-sm">
           {badge ? (
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
               {badge}
