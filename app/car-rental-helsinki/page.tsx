@@ -2,7 +2,6 @@ import PartnerGrid from "@/components/PartnerGrid";
 import SponsoredLink from "@/components/SponsoredLink";
 import { PARTNERS } from "@/lib/partners";
 import PageHero from "@/components/PageHero";
-import ImageGrid from "@/components/ImageGrid";
 
 function isLive(href: string) {
   const h = (href || "").trim().toLowerCase();
@@ -23,23 +22,14 @@ export default function CarRentalHelsinkiPage() {
     <main className="min-h-screen bg-white text-slate-900">
       <PageHero
         title="Car rental in Helsinki: compare first, then pick a reliable operator"
-        subtitle="This page is built to help you decide, not to spam cheap links. Compare the market first, then choose a predictable operator if you value fewer surprises over saving a few euros."
+        subtitle="Compare the market first, then choose a predictable operator if you value fewer surprises over saving a few euros."
         imageSrc="/images/pages/car-rental/car-hero.jpg"
-        imageAlt="Car rental in Helsinki"
+        imageAlt="Car rental pickup in Helsinki"
         badge="Helsinki • Car rental guide"
         priority
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        <ImageGrid
-          title="Pickup & winter reality check"
-          items={[
-            { src: "/images/pages/car-rental/car-airport.jpg", alt: "Car rental at the airport" },
-            { src: "/images/pages/car-rental/car-winter-road.jpg", alt: "Winter road in Finland" },
-          ]}
-        />
-
-        {/* TOP PICK */}
         <section className="mt-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
@@ -51,8 +41,7 @@ export default function CarRentalHelsinkiPage() {
               <p className="mt-2 text-slate-700">{sx.blurb}</p>
 
               <p className="mt-3 text-sm text-slate-600">
-                Why top pick? Direct operator, clearer rules, fewer “surprise” add-ons at pickup.
-                If you care about predictable travel days, this is usually the safer bet.
+                Direct operator, clearer rules, fewer “surprise” add-ons at pickup.
               </p>
             </div>
 
@@ -69,12 +58,10 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* COMPARE FIRST */}
         <section className="mt-10">
           <h2 className="text-2xl font-bold">Step 1: Compare the market</h2>
           <p className="mt-2 max-w-3xl text-slate-700">
             Use a comparison tool to see prices, availability, and conditions across companies.
-            Treat it as “price discovery”, not “the best option”.
           </p>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -86,11 +73,6 @@ export default function CarRentalHelsinkiPage() {
 
                 <h3 className="mt-3 text-xl font-bold text-slate-900">{dc.name}</h3>
                 <p className="mt-2 text-slate-700">{dc.blurb}</p>
-
-                <p className="mt-3 text-sm text-slate-600">
-                  This helps you map the market. If SIXT shows up there too, great.
-                  Just remember: comparison is for search, top pick is for the final decision.
-                </p>
               </div>
 
               <div className="mt-4 sm:mt-0 sm:pl-6">
@@ -107,64 +89,18 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* QUICK CHECKLIST */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold">Quick checklist before you book</h2>
-
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                t: "Payment card requirements",
-                d: "Many rentals still prefer credit cards at pickup. Debit can work, but not always.",
-              },
-              {
-                t: "Deposit holds & authorizations",
-                d: "‘Paid online’ does not automatically mean no deposit. Check the pickup terms.",
-              },
-              {
-                t: "Insurance & exclusions",
-                d: "CDW names are marketing. Confirm excess amount and common exclusions (glass/tires).",
-              },
-              {
-                t: "Pickup location logic",
-                d: "Airport vs city pickup changes opening hours and rules. Match it to your itinerary.",
-              },
-            ].map((x) => (
-              <div key={x.t} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="text-base font-semibold text-slate-900">{x.t}</div>
-                <div className="mt-2 text-sm text-slate-700">{x.d}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6">
-            <a
-              href="/offer-checklist"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-100 transition"
-            >
-              Open the full checklist →
-            </a>
-          </div>
-        </section>
-
-        {/* RECOMMENDED */}
         <section className="mt-12">
           <h2 className="text-2xl font-bold">Recommended options</h2>
-          <p className="mt-2 max-w-3xl text-slate-700">
-            Two-step logic: compare first, then decide. That’s it.
-          </p>
-
+          <p className="mt-2 max-w-3xl text-slate-700">Two-step logic: compare first, then decide.</p>
           <div className="mt-6">
             <PartnerGrid keys={["sixt", "discovercars"]} ctaLabel="Open" />
           </div>
         </section>
 
-        {/* FOOTNOTE */}
         <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <h2 className="text-xl font-bold text-slate-900">Affiliate disclosure</h2>
           <p className="mt-2 text-sm text-slate-700">
-            Some links on this page may be affiliate links. If you use them, we may earn a commission at
-            no extra cost to you. We still prioritize clarity and decision-helpful guidance.
+            Some links on this page may be affiliate links. We still prioritize clarity and decision-helpful guidance.
           </p>
         </section>
       </div>
