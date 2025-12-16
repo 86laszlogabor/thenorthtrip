@@ -1,34 +1,38 @@
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
 export const metadata = {
   title: "Rovaniemi travel basics | TheNorthTrip",
-  description: "Practical, non-fluffy notes for visiting Rovaniemi: season, transport, tours, and common tourist traps.",
+  description:
+    "Practical, non-fluffy notes for visiting Rovaniemi: season, transport, tours, and common tourist traps.",
 };
 
 export default function RovaniemiPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
-          Lapland <span className="text-slate-400">•</span> Rovaniemi
-        </div>
+      <PageHero
+        title="Rovaniemi: what to do, what to skip"
+        subtitle="Santa Village is the headline, but the best value is usually outside the “main brochure loop”. Use this page as a quick sanity-check before you book tours."
+        imageSrc="/images/pages/rovaniemi/rovaniemi-hero.jpg"
+        imageAlt="Rovaniemi in Lapland"
+        badge="Lapland • Rovaniemi"
+        priority
+      />
 
-        <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
-          Rovaniemi: what to do, what to skip
-        </h1>
-
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Santa Village is the headline, but the best value is usually outside the “main brochure loop”.
-          Use this page as a quick sanity-check before you book tours.
-        </p>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mx-auto max-w-6xl px-4 pb-12">
+        <div className="mt-2 grid gap-6 md:grid-cols-2">
           <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
             <h2 className="text-lg font-semibold">When to go</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              <li><span className="font-semibold">Dec–Mar:</span> peak winter, best “classic Lapland” vibe, highest prices.</li>
-              <li><span className="font-semibold">Sep–Nov:</span> early aurora season, cheaper, moodier weather.</li>
-              <li><span className="font-semibold">Apr:</span> shoulder season, many operators reduce schedules.</li>
+              <li>
+                <span className="font-semibold">Dec–Mar:</span> peak winter, best “classic Lapland” vibe, highest prices.
+              </li>
+              <li>
+                <span className="font-semibold">Sep–Nov:</span> early aurora season, cheaper, moodier weather.
+              </li>
+              <li>
+                <span className="font-semibold">Apr:</span> shoulder season, many operators reduce schedules.
+              </li>
             </ul>
           </section>
 
@@ -48,10 +52,16 @@ export default function RovaniemiPage() {
             If you’re comparing experiences, use the Lapland tours page. It’s built to reduce “surprise extras”.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/lapland-tours" className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500">
+            <Link
+              href="/lapland-tours"
+              className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
+            >
               Compare Lapland tours
             </Link>
-            <Link href="/offer-checklist" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
+            <Link
+              href="/offer-checklist"
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+            >
               Use the booking checklist
             </Link>
           </div>

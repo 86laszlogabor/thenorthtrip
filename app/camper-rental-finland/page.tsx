@@ -1,5 +1,7 @@
 import PartnerGrid from "@/components/PartnerGrid";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
+import ImageGrid from "@/components/ImageGrid";
 
 export default function CamperRentalFinlandPage() {
   const cards = [
@@ -23,42 +25,46 @@ export default function CamperRentalFinlandPage() {
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        {/* HERO */}
-        <header>
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
-            Finland <span className="text-slate-400">•</span> Camper rental
-          </div>
+      <PageHero
+        title="Camper rental in Finland: pick the model that matches your season"
+        subtitle="Fleet rentals are simplest. Peer-to-peer can be better value. For winter routes and Lapland, prioritize a winter-ready setup over saving a little money."
+        imageSrc="/images/pages/camper-rental/camper-hero.jpg"
+        imageAlt="Camper rental in Finland"
+        badge="Finland • Camper rental"
+        priority
+      />
 
-          <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Camper rental in Finland: pick the model that matches your season
-          </h1>
+      <div className="mx-auto max-w-6xl px-4 pb-12">
+        <div className="mt-2 flex flex-wrap gap-3">
+          <Link
+            href="/offer-checklist"
+            className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
+          >
+            Free booking checklist
+          </Link>
+          <Link
+            href="/get-help"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+          >
+            Ask before booking
+          </Link>
+        </div>
 
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Fleet rentals are simplest. Peer-to-peer can be better value. For winter routes and Lapland,
-            prioritize a winter-ready setup over saving a little money.
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/offer-checklist"
-              className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
-            >
-              Free booking checklist
-            </Link>
-            <Link
-              href="/get-help"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
-              Ask before booking
-            </Link>
-          </div>
-        </header>
+        <ImageGrid
+          title="Camper snapshots"
+          items={[
+            { src: "/images/pages/camper-rental/camper-winter.jpg", alt: "Camper in winter conditions" },
+            { src: "/images/pages/camper-rental/camper-interior.jpg", alt: "Camper interior" },
+          ]}
+        />
 
         {/* HOW TO CHOOSE */}
-        <section className="mt-10 grid gap-4 sm:grid-cols-2">
+        <section className="mt-2 grid gap-4 sm:grid-cols-2">
           {cards.map((x) => (
-            <div key={x.t} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+            <div
+              key={x.t}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm"
+            >
               <div className="text-base font-semibold text-slate-900">{x.t}</div>
               <div className="mt-2 text-sm text-slate-600">{x.d}</div>
             </div>
