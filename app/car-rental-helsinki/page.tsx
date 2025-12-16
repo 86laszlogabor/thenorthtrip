@@ -13,21 +13,19 @@ export default function CarRentalHelsinkiPage() {
           </p>
         </div>
 
-        {/* Inline disclosure */}
         <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
-          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra cost to you.{" "}
+          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra
+          cost to you.{" "}
           <Link className="underline underline-offset-4" href="/affiliate-disclosure">
             Affiliate disclosure
           </Link>
           .
         </div>
 
-        {/* Core comparison block */}
         <div className="mt-8">
           <Recommended items={["rentalcars", "discovercars"]} />
         </div>
 
-        {/* Quick action panel */}
         <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="max-w-3xl">
@@ -54,7 +52,6 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </div>
 
-        {/* Pain points cards */}
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
             {
@@ -77,11 +74,10 @@ export default function CarRentalHelsinkiPage() {
           ))}
         </div>
 
-        {/* Comparison checklist table */}
         <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">Comparison checklist</h2>
           <p className="mt-2 text-sm text-slate-600">
-            This is the structure. You’ll plug in real partner URLs first, then we fill policy details cell-by-cell (deposit rules, debit acceptance, winter policy).
+            These platforms list offers from many suppliers. Exact rules vary by supplier and location, so always open the “Terms” before you commit.
           </p>
 
           <div className="mt-6 overflow-x-auto">
@@ -94,31 +90,70 @@ export default function CarRentalHelsinkiPage() {
                   <th className="border-b border-slate-200 pb-3 font-semibold text-slate-900">Local (Helsinki)</th>
                 </tr>
               </thead>
-              <tbody className="text-slate-700">
-                {[
-                  { row: "Deposit amount & hold time", local: "Parking / airport option (soon)" },
-                  { row: "Debit card acceptance", local: "Parking / airport option (soon)" },
-                  { row: "Winter tires included", local: "Parking / airport option (soon)" },
-                  { row: "Excess / insurance clarity", local: "Parking / airport option (soon)" },
-                  { row: "After-hours pickup policy", local: "Parking / airport option (soon)" },
-                ].map(({ row, local }) => (
-                  <tr key={row}>
-                    <td className="border-b border-slate-100 py-3 pr-4">{row}</td>
-                    <td className="border-b border-slate-100 py-3 pr-4 text-slate-400">TBD</td>
-                    <td className="border-b border-slate-100 py-3 pr-4 text-slate-400">TBD</td>
-                    <td className="border-b border-slate-100 py-3 text-slate-400">{local}</td>
-                  </tr>
-                ))}
+              <tbody className="text-slate-700 align-top">
+                <tr>
+                  <td className="border-b border-slate-100 py-3 pr-4">Deposit amount &amp; hold time</td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Supplier-dependent. Check the exact deposit in offer terms. Release timing is often bank-dependent.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Supplier-dependent. Verify deposit and whether additional holds apply (vehicle class, driver age, borders).
+                  </td>
+                  <td className="border-b border-slate-100 py-3 text-slate-500">Parking / airport option (soon)</td>
+                </tr>
+
+                <tr>
+                  <td className="border-b border-slate-100 py-3 pr-4">Debit card acceptance</td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Often credit-card-first at pickup. Debit may work only for specific suppliers/locations. Confirm in terms.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Varies by supplier. If debit acceptance is not explicit, assume credit is required at the counter.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 text-slate-500">Parking / airport option (soon)</td>
+                </tr>
+
+                <tr>
+                  <td className="border-b border-slate-100 py-3 pr-4">Winter tires included</td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Many Finland offers include winter tires, but not always. Confirm “included equipment” per offer.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Usually shown in the offer details. Verify if winter tires are included or charged as an add-on.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 text-slate-500">Parking / airport option (soon)</td>
+                </tr>
+
+                <tr>
+                  <td className="border-b border-slate-100 py-3 pr-4">Excess / insurance clarity</td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Always open the insurance section: check excess amount + exclusions (glass/tires/undercarriage).
+                  </td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Compare included coverage vs add-on coverage. Don’t trust names, verify deductible + exclusions.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 text-slate-500">Parking / airport option (soon)</td>
+                </tr>
+
+                <tr>
+                  <td className="border-b border-slate-100 py-3 pr-4">After-hours pickup policy</td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Depends on supplier desk hours. Confirm late pickup rules to avoid no-show issues.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
+                    Supplier-dependent. Check desk hours, late arrival procedure, and whether fees apply.
+                  </td>
+                  <td className="border-b border-slate-100 py-3 text-slate-500">Parking / airport option (soon)</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <div className="mt-6 text-sm text-slate-600">
-            Next: plug partner URLs, then expand this into a real comparison (deposit rules, debit acceptance, and winter policies).
+            Next: plug partner URLs, then expand this into a real Helsinki-specific comparison once we collect policy details from real offers.
           </div>
         </div>
 
-        {/* Internal links */}
         <div className="mt-10 flex flex-col gap-2 text-sm text-slate-600">
           <Link href="/blog" className="font-semibold text-orange-600 hover:underline">
             Read related posts →
