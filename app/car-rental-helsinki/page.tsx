@@ -5,56 +5,56 @@ export default function CarRentalHelsinkiPage() {
   return (
     <main className="bg-slate-50">
       <section className="mx-auto max-w-6xl px-6 py-14">
-        <h1 className="text-3xl font-bold text-slate-900">Car rental in Helsinki</h1>
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-bold text-slate-900">Car rental in Helsinki</h1>
+          <p className="max-w-3xl text-slate-600">
+            Deposit holds, debit card rules, winter add-ons, and the common counter surprises.
+            This page is built to prevent “cheap online price, expensive pickup reality”.
+          </p>
+        </div>
 
-        <p className="mt-3 max-w-3xl text-slate-600">
-          Deposit holds, debit card rules, winter add-ons, and the common counter surprises. This is the money-page
-          structure. Next step is plugging in partner URLs.
-        </p>
-
-        {/* Inline disclosure (SEO-barát, nem túl sok) */}
+        {/* Inline disclosure */}
         <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
-          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra
-          cost to you. See{" "}
+          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra cost to you.{" "}
           <Link className="underline underline-offset-4" href="/affiliate-disclosure">
-            affiliate disclosure
+            Affiliate disclosure
           </Link>
           .
         </div>
 
-        {/* Core monetization block */}
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-2xl">
-              <div className="text-sm font-semibold text-slate-900">Compare car rental prices</div>
-              <p className="mt-1 text-sm text-slate-600">
-                Check prices before you land. The cheapest offer online can get expensive at the counter once extras
-                appear (coverage, deposit rules, after-hours pickup).
-              </p>
+        {/* Core comparison block */}
+        <div className="mt-8">
+          <Recommended items={["rentalcars", "discovercars"]} />
+        </div>
 
-              <div className="mt-4">
-                <Recommended items={["discovercars", "rentalcars"]} />
-              </div>
+        {/* Quick action panel */}
+        <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-3xl">
+              <div className="text-sm font-semibold text-slate-900">What you’re actually comparing</div>
+              <p className="mt-1 text-sm text-slate-600">
+                Not just “price”. Compare deposit/hold, debit card acceptance, winter policy, insurance clarity, and after-hours pickup rules.
+              </p>
             </div>
 
-            <div className="flex gap-3 md:flex-col md:items-stretch">
-              <Link
-                href="/get-help"
-                className="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 text-center"
-              >
-                Ask before booking
-              </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/offer-checklist"
-                className="rounded-lg bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-500 text-center"
+                className="text-center rounded-lg bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-500"
               >
                 Offer checklist
+              </Link>
+              <Link
+                href="/get-help"
+                className="text-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                Ask before booking
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Pain points */}
+        {/* Pain points cards */}
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
             {
@@ -77,40 +77,36 @@ export default function CarRentalHelsinkiPage() {
           ))}
         </div>
 
-        {/* Comparison structure */}
+        {/* Comparison checklist table */}
         <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">Comparison checklist</h2>
           <p className="mt-2 text-sm text-slate-600">
-            This is the structure. We’ll fill the cells with real partner policies and links once URLs are plugged in.
+            This is the structure. You’ll plug in real partner URLs first, then we fill policy details cell-by-cell (deposit rules, debit acceptance, winter policy).
           </p>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[760px] border-collapse text-sm">
+            <table className="w-full min-w-[860px] border-collapse text-sm">
               <thead>
                 <tr className="text-left">
                   <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">Feature</th>
-                  <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">DiscoverCars</th>
                   <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">Rentalcars</th>
-                  <th className="border-b border-slate-200 pb-3 font-semibold text-slate-900">
-                    Local (Helsinki)
-                  </th>
+                  <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">DiscoverCars</th>
+                  <th className="border-b border-slate-200 pb-3 font-semibold text-slate-900">Local (Helsinki)</th>
                 </tr>
               </thead>
               <tbody className="text-slate-700">
                 {[
-                  "Deposit amount & hold time",
-                  "Debit card acceptance",
-                  "Winter tires included",
-                  "Excess / insurance clarity",
-                  "After-hours pickup policy",
-                ].map((row) => (
+                  { row: "Deposit amount & hold time", local: "Parking / airport option (soon)" },
+                  { row: "Debit card acceptance", local: "Parking / airport option (soon)" },
+                  { row: "Winter tires included", local: "Parking / airport option (soon)" },
+                  { row: "Excess / insurance clarity", local: "Parking / airport option (soon)" },
+                  { row: "After-hours pickup policy", local: "Parking / airport option (soon)" },
+                ].map(({ row, local }) => (
                   <tr key={row}>
                     <td className="border-b border-slate-100 py-3 pr-4">{row}</td>
                     <td className="border-b border-slate-100 py-3 pr-4 text-slate-400">TBD</td>
                     <td className="border-b border-slate-100 py-3 pr-4 text-slate-400">TBD</td>
-                    <td className="border-b border-slate-100 py-3 text-slate-400">
-                      Parking / airport option (soon)
-                    </td>
+                    <td className="border-b border-slate-100 py-3 text-slate-400">{local}</td>
                   </tr>
                 ))}
               </tbody>
@@ -118,12 +114,11 @@ export default function CarRentalHelsinkiPage() {
           </div>
 
           <div className="mt-6 text-sm text-slate-600">
-            Next: plug partner URLs, then expand into a real comparison (deposit rules, debit acceptance, and winter
-            policies).
+            Next: plug partner URLs, then expand this into a real comparison (deposit rules, debit acceptance, and winter policies).
           </div>
         </div>
 
-        {/* Internal linking */}
+        {/* Internal links */}
         <div className="mt-10 flex flex-col gap-2 text-sm text-slate-600">
           <Link href="/blog" className="font-semibold text-orange-600 hover:underline">
             Read related posts →
