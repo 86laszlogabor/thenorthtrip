@@ -3,8 +3,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata = {
   title: "Levi travel basics | TheNorthTrip",
-  description:
-    "Practical notes for Levi: ski focus, getting around, booking logic, and what to verify before paying.",
+  description: "Practical notes for Levi: ski focus, getting around, booking logic, and what to verify before paying.",
 };
 
 export default function LeviPage() {
@@ -34,7 +33,7 @@ export default function LeviPage() {
             <h2 className="text-lg font-semibold">Before you book</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
               <li>What’s included: gear, transfers, photos, food.</li>
-              <li>Cancellation: “free” often has a cutoff window.</li>
+              <li>Cancellation windows matter.</li>
               <li>Start time + pickup point: ski areas can mean early departures.</li>
             </ul>
           </section>
@@ -43,19 +42,13 @@ export default function LeviPage() {
         <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold">Use this with</h2>
           <p className="mt-2 text-sm text-slate-600">
-            If you’re doing Lapland activities, compare providers first, then book. The checklist keeps you from paying twice.
+            Compare providers first, then book. The checklist keeps you from paying twice.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href="/lapland-tours"
-              className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
-            >
+            <Link href="/lapland-tours" className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500">
               Lapland tours providers
             </Link>
-            <Link
-              href="/offer-checklist"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
+            <Link href="/offer-checklist" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
               Booking checklist
             </Link>
           </div>

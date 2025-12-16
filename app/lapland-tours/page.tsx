@@ -1,7 +1,6 @@
-import PartnerGrid from "@/components/PartnerGrid";
 import Link from "next/link";
+import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
-import ImageGrid from "@/components/ImageGrid";
 
 export default function LaplandToursPage() {
   return (
@@ -10,7 +9,7 @@ export default function LaplandToursPage() {
         title="Lapland tours"
         subtitle="Local-first options for aurora and husky experiences. Platforms stay as backup inventory, not the headline."
         imageSrc="/images/pages/lapland-tours/lapland-hero.jpg"
-        imageAlt="Lapland tour experience"
+        imageAlt="Lapland tour landscape"
         badge="Finland • Lapland tours"
         priority
       />
@@ -31,15 +30,7 @@ export default function LaplandToursPage() {
           </Link>
         </div>
 
-        <ImageGrid
-          title="Lapland moments"
-          items={[
-            { src: "/images/pages/lapland-tours/lapland-aurora.jpg", alt: "Northern lights in Lapland" },
-            { src: "/images/pages/lapland-tours/lapland-husky.jpg", alt: "Husky experience in Lapland" },
-          ]}
-        />
-
-        <section className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+        <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Recommended providers</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
             Local premium + niche specialist + platform backups for last-minute availability.
@@ -47,13 +38,7 @@ export default function LaplandToursPage() {
 
           <div className="mt-6">
             <PartnerGrid
-              keys={[
-                "staylapland",
-                "lapland_welcome",
-                "arctic_lifestyle",
-                "getyourguide_lapland",
-                "viator_lapland",
-              ]}
+              keys={["staylapland", "lapland_welcome", "arctic_lifestyle", "getyourguide_lapland", "viator_lapland"]}
               ctaLabel="See tours"
             />
           </div>
@@ -66,4 +51,3 @@ export default function LaplandToursPage() {
     </main>
   );
 }
-

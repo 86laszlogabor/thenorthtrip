@@ -12,8 +12,8 @@ export default function SiteFooter() {
               TheNorthTrip
             </div>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Decision-first guides for rentals and tours in Finland and the Nordics.
-              No SEO junk. Just stuff that helps you book without surprises.
+              Decision-first guides for rentals and tours in Finland and the Nordics. No SEO junk.
+              Just stuff that helps you book without surprises.
             </p>
 
             <div className="mt-5">

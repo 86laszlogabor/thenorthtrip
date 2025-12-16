@@ -3,8 +3,7 @@ import PageHero from "@/components/PageHero";
 
 export const metadata = {
   title: "Rovaniemi travel basics | TheNorthTrip",
-  description:
-    "Practical, non-fluffy notes for visiting Rovaniemi: season, transport, tours, and common tourist traps.",
+  description: "Practical, non-fluffy notes for visiting Rovaniemi: season, transport, tours, and common tourist traps.",
 };
 
 export default function RovaniemiPage() {
@@ -24,24 +23,18 @@ export default function RovaniemiPage() {
           <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
             <h2 className="text-lg font-semibold">When to go</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              <li>
-                <span className="font-semibold">Dec–Mar:</span> peak winter, best “classic Lapland” vibe, highest prices.
-              </li>
-              <li>
-                <span className="font-semibold">Sep–Nov:</span> early aurora season, cheaper, moodier weather.
-              </li>
-              <li>
-                <span className="font-semibold">Apr:</span> shoulder season, many operators reduce schedules.
-              </li>
+              <li><span className="font-semibold">Dec–Mar:</span> peak winter, highest prices.</li>
+              <li><span className="font-semibold">Sep–Nov:</span> early aurora season, cheaper.</li>
+              <li><span className="font-semibold">Apr:</span> shoulder season, fewer schedules.</li>
             </ul>
           </section>
 
           <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
             <h2 className="text-lg font-semibold">Common overpay traps</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              <li>“All-inclusive” tours that quietly exclude thermal gear or transfers.</li>
-              <li>Aurora tours promising certainty. Weather does not care about marketing.</li>
-              <li>Short husky rides sold as “safari”. Check minutes and distance.</li>
+              <li>“All-inclusive” that excludes gear/transfers.</li>
+              <li>Aurora tours promising certainty.</li>
+              <li>Short husky rides sold as “safari”.</li>
             </ul>
           </section>
         </div>
@@ -49,19 +42,13 @@ export default function RovaniemiPage() {
         <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold">Recommended next step</h2>
           <p className="mt-2 text-sm text-slate-600">
-            If you’re comparing experiences, use the Lapland tours page. It’s built to reduce “surprise extras”.
+            If you’re comparing experiences, use the Lapland tours page.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href="/lapland-tours"
-              className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
-            >
+            <Link href="/lapland-tours" className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500">
               Compare Lapland tours
             </Link>
-            <Link
-              href="/offer-checklist"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
+            <Link href="/offer-checklist" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50">
               Use the booking checklist
             </Link>
           </div>

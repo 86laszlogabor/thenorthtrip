@@ -25,7 +25,7 @@ export default function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="relative h-[360px] sm:h-[480px] lg:h-[560px] bg-slate-900">
+      <div className="relative h-[360px] sm:h-[480px] lg:h-[560px] bg-slate-950">
         <img
           src={src}
           alt={imageAlt}
@@ -34,18 +34,27 @@ export default function PageHero({
           fetchPriority={priority ? "high" : "auto"}
         />
 
-        {/* Kontraszt felül: olvashatóság, nem mosás */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/10" />
-
-        {/* ENYHE “lift” alul a kártyához, de nem fehér fal */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-transparent" />
-
-        {/* Vignette a prémiumabb hatásért */}
+        {/* Cinematic overlays: NO white wash */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(1200px 600px at 20% 20%, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.25) 100%)",
+          }}
+        />
         <div className="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.35)]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4">
-        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-white/95 backdrop-blur p-6 sm:p-8 shadow-sm">
+        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
           {badge ? (
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
               {badge}
