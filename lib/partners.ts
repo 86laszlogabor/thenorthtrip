@@ -1,174 +1,266 @@
 // lib/partners.ts
 
+export type PartnerType =
+  | "car_search"
+  | "car_operator"
+  | "camper_fleet"
+  | "camper_p2p"
+  | "camper_local"
+  | "tour_platform"
+  | "tour_local"
+  | "ferry_search"
+  | "ferry_operator"
+  | "sauna_local"
+  | "ticketing"
+  | "city_tours";
+
 export type PartnerKey =
+  // Car rental
   | "discovercars"
   | "sixt"
-  | "directferries"
-  | "getyourguide"
-  | "tiqets"
-  | "motorhomerepublic"
-  | "camperdays"
-  | "viator";
+  // Camper
+  | "indie_campers"
+  | "mycamper"
+  | "nordic_campers"
+  | "touring_cars_finland"
+  // Lapland tours
+  | "staylapland"
+  | "getyourguide_lapland"
+  | "viator_lapland"
+  | "lapland_welcome"
+  | "arctic_lifestyle"
+  // Helsinki ferry
+  | "direct_ferries"
+  | "tallink_silja"
+  | "viking_line"
+  // Helsinki sauna
+  | "loyly"
+  | "allas_sea_pool"
+  | "getyourguide_sauna"
+  | "tiqets_sauna"
+  // Helsinki city
+  | "getyourguide_city"
+  | "viator_city"
+  | "helsinki_city_tours"
+  | "redrib_experience";
 
 export type Partner = {
   key: PartnerKey;
   name: string;
-  brandHint?: string;
+  type: PartnerType;
+  badge?: "Top pick" | "Local" | "Backup" | "Winter-ready" | "Compare" | "Direct";
+  blurb: string;
 
-  // Affiliate links (placeholder for now)
-  url: string;
-  helsinkiUrl?: string;
+  /**
+   * Single source of truth for outbound links.
+   * Placeholder allowed ("#"/"TBD") until you get affiliate deals.
+   */
+  href: string;
 
-  // Display
-  disclosureLabel?: string;
-  bestFor: string;
-  bullets: string[];
-  ctaLabel?: string;
+  /** Optional internal note (not displayed) */
+  note?: string;
 };
 
 export const PARTNERS: Record<PartnerKey, Partner> = {
+  // -------------------------
+  // CAR RENTAL (Helsinki)
+  // -------------------------
   discovercars: {
     key: "discovercars",
     name: "DiscoverCars",
-    brandHint: "price discovery tool",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor:
-      "Scan the market fast. Compare multiple suppliers (including major brands like SIXT) before you commit.",
-    bullets: [
-      "Best used to understand the price landscape (not to blindly pick the cheapest)",
-      "Helps compare deposit/card/coverage differences across offers",
-      "Useful for airport vs city pickup comparison",
-      "Inventory varies by date and location",
-      "Always open the terms for payment method + deposit rules",
-    ],
-    ctaLabel: "Compare prices",
+    type: "car_search",
+    badge: "Compare",
+    blurb: "Search tool to compare prices and availability across multiple rental companies.",
+    href: "https://www.discovercars.com?a_aid=86laszlogabor",
+    note: "Affiliate link live.",
   },
-
   sixt: {
     key: "sixt",
     name: "SIXT",
-    brandHint: "our top pick (direct operator)",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor:
-      "Direct operator option in Finland when you want a cleaner pickup experience and predictable standards (not always the cheapest).",
-    bullets: [
-      "Finland rating shown as 4.6 (based on 4,489 reviews)",
-      "11 Finland airport locations highlighted for easier pickup/return",
-      "Helsinki-Vantaa Airport: Car Rental Center; 24h return listed",
-      "Seasonal equipment stated: winter tires in winter, summer tires in summer",
-      "Cross-border driving mentioned as available (confirm fees/permission in your booking terms)",
-      "Minimum age stated as 19; some categories higher; young driver surcharge may apply",
-      "Driver’s license typically must be valid for 1 year+ (category-dependent)",
-    ],
-    ctaLabel: "Check SIXT",
+    type: "car_operator",
+    badge: "Top pick",
+    blurb: "Direct operator. Predictability and customer support over saving a few euros.",
+    href: "#",
+    note: "Replace with affiliate/partner link when you get it.",
   },
 
-  directferries: {
-    key: "directferries",
+  // -------------------------
+  // CAMPER RENTAL (Finland)
+  // -------------------------
+  indie_campers: {
+    key: "indie_campers",
+    name: "Indie Campers",
+    type: "camper_fleet",
+    badge: "Top pick",
+    blurb: "Fleet-based rental. Simple booking, good for first-time camper trips in Finland.",
+    href: "#",
+  },
+  mycamper: {
+    key: "mycamper",
+    name: "MyCamper",
+    type: "camper_p2p",
+    badge: "Local",
+    blurb: "Peer-to-peer rentals from local owners. Often better value and flexibility than fleets.",
+    href: "#",
+  },
+  nordic_campers: {
+    key: "nordic_campers",
+    name: "Nordic Campers",
+    type: "camper_local",
+    badge: "Winter-ready",
+    blurb: "Premium local operator. Strong option for winter routes and Lapland travel.",
+    href: "#",
+  },
+  touring_cars_finland: {
+    key: "touring_cars_finland",
+    name: "Touring Cars",
+    type: "camper_local",
+    badge: "Winter-ready",
+    blurb: "Local fleet operator. Practical choice if you want a straightforward, robust setup.",
+    href: "#",
+  },
+
+  // -------------------------
+  // LAPLAND TOURS
+  // -------------------------
+  staylapland: {
+    key: "staylapland",
+    name: "StayLapland",
+    type: "tour_local",
+    badge: "Top pick",
+    blurb: "Curated Lapland experiences with a more local feel. Not mass-tourism vibes.",
+    href: "#",
+  },
+  lapland_welcome: {
+    key: "lapland_welcome",
+    name: "Lapland Welcome",
+    type: "tour_local",
+    badge: "Local",
+    blurb: "Local operator focus. Northern lights, husky, snowmobile style experiences.",
+    href: "#",
+  },
+  arctic_lifestyle: {
+    key: "arctic_lifestyle",
+    name: "Arctic Lifestyle",
+    type: "tour_local",
+    badge: "Local",
+    blurb: "Small-group Lapland experiences. Good niche-quality alternative to platforms.",
+    href: "#",
+  },
+  getyourguide_lapland: {
+    key: "getyourguide_lapland",
+    name: "GetYourGuide (Lapland)",
+    type: "tour_platform",
+    badge: "Backup",
+    blurb: "Platform backup for availability and last-minute booking options.",
+    href: "#",
+  },
+  viator_lapland: {
+    key: "viator_lapland",
+    name: "Viator (Lapland)",
+    type: "tour_platform",
+    badge: "Backup",
+    blurb: "Another platform backup to cover inventory gaps.",
+    href: "#",
+  },
+
+  // -------------------------
+  // HELSINKI FERRY
+  // -------------------------
+  direct_ferries: {
+    key: "direct_ferries",
     name: "Direct Ferries",
-    brandHint: "ferry comparison",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Direct ferry tickets (Tallinn / Stockholm) with schedule comparison.",
-    bullets: [
-      "Compare routes and operators in one place",
-      "Best for point-to-point ferry booking",
-      "Useful for Helsinki–Tallinn day trips",
-      "Also covers overnight Stockholm routes",
-      "Good if you want flexible departure times",
-    ],
-    ctaLabel: "Check ferries",
+    type: "ferry_search",
+    badge: "Compare",
+    blurb: "Compare routes and operators. Useful for quick schedule/price checks.",
+    href: "#",
+  },
+  tallink_silja: {
+    key: "tallink_silja",
+    name: "Tallink Silja",
+    type: "ferry_operator",
+    badge: "Direct",
+    blurb: "Direct operator. Reliable for Helsinki–Tallinn and Helsinki–Stockholm routes.",
+    href: "#",
+  },
+  viking_line: {
+    key: "viking_line",
+    name: "Viking Line",
+    type: "ferry_operator",
+    badge: "Direct",
+    blurb: "Direct operator. Solid alternative for route times and onboard options.",
+    href: "#",
   },
 
-  getyourguide: {
-    key: "getyourguide",
-    name: "GetYourGuide",
-    brandHint: "tours & tickets",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Guided experiences: day cruises, tours, sauna experiences, Lapland activities.",
-    bullets: [
-      "Good inventory for tours & tickets",
-      "Easy filtering by date and language",
-      "Often flexible cancellation (offer-dependent)",
-      "Works well as the main “experiences” partner",
-      "Useful when you want a packaged option",
-    ],
-    ctaLabel: "Browse options",
+  // -------------------------
+  // HELSINKI SAUNA
+  // -------------------------
+  loyly: {
+    key: "loyly",
+    name: "Löyly",
+    type: "sauna_local",
+    badge: "Top pick",
+    blurb: "Iconic local sauna experience by the sea. Book ahead on busy days.",
+    href: "#",
+  },
+  allas_sea_pool: {
+    key: "allas_sea_pool",
+    name: "Allas Sea Pool",
+    type: "sauna_local",
+    badge: "Local",
+    blurb: "Central, easy-access sauna + sea pool combo. Good city-day option.",
+    href: "#",
+  },
+  getyourguide_sauna: {
+    key: "getyourguide_sauna",
+    name: "GetYourGuide (Sauna)",
+    type: "ticketing",
+    badge: "Backup",
+    blurb: "Booking layer backup for tickets and bundles.",
+    href: "#",
+  },
+  tiqets_sauna: {
+    key: "tiqets_sauna",
+    name: "Tiqets (Sauna)",
+    type: "ticketing",
+    badge: "Backup",
+    blurb: "Ticketing backup, useful if you want quick mobile-friendly tickets.",
+    href: "#",
   },
 
-  tiqets: {
-    key: "tiqets",
-    name: "Tiqets",
-    brandHint: "tickets & activities",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Backup tickets platform when availability differs vs GetYourGuide.",
-    bullets: [
-      "Useful alternative inventory for tickets",
-      "Quick mobile-friendly booking",
-      "Good as a backup partner",
-      "Sometimes different cancellation terms",
-      "Compare vs GetYourGuide if sold out",
-    ],
-    ctaLabel: "Check tickets",
+  // -------------------------
+  // HELSINKI CITY / TOURS
+  // -------------------------
+  getyourguide_city: {
+    key: "getyourguide_city",
+    name: "GetYourGuide (Helsinki)",
+    type: "city_tours",
+    badge: "Backup",
+    blurb: "Platform backup for common tours and day trips.",
+    href: "#",
   },
-
-  motorhomerepublic: {
-    key: "motorhomerepublic",
-    name: "Motorhome Republic",
-    brandHint: "camper comparison",
-    url: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Campervan/motorhome comparison across multiple suppliers.",
-    bullets: [
-      "Good for broad price comparison",
-      "Useful filters for vehicle type and capacity",
-      "Works for longer road trips in Finland",
-      "Compare pickup locations and dates fast",
-      "Best as a primary camper comparison partner",
-    ],
-    ctaLabel: "Compare campers",
+  viator_city: {
+    key: "viator_city",
+    name: "Viator (Helsinki)",
+    type: "city_tours",
+    badge: "Backup",
+    blurb: "Another platform backup to cover inventory gaps.",
+    href: "#",
   },
-
-  camperdays: {
-    key: "camperdays",
-    name: "CamperDays",
-    brandHint: "camper rentals",
-    url: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Camper rental offers with clear filters and European supplier coverage.",
-    bullets: [
-      "Good second opinion vs other platforms",
-      "Useful for different supplier inventory",
-      "Filters help reduce mismatches",
-      "Good for planning multi-day trips",
-      "Compare insurance/excess details carefully",
-    ],
-    ctaLabel: "Check camper deals",
+  helsinki_city_tours: {
+    key: "helsinki_city_tours",
+    name: "Helsinki City Tours",
+    type: "city_tours",
+    badge: "Top pick",
+    blurb: "Local provider for city sightseeing routes and practical first-day tours.",
+    href: "#",
   },
-
-  viator: {
-    key: "viator",
-    name: "Viator",
-    brandHint: "tours marketplace",
-    url: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Backup inventory for tours when GetYourGuide is sold out.",
-    bullets: [
-      "Good backup marketplace for tours",
-      "Sometimes different availability/pricing",
-      "Useful for Lapland peak season",
-      "Compare cancellation terms per offer",
-      "Use as second check for sold-out dates",
-    ],
-    ctaLabel: "Browse tours",
+  redrib_experience: {
+    key: "redrib_experience",
+    name: "Redrib Experience",
+    type: "city_tours",
+    badge: "Local",
+    blurb: "Speedboat-style experiences. More memorable than yet another museum.",
+    href: "#",
   },
 };
