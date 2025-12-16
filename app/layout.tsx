@@ -5,10 +5,9 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thenorthtrip.com"),
   title: "TheNorthTrip",
   description:
-    "Decision-first Nordic travel planning: rentals and tours.",
+    "Decision-first guides for rentals and tours in Finland and the Nordics.",
 };
 
 export default function RootLayout({
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white text-slate-900">
+      <body className="bg-white text-slate-900">
         <SiteHeader />
         {children}
         <SiteFooter />
