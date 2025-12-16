@@ -2,99 +2,122 @@
 import type { ReactNode } from "react";
 
 export const CONTENT: Record<string, ReactNode> = {
-  "helsinki-airport-credit-card-deposit-hold": (
+  "car-rental-insurance-finland-cdw-supercdw-explained": (
     <>
-      <h2>What a deposit hold really is</h2>
+      <h2>What you are actually buying</h2>
       <p>
-        A deposit hold is not a charge. It is a temporary authorization placed on your credit card at pickup.
-        At Helsinki Airport, this is standard practice, even if you paid online.
+        CDW does not mean zero risk. It limits liability, but excess still applies.
+        The number that matters is the excess, not the marketing label.
       </p>
-      <h2>Why “paid online” still triggers a hold</h2>
+
+      <h2>CDW vs Super CDW</h2>
       <p>
-        Online payment usually covers the base rental price. It does not remove your liability. The desk still
-        needs a financial guarantee in case of damage, fuel issues, late return, or contract breaches.
+        Super CDW reduces the excess. In Finland, this often makes sense if you want
+        predictable worst-case cost, especially in winter conditions.
       </p>
-      <h2>Bottom line</h2>
-      <p><strong>Bottom line:</strong> Plan liquidity. Deposit holds are normal at airport pickups.</p>
+
+      <h2>The three questions that save money</h2>
+      <ol>
+        <li>What is the excess amount?</li>
+        <li>What damage is excluded (tires, glass, underbody)?</li>
+        <li>Who handles claims and what proof is required?</li>
+      </ol>
+
+      <p><strong>Bottom line:</strong> Insurance is liability clarity, not peace-of-mind marketing.</p>
     </>
   ),
 
-  "finland-car-rental-debit-card-when-it-fails": (
-    <>
-      <h2>Debit cards: sometimes yes, often no</h2>
-      <p>
-        Debit cards sometimes work in Finland, but airport pickups are the most common refusal point.
-      </p>
-      <h2>Bottom line</h2>
-      <p><strong>Bottom line:</strong> Verify with the operator before you book.</p>
-    </>
-  ),
-
-  "finland-winter-driving-addons-what-you-need": (
-    <>
-      <h2>What you actually need</h2>
-      <p>Winter tires are mandatory. Many “winter bundles” are not.</p>
-      <h2>Bottom line</h2>
-      <p><strong>Bottom line:</strong> Pay for safety and liability clarity, not upsells.</p>
-    </>
-  ),
-
-  "lapland-road-trip-costs-7-day-example": (
-    <>
-      <h2>7-day realistic budget</h2>
-      <p>
-        A realistic Lapland week is usually a few thousand euros for two people once you include stays, fuel,
-        and activities.
-      </p>
-      <h2>Bottom line</h2>
-      <p><strong>Bottom line:</strong> Lapland isn’t cheap, but it’s predictable if you budget honestly.</p>
-    </>
-  ),
-
-  "lapland-tours-included-vs-extra": (
-    <>
-      <h2>Included vs extra</h2>
-      <p>
-        “Included” often covers the activity and guide, while thermal gear, photos, and transfers may cost extra.
-      </p>
-      <h2>Bottom line</h2>
-      <p><strong>Bottom line:</strong> Compare tours by what’s NOT included first.</p>
-    </>
-  ),
-
-  "rovaniemi-vs-levi-vs-yllas": (
-    <>
-      <h2>Quick decision</h2>
-      <ul>
-        <li>Short trip + logistics → Rovaniemi</li>
-        <li>Ski + comfort → Levi</li>
-        <li>Nature + quiet → Ylläs</li>
-      </ul>
-    </>
-  ),
-
-  "camper-rental-finland-winter-reality": (
+  "camper-rental-finland-winter-reality-check-costs-heating-roads": (
     <>
       <h2>Winter camper reality</h2>
       <p>
-        Heating, batteries, and water systems change everything. Winter camper trips are doable, but not
-        automatically cheap or easy.
+        Heating, batteries, water systems, and short daylight change everything.
+        Winter camper travel is possible, but not cheap or effortless.
       </p>
+
+      <h2>Who this is for</h2>
+      <ul>
+        <li>Experienced campers</li>
+        <li>Flexible itineraries</li>
+        <li>People who value experience over savings</li>
+      </ul>
+
+      <p><strong>Bottom line:</strong> Winter campers are a lifestyle choice, not a budget hack.</p>
     </>
   ),
 
-  "car-rental-insurance-finland-explained": (
+  "rovaniemi-vs-levi-vs-yllas-which-base-to-choose": (
     <>
-      <h2>Insurance without fluff</h2>
+      <h2>Rovaniemi</h2>
+      <p>Best logistics. More crowds.</p>
+
+      <h2>Levi</h2>
+      <p>Resort comfort. Higher prices.</p>
+
+      <h2>Ylläs</h2>
+      <p>Quiet, nature-first. Car recommended.</p>
+
+      <p><strong>Decision shortcut:</strong> Convenience → Rovaniemi. Ski comfort → Levi. Silence → Ylläs.</p>
+    </>
+  ),
+
+  "lapland-tours-whats-included-vs-whats-quietly-extra": (
+    <>
+      <h2>Included rarely means complete</h2>
       <p>
-        CDW reduces liability. Excess is what you still risk paying. Super CDW reduces excess and can be worth it.
+        Gear, photos, food, and transfers are often extra. Compare tours by what is
+        not included first.
       </p>
-      <h2>The 3 questions</h2>
-      <ol>
-        <li>What is the excess amount?</li>
-        <li>What damage is excluded (glass, underbody, tires)?</li>
-        <li>Who handles claims and what proof is required?</li>
-      </ol>
+
+      <p><strong>Bottom line:</strong> Cheap tours often become average-priced at checkout.</p>
+    </>
+  ),
+
+  "lapland-road-trip-costs-a-realistic-7-day-example": (
+    <>
+      <h2>Realistic cost range</h2>
+      <p>
+        A 7-day Lapland road trip for two usually lands between €2,300 and €3,900
+        once you include accommodation, fuel, and activities.
+      </p>
+
+      <p><strong>Bottom line:</strong> Lapland is expensive, but predictable when planned honestly.</p>
+    </>
+  ),
+
+  "finland-winter-driving-add-ons-what-you-actually-need": (
+    <>
+      <h2>What matters</h2>
+      <p>
+        Winter tires are mandatory. Many winter bundles are upsell fluff.
+        Focus on excess and excluded damage categories.
+      </p>
+
+      <p><strong>Bottom line:</strong> Pay for safety, not accessories.</p>
+    </>
+  ),
+
+  "finland-car-rental-with-a-debit-card-when-it-works-and-when-you-get-refused": (
+    <>
+      <h2>Debit card reality</h2>
+      <p>
+        Debit cards sometimes work in Finland. At airports, they often do not.
+        Verify with the operator before booking.
+      </p>
+
+      <p><strong>Bottom line:</strong> Do not gamble your trip on a debit card.</p>
+    </>
+  ),
+
+  "helsinki-airport-car-rental-credit-card-deposit-hold-what-actually-happens": (
+    <>
+      <h2>What a deposit hold is</h2>
+      <p>
+        A deposit hold is a temporary authorization, not a charge. At Helsinki Airport,
+        it is standard even if you paid online.
+      </p>
+
+      <p><strong>Bottom line:</strong> Plan available credit, not just rental price.</p>
     </>
   ),
 };
