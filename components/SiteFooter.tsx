@@ -3,11 +3,13 @@ import Link from "next/link";
 export default function SiteFooter() {
   const year = new Date().getFullYear();
 
+  const discoverCarsHref = "https://www.discovercars.com?a_aid=86laszlogabor";
+
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2">
             <div className="text-lg font-extrabold tracking-tight text-slate-900">
               TheNorthTrip
             </div>
@@ -42,17 +44,24 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <div className="text-sm font-bold text-slate-900">Site</div>
+            <div className="text-sm font-bold text-slate-900">Partners</div>
             <div className="mt-3 space-y-2 text-sm">
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/blog">
-                Blog
+              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/car-rental-helsinki">
+                Car rental partners
               </Link>
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/affiliate-disclosure">
-                Affiliate disclosure
-              </Link>
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/contact">
-                Contact
-              </Link>
+
+              <a
+                className="block text-slate-700 hover:text-slate-900 hover:underline"
+                href={discoverCarsHref}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+              >
+                DiscoverCars (compare prices)
+              </a>
+
+              <div className="pt-1 text-xs text-slate-500">
+                Some links may be sponsored.
+              </div>
             </div>
           </div>
 

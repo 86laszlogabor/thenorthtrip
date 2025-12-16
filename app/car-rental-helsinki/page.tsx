@@ -12,11 +12,14 @@ export default function CarRentalHelsinkiPage() {
   const dc = PARTNERS.discovercars;
   const sx = PARTNERS.sixt;
 
-  const dcHref = dc?.href ?? "#";
+  const dcHref = dc?.href ?? "https://www.discovercars.com?a_aid=86laszlogabor";
   const sxHref = sx?.href ?? "#";
 
   const dcLive = isLive(dcHref);
   const sxLive = isLive(sxHref);
+
+  // Hard guarantee: direct (non-widget) DiscoverCars link exists on page
+  const directDiscoverCars = "https://www.discovercars.com?a_aid=86laszlogabor";
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -30,7 +33,37 @@ export default function CarRentalHelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
+        {/* DIRECT DiscoverCars link (bonus requirement friendly) */}
         <section className="mt-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                Compare tool (recommended first step)
+              </div>
+              <h2 className="mt-3 text-2xl font-bold text-slate-900">DiscoverCars</h2>
+              <p className="mt-2 text-slate-700">
+                Quick way to compare prices, availability, and conditions across providers before you commit.
+              </p>
+              <p className="mt-2 text-xs text-slate-500">
+                Affiliate disclosure applies. Link may be sponsored.
+              </p>
+            </div>
+
+            <div className="mt-4 sm:mt-0 sm:pl-6">
+              <a
+                href={directDiscoverCars}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-500 text-black hover:bg-orange-600 transition"
+              >
+                Compare prices on DiscoverCars
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Top pick */}
+        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
               <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
@@ -58,6 +91,7 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
+        {/* Step 1 (kept for structure) */}
         <section className="mt-10">
           <h2 className="text-2xl font-bold">Step 1: Compare the market</h2>
           <p className="mt-2 max-w-3xl text-slate-700">
@@ -77,7 +111,7 @@ export default function CarRentalHelsinkiPage() {
 
               <div className="mt-4 sm:mt-0 sm:pl-6">
                 <SponsoredLink
-                  href={dcLive ? dcHref : "#"}
+                  href={dcLive ? dcHref : directDiscoverCars}
                   label="Compare prices"
                   className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-500 text-black hover:bg-orange-600 transition"
                 />
