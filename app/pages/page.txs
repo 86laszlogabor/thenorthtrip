@@ -1,0 +1,43 @@
+import Link from "next/link";
+
+const PAGES = [
+  { href: "/", title: "Home", desc: "Landing page" },
+  { href: "/car-rental-helsinki", title: "Car rental Helsinki", desc: "Money page skeleton" },
+  { href: "/lapland-tours", title: "Lapland tours", desc: "Pillar page skeleton" },
+  { href: "/camper-rental-finland", title: "Camper rental Finland", desc: "Pillar page skeleton" },
+  { href: "/blog", title: "Blog", desc: "All posts" },
+  { href: "/get-help", title: "Ask before booking", desc: "Lead page skeleton" },
+  { href: "/offer-checklist", title: "Offer checklist", desc: "Checklist page (if exists)" },
+  { href: "/about", title: "About", desc: "About page" },
+  { href: "/contact", title: "Contact", desc: "Contact page" },
+  { href: "/affiliate-disclosure", title: "Affiliate disclosure", desc: "Disclosure page" },
+  { href: "/privacy", title: "Privacy", desc: "Privacy page" },
+  { href: "/terms", title: "Terms", desc: "Terms page" },
+];
+
+export default function PagesIndex() {
+  return (
+    <main className="bg-slate-50">
+      <section className="mx-auto max-w-6xl px-6 py-14">
+        <h1 className="text-3xl font-bold text-slate-900">All pages</h1>
+        <p className="mt-3 max-w-2xl text-slate-600">
+          Quick navigation while we build content. No more dead ends.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {PAGES.map((p) => (
+            <Link
+              key={p.href}
+              href={p.href}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="text-lg font-semibold text-slate-900">{p.title}</div>
+              <div className="mt-2 text-sm text-slate-600">{p.desc}</div>
+              <div className="mt-4 text-sm font-semibold text-orange-600">Open →</div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}

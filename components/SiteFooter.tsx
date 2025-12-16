@@ -1,43 +1,51 @@
-import React from "react";
+import Link from "next/link";
 
 export default function SiteFooter() {
   return (
-    <footer className="mt-16 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <div className="font-semibold text-white">NordicDrive</div>
-          <p className="mt-2 text-sm text-white/70 leading-relaxed">
-            Practical guides for comparing travel offers in Finland.
-            Deposits, insurance, desk rules, real-world gotchas.
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="text-lg font-semibold text-slate-900">TheNorthTrip</div>
+            <p className="mt-3 max-w-md text-sm text-slate-600">
+              Practical booking facts for Finland: deposits, debit cards, winter add-ons, and what’s actually included.
+            </p>
+          </div>
+
+          <div>
+            <div className="text-sm font-semibold text-slate-900">Explore</div>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              <li><Link className="hover:underline" href="/">Home</Link></li>
+              <li><Link className="hover:underline" href="/pages">All pages</Link></li>
+              <li><Link className="hover:underline" href="/blog">Blog</Link></li>
+              <li><Link className="hover:underline" href="/car-rental-helsinki">Car rental Helsinki</Link></li>
+              <li><Link className="hover:underline" href="/lapland-tours">Lapland tours</Link></li>
+              <li><Link className="hover:underline" href="/camper-rental-finland">Camper rental Finland</Link></li>
+              <li><Link className="hover:underline" href="/get-help">Ask before booking</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-sm font-semibold text-slate-900">Legal</div>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              <li><Link className="hover:underline" href="/affiliate-disclosure">Affiliate disclosure</Link></li>
+              <li><Link className="hover:underline" href="/privacy">Privacy</Link></li>
+              <li><Link className="hover:underline" href="/terms">Terms</Link></li>
+              <li><Link className="hover:underline" href="/contact">Contact</Link></li>
+              <li><Link className="hover:underline" href="/about">About</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} TheNorthTrip.</p>
+          <p>
+            We may earn a commission from partner links. See{" "}
+            <Link className="underline" href="/affiliate-disclosure">
+              disclosure
+            </Link>
+            .
           </p>
-        </div>
-
-        <div>
-          <div className="font-semibold text-white">Explore</div>
-          <div className="mt-3 grid gap-2 text-sm">
-            <a className="text-white/70 hover:text-white transition" href="/car-rental-helsinki">Car rental Helsinki</a>
-            <a className="text-white/70 hover:text-white transition" href="/camper-rental-finland">Camper rental Finland</a>
-            <a className="text-white/70 hover:text-white transition" href="/lapland-tours">Lapland tours</a>
-            <a className="text-white/70 hover:text-white transition" href="/blog">Blog</a>
-            <a className="text-white/70 hover:text-white transition" href="/offer-checklist">Offer checklist</a>
-          </div>
-        </div>
-
-        <div>
-          <div className="font-semibold text-white">Legal</div>
-          <div className="mt-3 grid gap-2 text-sm">
-            <a className="text-white/70 hover:text-white transition" href="/affiliate-disclosure">Affiliate disclosure</a>
-            <a className="text-white/70 hover:text-white transition" href="/privacy">Privacy</a>
-            <a className="text-white/70 hover:text-white transition" href="/terms">Terms</a>
-            <a className="text-white/70 hover:text-white transition" href="/contact">Contact</a>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-white/50 flex flex-wrap gap-2 justify-between">
-          <span>© {new Date().getFullYear()} NordicDrive</span>
-          <span>Built to reduce desk drama.</span>
         </div>
       </div>
     </footer>

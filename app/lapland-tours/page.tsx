@@ -1,77 +1,50 @@
-import type { Metadata } from "next";
-import PillarPage from "@/components/PillarPage";
-import HeroSplit from "@/components/HeroSplit";
-import TrustStrip from "@/components/TrustStrip";
-import FAQ from "@/components/FAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
-import CTACluster from "@/components/CTACluster";
-import TopPosts from "@/components/TopPosts";
-import { buildMetadata } from "@/lib/metadata";
-import { SITE } from "@/lib/site";
+import Link from "next/link";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Lapland tours – what’s worth it and what to skip",
-  description:
-    "Lapland tours explained. Northern lights, activities, and how to avoid overpriced packages.",
-  path: "/lapland-tours",
-});
-
-export default function Page() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Lapland tours",
-    url: `${SITE.url}/lapland-tours`,
-    description: metadata.description,
-  };
-
+export default function LaplandToursPage() {
   return (
-    <PillarPage
-      pillar="lapland-tours"
-      hero={
-        <HeroSplit
-          title="Lapland tours"
-          subtitle="Northern lights, huskies, snowmobiles – realistic expectations only."
-          primaryCtaText="Open offer checklist"
-          primaryCtaHref="/offer-checklist"
-        />
-      }
-      trust={<TrustStrip items={["Realistic expectations", "Operator selection tips", "Clear inclusions"]} />}
-      sections={[
-        { title: "Northern lights reality", body: "You’re buying probability, not certainty. Weather decides." },
-        { title: "Activities compared", body: "Group size and duration matter more than glossy photos." },
-        { title: "Avoid overpriced packages", body: "Prefer clear inclusions and cancellation rules." },
-      ]}
-      compare={{
-        title: "Compare Lapland tour offers",
-        primaryLabel: "Offer checklist",
-        primaryHref: "/offer-checklist",
-        secondaryLabel: "Read blog posts",
-        secondaryHref: "/blog?pillar=%2Flapland-tours",
-      }}
-      faq={
-        <FAQ
-          items={[
-            { q: "Best time to visit?", a: "Depends on light, weather, and activities. No perfect month." },
-            { q: "Is winter gear included?", a: "Sometimes. If it’s not explicit, assume it’s not." },
-          ]}
-        />
-      }
-      blog={
-        <>
-          <CTACluster
-            title="Lapland quick actions"
-            subtitle="Checklist first, then pillar guides."
-            buttons={[
-              { label: "Offer checklist", href: "/offer-checklist", variant: "primary" },
-              { label: "Read guides", href: "/blog?pillar=%2Flapland-tours", variant: "secondary" },
-            ]}
-          />
-          <TopPosts pillar="/lapland-tours" title="Top posts: Lapland tours" limit={6} />
-        </>
-      }
-      sticky={<StickyMobileCTA text="Offer checklist" href="/offer-checklist" />}
-      jsonLd={jsonLd}
-    />
+    <main className="bg-slate-50">
+      <section className="mx-auto max-w-6xl px-6 py-14">
+        <h1 className="text-3xl font-bold text-slate-900">Lapland tours</h1>
+        <p className="mt-3 max-w-3xl text-slate-600">
+          Compare inclusions safely: transfers, warm gear, photos, food, and the “quiet extras” that change the final price.
+        </p>
+
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="text-sm font-semibold text-slate-900">Tour comparison (coming next)</div>
+              <p className="mt-1 text-sm text-slate-600">
+                We’ll add partner/provider comparisons after affiliate selection.
+              </p>
+            </div>
+            <Link
+              href="/get-help"
+              className="rounded-lg bg-orange-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
+            >
+              Ask before booking
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            { title: "What’s included", text: "Transfers, gear, food, guide, photos. Compare line-by-line." },
+            { title: "Common upsells", text: "Extra distance, premium gear, photo packages, ‘optional’ fees." },
+            { title: "Pick your base", text: "Rovaniemi vs Levi vs Ylläs depending on goals and budget." },
+          ].map((b) => (
+            <div key={b.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-slate-900">{b.title}</h2>
+              <p className="mt-2 text-sm text-slate-600">{b.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <Link href="/blog" className="font-semibold text-orange-600 hover:underline">
+            Read Lapland guides →
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
