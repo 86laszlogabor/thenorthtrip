@@ -95,6 +95,9 @@ function CheckDot() {
   );
 }
 
+const PrimaryPillCta =
+  "rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500";
+
 export default function OfferChecklistPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -187,23 +190,15 @@ export default function OfferChecklistPage() {
             Pick what you’re actually booking, then use the pillar guides to avoid the most common traps.
           </p>
 
+          {/* mindhárom narancs */}
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              href="/car-rental-helsinki"
-              className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
-            >
+            <Link href="/car-rental-helsinki" className={PrimaryPillCta}>
               Car rental Helsinki
             </Link>
-            <Link
-              href="/camper-rental-finland"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
+            <Link href="/camper-rental-finland" className={PrimaryPillCta}>
               Camper rentals
             </Link>
-            <Link
-              href="/lapland-tours"
-              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
+            <Link href="/lapland-tours" className={PrimaryPillCta}>
               Lapland tours
             </Link>
           </div>
@@ -212,7 +207,9 @@ export default function OfferChecklistPage() {
         {/* QUICK COPY TEMPLATE */}
         <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">Quick copy template</h2>
-          <p className="mt-2 text-sm text-slate-600">Paste this into your notes while comparing offers.</p>
+          <p className="mt-2 text-sm text-slate-600">
+            Paste this into your notes while comparing offers.
+          </p>
 
           <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-100">
             <pre className="whitespace-pre-wrap text-sm leading-6">
