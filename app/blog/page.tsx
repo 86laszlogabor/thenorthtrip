@@ -1,45 +1,63 @@
+// app/blog/page.tsx
 import Link from "next/link";
 import { BLOG } from "@/lib/blog";
 
+export const metadata = {
+  title: "Blog | TheNorthTrip",
+  description:
+    "Practical guides for Finland bookings: deposits, debit cards, winter add-ons, and Lapland comparisons.",
+};
+
 export default function BlogIndexPage() {
-  const posts = [...BLOG].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  const posts = [...BLOG].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 
   return (
-    <main className="bg-slate-50">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <h1 className="text-3xl font-bold text-slate-900">Blog</h1>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Practical guides for Finland bookings: deposits, debit cards, winter add-ons, and Lapland comparisons.
-        </p>
+    <main className="min-h-screen bg-gray-950 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <header>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Blog</h1>
+          <p className="mt-3 max-w-2xl text-white/70">
+            Practical guides for Finland bookings: deposits, debit cards, winter add-ons, and Lapland
+            comparisons.
+          </p>
+        </header>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {posts.map((p) => (
             <Link
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
             >
-              <div className="flex items-center justify-between gap-3">
-                <h2 className="text-lg font-semibold text-slate-900">{p.title}</h2>
-                {p.draft ? (
-                  <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                    Draft
-                  </span>
-                ) : null}
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-white group-hover:text-white">
+                    {p.title}
+                  </h2>
+                  <p className="mt-2 text-sm text-white/70">{p.description}</p>
+                </div>
+
+                <div className="shrink-0 text-xs text-white/50">{p.publishedAt}</div>
               </div>
-              <p className="mt-3 text-sm text-slate-600">{p.description}</p>
+
               <div className="mt-4 flex flex-wrap gap-2">
-                {p.tags.slice(0, 4).map((t) => (
-                  <span key={t} className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">
+                {p.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/70"
+                  >
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-5 text-sm font-semibold text-orange-600">Open →</div>
+
+              <div className="mt-4 text-sm font-semibold text-orange-400">
+                Open <span className="opacity-70">→</span>
+              </div>
             </Link>
           ))}
         </div>
-      </section>
+      </div>
     </main>
   );
 }
