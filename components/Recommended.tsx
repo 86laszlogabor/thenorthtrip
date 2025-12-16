@@ -22,7 +22,9 @@ export default function Recommended({
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         {items.map((key) => {
           const p = PARTNERS[key];
-          const isPlaceholder = !p.url || p.url === "#";
+
+          const href = p.helsinkiUrl || p.url || "#";
+          const isPlaceholder = !href || href === "#";
 
           return (
             <div
@@ -31,9 +33,7 @@ export default function Recommended({
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <div className="text-base font-semibold text-slate-900">
-                    {p.name}
-                  </div>
+                  <div className="text-base font-semibold text-slate-900">{p.name}</div>
                   {p.brandHint ? (
                     <div className="mt-0.5 text-xs text-slate-500">{p.brandHint}</div>
                   ) : null}
@@ -47,8 +47,7 @@ export default function Recommended({
               </div>
 
               <p className="mt-3 text-sm text-slate-700">
-                <span className="font-semibold text-slate-900">Best for:</span>{" "}
-                {p.bestFor}
+                <span className="font-semibold text-slate-900">Best for:</span> {p.bestFor}
               </p>
 
               <ul className="mt-3 space-y-1 text-sm text-slate-600 list-disc list-inside">
@@ -68,7 +67,7 @@ export default function Recommended({
                   </button>
                 ) : (
                   <Link
-                    href={p.url}
+                    href={href}
                     className="w-full text-center rounded-lg bg-orange-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-orange-500"
                     rel="sponsored nofollow"
                     target="_blank"
@@ -78,7 +77,7 @@ export default function Recommended({
                 )}
 
                 <div className="text-xs text-slate-500">
-                  Tip: compare both. The cheapest “headline price” often changes once deposit, coverage, and pickup rules are considered.
+                  Tip: compare both. Price can change once deposit, coverage, and pickup rules are considered.
                 </div>
               </div>
 
