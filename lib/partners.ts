@@ -2,7 +2,7 @@
 
 export type PartnerKey =
   | "discovercars"
-  | "rentalcars"
+  | "sixt"
   | "directferries"
   | "getyourguide"
   | "tiqets"
@@ -15,11 +15,11 @@ export type Partner = {
   name: string;
   brandHint?: string;
 
-  // Linkek (most placeholder, holnap csere)
-  url: string;           // fallback / default partner link
-  helsinkiUrl?: string;  // city-specific deep link (optional)
+  // Affiliate links (placeholder for now)
+  url: string;
+  helsinkiUrl?: string;
 
-  // Megjelenítés
+  // Display
   disclosureLabel?: string;
   bestFor: string;
   bullets: string[];
@@ -27,40 +27,44 @@ export type Partner = {
 };
 
 export const PARTNERS: Record<PartnerKey, Partner> = {
-  rentalcars: {
-    key: "rentalcars",
-    name: "Rentalcars.com",
-    brandHint: "by Booking.com",
-    url: "#",
-    helsinkiUrl: "#",
-    disclosureLabel: "Sponsored",
-    bestFor: "Familiar global brands, stable booking flow, wide availability.",
-    bullets: [
-      "Strong coverage of major rental chains",
-      "Customer support in many languages",
-      "Free cancellation on many bookings (booking-dependent)",
-      "Good for predictable booking UX",
-      "Useful if you prefer well-known suppliers",
-    ],
-    ctaLabel: "Check prices",
-  },
-
   discovercars: {
     key: "discovercars",
     name: "DiscoverCars",
-    brandHint: "comparison platform",
+    brandHint: "price discovery tool",
     url: "#",
     helsinkiUrl: "#",
     disclosureLabel: "Sponsored",
-    bestFor: "Compare big brands + smaller local providers (often where price gaps appear).",
+    bestFor:
+      "Scan the market fast. Compare multiple suppliers (including major brands like SIXT) before you commit.",
     bullets: [
-      "Good for spotting cheaper local suppliers",
-      "Helps compare deposit and coverage differences",
-      "Works well for airport vs city pickup comparisons",
-      "Great as a second check before booking",
-      "Inventory sometimes differs vs other platforms",
+      "Best used to understand the price landscape (not to blindly pick the cheapest)",
+      "Helps compare deposit/card/coverage differences across offers",
+      "Useful for airport vs city pickup comparison",
+      "Inventory varies by date and location",
+      "Always open the terms for payment method + deposit rules",
     ],
-    ctaLabel: "Check prices",
+    ctaLabel: "Compare prices",
+  },
+
+  sixt: {
+    key: "sixt",
+    name: "SIXT",
+    brandHint: "our top pick (direct operator)",
+    url: "#",
+    helsinkiUrl: "#",
+    disclosureLabel: "Sponsored",
+    bestFor:
+      "Direct operator option in Finland when you want a cleaner pickup experience and predictable standards (not always the cheapest).",
+    bullets: [
+      "Finland rating shown as 4.6 (based on 4,489 reviews)",
+      "11 Finland airport locations highlighted for easier pickup/return",
+      "Helsinki-Vantaa Airport: Car Rental Center; 24h return listed",
+      "Seasonal equipment stated: winter tires in winter, summer tires in summer",
+      "Cross-border driving mentioned as available (confirm fees/permission in your booking terms)",
+      "Minimum age stated as 19; some categories higher; young driver surcharge may apply",
+      "Driver’s license typically must be valid for 1 year+ (category-dependent)",
+    ],
+    ctaLabel: "Check SIXT",
   },
 
   directferries: {
@@ -106,7 +110,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     url: "#",
     helsinkiUrl: "#",
     disclosureLabel: "Sponsored",
-    bestFor: "Backup tickets platform when availability differs vs GYG.",
+    bestFor: "Backup tickets platform when availability differs vs GetYourGuide.",
     bullets: [
       "Useful alternative inventory for tickets",
       "Quick mobile-friendly booking",
