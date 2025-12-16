@@ -1,6 +1,6 @@
 // components/PartnerGrid.tsx
 import SponsoredLink from "./SponsoredLink";
-import { PARTNERS, PartnerKey } from "@/lib/partners";
+import { PARTNERS, PartnerKey, isLivePartner } from "@/lib/partners";
 
 type Props = {
   keys: PartnerKey[];
@@ -12,6 +12,8 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {keys.map((k) => {
         const p = PARTNERS[k];
+        const live = isLivePartner(p);
+
         return (
           <div
             key={p.key}
@@ -22,6 +24,7 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
                 <div className="text-base font-semibold text-white">{p.name}</div>
                 <div className="mt-1 text-sm text-white/70">{p.blurb}</div>
               </div>
+
               {p.badge ? (
                 <div className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
                   {p.badge}
@@ -30,7 +33,11 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
             </div>
 
             <div className="mt-4">
-              <SponsoredLink href={p.href} label={ctaLabel} />
+              <SponsoredLink
+                href={live ? p.href : undefined}
+                disabled={!live}
+                label={ctaLabel}
+              />
               <div className="mt-2 text-xs text-white/50">
                 Affiliate disclosure applies. Links may be sponsored.
               </div>

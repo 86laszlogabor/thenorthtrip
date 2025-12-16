@@ -1,16 +1,14 @@
 // app/car-rental-helsinki/page.tsx
 import PartnerGrid from "@/components/PartnerGrid";
-import { PARTNERS } from "@/lib/partners";
+import SponsoredLink from "@/components/SponsoredLink";
+import { PARTNERS, isLivePartner } from "@/lib/partners";
 
 export default function CarRentalHelsinkiPage() {
   const dc = PARTNERS.discovercars;
   const sx = PARTNERS.sixt;
 
-  const dcHref = dc?.href || "#";
-  const sxHref = sx?.href || "#";
-
-  const dcPlaceholder = dcHref === "#" || dcHref.toLowerCase() === "tbd";
-  const sxPlaceholder = sxHref === "#" || sxHref.toLowerCase() === "tbd";
+  const sxLive = isLivePartner(sx);
+  const dcLive = isLivePartner(dc);
 
   return (
     <main className="min-h-screen bg-gray-950 text-white">
@@ -51,20 +49,16 @@ export default function CarRentalHelsinkiPage() {
 
             {/* CTA */}
             <div className="mt-4 sm:mt-0">
-              <a
-                href={sxHref}
-                target="_blank"
-                rel="sponsored nofollow noopener"
-                aria-disabled={sxPlaceholder}
-                className={[
-                  "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition",
-                  sxPlaceholder
-                    ? "bg-white/10 text-white/50 cursor-not-allowed pointer-events-none"
-                    : "bg-orange-600 hover:bg-orange-500 text-white",
-                ].join(" ")}
-              >
-                Check SIXT options <span className="ml-2 opacity-70">↗</span>
-              </a>
+              <SponsoredLink
+                href={sxLive ? sx.href : undefined}
+                disabled={!sxLive}
+                label="Check SIXT options"
+                className={
+                  sxLive
+                    ? "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition"
+                    : "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-white/10 text-white/50 cursor-not-allowed"
+                }
+              />
               <div className="mt-2 text-xs text-white/50">
                 Affiliate disclosure applies. Links may be sponsored.
               </div>
@@ -95,20 +89,16 @@ export default function CarRentalHelsinkiPage() {
               </div>
 
               <div className="mt-4 sm:mt-0">
-                <a
-                  href={dcHref}
-                  target="_blank"
-                  rel="sponsored nofollow noopener"
-                  aria-disabled={dcPlaceholder}
-                  className={[
-                    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition",
-                    dcPlaceholder
-                      ? "bg-white/10 text-white/50 cursor-not-allowed pointer-events-none"
-                      : "bg-orange-600 hover:bg-orange-500 text-white",
-                  ].join(" ")}
-                >
-                  Compare prices <span className="ml-2 opacity-70">↗</span>
-                </a>
+                <SponsoredLink
+                  href={dcLive ? dc.href : undefined}
+                  disabled={!dcLive}
+                  label="Compare prices"
+                  className={
+                    dcLive
+                      ? "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition"
+                      : "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-white/10 text-white/50 cursor-not-allowed"
+                  }
+                />
                 <div className="mt-2 text-xs text-white/50">
                   Affiliate disclosure applies. Links may be sponsored.
                 </div>
@@ -150,7 +140,7 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* RECOMMENDED (OPTIONAL) */}
+        {/* RECOMMENDED */}
         <section className="mt-12">
           <h2 className="text-2xl font-bold">Recommended options</h2>
           <p className="mt-2 max-w-2xl text-white/70">

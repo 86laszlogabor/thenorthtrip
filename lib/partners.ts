@@ -1,5 +1,7 @@
 // lib/partners.ts
 
+export type PartnerStatus = "live" | "placeholder";
+
 export type PartnerType =
   | "car_search"
   | "car_operator"
@@ -51,15 +53,16 @@ export type Partner = {
   badge?: "Top pick" | "Local" | "Backup" | "Winter-ready" | "Compare" | "Direct";
   blurb: string;
 
-  /**
-   * Single source of truth for outbound links.
-   * Placeholder allowed ("#"/"TBD") until you get affiliate deals.
-   */
-  href: string;
+  status: PartnerStatus;
+  href?: string;
 
   /** Optional internal note (not displayed) */
   note?: string;
 };
+
+export function isLivePartner(p: Partner): p is Partner & { href: string } {
+  return p.status === "live" && typeof p.href === "string" && p.href.length > 0;
+}
 
 export const PARTNERS: Record<PartnerKey, Partner> = {
   // -------------------------
@@ -71,6 +74,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "car_search",
     badge: "Compare",
     blurb: "Search tool to compare prices and availability across multiple rental companies.",
+    status: "live",
     href: "https://www.discovercars.com?a_aid=86laszlogabor",
     note: "Affiliate link live.",
   },
@@ -80,7 +84,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "car_operator",
     badge: "Top pick",
     blurb: "Direct operator. Predictability and customer support over saving a few euros.",
-    href: "#",
+    status: "placeholder",
     note: "Replace with affiliate/partner link when you get it.",
   },
 
@@ -93,7 +97,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "camper_fleet",
     badge: "Top pick",
     blurb: "Fleet-based rental. Simple booking, good for first-time camper trips in Finland.",
-    href: "#",
+    status: "placeholder",
   },
   mycamper: {
     key: "mycamper",
@@ -101,7 +105,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "camper_p2p",
     badge: "Local",
     blurb: "Peer-to-peer rentals from local owners. Often better value and flexibility than fleets.",
-    href: "#",
+    status: "placeholder",
   },
   nordic_campers: {
     key: "nordic_campers",
@@ -109,7 +113,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "camper_local",
     badge: "Winter-ready",
     blurb: "Premium local operator. Strong option for winter routes and Lapland travel.",
-    href: "#",
+    status: "placeholder",
   },
   touring_cars_finland: {
     key: "touring_cars_finland",
@@ -117,7 +121,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "camper_local",
     badge: "Winter-ready",
     blurb: "Local fleet operator. Practical choice if you want a straightforward, robust setup.",
-    href: "#",
+    status: "placeholder",
   },
 
   // -------------------------
@@ -129,7 +133,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "tour_local",
     badge: "Top pick",
     blurb: "Curated Lapland experiences with a more local feel. Not mass-tourism vibes.",
-    href: "#",
+    status: "placeholder",
   },
   lapland_welcome: {
     key: "lapland_welcome",
@@ -137,7 +141,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "tour_local",
     badge: "Local",
     blurb: "Local operator focus. Northern lights, husky, snowmobile style experiences.",
-    href: "#",
+    status: "placeholder",
   },
   arctic_lifestyle: {
     key: "arctic_lifestyle",
@@ -145,7 +149,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "tour_local",
     badge: "Local",
     blurb: "Small-group Lapland experiences. Good niche-quality alternative to platforms.",
-    href: "#",
+    status: "placeholder",
   },
   getyourguide_lapland: {
     key: "getyourguide_lapland",
@@ -153,7 +157,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "tour_platform",
     badge: "Backup",
     blurb: "Platform backup for availability and last-minute booking options.",
-    href: "#",
+    status: "placeholder",
   },
   viator_lapland: {
     key: "viator_lapland",
@@ -161,7 +165,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "tour_platform",
     badge: "Backup",
     blurb: "Another platform backup to cover inventory gaps.",
-    href: "#",
+    status: "placeholder",
   },
 
   // -------------------------
@@ -173,7 +177,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ferry_search",
     badge: "Compare",
     blurb: "Compare routes and operators. Useful for quick schedule/price checks.",
-    href: "#",
+    status: "placeholder",
   },
   tallink_silja: {
     key: "tallink_silja",
@@ -181,7 +185,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ferry_operator",
     badge: "Direct",
     blurb: "Direct operator. Reliable for Helsinki–Tallinn and Helsinki–Stockholm routes.",
-    href: "#",
+    status: "placeholder",
   },
   viking_line: {
     key: "viking_line",
@@ -189,7 +193,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ferry_operator",
     badge: "Direct",
     blurb: "Direct operator. Solid alternative for route times and onboard options.",
-    href: "#",
+    status: "placeholder",
   },
 
   // -------------------------
@@ -201,7 +205,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "sauna_local",
     badge: "Top pick",
     blurb: "Iconic local sauna experience by the sea. Book ahead on busy days.",
-    href: "#",
+    status: "placeholder",
   },
   allas_sea_pool: {
     key: "allas_sea_pool",
@@ -209,7 +213,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "sauna_local",
     badge: "Local",
     blurb: "Central, easy-access sauna + sea pool combo. Good city-day option.",
-    href: "#",
+    status: "placeholder",
   },
   getyourguide_sauna: {
     key: "getyourguide_sauna",
@@ -217,7 +221,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ticketing",
     badge: "Backup",
     blurb: "Booking layer backup for tickets and bundles.",
-    href: "#",
+    status: "placeholder",
   },
   tiqets_sauna: {
     key: "tiqets_sauna",
@@ -225,7 +229,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ticketing",
     badge: "Backup",
     blurb: "Ticketing backup, useful if you want quick mobile-friendly tickets.",
-    href: "#",
+    status: "placeholder",
   },
 
   // -------------------------
@@ -237,7 +241,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "city_tours",
     badge: "Backup",
     blurb: "Platform backup for common tours and day trips.",
-    href: "#",
+    status: "placeholder",
   },
   viator_city: {
     key: "viator_city",
@@ -245,7 +249,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "city_tours",
     badge: "Backup",
     blurb: "Another platform backup to cover inventory gaps.",
-    href: "#",
+    status: "placeholder",
   },
   helsinki_city_tours: {
     key: "helsinki_city_tours",
@@ -253,7 +257,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "city_tours",
     badge: "Top pick",
     blurb: "Local provider for city sightseeing routes and practical first-day tours.",
-    href: "#",
+    status: "placeholder",
   },
   redrib_experience: {
     key: "redrib_experience",
@@ -261,6 +265,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "city_tours",
     badge: "Local",
     blurb: "Speedboat-style experiences. More memorable than yet another museum.",
-    href: "#",
+    status: "placeholder",
   },
 };

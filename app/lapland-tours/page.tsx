@@ -20,7 +20,13 @@ export default function LaplandToursPage() {
           </p>
           <div className="mt-6">
             <PartnerGrid
-              keys={["staylapland", "lapland_welcome", "arctic_lifestyle", "getyourguide_lapland", "viator_lapland"]}
+              keys={[
+                "staylapland",
+                "lapland_welcome",
+                "arctic_lifestyle",
+                "getyourguide_lapland",
+                "viator_lapland",
+              ]}
               ctaLabel="See tours"
             />
           </div>

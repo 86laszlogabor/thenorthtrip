@@ -2,23 +2,36 @@
 import Link from "next/link";
 
 type Props = {
-  href: string;
+  href?: string;
   label: string;
+  disabled?: boolean;
   className?: string;
 };
 
-export default function SponsoredLink({ href, label, className }: Props) {
-  const isPlaceholder = !href || href === "#" || href.toLowerCase() === "tbd";
-  const finalHref = isPlaceholder ? "#" : href;
+export default function SponsoredLink({ href, label, disabled, className }: Props) {
+  const isDisabled = disabled || !href;
+
+  if (isDisabled) {
+    return (
+      <div
+        className={
+          className ??
+          "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-white/10 text-white/50 cursor-not-allowed"
+        }
+        aria-disabled="true"
+      >
+        {label}
+        <span className="ml-2 opacity-60">↗</span>
+      </div>
+    );
+  }
 
   return (
     <Link
-      href={finalHref}
-      aria-disabled={isPlaceholder}
-      tabIndex={isPlaceholder ? -1 : 0}
+      href={href}
       className={
         className ??
-        "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition disabled:opacity-50"
+        "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition"
       }
       rel="sponsored nofollow noopener"
       target="_blank"
