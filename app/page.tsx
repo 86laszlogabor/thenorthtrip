@@ -2,10 +2,34 @@ import Image from "next/image";
 
 export default function HomePage() {
   const destinations = [
-    { name: "Rovaniemi", href: "/rovaniemi", image: "/images/destinations/dest-rovaniemi.jpg" },
-    { name: "Levi", href: "/levi", image: "/images/destinations/dest-levi.jpg" },
-    { name: "Ylläs", href: "/yllas", image: "/images/destinations/dest-yllas.jpg" },
-    { name: "Helsinki", href: "/helsinki", image: "/images/destinations/dest-helsinki.jpg" },
+    {
+      name: "Rovaniemi",
+      href: "/rovaniemi",
+      image: "/images/destinations/dest-rovaniemi.jpg",
+      blurb: "Santa village logistics, winter driving basics, and the real cost traps.",
+      cta: "Open Rovaniemi",
+    },
+    {
+      name: "Levi",
+      href: "/levi",
+      image: "/images/destinations/dest-levi.jpg",
+      blurb: "Ski season timing, airport transfers, and what to book early.",
+      cta: "Open Levi",
+    },
+    {
+      name: "Ylläs",
+      href: "/yllas",
+      image: "/images/destinations/dest-yllas.jpg",
+      blurb: "Quieter Lapland base, trail access, and practical stay options.",
+      cta: "Open Ylläs",
+    },
+    {
+      name: "Helsinki",
+      href: "/helsinki",
+      image: "/images/destinations/dest-helsinki.jpg",
+      blurb: "Ferries, saunas, and one-day routes that actually make sense.",
+      cta: "Open Helsinki",
+    },
   ];
 
   return (
@@ -20,6 +44,7 @@ export default function HomePage() {
           className="object-cover"
         />
 
+        {/* keep your hero overlay as-is */}
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 pt-32 text-white">
@@ -92,9 +117,9 @@ export default function HomePage() {
             </p>
             <a
               href="/car-rental-helsinki"
-              className="mt-4 inline-block font-semibold text-orange-600 hover:underline"
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
             >
-              Read the guide →
+              Read the guide
             </a>
           </div>
 
@@ -105,9 +130,9 @@ export default function HomePage() {
             </p>
             <a
               href="/lapland-tours"
-              className="mt-4 inline-block font-semibold text-orange-600 hover:underline"
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
             >
-              Compare tours →
+              Compare tours
             </a>
           </div>
         </div>
@@ -116,7 +141,6 @@ export default function HomePage() {
         <div className="mt-16">
           <h2 className="mb-8 text-2xl font-semibold">Popular destinations</h2>
 
-          {/* soft cards (no orange ring, no circle avatar forcing) */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {destinations.map((dest) => (
               <a
@@ -135,17 +159,16 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="font-semibold text-slate-900">
-                    {dest.name}
-                  </div>
+                  <div className="font-semibold text-slate-900">{dest.name}</div>
                 </div>
 
-                <div className="mt-3 text-sm text-slate-600">
-                  Top picks, routes, and practical booking tips.
-                </div>
+                <div className="mt-3 text-sm text-slate-600">{dest.blurb}</div>
 
-                <div className="mt-4 text-sm font-semibold text-orange-600">
-                  Open <span className="opacity-70">→</span>
+                {/* orange CTA button on every card */}
+                <div className="mt-6">
+                  <span className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500">
+                    {dest.cta} <span className="ml-2 opacity-80">→</span>
+                  </span>
                 </div>
               </a>
             ))}

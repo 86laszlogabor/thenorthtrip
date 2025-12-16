@@ -25,7 +25,7 @@ export default function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="relative h-[360px] sm:h-[480px] lg:h-[560px] bg-slate-950">
+      <div className="relative h-[360px] sm:h-[480px] lg:h-[560px] bg-slate-900">
         <img
           src={src}
           alt={imageAlt}
@@ -34,23 +34,23 @@ export default function PageHero({
           fetchPriority={priority ? "high" : "auto"}
         />
 
-        {/* LIGHTER cinematic overlays (so images don't look like night-vision) */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* FINAL light tuning */}
+        <div className="absolute inset-0 bg-black/20" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(1200px 600px at 25% 18%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.20) 45%, rgba(0,0,0,0.55) 100%)",
+              "radial-gradient(1200px 600px at 30% 18%, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.45) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.15) 100%)",
+              "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.12) 100%)",
           }}
         />
-        <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.25)]" />
+        <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.20)]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-4">
@@ -71,7 +71,7 @@ export default function PageHero({
         </div>
       </div>
 
-      <div className="h-10 sm:h-12" />
+      <div className="h-12 sm:h-14" />
     </section>
   );
 }
