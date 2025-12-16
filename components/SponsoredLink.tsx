@@ -3,33 +3,28 @@ import Link from "next/link";
 
 type Props = {
   href: string;
-  children: React.ReactNode;
+  label: string;
   className?: string;
-  label?: string;
 };
 
-export default function SponsoredLink({ href, children, className = "", label }: Props) {
-  const isPlaceholder = !href || href === "#";
+export default function SponsoredLink({ href, label, className }: Props) {
+  const isPlaceholder = !href || href === "#" || href.toLowerCase() === "tbd";
+  const finalHref = isPlaceholder ? "#" : href;
 
   return (
-    <div className={`inline-flex items-center gap-2 ${className}`}>
-      <Link
-        href={href || "#"}
-        aria-disabled={isPlaceholder}
-        className={`underline underline-offset-4 ${
-          isPlaceholder ? "opacity-60 pointer-events-none" : "hover:opacity-90"
-        }`}
-        rel="sponsored nofollow"
-        target={isPlaceholder ? undefined : "_blank"}
-      >
-        {children}
-      </Link>
-
-      {label ? (
-        <span className="text-[11px] rounded-full px-2 py-0.5 border border-slate-200 text-slate-500">
-          {label}
-        </span>
-      ) : null}
-    </div>
+    <Link
+      href={finalHref}
+      aria-disabled={isPlaceholder}
+      tabIndex={isPlaceholder ? -1 : 0}
+      className={
+        className ??
+        "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition disabled:opacity-50"
+      }
+      rel="sponsored nofollow noopener"
+      target="_blank"
+    >
+      {label}
+      <span className="ml-2 opacity-70">↗</span>
+    </Link>
   );
 }

@@ -1,91 +1,101 @@
-import Link from "next/link";
-import Recommended from "@/components/Recommended";
+// app/camper-rental-finland/page.tsx
+import PartnerGrid from "@/components/PartnerGrid";
 
 export default function CamperRentalFinlandPage() {
   return (
-    <main className="bg-slate-50">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <header className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold text-slate-900">Camper rental in Finland</h1>
-          <p className="max-w-3xl text-slate-600">
-            Camper trips in Finland are incredible. Hidden costs are also incredible if you don’t check mileage, winter
-            setup, and border rules.
+    <main className="min-h-screen bg-gray-950 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        {/* HERO */}
+        <header>
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm text-white/70 border border-white/10">
+            <span className="text-white/80">Finland</span>
+            <span className="opacity-40">•</span>
+            <span>Camper rental</span>
+          </div>
+
+          <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Camper rental in Finland: pick the model that matches your season
+          </h1>
+
+          <p className="mt-3 max-w-2xl text-white/70">
+            Fleet rentals are simplest. Peer-to-peer can be better value. For winter routes and Lapland,
+            prioritize a winter-ready setup over saving a little money.
           </p>
         </header>
 
-        <div className="mt-6 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
-          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra cost
-          to you. See{" "}
-          <Link className="underline underline-offset-4" href="/affiliate-disclosure">
-            affiliate disclosure
-          </Link>
-          .
-        </div>
-
-        <div className="mt-8">
-          <Recommended
-            title="Compare camper rental options"
-            subtitle="Two platforms to compare inventory and terms. URLs will be plugged in next."
-            items={["motorhomerepublic", "camperdays"]}
-          />
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {/* HOW TO CHOOSE */}
+        <section className="mt-10 grid gap-4 sm:grid-cols-2">
           {[
             {
-              title: "What people overpay for",
-              text: "Random ‘winter bundles’, upsold insurance names, and add-ons that duplicate what you already have.",
+              t: "Fleet rental (simple)",
+              d: "Best for first-time camper trips. Clearer pickup process and predictable rules.",
             },
             {
-              title: "What’s actually worth it",
-              text: "Clear mileage terms, heating & insulation if winter, and realistic pickup/drop-off times.",
+              t: "Peer-to-peer (local)",
+              d: "Local owners, flexible options, sometimes better value. Read terms carefully.",
             },
             {
-              title: "Where affiliate links will go",
-              text: "Comparison cards above stay global. Specific Helsinki/Lapland angles link into the relevant pillar pages.",
+              t: "Winter-ready (Lapland)",
+              d: "If you plan winter driving, prioritize proper tires, heating, and realistic range.",
             },
-          ].map((b) => (
-            <div key={b.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-900">{b.title}</h2>
-              <p className="mt-2 text-sm text-slate-600">{b.text}</p>
+            {
+              t: "Plan pickup logic",
+              d: "Airport vs city pickup changes timing and availability. Match it to your itinerary.",
+            },
+          ].map((x) => (
+            <div key={x.t} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="text-base font-semibold">{x.t}</div>
+              <div className="mt-2 text-sm text-white/70">{x.d}</div>
             </div>
           ))}
-        </div>
+        </section>
 
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Minimum checks before you book</h2>
-          <ul className="mt-3 list-disc list-inside text-sm text-slate-700 space-y-2">
-            <li><span className="font-semibold">Mileage:</span> unlimited vs daily cap. This changes the real cost.</li>
-            <li><span className="font-semibold">Heating:</span> winter trips require proper heating/insulation.</li>
-            <li><span className="font-semibold">Borders/ferries:</span> confirm cross-border and ferry permission in writing.</li>
-            <li><span className="font-semibold">Insurance excess:</span> check deductible and common exclusions.</li>
-            <li><span className="font-semibold">Pickup/dropoff:</span> after-hours rules can create “no-show” problems.</li>
-          </ul>
+        {/* PARTNERS */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold">Recommended camper partners</h2>
+          <p className="mt-2 max-w-2xl text-white/70">
+            One mainstream option, one local peer-to-peer, and winter-ready local fleets.
+            Links will be plugged in after we confirm partner terms.
+          </p>
 
-          <div className="mt-5 text-sm text-slate-600">
-            Use the{" "}
-            <Link className="underline underline-offset-4" href="/offer-checklist">
-              offer checklist
-            </Link>{" "}
-            before you commit.
+          <div className="mt-6">
+            <PartnerGrid
+              keys={["indie_campers", "mycamper", "nordic_campers", "touring_cars_finland"]}
+              ctaLabel="Check availability"
+            />
           </div>
-        </div>
 
-        <div className="mt-10 flex flex-col gap-2 text-sm text-slate-600">
-          <Link href="/lapland-tours" className="font-semibold text-slate-900 hover:underline">
-            Lapland tours →
-          </Link>
-          <Link href="/helsinki" className="font-semibold text-slate-900 hover:underline">
-            Helsinki travel page →
-          </Link>
-          <Link href="/destinations" className="font-semibold text-slate-900 hover:underline">
-            All destinations →
-          </Link>
-          <Link href="/" className="font-semibold text-orange-600 hover:underline">
-            Back to home →
-          </Link>
-        </div>
-      </section>
+          <p className="mt-4 text-xs text-white/50">
+            Affiliate disclosure: Some links on this page may be sponsored.
+          </p>
+        </section>
+
+        {/* FAQ */}
+        <section className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 className="text-xl font-bold">Quick FAQ</h2>
+          <div className="mt-4 space-y-4 text-sm text-white/70">
+            <div>
+              <div className="font-semibold text-white">Is wild camping allowed?</div>
+              <div className="mt-1">
+                Finland has strong outdoor access rights, but camper parking still needs common sense:
+                respect signs, private yards, and local restrictions.
+              </div>
+            </div>
+            <div>
+              <div className="font-semibold text-white">Do I need winter tires?</div>
+              <div className="mt-1">
+                If you drive in winter, yes. Confirm what’s included and what’s extra before pickup.
+              </div>
+            </div>
+            <div>
+              <div className="font-semibold text-white">Fleet vs P2P?</div>
+              <div className="mt-1">
+                Fleet is simpler. P2P can be cheaper and more flexible, but terms vary by owner.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

@@ -1,306 +1,175 @@
-import Link from "next/link";
+// app/car-rental-helsinki/page.tsx
+import PartnerGrid from "@/components/PartnerGrid";
 import { PARTNERS } from "@/lib/partners";
 
 export default function CarRentalHelsinkiPage() {
   const dc = PARTNERS.discovercars;
   const sx = PARTNERS.sixt;
 
-  const dcHref = dc.helsinkiUrl || dc.url || "#";
-  const sxHref = sx.helsinkiUrl || sx.url || "#";
+  const dcHref = dc?.href || "#";
+  const sxHref = sx?.href || "#";
 
-  const dcPlaceholder = dcHref === "#";
-  const sxPlaceholder = sxHref === "#";
+  const dcPlaceholder = dcHref === "#" || dcHref.toLowerCase() === "tbd";
+  const sxPlaceholder = sxHref === "#" || sxHref.toLowerCase() === "tbd";
 
   return (
-    <main className="bg-slate-50">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <header className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold text-slate-900">Car rental in Helsinki</h1>
-          <p className="max-w-3xl text-slate-600">
-            Deposit holds, debit card rules, winter add-ons, and the counter surprises.
-            This page is built to stop the classic trap: cheap online price, expensive pickup reality.
+    <main className="min-h-screen bg-gray-950 text-white">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        {/* HERO */}
+        <header>
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm text-white/70 border border-white/10">
+            <span className="text-white/80">Helsinki</span>
+            <span className="opacity-40">•</span>
+            <span>Car rental guide</span>
+          </div>
+
+          <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Car rental in Helsinki: compare first, then pick a reliable operator
+          </h1>
+
+          <p className="mt-3 max-w-2xl text-white/70">
+            This page is built to help you decide, not to spam “cheap links”.
+            Use a comparison tool to map the market, then choose a predictable operator if you value
+            fewer surprises over saving a few euros.
           </p>
         </header>
 
-        <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
-          Some links on this page may be affiliate links. If you click and book, we may earn a commission at no extra cost
-          to you. See{" "}
-          <Link className="underline underline-offset-4" href="/affiliate-disclosure">
-            affiliate disclosure
-          </Link>
-          .
-        </div>
-
-        {/* How to use this page */}
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="text-sm font-semibold text-slate-900">How to use this page</div>
-          <ol className="mt-2 list-decimal list-inside text-sm text-slate-700 space-y-1">
-            <li>Use a comparison tool to see the market and shortlist.</li>
-            <li>Pick an operator you trust (terms matter more than small price differences).</li>
-            <li>Verify payment method, deposit, winter equipment, and branch hours before you fly.</li>
-          </ol>
-
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/offer-checklist"
-              className="text-center rounded-lg bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-500"
-            >
-              Offer checklist
-            </Link>
-            <Link
-              href="/get-help"
-              className="text-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
-            >
-              Ask before booking
-            </Link>
-          </div>
-        </div>
-
-        {/* Partner placements with correct hierarchy */}
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {/* DiscoverCars = tool */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div className="text-lg font-semibold text-slate-900">{dc.name}</div>
-                <div className="mt-0.5 text-xs text-slate-500">{dc.brandHint}</div>
+        {/* TOP PICK */}
+        <section className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                ⭐ Our top pick
               </div>
-              <span className="text-[11px] rounded-full px-2 py-0.5 border border-slate-200 text-slate-500 bg-white">
-                {dc.disclosureLabel || "Sponsored"}
-              </span>
+              <h2 className="mt-3 text-2xl font-bold">{sx.name}</h2>
+              <p className="mt-2 max-w-2xl text-white/70">{sx.blurb}</p>
+              <p className="mt-3 max-w-2xl text-sm text-white/60">
+                Why top pick? Direct operator, clearer rules, fewer “surprise” add-ons at pickup. If you
+                care about predictable travel days, this is usually the safer bet.
+              </p>
             </div>
 
-            <p className="mt-3 text-sm text-slate-700">
-              <span className="font-semibold text-slate-900">Role:</span> price discovery tool.
-              Use it to scan the market and compare suppliers (including brands like SIXT).
-            </p>
-
-            <ul className="mt-3 list-disc list-inside space-y-1 text-sm text-slate-600">
-              {dc.bullets.slice(0, 5).map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-
-            <div className="mt-5">
-              {dcPlaceholder ? (
-                <button
-                  type="button"
-                  className="w-full rounded-lg bg-orange-500/60 px-4 py-2.5 text-sm font-semibold text-white cursor-not-allowed"
-                  title="Affiliate URL will be plugged in next"
-                >
-                  Compare prices (soon)
-                </button>
-              ) : (
-                <Link
-                  href={dcHref}
-                  className="block w-full text-center rounded-lg bg-orange-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-orange-500"
-                  rel="sponsored nofollow"
-                  target="_blank"
-                >
-                  Compare prices
-                </Link>
-              )}
-            </div>
-
-            <p className="mt-3 text-xs text-slate-500">
-              Recommendation: use this to shortlist, then pick based on terms, not just base price.
-            </p>
-          </div>
-
-          {/* SIXT = top pick */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-base">⭐</span>
-                  <div className="text-lg font-semibold text-slate-900">Our top pick: {sx.name}</div>
-                </div>
-                <div className="mt-0.5 text-xs text-slate-500">{sx.brandHint}</div>
+            {/* CTA */}
+            <div className="mt-4 sm:mt-0">
+              <a
+                href={sxHref}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+                aria-disabled={sxPlaceholder}
+                className={[
+                  "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition",
+                  sxPlaceholder
+                    ? "bg-white/10 text-white/50 cursor-not-allowed pointer-events-none"
+                    : "bg-orange-600 hover:bg-orange-500 text-white",
+                ].join(" ")}
+              >
+                Check SIXT options <span className="ml-2 opacity-70">↗</span>
+              </a>
+              <div className="mt-2 text-xs text-white/50">
+                Affiliate disclosure applies. Links may be sponsored.
               </div>
-              <span className="text-[11px] rounded-full px-2 py-0.5 border border-slate-200 text-slate-500 bg-white">
-                {sx.disclosureLabel || "Sponsored"}
-              </span>
             </div>
-
-            <p className="mt-3 text-sm text-slate-700">
-              <span className="font-semibold text-slate-900">Why we highlight it:</span> comparison sites may list SIXT as
-              “one option among many”, but operator choice often matters more than a small price difference at pickup.
-            </p>
-
-            <ul className="mt-3 list-disc list-inside space-y-1 text-sm text-slate-600">
-              {sx.bullets.slice(0, 6).map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-
-            <div className="mt-5">
-              {sxPlaceholder ? (
-                <button
-                  type="button"
-                  className="w-full rounded-lg bg-slate-900/70 px-4 py-2.5 text-sm font-semibold text-white cursor-not-allowed"
-                  title="Affiliate URL will be plugged in next"
-                >
-                  Check SIXT (soon)
-                </button>
-              ) : (
-                <Link
-                  href={sxHref}
-                  className="block w-full text-center rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
-                  rel="sponsored nofollow"
-                  target="_blank"
-                >
-                  Check SIXT
-                </Link>
-              )}
-            </div>
-
-            <p className="mt-3 text-xs text-slate-500">
-              Not always the cheapest. Often the most predictable. Read the terms for your dates and category.
-            </p>
           </div>
-        </div>
+        </section>
 
-        {/* Core traps */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            {
-              title: "Deposit holds",
-              text: "What gets blocked, for how long, and why “paid online” can still trigger a hold at pickup.",
-            },
-            {
-              title: "Debit cards",
-              text: "When they work, when they fail, and which red flags predict refusal at the counter.",
-            },
-            {
-              title: "Winter add-ons",
-              text: "What’s mandatory vs upsold (tires, coverage, roadside). The difference matters in Finland.",
-            },
-          ].map((b) => (
-            <div key={b.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-900">{b.title}</h2>
-              <p className="mt-2 text-sm text-slate-600">{b.text}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Comparison table (now consistent) */}
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Comparison checklist</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            DiscoverCars helps you compare many suppliers. SIXT is a direct operator option. Exact rules still vary by booking,
-            so open the “Terms” before you commit.
+        {/* COMPARE FIRST */}
+        <section className="mt-10">
+          <h2 className="text-2xl font-bold">Step 1: Compare the market</h2>
+          <p className="mt-2 max-w-2xl text-white/70">
+            Use a comparison tool to see prices, availability, and conditions across companies. Treat it as
+            “price discovery”, not “the best option”.
           </p>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[900px] border-collapse text-sm">
-              <thead>
-                <tr className="text-left">
-                  <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">Feature</th>
-                  <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">DiscoverCars</th>
-                  <th className="border-b border-slate-200 pb-3 pr-4 font-semibold text-slate-900">SIXT (Finland)</th>
-                  <th className="border-b border-slate-200 pb-3 font-semibold text-slate-900">Helsinki notes</th>
-                </tr>
-              </thead>
+          <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                  Compare tool
+                </div>
+                <h3 className="mt-3 text-xl font-bold">{dc.name}</h3>
+                <p className="mt-2 max-w-2xl text-white/70">{dc.blurb}</p>
+                <p className="mt-3 max-w-2xl text-sm text-white/60">
+                  This helps you map the market. If SIXT shows up there too, great. Just remember:
+                  comparison is for search, top pick is for the final decision.
+                </p>
+              </div>
 
-              <tbody className="text-slate-700 align-top">
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">Deposit amount &amp; hold time</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Supplier-dependent. Verify deposit size, hold time, and extra holds (vehicle class, age, borders).
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Deposit/card requirements still apply. Confirm the exact terms for your category and location.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    Airport pickups are where card/deposit surprises happen most.
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">Payment method / debit card</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Varies by supplier. If debit acceptance is not explicit, assume credit is required at pickup.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Check documents/payment requirements per booking and category (age rules can change requirements).
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    If you rely on debit, confirm acceptance in writing before you fly.
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">Winter equipment</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Confirm winter tires included and avoid duplicate “winter package” upsells.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Seasonal equipment stated (winter tires in winter, summer tires in summer). Still verify included items per booking.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    In winter season, tires matter more than fancy insurance names.
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">Cross-border driving</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Some suppliers allow it, some don’t. Always check border and ferry rules before booking.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Cross-border driving is mentioned as available. Confirm permissions and any fees in booking terms.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    If you plan Tallinn/Stockholm, rules must be explicit.
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">After-hours pickup / return</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Supplier-dependent. Check branch hours, late arrival procedure, and no-show rules.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Helsinki-Vantaa Airport lists 24h return (pickup hours still depend on branch). Verify your procedure.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    Late arrival can become a no-show if you don’t follow the branch process.
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="border-b border-slate-100 py-3 pr-4">Minimum age / license</td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Varies by supplier. Young driver surcharges and category restrictions are common.
-                  </td>
-                  <td className="border-b border-slate-100 py-3 pr-4 text-slate-600">
-                    Minimum age stated as 19 in Finland; some categories higher; license validity often 1 year+ (category-dependent).
-                  </td>
-                  <td className="border-b border-slate-100 py-3 text-slate-600">
-                    Under 25 or newly licensed: expect extra conditions.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+              <div className="mt-4 sm:mt-0">
+                <a
+                  href={dcHref}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  aria-disabled={dcPlaceholder}
+                  className={[
+                    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition",
+                    dcPlaceholder
+                      ? "bg-white/10 text-white/50 cursor-not-allowed pointer-events-none"
+                      : "bg-orange-600 hover:bg-orange-500 text-white",
+                  ].join(" ")}
+                >
+                  Compare prices <span className="ml-2 opacity-70">↗</span>
+                </a>
+                <div className="mt-2 text-xs text-white/50">
+                  Affiliate disclosure applies. Links may be sponsored.
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="mt-6 text-sm text-slate-600">
-            Next step: embed the real DiscoverCars affiliate URL (10-day deadline noted), then we can add “Helsinki-specific policy snapshots” once you paste actual offer terms.
+        {/* QUICK CHECKLIST */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold">Quick checklist before you book</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                t: "Payment card requirements",
+                d: "Many rentals still prefer credit cards at pickup. Debit can work, but not always.",
+              },
+              {
+                t: "Deposit holds & authorizations",
+                d: "‘Paid online’ does not automatically mean no deposit. Check the pickup terms.",
+              },
+              {
+                t: "Winter add-ons",
+                d: "In winter, clarify tires and road conditions coverage. Avoid last-minute surprises.",
+              },
+              {
+                t: "Pickup location logic",
+                d: "Airport vs city pickup can change hours and pricing. Match it to your flight times.",
+              },
+            ].map((x) => (
+              <div
+                key={x.t}
+                className="rounded-2xl border border-white/10 bg-white/5 p-5"
+              >
+                <div className="text-base font-semibold">{x.t}</div>
+                <div className="mt-2 text-sm text-white/70">{x.d}</div>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <div className="mt-10 flex flex-col gap-2 text-sm text-slate-600">
-          <Link href="/helsinki" className="font-semibold text-slate-900 hover:underline">
-            Helsinki travel page →
-          </Link>
-          <Link href="/destinations" className="font-semibold text-slate-900 hover:underline">
-            All destinations →
-          </Link>
-          <Link href="/blog" className="font-semibold text-orange-600 hover:underline">
-            Read related posts →
-          </Link>
-        </div>
-      </section>
+        {/* RECOMMENDED (OPTIONAL) */}
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold">Recommended options</h2>
+          <p className="mt-2 max-w-2xl text-white/70">
+            Two-step logic: compare first, then decide. That’s it.
+          </p>
+          <div className="mt-6">
+            <PartnerGrid keys={["sixt", "discovercars"]} ctaLabel="Open" />
+          </div>
+        </section>
+
+        {/* FOOTNOTE */}
+        <section className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 className="text-xl font-bold">Affiliate disclosure</h2>
+          <p className="mt-2 text-sm text-white/70">
+            Some links on this page may be affiliate links. If you use them, we may earn a commission at
+            no extra cost to you. We still prioritize clarity and decision-helpful guidance.
+          </p>
+        </section>
+      </div>
     </main>
   );
 }
