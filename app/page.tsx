@@ -1,4 +1,27 @@
 export default function HomePage() {
+  const destinations = [
+    {
+      name: "Rovaniemi",
+      href: "/rovaniemi",
+      image: "/images/destinations/dest-rovaniemi.jpg",
+    },
+    {
+      name: "Levi",
+      href: "/levi",
+      image: "/images/destinations/dest-levi.jpg",
+    },
+    {
+      name: "Ylläs",
+      href: "/yllas",
+      image: "/images/destinations/dest-yllas.jpg",
+    },
+    {
+      name: "Helsinki",
+      href: "/helsinki",
+      image: "/images/destinations/dest-helsinki.jpg",
+    },
+  ];
+
   return (
     <main className="bg-slate-50 text-slate-900">
       {/* HERO */}
@@ -22,11 +45,12 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-6 max-w-xl text-white/80">
-            Deposit holds, debit cards, winter add-ons.  
+            Deposit holds, debit cards, winter add-ons.
+            <br />
             No fluff. No surprises.
           </p>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="/car-rental-helsinki"
               className="rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white shadow-lg hover:bg-orange-600"
@@ -49,9 +73,7 @@ export default function HomePage() {
         {/* INFO CARDS */}
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold">
-              Car rental in Finland
-            </h3>
+            <h3 className="text-xl font-semibold">Car rental in Finland</h3>
             <p className="mt-3 text-slate-600">
               Credit card deposits, debit card rules, airport pickup surprises.
             </p>
@@ -64,9 +86,7 @@ export default function HomePage() {
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold">
-              Lapland tours & experiences
-            </h3>
+            <h3 className="text-xl font-semibold">Lapland tours & experiences</h3>
             <p className="mt-3 text-slate-600">
               What’s included, what’s not, and how tourists overpay.
             </p>
@@ -81,37 +101,21 @@ export default function HomePage() {
 
         {/* DESTINATIONS */}
         <div className="mt-20">
-          <h2 className="mb-8 text-2xl font-semibold">
-            Popular destinations
-          </h2>
+          <h2 className="mb-8 text-2xl font-semibold">Popular destinations</h2>
 
-          <div className="flex gap-10">
-            <div className="text-center">
-              <img
-                src="/images/destinations/dest-rovaniemi.jpg"
-                alt="Rovaniemi"
-                className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-orange-500"
-              />
-              <p className="mt-2 font-medium">Rovaniemi</p>
-            </div>
-
-            <div className="text-center">
-              <img
-                src="/images/destinations/dest-levi.jpg"
-                alt="Levi"
-                className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-orange-500"
-              />
-              <p className="mt-2 font-medium">Levi</p>
-            </div>
-
-            <div className="text-center">
-              <img
-                src="/images/destinations/dest-yllas.jpg"
-                alt="Ylläs"
-                className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-orange-500"
-              />
-              <p className="mt-2 font-medium">Ylläs</p>
-            </div>
+          <div className="flex flex-wrap gap-10">
+            {destinations.map((dest) => (
+              <a key={dest.name} href={dest.href} className="group text-center">
+                <img
+                  src={dest.image}
+                  alt={dest.name}
+                  className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-orange-500 transition group-hover:scale-105"
+                />
+                <p className="mt-2 font-medium group-hover:text-orange-600">
+                  {dest.name}
+                </p>
+              </a>
+            ))}
           </div>
         </div>
       </section>
