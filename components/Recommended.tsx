@@ -8,8 +8,8 @@ type Props = {
 };
 
 export default function Recommended({
-  title = "Compare car rental prices",
-  subtitle = "Two comparison platforms. Same goal. Slightly different strengths.",
+  title = "Recommended",
+  subtitle = "Affiliate-ready placements. URLs will be plugged in next.",
   items,
 }: Props) {
   return (
@@ -22,7 +22,6 @@ export default function Recommended({
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         {items.map((key) => {
           const p = PARTNERS[key];
-
           const href = p.helsinkiUrl || p.url || "#";
           const isPlaceholder = !href || href === "#";
 
@@ -61,9 +60,9 @@ export default function Recommended({
                   <button
                     type="button"
                     className="w-full rounded-lg bg-orange-500/60 px-4 py-2.5 text-sm font-semibold text-white cursor-not-allowed"
-                    title="Partner URL will be plugged in next"
+                    title="Affiliate URL will be plugged in next"
                   >
-                    Check prices (soon)
+                    {(p.ctaLabel || "Open") + " (soon)"}
                   </button>
                 ) : (
                   <Link
@@ -72,12 +71,12 @@ export default function Recommended({
                     rel="sponsored nofollow"
                     target="_blank"
                   >
-                    Check prices
+                    {p.ctaLabel || "Open"}
                   </Link>
                 )}
 
                 <div className="text-xs text-slate-500">
-                  Tip: compare both. Price can change once deposit, coverage, and pickup rules are considered.
+                  Tip: always open the offer terms. Deposit, payment method, and after-hours rules change the real price.
                 </div>
               </div>
 
