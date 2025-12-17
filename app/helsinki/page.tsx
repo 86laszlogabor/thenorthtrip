@@ -36,7 +36,7 @@ export default function HelsinkiPage() {
         <div className="mt-10">
           <CTABox
             title="If you’re booking anything time-sensitive"
-            text="Use the checklist first. It prevents the classic mistakes: wrong dates, hidden add-ons, cancellation traps, and last-minute sell-outs."
+            text="Use the checklist first. It prevents classic mistakes: wrong dates, hidden add-ons, cancellation traps, and last-minute sell-outs."
             primaryHref="/offer-checklist"
             primaryLabel="Open the checklist"
             secondaryHref="/get-help"
@@ -48,13 +48,13 @@ export default function HelsinkiPage() {
         </div>
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold">Ferry tickets</h2>
+          <h2 className="text-2xl font-bold">Ferry tickets (temporary)</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            For Tallinn day trips or Stockholm overnights, compare schedules first, then book direct if you want fewer surprises.
+            Until direct ferry partners are onboarded, we route you to reliable booking platforms.
           </p>
           <div className="mt-6">
             <PartnerGrid
-              keys={["direct_ferries", "tallink_silja", "viking_line"]}
+              keys={["getyourguide_city", "viator_city"]}
               ctaLabel="Check schedules"
               placement="helsinki_ferries"
             />
@@ -62,13 +62,13 @@ export default function HelsinkiPage() {
         </section>
 
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold">Sauna</h2>
+          <h2 className="text-2xl font-bold">Sauna (temporary)</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            Helsinki’s public saunas can sell out on weekends. If you care about timing, plan ahead.
+            Weekend slots can sell out. Platforms help when local partners aren’t wired yet.
           </p>
           <div className="mt-6">
             <PartnerGrid
-              keys={["loyly", "allas_sea_pool", "getyourguide_sauna", "tiqets_sauna"]}
+              keys={["getyourguide_sauna", "viator_city"]}
               ctaLabel="View tickets"
               placement="helsinki_sauna"
             />
@@ -78,11 +78,11 @@ export default function HelsinkiPage() {
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">City sightseeing</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            If you only have one day, do a practical city route first. Then add something unique like the speedboat experience.
+            If you only have one day, do a practical route first. Then add something unique.
           </p>
           <div className="mt-6">
             <PartnerGrid
-              keys={["helsinki_city_tours", "redrib_experience", "getyourguide_city", "viator_city"]}
+              keys={["getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
               placement="helsinki_tours"
             />
@@ -92,8 +92,8 @@ export default function HelsinkiPage() {
         <div className="mt-10">
           <Recommended
             title="Quick picks"
-            subtitle="If you don’t want to overthink it: a couple of solid options people actually book."
-            items={["tallink_silja", "loyly", "getyourguide_city"]}
+            subtitle="Two mainstream options, so you don’t waste time deciding."
+            items={["getyourguide_city", "viator_city"]}
             ctaLabel="Check availability"
             placement="city_helsinki_recommended"
           />
@@ -102,8 +102,18 @@ export default function HelsinkiPage() {
         <InternalNext
           placement="internal_next"
           items={[
-            { href: "/car-rental-helsinki", title: "Car rental rules", desc: "Deposits, debit cards, winter extras.", cta: "next_car_rental" },
-            { href: "/lapland-tours", title: "Lapland tours", desc: "Local-first, platforms as backup.", cta: "next_lapland" },
+            {
+              href: "/car-rental-helsinki",
+              title: "Car rental rules",
+              desc: "Deposits, debit cards, winter extras.",
+              cta: "next_car_rental",
+            },
+            {
+              href: "/lapland-tours",
+              title: "Lapland tours",
+              desc: "Local-first, platforms as backup.",
+              cta: "next_lapland",
+            },
           ]}
         />
 
