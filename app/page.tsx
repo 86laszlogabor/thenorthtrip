@@ -1,162 +1,162 @@
-// app/who-we-are/page.tsx
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import WhoWeAreCtas from "@/components/WhoWeAreCtas";
+import { track } from "@/lib/track";
 
-export const metadata = {
-  title: "Who we are | TheNorthTrip",
-  description:
-    "We build decision tools for Finland and Lapland travel: car rental rules, platform traps, and practical checklists so your trip stays calm, not expensive.",
-};
+export default function HomePage() {
+  const cards = [
+    {
+      title: "Rovaniemi: Santa logistics",
+      href: "/rovaniemi",
+      image: "/images/destinations/dest-rovaniemi.jpg",
+    },
+    {
+      title: "Car rental: the real cost traps",
+      href: "/car-rental-helsinki",
+      image: "/images/dest-helsinki.jpg", // ha nálad más a path, igazítsd
+    },
+    {
+      title: "Lapland tours: what people overpay for",
+      href: "/lapland-tours",
+      image: "/images/destinations/dest-yllas.jpg",
+    },
+    {
+      title: "Cabins & stays: pick the right base",
+      href: "/offer-checklist",
+      image: "/images/destinations/dest-levi.jpg",
+    },
+  ];
 
-export default function WhoWeArePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
-      {/* Top glow */}
-      <div className="pointer-events-none absolute left-0 right-0 top-0 h-[520px] bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.18),rgba(0,0,0,0))]" />
-
-      {/* Hero */}
-      <header className="relative">
-        <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/85">
-            TheNorthTrip / Who we are
+    <main className="min-h-screen bg-slate-950 p-4 sm:p-6">
+      {/* “Site frame” */}
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[28px] bg-slate-950 ring-1 ring-white/10">
+        {/* HERO */}
+        <section className="relative">
+          <div className="relative h-[56vh] min-h-[460px] w-full">
+            <Image
+              src="/images/hero/hero-lapland.jpg"
+              alt="Aurora over Lapland cabin"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/45" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
           </div>
 
-          <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-            Finland and Lapland are not “a trip”.
-            <span className="block text-white/70">
-              They’re a set of decisions with real consequences.
-            </span>
-          </h1>
+          {/* NAV inside hero */}
+          <div className="absolute inset-x-0 top-0 z-20">
+            <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+              <Link href="/" className="text-white/90 text-lg font-semibold tracking-tight">
+                TheNorthTrip
+              </Link>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-            If you want inspiration, the internet is already full of pretty pictures.
-            We do something less glamorous: we help you avoid expensive mistakes. Deposit holds,
-            card rules, winter conditions, distances that look short on a map and feel long at night.
-            The boring stuff that keeps your trip calm.
-          </p>
+              <div className="hidden items-center gap-6 text-sm text-white/80 md:flex">
+                <Link href="/car-rental-helsinki" className="hover:text-white">
+                  Car rental
+                </Link>
+                <Link href="/camper-rental-finland" className="hover:text-white">
+                  Camper rental
+                </Link>
+                <Link href="/lapland-tours" className="hover:text-white">
+                  Lapland tours
+                </Link>
+                <Link href="/blog" className="hover:text-white">
+                  Blog
+                </Link>
+              </div>
 
-          {/* CTAs (no handlers) */}
-          <div className="mt-8">
-            <WhoWeAreCtas />
+              <Link
+                href="/offer-checklist"
+                onClick={() => track("cta_click", { placement: "home_nav", cta: "free_checklist" })}
+                className="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur hover:bg-white/15"
+              >
+                Free checklist
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/70">
-            <Link className="underline underline-offset-4 hover:text-white" href="/car-rental-helsinki">
-              Car rental guide
-            </Link>
-            <span className="text-white/35">•</span>
-            <Link className="underline underline-offset-4 hover:text-white" href="/lapland-tours">
-              Lapland tours guide
-            </Link>
-            <span className="text-white/35">•</span>
-            <Link className="underline underline-offset-4 hover:text-white" href="/offer-checklist">
-              Offer checklist
-            </Link>
+          {/* HERO content */}
+          <div className="absolute inset-x-0 bottom-0 z-20">
+            <div className="mx-auto max-w-6xl px-5 pb-10">
+              <div className="max-w-2xl">
+                <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+                  Gondtalan utazás Finnországban és Lappföldön.
+                </h1>
+
+                <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
+                  Nem “top 10 programlista”. Döntési segítség: autóbérlés szabályok, kauciók, kártyák,
+                  téli logisztika, túracsapdák. Kevesebb meglepetés, több nyugalom.
+                </p>
+
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/car-rental-helsinki"
+                    onClick={() => track("cta_click", { placement: "home_hero", cta: "car_rental" })}
+                    className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black hover:bg-orange-600"
+                  >
+                    Car rental guide
+                  </Link>
+
+                  <Link
+                    href="/get-help"
+                    onClick={() => track("cta_click", { placement: "home_hero", cta: "get_help" })}
+                    className="inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur hover:bg-white/15"
+                  >
+                    Get help
+                  </Link>
+                </div>
+              </div>
+
+              {/* Cards */}
+              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {cards.map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    onClick={() => track("cta_click", { placement: "home_cards", cta: c.href })}
+                    className="group relative overflow-hidden rounded-2xl ring-1 ring-white/15"
+                  >
+                    <div className="relative h-44 w-full">
+                      <Image src={c.image} alt={c.title} fill className="object-cover transition group-hover:scale-[1.02]" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="text-sm font-semibold text-white">{c.title}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </header>
+        </section>
 
-      {/* Editorial body */}
-      <section className="relative">
-        <div className="mx-auto max-w-5xl px-6 pb-20">
-          {/* Big editorial card but not "AI-card": left border, no heavy shadow */}
-          <article className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-10">
-            <div className="border-l-4 border-orange-500 pl-5">
-              <h2 className="text-2xl font-bold">1) Finland and Lapland are not what you expect</h2>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Finland often gets reduced to “cold and expensive”. Lapland gets reduced to snow, reindeer,
-                Santa. Reality is messier, and that’s exactly why people mess up planning.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Finland is two worlds. South Finland is structured, urban, easy to consume. Helsinki, Turku,
-                Tampere feel like a Scandinavian city break.
-                Lapland isn’t a checklist of sights. It’s an environment. Distances, time, weather decide for you.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                That’s why the “one-day let’s do everything” mindset fails here. You can’t plan Lapland like a city.
-                You can’t outsource everything to platforms without understanding what happens behind the scenes.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                We don’t sell program lists. We step in at decision points: when you choose a base, transport,
-                a platform vs a local provider, and what “included” really means.
-                Lapland isn’t a product. Treat it like one, it gets expensive and disappointing.
-                Treat it like a place, it gives you space, silence, and the northern experience people actually want.
-              </p>
+        {/* Optional: below-the-fold block (light / editorial later) */}
+        <section className="bg-white px-5 py-10">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-xs font-semibold tracking-wide text-slate-500">
+              Decision-first travel planning
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900">
+              We help you avoid the expensive mistakes.
+            </h2>
+            <p className="mt-4 leading-relaxed text-slate-700">
+              Lapland is not a checklist. It’s distance, weather, timing, and rules. We turn that into
+              simple guidance, comparisons, and checklists.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/who-we-are"
+                className="inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                Read: Who we are →
+              </Link>
             </div>
-
-            <div className="mt-10 border-l-4 border-orange-500 pl-5">
-              <h2 className="text-2xl font-bold">
-                2) Lapland “sights”: location matters more than the name
-              </h2>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Rovaniemi, Levi, Ylläs, Saariselkä show up in every guide. The issue isn’t that they’re bad.
-                The issue is expectations.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Rovaniemi is a gateway. Functional, not romantic. Airport, providers, Santa Claus Village.
-                If your trip is short, you’re with family, or you want low risk, it’s a smart base.
-                Just don’t expect “wild Lapland”. It’s a small town with infrastructure.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Levi and Ylläs are different. Nature is closer, weather matters, distances feel slower.
-                They’re ski and outdoor hubs where activities are spread across the landscape.
-                This is where the first serious decision becomes non-negotiable: car or no car.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                People underestimate distances not because they’re huge, but because they’re slow: winter roads,
-                darkness, wildlife, limited alternatives. A wrong rental setup or wrong insurance isn’t a nuisance here.
-                It’s stress.
-              </p>
-            </div>
-
-            <div className="mt-10 border-l-4 border-orange-500 pl-5">
-              <h2 className="text-2xl font-bold">
-                3) The three mistakes that quietly burn your budget
-              </h2>
-              <p className="mt-4 leading-relaxed text-white/75">
-                The most common mistake: too many activities, too little context.
-                Northern lights tours, husky safaris, snowmobiles, reindeer. They sound simple.
-                They’re not city attractions. They depend on weather, light, and logistics.
-                Booking a tour buys a time slot, not an experience.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Second mistake: ignoring terms and insurance. In Lapland, the “small print” isn’t small.
-                Car rentals, snowmobiles, tours, all of it. Card type, deposits, what happens if you’re late,
-                if weather changes, if equipment gets damaged.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                Third mistake: wrong base choice. People book where it’s cheaper, then realize everything is
-                1–2 hours away. In Lapland, the main cost isn’t the accommodation price. It’s unnecessary movement.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                We’re not trying to be “smarter” than you. We show consequences in advance.
-                We don’t tell you what to choose, we tell you what your choice implies.
-              </p>
-            </div>
-
-            <div className="mt-10 border-l-4 border-orange-500 pl-5">
-              <h2 className="text-2xl font-bold">4) How we fit in (no miracles promised)</h2>
-              <p className="mt-4 leading-relaxed text-white/75">
-                TheNorthTrip is not a travel agency. We don’t sell packages, we don’t promise northern lights,
-                and we don’t pretend your trip will be perfect.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                We build decision tools. Checklists, comparisons, explanations. Not because we love tables,
-                but because Lapland punishes bad assumptions. Good decisions work quietly.
-              </p>
-              <p className="mt-4 leading-relaxed text-white/75">
-                If you’re looking for hype, we’re probably not your site.
-                If you want a calm trip where you understand the rules before you pay, that’s where we’re useful.
-              </p>
-            </div>
-
-            {/* Bottom CTAs */}
-            <div className="mt-10">
-              <WhoWeAreCtas />
-            </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
