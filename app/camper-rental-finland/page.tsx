@@ -79,7 +79,7 @@ export default function CamperRentalFinlandPage() {
 
           <div className="mt-6">
             <PartnerGrid
-              keys={["indie_campers", "mycamper", "nordic_campers", "touring_cars_finland"]}
+              keys={["indie_campers", "mycamper", "touring_cars_finland"]}
               ctaLabel="Check availability"
               placement="pillar_camper_rental"
             />

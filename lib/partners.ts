@@ -19,11 +19,10 @@ export type PartnerType =
 export type PartnerKey =
   // Car rental
   | "discovercars"
-  | "sixt"
+  | "autoeurope"
   // Camper
   | "indie_campers"
   | "mycamper"
-  | "nordic_campers"
   | "touring_cars_finland"
   // Lapland tours
   | "staylapland"
@@ -78,14 +77,15 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     href: "https://www.discovercars.com?a_aid=86laszlogabor",
     note: "Affiliate link live.",
   },
-  sixt: {
-    key: "sixt",
-    name: "SIXT",
-    type: "car_operator",
-    badge: "Top pick",
-    blurb: "Direct operator. Predictability and customer support over saving a few euros.",
+
+  autoeurope: {
+    key: "autoeurope",
+    name: "Auto Europe",
+    type: "car_search",
+    badge: "Backup",
+    blurb: "Second comparison check. Useful for pricing sanity-checks, inclusions, and supplier coverage.",
     status: "placeholder",
-    note: "Replace with affiliate/partner link when you get it.",
+    note: "Awaiting affiliate approval + tracking link.",
   },
 
   // -------------------------
@@ -105,14 +105,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "camper_p2p",
     badge: "Local",
     blurb: "Peer-to-peer rentals from local owners. Often better value and flexibility than fleets.",
-    status: "placeholder",
-  },
-  nordic_campers: {
-    key: "nordic_campers",
-    name: "Nordic Campers",
-    type: "camper_local",
-    badge: "Winter-ready",
-    blurb: "Premium local operator. Strong option for winter routes and Lapland travel.",
     status: "placeholder",
   },
   touring_cars_finland: {

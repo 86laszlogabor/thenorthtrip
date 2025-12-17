@@ -10,19 +10,19 @@ function isLive(href: string) {
 
 export default function CarRentalHelsinkiPage() {
   const dc = PARTNERS.discovercars;
-  const sx = PARTNERS.sixt;
+  const ae = PARTNERS.autoeurope;
 
   const dcHref = dc?.href ?? "#";
-  const sxHref = sx?.href ?? "#";
+  const aeHref = ae?.href ?? "#";
 
   const dcLive = isLive(dcHref);
-  const sxLive = isLive(sxHref);
+  const aeLive = isLive(aeHref);
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <PageHero
         title="Car rental in Helsinki: compare first, then pick a reliable operator"
-        subtitle="Compare the market first, then choose a predictable operator if you value fewer surprises over saving a few euros."
+        subtitle="Compare the market first, then choose based on rules and inclusions, not just the lowest headline price."
         imageSrc="/images/pages/car-rental/car-hero.jpg"
         imageAlt="Car rental pickup in Helsinki"
         badge="Helsinki • Car rental guide"
@@ -30,7 +30,7 @@ export default function CarRentalHelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row (same pattern as other pillars) */}
+        {/* CTA row */}
         <div className="mt-2 flex flex-wrap gap-3">
           <a
             href="#recommended"
@@ -77,28 +77,28 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* 2) TOP PICK (SIXT) */}
+        {/* 2) SECOND CHECK (Auto Europe) */}
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
               <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                ★ Our top pick
+                Backup comparison check
               </div>
 
-              <h2 className="mt-3 text-2xl font-bold text-slate-900">{sx?.name ?? "SIXT"}</h2>
-              <p className="mt-2 text-slate-700">{sx?.blurb ?? "Direct operator with clear rules."}</p>
+              <h2 className="mt-3 text-2xl font-bold text-slate-900">{ae?.name ?? "Auto Europe"}</h2>
+              <p className="mt-2 text-slate-700">{ae?.blurb ?? "Second comparison check for pricing and inclusions."}</p>
 
               <p className="mt-3 text-sm text-slate-600">
-                Direct operator, clearer rules, fewer “surprise” add-ons at pickup.
+                Useful sanity-check: pricing, inclusions, supplier coverage. Especially if one site looks “too cheap”.
               </p>
             </div>
 
             <div className="mt-4 sm:mt-0 sm:pl-6">
               <SponsoredLink
-                href={sxLive ? sxHref : "#"}
-                label="Check SIXT options"
+                href={aeLive ? aeHref : "#"}
+                label="Check Auto Europe"
                 placement="pillar_car_rental"
-                partner="sixt"
+                partner="autoeurope"
                 className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
               />
               <div className="mt-2 text-xs text-slate-500">Affiliate disclosure applies. Links may be sponsored.</div>
@@ -106,7 +106,7 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* 3) Rules (short, decision-first) */}
+        {/* 3) Rules */}
         <section id="rules" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <h2 className="text-2xl font-bold">Before you book: 3 rules that prevent 80% of problems</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
@@ -135,12 +135,12 @@ export default function CarRentalHelsinkiPage() {
         <section id="recommended" className="mt-10">
           <h2 className="text-2xl font-bold">Booking options</h2>
           <p className="mt-2 max-w-3xl text-slate-700">
-            Keep it simple: compare first, then pick an operator that matches your risk tolerance and card situation.
+            Keep it simple: compare first, then sanity-check on a second comparison site if something looks off.
           </p>
 
           <div className="mt-6">
             <PartnerGrid
-              keys={["discovercars", "sixt"]}
+              keys={["discovercars", "autoeurope"]}
               ctaLabel="Check availability"
               placement="pillar_car_rental"
             />
