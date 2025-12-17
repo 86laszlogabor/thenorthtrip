@@ -1,7 +1,6 @@
 import Link from "next/link";
 import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
-import CTABox from "@/components/CTABox";
 
 export default function HelsinkiPage() {
   return (
@@ -24,27 +23,13 @@ export default function HelsinkiPage() {
           >
             Free booking checklist
           </Link>
+
           <Link
             href="/get-help"
             className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
           >
             Ask before booking
           </Link>
-        </div>
-
-        {/* CTABox (tracked) */}
-        <div className="mt-10">
-          <CTABox
-            title="If you’re booking anything time-sensitive"
-            text="Use the checklist first. It prevents the classic mistakes: wrong dates, hidden add-ons, cancellation traps, and last-minute sell-outs."
-            primaryHref="/offer-checklist"
-            primaryLabel="Open the checklist"
-            secondaryHref="/get-help"
-            secondaryLabel="Ask a question"
-            placement="helsinki_cta_box"
-            primaryCta="open_checklist"
-            secondaryCta="get_help"
-          />
         </div>
 
         {/* Ferry tickets */}
@@ -54,7 +39,11 @@ export default function HelsinkiPage() {
             For Tallinn day trips or Stockholm overnights, compare schedules first, then book direct if you want fewer surprises.
           </p>
           <div className="mt-6">
-            <PartnerGrid keys={["direct_ferries", "tallink_silja", "viking_line"]} ctaLabel="Check schedules" />
+            <PartnerGrid
+              keys={["direct_ferries", "tallink_silja", "viking_line"]}
+              ctaLabel="Check schedules"
+              placement="city_helsinki_ferries"
+            />
           </div>
         </section>
 
@@ -68,6 +57,7 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["loyly", "allas_sea_pool", "getyourguide_sauna", "tiqets_sauna"]}
               ctaLabel="View tickets"
+              placement="city_helsinki_sauna"
             />
           </div>
         </section>
@@ -76,24 +66,14 @@ export default function HelsinkiPage() {
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">City sightseeing</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            If you only have one day, do a practical route first. Then add something unique like the speedboat experience.
+            If you only have one day, do a practical city route first. Then add something unique like the speedboat experience.
           </p>
           <div className="mt-6">
             <PartnerGrid
               keys={["helsinki_city_tours", "redrib_experience", "getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
+              placement="city_helsinki_tours"
             />
-          </div>
-        </section>
-
-        {/* Quick picks (simple, no extra component) */}
-        <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-          <h2 className="text-xl font-bold">Quick picks</h2>
-          <p className="mt-2 text-sm text-slate-700">
-            If you don’t want to overthink it: a couple of solid options people actually book.
-          </p>
-          <div className="mt-6">
-            <PartnerGrid keys={["tallink_silja", "loyly", "getyourguide_city"]} ctaLabel="Check availability" />
           </div>
         </section>
 

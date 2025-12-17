@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-function safePathname(): string {
+function safePage(): string {
   if (typeof window === "undefined") return "ssr";
   return window.location?.pathname || "unknown";
 }
@@ -21,7 +21,10 @@ export function track(eventName: TrackEventName, props?: TrackProps) {
     if (typeof window.plausible !== "function") return;
 
     window.plausible(eventName, {
-      props: { page: safePathname(), ...(props ?? {}) },
+      props: {
+        page: safePage(),
+        ...(props ?? {}),
+      },
     });
   } catch {
     // swallow

@@ -32,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         ) : null}
 
         <Analytics />
+
         <SiteHeader />
         {children}
         <SiteFooter />

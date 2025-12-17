@@ -7,7 +7,7 @@ type Props = {
   href: string;
   label: string;
   className?: string;
-  placement?: string; // free string
+  placement?: string; // free string, click-validációhoz elég
   partner?: PartnerKey | "unknown";
 };
 

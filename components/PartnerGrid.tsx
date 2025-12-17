@@ -4,6 +4,7 @@ import { PARTNERS, type PartnerKey } from "@/lib/partners";
 type Props = {
   keys: PartnerKey[];
   ctaLabel?: string;
+  placement?: string; // optional prefix, de nem kötelező
 };
 
 function badgeClass(badge?: string) {
@@ -25,12 +26,12 @@ function badgeClass(badge?: string) {
   }
 }
 
-export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
+export default function PartnerGrid({ keys, ctaLabel = "See options", placement }: Props) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {keys.map((key, idx) => {
         const p = PARTNERS[key];
-        const placement = `grid_card_${idx + 1}`;
+        const cardPlacement = placement ? `${placement}_card_${idx + 1}` : `grid_card_${idx + 1}`;
 
         return (
           <div key={key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -48,7 +49,12 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
             </div>
 
             <div className="mt-4">
-              <SponsoredLink href={p.href ?? "tbd"} label={ctaLabel} partner={p.key} placement={placement} />
+              <SponsoredLink
+                href={p.href ?? "tbd"}
+                label={ctaLabel}
+                partner={p.key}
+                placement={cardPlacement}
+              />
             </div>
 
             {p.status === "placeholder" ? (
