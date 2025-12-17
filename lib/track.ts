@@ -1,16 +1,26 @@
-type PlausibleFn = (eventName: string, opts?: { props?: Record<string, unknown> }) => void;
+export type TrackEvent = "pageview" | "affiliate_click" | "cta_click" | "email_click";
 
-function getPlausible(): PlausibleFn | undefined {
-  if (typeof window === "undefined") return undefined;
-  return window.plausible;
+export type TrackProps = Record<string, string | number | boolean | null | undefined>;
+
+declare global {
+  interface Window {
+    plausible?: (event: string, options?: { props?: Record<string, unknown> }) => void;
+  }
 }
 
-export function track(
-  eventName: "affiliate_click" | "cta_click" | "email_click",
-  props?: Record<string, unknown>
-) {
-  const plausible = getPlausible();
-  if (typeof plausible === "function") {
-    plausible(eventName, { props });
+export function track(event: TrackEvent, props: TrackProps = {}) {
+  if (typeof window === "undefined") return;
+
+  const clean: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(props)) {
+    if (v !== undefined) clean[k] = v;
+  }
+
+  if (typeof window.plausible === "function") {
+    window.plausible(event, { props: clean });
+  } else {
+    // fallback: local debug only
+    // eslint-disable-next-line no-console
+    console.debug("[track]", event, clean);
   }
 }
