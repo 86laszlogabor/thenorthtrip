@@ -1,9 +1,15 @@
-import Link from "next/link";
+"use client";
+
+import { track } from "@/lib/track";
 
 type Props = {
-  href: string; // mindig string
+  href: string;
   label: string;
   className?: string;
+
+  // tracking
+  partnerKey?: string;      // pl. "discovercars"
+  placement?: string;       // pl. "footer", "hero", "partnerGrid"
 };
 
 function isPlaceholderHref(href: string) {
@@ -11,7 +17,13 @@ function isPlaceholderHref(href: string) {
   return !h || h === "#" || h === "tbd";
 }
 
-export default function SponsoredLink({ href, label, className }: Props) {
+export default function SponsoredLink({
+  href,
+  label,
+  className,
+  partnerKey,
+  placement,
+}: Props) {
   const placeholder = isPlaceholderHref(href);
 
   if (placeholder) {
@@ -30,7 +42,7 @@ export default function SponsoredLink({ href, label, className }: Props) {
   }
 
   return (
-    <Link
+    <a
       href={href}
       className={
         className ??
@@ -38,9 +50,17 @@ export default function SponsoredLink({ href, label, className }: Props) {
       }
       rel="sponsored nofollow noopener"
       target="_blank"
+      onClick={() => {
+        track("affiliate_click", {
+          partner: partnerKey ?? "unknown",
+          placement: placement ?? "unknown",
+          href,
+          label,
+        });
+      }}
     >
       {label}
       <span className="ml-2 opacity-70">↗</span>
-    </Link>
+    </a>
   );
 }
