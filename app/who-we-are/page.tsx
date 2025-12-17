@@ -1,17 +1,19 @@
 // app/who-we-are/page.tsx
+import type { Metadata } from "next";
+import Link from "next/link";
 import WhoWeAreCtas from "@/components/WhoWeAreCtas";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Who we are | TheNorthTrip",
   description:
-    "Decision-first travel planning for Finland and Lapland. Real costs, logistics, and conditions before you book.",
+    "Decision-first travel planning for Finland and Lapland: deposits, debit card rules, winter driving, platform traps, and practical checklists before you book.",
   alternates: {
     canonical: "/who-we-are",
   },
   openGraph: {
     title: "Who we are | TheNorthTrip",
     description:
-      "Decision-first travel planning for Finland and Lapland. Real costs, logistics, and conditions before you book.",
+      "Decision-first travel planning for Finland and Lapland: deposits, debit card rules, winter driving, platform traps, and practical checklists before you book.",
     url: "/who-we-are",
     type: "article",
   },
@@ -19,205 +21,167 @@ export const metadata = {
 
 export default function WhoWeArePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      {/* HEADER SPACE / HERO-LIKE TOP */}
-      <section className="border-b border-slate-200">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
-          <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-800">
-            Who we are
+    <main className="relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-100">
+      {/* subtle top glow */}
+      <div className="pointer-events-none absolute left-0 right-0 top-0 h-[520px] bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.16),rgba(0,0,0,0))]" />
+
+      {/* Header / Hero */}
+      <header className="relative">
+        <div className="mx-auto max-w-5xl px-6 pt-14 pb-10 sm:pt-16 sm:pb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/85">
+            TheNorthTrip <span className="text-white/35">/</span> Who we are
           </div>
 
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Finland &amp; Lapland, but without the fantasy pricing.
+          <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            Finland and Lapland aren’t “a trip”.
+            <span className="mt-2 block text-white/70">
+              They’re decisions with real consequences.
+            </span>
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg text-slate-700">
-            Most travel content sells vibes. We sell clarity.
-            <br />
-            TheNorthTrip is built for people who want the real constraints before they book:
-            deposits, debit card rules, winter driving, cancellations, and the stuff that turns a
-            “dream trip” into a paid lesson.
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+            The internet has endless inspiration. We’re here for the unglamorous part:
+            deposits, card rules, winter driving, cancellations, distances that look short on a map
+            and feel long in the dark. The boring stuff that keeps your trip calm.
           </p>
 
-          {/* ✅ Tracking CTAs live in a Client Component */}
-          <WhoWeAreCtas />
+          {/* CTAs (client component handles tracking internally) */}
+          <div className="mt-8">
+            <WhoWeAreCtas variant="dark" />
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-3 text-sm text-white/70">
+            <Link className="underline underline-offset-4 hover:text-white" href="/car-rental-helsinki">
+              Car rental guide
+            </Link>
+            <span className="text-white/35">•</span>
+            <Link className="underline underline-offset-4 hover:text-white" href="/lapland-tours">
+              Lapland tours guide
+            </Link>
+            <span className="text-white/35">•</span>
+            <Link className="underline underline-offset-4 hover:text-white" href="/offer-checklist">
+              Offer checklist
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Body */}
+      <section className="relative">
+        <div className="mx-auto max-w-5xl px-6 pb-20">
+          <article className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-10">
+            <div className="border-l-4 border-orange-500 pl-5">
+              <h2 className="text-2xl font-bold">1) Finland and Lapland are not what you expect</h2>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Finland often gets reduced to “cold and expensive”. Lapland gets reduced to snow,
+                reindeer, Santa. Reality is messier, and that’s exactly why people mess up planning.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Finland is two worlds. Southern Finland is urban, structured, easy to consume.
+                Helsinki, Turku, Tampere feel like a Scandinavian city break.
+                Lapland isn’t a checklist of sights. It’s an environment. Distances, time, and weather
+                decide for you.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                That’s why “one-day let’s do everything” fails here. You can’t plan Lapland like a city.
+                You can’t outsource everything to platforms without understanding what happens behind the scenes.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                We don’t sell program lists. We step in at decision points: base location, transport,
+                platform vs local provider, and what “included” really means.
+                Lapland isn’t a product. Treat it like one, it gets expensive and disappointing.
+                Treat it like a place, it gives you space, silence, and the northern experience people actually want.
+              </p>
+            </div>
+
+            <div className="mt-10 border-l-4 border-orange-500 pl-5">
+              <h2 className="text-2xl font-bold">
+                2) Lapland “sights”: location matters more than the name
+              </h2>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Rovaniemi, Levi, Ylläs, Saariselkä show up in every guide. The issue isn’t that they’re bad.
+                The issue is expectations.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Rovaniemi is a gateway. Functional, not romantic. Airport, providers, Santa Claus Village.
+                If your trip is short, you’re with family, or you want low risk, it’s a smart base.
+                Just don’t expect “wild Lapland”. It’s a small city with infrastructure.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Levi and Ylläs are different. Nature is closer, weather matters, distances feel slower.
+                They’re ski and outdoor hubs where activities are spread across the landscape.
+                This is where the first serious decision becomes non-negotiable: car or no car.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                People underestimate distances not because they’re huge, but because they’re slow:
+                winter roads, darkness, wildlife, limited alternatives. A wrong rental setup or wrong insurance
+                isn’t a nuisance here. It’s stress.
+              </p>
+            </div>
+
+            <div className="mt-10 border-l-4 border-orange-500 pl-5">
+              <h2 className="text-2xl font-bold">
+                3) The three mistakes that quietly burn your budget
+              </h2>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                The most common mistake: too many activities, too little context.
+                Northern lights tours, husky safaris, snowmobiles, reindeer. They sound simple.
+                They’re not city attractions. They depend on weather, light, and logistics.
+                Booking a tour buys a time slot, not an experience.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Second mistake: ignoring terms and insurance. In Lapland, the “small print” isn’t small.
+                Car rentals, snowmobiles, tours, all of it. Card type, deposits, what happens if you’re late,
+                if weather changes, if equipment gets damaged.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                Third mistake: wrong base choice. People book where it’s cheaper, then realize everything is
+                1–2 hours away. In Lapland, the main cost isn’t the accommodation price. It’s unnecessary movement.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                We’re not trying to be “smarter” than you. We show consequences in advance.
+                We don’t tell you what to choose, we tell you what your choice implies.
+              </p>
+            </div>
+
+            <div className="mt-10 border-l-4 border-orange-500 pl-5">
+              <h2 className="text-2xl font-bold">4) How we fit in (no miracles promised)</h2>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                TheNorthTrip is not a travel agency. We don’t sell packages, we don’t promise northern lights,
+                and we don’t pretend your trip will be perfect.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                We build decision tools: checklists, comparisons, explanations. Not because we love tables,
+                but because Lapland punishes bad assumptions. Good decisions work quietly.
+              </p>
+
+              <p className="mt-4 leading-relaxed text-white/75">
+                If you’re looking for hype, we’re probably not your site.
+                If you want a calm trip where you understand the rules before you pay, that’s where we’re useful.
+              </p>
+            </div>
+
+            {/* Bottom CTAs */}
+            <div className="mt-10">
+              <WhoWeAreCtas variant="dark" />
+            </div>
+          </article>
         </div>
       </section>
-
-      {/* LONG ARTICLE */}
-      <article className="mx-auto max-w-4xl px-6 pt-12 pb-20">
-        {/* 1 */}
-        <section className="prose prose-slate max-w-none">
-          <h2>Finland and Lapland: why it’s not what you expect</h2>
-
-          <p>
-            People imagine Finland as one uniform “cold and expensive” country. They imagine Lapland
-            as a single postcard: snow, reindeer, Santa. Reality is messier and that’s exactly why
-            so many trips go sideways at the planning stage.
-          </p>
-
-          <p>
-            Finland is two worlds. Southern Finland is urban, structured, and easy to consume.
-            Helsinki, Turku, and Tampere are more “Nordic city break” than “wild Arctic adventure”.
-            Lapland is different. It’s not a checklist of attractions. It’s an environment.
-            Distances, time, and weather set the rules.
-          </p>
-
-          <p>
-            That difference is why the “city logic” fails up north. You can’t “do Lapland in a day”.
-            You can’t book car, hotel, and tours with the same mindset you’d use for a normal city
-            trip and expect it to work. And you can’t outsource everything to platforms without
-            understanding what’s actually happening behind the scenes.
-          </p>
-
-          <p>
-            That’s why we don’t publish endless “top 10 things” lists.
-            TheNorthTrip exists for decision points. When to rent a car and when it’s a waste.
-            When a local provider is better and when a platform is safer. What is a real experience
-            and what is just repackaged marketing.
-          </p>
-
-          <p>
-            Lapland is not a product. Treat it like one and it gets expensive and disappointing.
-            Treat it like an environment and it gives you what people came for in the first place:
-            space, silence, and a genuinely northern experience.
-          </p>
-        </section>
-
-        <div className="my-12 h-px w-full bg-slate-200" />
-
-        {/* 2 */}
-        <section className="prose prose-slate max-w-none">
-          <h2>Lapland sights: it’s not the places, it’s where they sit on the map</h2>
-
-          <p>
-            Rovaniemi, Levi, Ylläs, Saariselkä. Every guidebook repeats these names. The problem
-            isn’t that they’re bad. The problem is expectations.
-          </p>
-
-          <p>
-            Rovaniemi is a gateway. Not a poetic claim. A functional one. You’ve got the airport,
-            more services, and Santa Claus Village. If your trip is short, you’re coming with family,
-            or you don’t want to gamble, Rovaniemi is the safe base. Just don’t expect “wild Lapland”.
-            It’s a small city with infrastructure.
-          </p>
-
-          <p>
-            Levi and Ylläs are a different category. Nature is closer, distances stretch out, and
-            weather becomes a real factor. These are ski and outdoor hubs where the “things to do”
-            are spread across the landscape, not stacked next to each other.
-          </p>
-
-          <p>
-            This is where the first serious decision shows up: car or no car. People underestimate
-            distances, not because they’re always huge, but because they’re slow. Winter road
-            conditions, darkness, wildlife, fewer alternatives. A bad car rental choice or bad
-            insurance here isn’t a minor inconvenience. It becomes stress.
-          </p>
-
-          <p>
-            That’s why we treat “urban Finland” and “Lapland” separately.
-            Not because it sounds fancy. Because they operate by different rules.
-          </p>
-        </section>
-
-        <div className="my-12 h-px w-full bg-slate-200" />
-
-        {/* 3 */}
-        <section className="prose prose-slate max-w-none">
-          <h2>What most people get wrong in Lapland, and why it costs money</h2>
-
-          <p>
-            The most common mistake: too many activities, not enough context.
-          </p>
-
-          <p>
-            Northern lights tours, husky safaris, snowmobile rides, reindeer. They all sound great.
-            But these are not city attractions. They depend on weather, light, and logistics.
-            A platform booking doesn’t guarantee an experience. It guarantees a time slot.
-          </p>
-
-          <p>
-            Second mistake: ignoring conditions and insurance.
-            In Lapland, the fine print isn’t “fine”. It matters. For car rentals, snowmobiles,
-            and tours, you need to know what happens if:
-          </p>
-
-          <ul>
-            <li>you are late</li>
-            <li>weather changes</li>
-            <li>equipment gets damaged</li>
-            <li>your card type isn’t accepted</li>
-          </ul>
-
-          <p>
-            Third mistake: choosing the wrong base.
-            People book where it’s cheaper, then realize every “must-do” is 1 to 2 hours away.
-            In Lapland, the accommodation price isn’t the main cost. The main cost is pointless
-            movement and friction.
-          </p>
-
-          <p>
-            We’re not trying to be “smarter” than the traveler. We just show consequences early.
-            We don’t tell you what to choose. We tell you what each choice actually implies.
-          </p>
-
-          <p>
-            That’s why our content doesn’t start with dreamy trip reports.
-            It starts with rules, conditions, and real-world scenarios. In Lapland that’s not
-            cynicism. It’s respect for the environment.
-          </p>
-        </section>
-
-        <div className="my-12 h-px w-full bg-slate-200" />
-
-        {/* 4 */}
-        <section className="prose prose-slate max-w-none">
-          <h2>How we fit in, and why we don’t promise miracles</h2>
-
-          <p>
-            TheNorthTrip is not a travel agency. We don’t package trips. We don’t sell “best tours”.
-            We don’t promise northern lights. What we do is more boring and that’s why it works.
-          </p>
-
-          <p>
-            We build decision tools.
-          </p>
-
-          <p>We help you understand:</p>
-
-          <ul>
-            <li>when to use a platform and when a local provider is the better option</li>
-            <li>what to watch for with Lapland car rentals (deposits, cards, insurance, winter add-ons)</li>
-            <li>what “included” actually means on tour listings</li>
-            <li>when you’re paying for convenience, and when you’re paying for marketing</li>
-          </ul>
-
-          <p>
-            That’s why we publish checklists, comparisons, and explanations.
-            Not because we love spreadsheets (we don’t).
-            Because in Lapland, bad decisions are expensive and good ones are quietly invisible.
-          </p>
-
-          <p>
-            If you only want inspiration, Finland has endless pretty photos.
-            If you want a calm trip, you need to understand the framework.
-          </p>
-
-          <p>
-            That’s where we’re useful.
-          </p>
-        </section>
-
-        {/* Bottom CTA (still no onClick here) */}
-        <div className="mt-14 rounded-3xl border border-slate-200 bg-slate-50 p-8">
-          <h3 className="text-xl font-semibold">Want the practical stuff first?</h3>
-          <p className="mt-2 text-slate-700">
-            Start with deposits, card rules, winter add-ons, and what people overpay for.
-          </p>
-          <WhoWeAreCtas />
-        </div>
-      </article>
     </main>
   );
 }
