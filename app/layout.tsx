@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
+import { Suspense } from "react";
 import "./globals.css";
 
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Analytics from "@/components/Analytics";
+import StickyCtaBar from "@/components/StickyCtaBar";
+import UtmCapture from "@/components/UtmCapture";
 
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const siteUrl = rawSiteUrl.startsWith("http") ? rawSiteUrl : "http://localhost:3000";
-
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "";
 
 export const metadata: Metadata = {
@@ -31,11 +32,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           />
         ) : null}
 
+        {/* useSearchParams() in client component needs Suspense in App Router */}
+        <Suspense fallback={null}>
+          <UtmCapture />
+        </Suspense>
+
         <Analytics />
 
         <SiteHeader />
         {children}
         <SiteFooter />
+
+        <StickyCtaBar />
       </body>
     </html>
   );
