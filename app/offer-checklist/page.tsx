@@ -73,7 +73,7 @@ const ITEMS: Item[] = [
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+    <span className="inline-flex items-center rounded-full border border-slate-200 bg-white/70 px-2 py-0.5 text-[11px] font-medium text-slate-700">
       {children}
     </span>
   );
@@ -81,7 +81,7 @@ function Badge({ children }: { children: React.ReactNode }) {
 
 function CardLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-700 ring-1 ring-slate-200">
+    <span className="inline-flex items-center rounded-full bg-white/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700 ring-1 ring-slate-200">
       {children}
     </span>
   );
@@ -101,118 +101,121 @@ const PrimaryPillCta =
 export default function OfferChecklistPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        {/* HERO */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
-                Offer checklist
-              </h1>
-              <p className="mt-2 text-slate-600">
-                Use this before you book anything. It’s boring. That’s why it works.
-              </p>
+      {/* TOP CANVAS BAND */}
+      <div className="absolute inset-x-0 top-0 h-[320px] bg-slate-50" />
+      <div className="relative">
+        <section className="mx-auto max-w-6xl px-6 py-14">
+          {/* HERO (now canvas-surface, not pure white) */}
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-3xl">
+                <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
+                  Offer checklist
+                </h1>
+                <p className="mt-2 text-slate-700">
+                  Use this before you book anything. It’s boring. That’s why it works.
+                </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Badge>Deposits</Badge>
-                <Badge>Debit cards</Badge>
-                <Badge>Insurance</Badge>
-                <Badge>Winter policy</Badge>
-                <Badge>After-hours pickup</Badge>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Badge>Deposits</Badge>
+                  <Badge>Debit cards</Badge>
+                  <Badge>Insurance</Badge>
+                  <Badge>Winter policy</Badge>
+                  <Badge>After-hours pickup</Badge>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-stretch">
+                <Link
+                  href="/car-rental-helsinki"
+                  className="rounded-xl bg-orange-600 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-orange-500"
+                >
+                  Car rental Helsinki
+                </Link>
+                <Link
+                  href="/get-help"
+                  className="rounded-xl border border-slate-300 bg-white/70 px-5 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-white"
+                >
+                  Ask before booking
+                </Link>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-stretch">
-              <Link
-                href="/car-rental-helsinki"
-                className="rounded-xl bg-orange-600 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-orange-500"
+            <div className="mt-6 rounded-xl border border-slate-200 bg-white/70 p-4 text-sm text-slate-700">
+              Some links on this site may be affiliate links. If you click and book, we may earn a
+              commission at no extra cost to you. See{" "}
+              <Link className="underline underline-offset-4" href="/affiliate-disclosure">
+                affiliate disclosure
+              </Link>
+              .
+            </div>
+          </div>
+
+          {/* CHECKLIST GRID */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {ITEMS.map((it) => (
+              <div
+                key={it.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
               >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-lg font-semibold text-slate-900">{it.title}</h2>
+                    <p className="mt-2 text-sm text-slate-700">{it.desc}</p>
+                  </div>
+                  <CardLabel>Checklist</CardLabel>
+                </div>
+
+                {/* inner panel (soft white inset) */}
+                <div className="mt-4 rounded-xl border border-slate-200 bg-white/70 p-4">
+                  <div className="text-xs font-semibold text-slate-900">What to verify</div>
+
+                  <ul className="mt-3 space-y-2 text-sm text-slate-800">
+                    {it.checks.map((c) => (
+                      <li key={c} className="flex gap-3">
+                        <CheckDot />
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+                    <span className="font-semibold text-slate-900">Common pitfall:</span> {it.pitfall}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* APPLY TO PILLAR (canvas surface) */}
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+            <h2 className="text-xl font-semibold text-slate-900">Apply it to a pillar</h2>
+            <p className="mt-2 text-sm text-slate-700">
+              Pick what you’re actually booking, then use the pillar guides to avoid the most common traps.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link href="/car-rental-helsinki" className={PrimaryPillCta}>
                 Car rental Helsinki
               </Link>
-              <Link
-                href="/get-help"
-                className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-50"
-              >
-                Ask before booking
+              <Link href="/camper-rental-finland" className={PrimaryPillCta}>
+                Camper rentals
+              </Link>
+              <Link href="/lapland-tours" className={PrimaryPillCta}>
+                Lapland tours
               </Link>
             </div>
           </div>
 
-          <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-            Some links on this site may be affiliate links. If you click and book, we may earn a
-            commission at no extra cost to you. See{" "}
-            <Link className="underline underline-offset-4" href="/affiliate-disclosure">
-              affiliate disclosure
-            </Link>
-            .
-          </div>
-        </div>
+          {/* QUICK COPY TEMPLATE (canvas surface) */}
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+            <h2 className="text-xl font-semibold text-slate-900">Quick copy template</h2>
+            <p className="mt-2 text-sm text-slate-700">
+              Paste this into your notes while comparing offers.
+            </p>
 
-        {/* CHECKLIST GRID */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {ITEMS.map((it) => (
-            <div
-              key={it.title}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-slate-900">{it.title}</h2>
-                  <p className="mt-2 text-sm text-slate-600">{it.desc}</p>
-                </div>
-                <CardLabel>Checklist</CardLabel>
-              </div>
-
-              <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
-                <div className="text-xs font-semibold text-slate-900">What to verify</div>
-
-                <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                  {it.checks.map((c) => (
-                    <li key={c} className="flex gap-3">
-                      <CheckDot />
-                      <span>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-                  <span className="font-semibold text-slate-900">Common pitfall:</span> {it.pitfall}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* APPLY TO PILLAR */}
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Apply it to a pillar</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Pick what you’re actually booking, then use the pillar guides to avoid the most common traps.
-          </p>
-
-          {/* mindhárom narancs */}
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/car-rental-helsinki" className={PrimaryPillCta}>
-              Car rental Helsinki
-            </Link>
-            <Link href="/camper-rental-finland" className={PrimaryPillCta}>
-              Camper rentals
-            </Link>
-            <Link href="/lapland-tours" className={PrimaryPillCta}>
-              Lapland tours
-            </Link>
-          </div>
-        </div>
-
-        {/* QUICK COPY TEMPLATE */}
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Quick copy template</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Paste this into your notes while comparing offers.
-          </p>
-
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-100">
-            <pre className="whitespace-pre-wrap text-sm leading-6">
+            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-100">
+              <pre className="whitespace-pre-wrap text-sm leading-6">
 {`Offer:
 Price:
 Payment method:
@@ -225,14 +228,15 @@ Mileage:
 Cross-border / ferry:
 After-hours pickup:
 Cancellation:`}
-            </pre>
-          </div>
+              </pre>
+            </div>
 
-          <div className="mt-4 text-xs text-slate-500">
-            If you want, we can generate a “car rental Helsinki” filled version once you paste real partner policy details.
+            <div className="mt-4 text-xs text-slate-600">
+              If you want, we can generate a “car rental Helsinki” filled version once you paste real partner policy details.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   );
 }
