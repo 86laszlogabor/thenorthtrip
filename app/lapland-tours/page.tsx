@@ -18,13 +18,13 @@ export default function LaplandToursPage() {
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
-            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600"
+            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
           >
             Free booking checklist
           </Link>
           <Link
             href="/blog"
-            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
           >
             Read guides first
           </Link>
@@ -33,8 +33,14 @@ export default function LaplandToursPage() {
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Recommended providers</h2>
           <p className="mt-2 max-w-2xl text-slate-700">
-            Local premium + niche specialist + platform backups for last-minute availability.
+            These picks are meant to reduce booking surprises: clear inclusions, realistic timing, and fewer “gotchas”.
+            Local operators first. Platforms as backup inventory.
           </p>
+
+          <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+            Quick rule: for aurora, treat “forecast” as a probability tool, not a promise. Prefer flexible cancellation and
+            realistic pickup times (especially winter).
+          </div>
 
           <div className="mt-6">
             <PartnerGrid
@@ -45,7 +51,7 @@ export default function LaplandToursPage() {
                 "getyourguide_lapland",
                 "viator_lapland",
               ]}
-              ctaLabel="See tours"
+              ctaLabel="Check availability"
               placement="pillar_lapland_tours"
             />
           </div>

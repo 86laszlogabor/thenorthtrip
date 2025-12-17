@@ -9,7 +9,7 @@ type Props = {
 
 export default function PartnerGrid({
   keys,
-  ctaLabel = "Check options",
+  ctaLabel = "Check availability",
   placement,
 }: Props) {
   return (

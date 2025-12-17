@@ -10,7 +10,9 @@ export default function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="text-lg font-extrabold tracking-tight text-slate-900">TheNorthTrip</div>
+            <div className="text-lg font-extrabold tracking-tight text-slate-900">
+              TheNorthTrip
+            </div>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Decision-first guides for rentals and tours in Finland and the Nordics. No SEO junk. Just
               the stuff that helps you book without surprises.
@@ -110,7 +112,7 @@ export default function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <div>© {year} TheNorthTrip. All rights reserved.</div>
-          <div>Decision-first guidance. Some links are sponsored and click-tracked.</div>
+          <div>Decision-first guidance. Sponsored links are clearly labeled and click-tracked.</div>
         </div>
       </div>
     </footer>
