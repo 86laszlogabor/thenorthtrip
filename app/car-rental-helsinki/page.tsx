@@ -30,7 +30,6 @@ export default function CarRentalHelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row */}
         <div className="mt-2 flex flex-wrap gap-3">
           <a
             href="#recommended"
@@ -38,7 +37,6 @@ export default function CarRentalHelsinkiPage() {
           >
             Jump to booking options
           </a>
-
           <a
             href="#rules"
             className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
@@ -47,20 +45,14 @@ export default function CarRentalHelsinkiPage() {
           </a>
         </div>
 
-        {/* 1) COMPARE (DiscoverCars) */}
         <section className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
               <div className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">
                 Compare first (recommended)
               </div>
-
               <h2 className="mt-3 text-2xl font-bold text-slate-900">{dc?.name ?? "DiscoverCars"}</h2>
               <p className="mt-2 text-slate-700">{dc?.blurb ?? "Compare prices and conditions across providers."}</p>
-
-              <p className="mt-3 text-sm text-slate-600">
-                One step: compare prices, availability, and conditions across providers. Then pick based on rules, not vibes.
-              </p>
             </div>
 
             <div className="mt-4 sm:mt-0 sm:pl-6">
@@ -76,20 +68,14 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* 2) SECOND CHECK (Auto Europe) */}
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
               <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                 Backup comparison check
               </div>
-
               <h2 className="mt-3 text-2xl font-bold text-slate-900">{ae?.name ?? "Auto Europe"}</h2>
               <p className="mt-2 text-slate-700">{ae?.blurb ?? "Second comparison check for pricing and inclusions."}</p>
-
-              <p className="mt-3 text-sm text-slate-600">
-                Useful sanity-check: pricing, inclusions, supplier coverage. Especially if one site looks “too cheap”.
-              </p>
             </div>
 
             <div className="mt-4 sm:mt-0 sm:pl-6">
@@ -105,7 +91,6 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* 3) Rules */}
         <section id="rules" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <h2 className="text-2xl font-bold">Before you book: 3 rules that prevent 80% of problems</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
@@ -130,7 +115,6 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* 4) Booking options grid */}
         <section id="recommended" className="mt-10">
           <h2 className="text-2xl font-bold">Booking options</h2>
           <p className="mt-2 max-w-3xl text-slate-700">
@@ -142,7 +126,7 @@ export default function CarRentalHelsinkiPage() {
           </div>
 
           <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
-            Affiliate disclosure: Some links on this page may be affiliate links. We still prioritize clarity and decision-helpful guidance.
+            Affiliate disclosure: Some links may be affiliate links. We still prioritize clarity and decision-helpful guidance.
           </div>
         </section>
       </div>

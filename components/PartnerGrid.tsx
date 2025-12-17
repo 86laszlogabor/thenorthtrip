@@ -30,8 +30,6 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {keys.map((key, idx) => {
         const p = PARTNERS[key];
-
-        // placement = grid_card_1..n
         const placement = `grid_card_${idx + 1}`;
 
         return (
@@ -50,12 +48,7 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
             </div>
 
             <div className="mt-4">
-              <SponsoredLink
-                href={p.href ?? "tbd"}
-                label={ctaLabel}
-                partner={p.key}
-                placement={placement}
-              />
+              <SponsoredLink href={p.href ?? "tbd"} label={ctaLabel} partner={p.key} placement={placement} />
             </div>
 
             {p.status === "placeholder" ? (

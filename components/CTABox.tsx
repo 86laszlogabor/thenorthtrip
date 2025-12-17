@@ -13,9 +13,9 @@ type CTABoxProps = {
   secondaryHref?: string;
   secondaryLabel?: string;
 
-  placement?: string; // e.g. "helsinki_cta_box"
-  primaryCta?: string; // e.g. "open_checklist"
-  secondaryCta?: string; // e.g. "get_help"
+  placement?: string;
+  primaryCta?: string;
+  secondaryCta?: string;
 };
 
 export default function CTABox({

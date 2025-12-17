@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
+import CTABox from "@/components/CTABox";
 
 export default function LaplandToursPage() {
   return (
@@ -15,24 +16,36 @@ export default function LaplandToursPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA ROW */}
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
-            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600 transition"
+            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
           >
             Free booking checklist
           </Link>
 
           <Link
             href="/blog"
-            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
           >
             Read guides first
           </Link>
         </div>
 
-        {/* PARTNERS */}
+        <div className="mt-10">
+          <CTABox
+            title="Avoid the classic Lapland mistakes"
+            text="Check pickup location, group size, inclusions, and cancellation rules before you pay. Lapland pricing punishes vague bookings."
+            primaryHref="/offer-checklist"
+            primaryLabel="Open the checklist"
+            secondaryHref="/get-help"
+            secondaryLabel="Ask a question"
+            placement="lapland_cta_box"
+            primaryCta="open_checklist"
+            secondaryCta="get_help"
+          />
+        </div>
+
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Recommended Lapland providers</h2>
           <p className="mt-2 max-w-2xl text-slate-700">
@@ -41,12 +54,7 @@ export default function LaplandToursPage() {
 
           <div className="mt-6">
             <PartnerGrid
-              keys={[
-                "staylapland",
-                "arctic_lifestyle",
-                "getyourguide_lapland",
-                "viator_lapland",
-              ]}
+              keys={["staylapland", "arctic_lifestyle", "getyourguide_lapland", "viator_lapland"]}
               ctaLabel="See tours"
             />
           </div>

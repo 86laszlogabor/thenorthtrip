@@ -1,7 +1,6 @@
 // lib/track.ts
 
 export type TrackEventName = "affiliate_click" | "cta_click";
-
 export type TrackProps = Record<string, string | number | boolean | null | undefined>;
 
 declare global {
@@ -21,12 +20,9 @@ export function track(eventName: TrackEventName, props?: TrackProps) {
   try {
     if (typeof window.plausible !== "function") return;
 
-    const merged: TrackProps = {
-      page: safePathname(),
-      ...(props ?? {}),
-    };
-
-    window.plausible(eventName, { props: merged });
+    window.plausible(eventName, {
+      props: { page: safePathname(), ...(props ?? {}) },
+    });
   } catch {
     // swallow
   }

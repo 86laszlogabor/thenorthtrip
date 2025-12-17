@@ -7,7 +7,9 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Analytics from "@/components/Analytics";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = rawSiteUrl.startsWith("http") ? rawSiteUrl : "http://localhost:3000";
+
 const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "";
 
 export const metadata: Metadata = {
