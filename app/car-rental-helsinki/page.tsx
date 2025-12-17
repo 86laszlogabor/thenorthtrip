@@ -59,8 +59,7 @@ export default function CarRentalHelsinkiPage() {
               <p className="mt-2 text-slate-700">{dc?.blurb ?? "Compare prices and conditions across providers."}</p>
 
               <p className="mt-3 text-sm text-slate-600">
-                One step: compare prices, availability, and conditions across providers. Then pick based on rules, not
-                vibes.
+                One step: compare prices, availability, and conditions across providers. Then pick based on rules, not vibes.
               </p>
             </div>
 
@@ -68,7 +67,7 @@ export default function CarRentalHelsinkiPage() {
               <SponsoredLink
                 href={dcLive ? dcHref : "#"}
                 label="Compare prices"
-                placement="pillar_car_rental"
+                placement="pillar_car_rental_primary"
                 partner="discovercars"
                 className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
               />
@@ -97,7 +96,7 @@ export default function CarRentalHelsinkiPage() {
               <SponsoredLink
                 href={aeLive ? aeHref : "#"}
                 label="Check Auto Europe"
-                placement="pillar_car_rental"
+                placement="pillar_car_rental_secondary"
                 partner="autoeurope"
                 className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
               />
@@ -139,16 +138,11 @@ export default function CarRentalHelsinkiPage() {
           </p>
 
           <div className="mt-6">
-            <PartnerGrid
-              keys={["discovercars", "autoeurope"]}
-              ctaLabel="Check availability"
-              placement="pillar_car_rental"
-            />
+            <PartnerGrid keys={["discovercars", "autoeurope"]} ctaLabel="Check availability" />
           </div>
 
           <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
-            Affiliate disclosure: Some links on this page may be affiliate links. We still prioritize clarity and
-            decision-helpful guidance.
+            Affiliate disclosure: Some links on this page may be affiliate links. We still prioritize clarity and decision-helpful guidance.
           </div>
         </section>
       </div>

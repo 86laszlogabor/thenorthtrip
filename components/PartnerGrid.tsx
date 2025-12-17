@@ -1,7 +1,5 @@
-// components/PartnerGrid.tsx
-
-import { PARTNERS, type PartnerKey } from "@/lib/partners";
 import SponsoredLink from "@/components/SponsoredLink";
+import { PARTNERS, type PartnerKey } from "@/lib/partners";
 import { gridPlacement } from "@/lib/placements";
 
 type Props = {

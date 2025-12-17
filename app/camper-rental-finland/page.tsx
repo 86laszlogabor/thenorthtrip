@@ -68,20 +68,21 @@ export default function CamperRentalFinlandPage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold">Recommended camper partners</h2>
           <p className="mt-2 max-w-2xl text-slate-700">
-            These are practical booking options, not “ads”. Pick one mainstream platform, one local peer-to-peer,
-            and one winter-ready fleet if you’re heading north.
+            These are practical booking options, not “ads”. Pick one mainstream
+            platform, one local peer-to-peer, and one winter-ready fleet if you’re
+            heading north.
           </p>
 
           <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-            Quick rule: if your trip includes October–April routes, prioritize winter-ready setup (heating, tires, insulation)
-            over saving a little money upfront.
+            Quick rule: if your trip includes October–April routes, prioritize
+            winter-ready setup (heating, tires, insulation) over saving a little
+            money upfront.
           </div>
 
           <div className="mt-6">
             <PartnerGrid
               keys={["indie_campers", "mycamper", "touring_cars_finland"]}
               ctaLabel="Check availability"
-              placement="pillar_camper_rental"
             />
           </div>
 

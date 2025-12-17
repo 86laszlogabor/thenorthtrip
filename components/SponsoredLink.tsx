@@ -9,7 +9,7 @@ type Props = {
   label: string;
   className?: string;
 
-  placement?: Placement;
+  placement?: Placement; // string
   partner?: PartnerKey | "unknown";
 };
 

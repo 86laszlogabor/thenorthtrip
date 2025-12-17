@@ -33,7 +33,7 @@ export default function HelsinkiPage() {
           </Link>
         </div>
 
-        {/* “Recommended next step” (tracked) */}
+        {/* “Recommended next step” */}
         <div className="mt-10">
           <CTABox
             title="If you’re booking anything time-sensitive"
@@ -55,11 +55,7 @@ export default function HelsinkiPage() {
             For Tallinn day trips or Stockholm overnights, compare schedules first, then book direct if you want fewer surprises.
           </p>
           <div className="mt-6">
-            <PartnerGrid
-              keys={["direct_ferries", "tallink_silja", "viking_line"]}
-              ctaLabel="Check schedules"
-              placement="city_helsinki_ferries"
-            />
+            <PartnerGrid keys={["direct_ferries", "tallink_silja", "viking_line"]} ctaLabel="Check schedules" />
           </div>
         </section>
 
@@ -73,7 +69,6 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["loyly", "allas_sea_pool", "getyourguide_sauna", "tiqets_sauna"]}
               ctaLabel="View tickets"
-              placement="city_helsinki_sauna"
             />
           </div>
         </section>
@@ -88,12 +83,11 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["helsinki_city_tours", "redrib_experience", "getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
-              placement="city_helsinki_tours"
             />
           </div>
         </section>
 
-        {/* Optional “recommended” block (tracked affiliate clicks) */}
+        {/* Optional “recommended” block */}
         <div className="mt-10">
           <Recommended
             title="Quick picks"
