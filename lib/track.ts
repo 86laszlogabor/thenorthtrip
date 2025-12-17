@@ -10,19 +10,29 @@ declare global {
   }
 }
 
+function safePathname(): string {
+  if (typeof window === "undefined") return "ssr";
+  return window.location?.pathname || "unknown";
+}
+
 export function track(eventName: TrackEventName, props?: TrackProps) {
   if (typeof window === "undefined") return;
 
   try {
-    if (typeof window.plausible === "function") {
-      window.plausible(eventName, { props: props ?? {} });
-      return;
-    }
+    if (typeof window.plausible !== "function") return;
 
-    // Fallback: ha plausible még nem töltött be, ne dobjunk hibát.
-    // (Opció: queue-zni lehetne, de click-validáció fázisban nem kell túlbonyolítani.)
-    // console.debug("Plausible not ready", eventName, props);
+    const page = safePathname();
+
+    // Backward compat:
+    // - ha valaki még "cta" kulcsot küld, hagyjuk meg
+    // - de preferáljuk a "label" kulcsot
+    const merged: TrackProps = {
+      page,
+      ...(props ?? {}),
+    };
+
+    window.plausible(eventName, { props: merged });
   } catch {
-    // intentionally swallow
+    // swallow
   }
 }

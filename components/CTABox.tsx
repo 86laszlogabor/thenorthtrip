@@ -15,7 +15,7 @@ type CTABoxProps = {
 
   // analytics (optional)
   placement?: string; // e.g. "home_cta_box", "pillar_car_rental"
-  primaryCta?: string; // e.g. "free_checklist"
+  primaryCta?: string; // e.g. "open_checklist"
   secondaryCta?: string; // e.g. "get_help"
 };
 
@@ -40,21 +40,21 @@ export default function CTABox({
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href={primaryHref}
-          onClick={() => track("cta_click", { placement, cta: primaryCta })}
-          className="rounded-lg bg-orange-500 px-5 py-2 text-sm font-semibold text-black hover:bg-orange-600 transition"
+          onClick={() => track("cta_click", { placement, label: primaryCta })}
+          className="rounded-lg bg-orange-500 px-5 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
         >
           {primaryLabel}
         </Link>
 
-        {secondaryHref && secondaryLabel && (
+        {secondaryHref && secondaryLabel ? (
           <Link
             href={secondaryHref}
-            onClick={() => track("cta_click", { placement, cta: secondaryCta })}
-            className="rounded-lg border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
+            onClick={() => track("cta_click", { placement, label: secondaryCta })}
+            className="rounded-lg border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
           >
             {secondaryLabel}
           </Link>
-        )}
+        ) : null}
       </div>
     </section>
   );
