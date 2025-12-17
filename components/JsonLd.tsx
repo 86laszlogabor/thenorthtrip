@@ -1,9 +1,11 @@
-// components/JsonLd.tsx
-export default function JsonLd({ data }: { data: Record<string, unknown> }) {
+import Script from "next/script";
+
+export default function JsonLd({ id, data }: { id: string; data: unknown }) {
   return (
-    <script
+    <Script
+      id={id}
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );

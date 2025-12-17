@@ -1,14 +1,14 @@
 "use client";
 
-import { track } from "@/lib/track";
-import type { PartnerKey } from "@/lib/partners";
+import { trackPlus } from "@/lib/track-plus";
+import type { Placement } from "@/lib/placements";
 
 type Props = {
   href: string;
   label: string;
   className?: string;
-  placement?: string; // free string, click-validációhoz elég
-  partner?: PartnerKey | "unknown";
+  placement?: Placement;
+  partner?: string;
 };
 
 function isPlaceholderHref(href: string) {
@@ -20,7 +20,7 @@ export default function SponsoredLink({
   href,
   label,
   className,
-  placement = "unknown",
+  placement = "footer",
   partner = "unknown",
 }: Props) {
   const placeholder = isPlaceholderHref(href);
@@ -49,7 +49,7 @@ export default function SponsoredLink({
         className ??
         "inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
       }
-      onClick={() => track("affiliate_click", { placement, partner, href })}
+      onClick={() => trackPlus("affiliate_click", { placement, partner, href })}
     >
       {label}
       <span className="ml-2 opacity-70">↗</span>

@@ -32,7 +32,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           />
         ) : null}
 
-        {/* useSearchParams() in client component needs Suspense in App Router */}
         <Suspense fallback={null}>
           <UtmCapture />
         </Suspense>

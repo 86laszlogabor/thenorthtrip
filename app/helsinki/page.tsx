@@ -18,7 +18,6 @@ export default function HelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row (site-standard) */}
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
@@ -34,7 +33,6 @@ export default function HelsinkiPage() {
           </Link>
         </div>
 
-        {/* “Recommended next step” (tracked) */}
         <div className="mt-10">
           <CTABox
             title="If you’re booking anything time-sensitive"
@@ -43,13 +41,12 @@ export default function HelsinkiPage() {
             primaryLabel="Open the checklist"
             secondaryHref="/get-help"
             secondaryLabel="Ask a question"
-            placement="helsinki_cta_box"
+            placement="helsinki_top"
             primaryCta="open_checklist"
             secondaryCta="get_help"
           />
         </div>
 
-        {/* Ferry tickets */}
         <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Ferry tickets</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
@@ -59,11 +56,11 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["direct_ferries", "tallink_silja", "viking_line"]}
               ctaLabel="Check schedules"
+              placement="helsinki_ferries"
             />
           </div>
         </section>
 
-        {/* Sauna */}
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Sauna</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
@@ -73,11 +70,11 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["loyly", "allas_sea_pool", "getyourguide_sauna", "tiqets_sauna"]}
               ctaLabel="View tickets"
+              placement="helsinki_sauna"
             />
           </div>
         </section>
 
-        {/* City sightseeing */}
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">City sightseeing</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
@@ -87,11 +84,11 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["helsinki_city_tours", "redrib_experience", "getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
+              placement="helsinki_tours"
             />
           </div>
         </section>
 
-        {/* Optional “recommended” block */}
         <div className="mt-10">
           <Recommended
             title="Quick picks"
@@ -102,22 +99,11 @@ export default function HelsinkiPage() {
           />
         </div>
 
-        {/* Next step loop (internal depth) */}
         <InternalNext
           placement="internal_next"
           items={[
-            {
-              href: "/car-rental-helsinki",
-              title: "Car rental rules",
-              desc: "Deposits, debit cards, winter extras.",
-              cta: "next_car_rental",
-            },
-            {
-              href: "/lapland-tours",
-              title: "Lapland tours",
-              desc: "Local-first, platforms as backup.",
-              cta: "next_lapland",
-            },
+            { href: "/car-rental-helsinki", title: "Car rental rules", desc: "Deposits, debit cards, winter extras.", cta: "next_car_rental" },
+            { href: "/lapland-tours", title: "Lapland tours", desc: "Local-first, platforms as backup.", cta: "next_lapland" },
           ]}
         />
 

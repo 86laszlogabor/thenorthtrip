@@ -1,9 +1,8 @@
 export const SITE = {
   name: "TheNorthTrip",
-  tagline: "Clear facts before you book",
-  description:
-    "Clear, practical Finland travel guides about deposits, card rules, winter add-ons, and tour inclusions.",
-  url: "https://thenorthtrip.com",
+  domain: process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "thenorthtrip.com",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
+
 
   // contact (used in SEO JSON-LD)
   email: "hello@thenorthtrip.com",
