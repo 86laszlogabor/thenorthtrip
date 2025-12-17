@@ -7,7 +7,7 @@ type Props = {
   label: string;
   className?: string;
   placement?: string; // e.g. "footer", "pillar_car_rental"
-  partner?: string;   // e.g. "discovercars", "sixt"
+  partner?: string; // e.g. "discovercars", "sixt"
 };
 
 function isPlaceholderHref(href: string) {

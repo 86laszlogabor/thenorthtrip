@@ -13,7 +13,8 @@ export function track(event: TrackEvent, props: TrackProps = {}) {
 
   const clean: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(props)) {
-    if (v !== undefined) clean[k] = v;
+    if (v === undefined || v === null) continue;
+    clean[k] = v;
   }
 
   if (typeof window.plausible === "function") {
