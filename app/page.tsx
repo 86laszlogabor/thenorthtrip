@@ -8,24 +8,28 @@ export default function HomePage() {
   const destinations = [
     {
       name: "Rovaniemi",
+      slug: "rovaniemi",
       href: "/rovaniemi",
       image: "/images/destinations/dest-rovaniemi.jpg",
       blurb: "Santa village logistics, winter driving basics, and real cost traps.",
     },
     {
       name: "Levi",
+      slug: "levi",
       href: "/levi",
       image: "/images/destinations/dest-levi.jpg",
       blurb: "Ski season timing, airport transfers, and what to book early.",
     },
     {
       name: "Ylläs",
+      slug: "yllas",
       href: "/yllas",
       image: "/images/destinations/dest-yllas.jpg",
       blurb: "Quieter Lapland base, trail access, and practical stay options.",
     },
     {
       name: "Helsinki",
+      slug: "helsinki",
       href: "/helsinki",
       image: "/images/destinations/dest-helsinki.jpg",
       blurb: "Ferries, saunas, and one-day routes that actually make sense.",
@@ -61,7 +65,7 @@ export default function HomePage() {
             <Link
               href="/car-rental-helsinki"
               onClick={() => track("cta_click", { placement: "home_hero", cta: "compare_car_rental" })}
-              className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black hover:bg-orange-600 transition"
+              className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black transition hover:bg-orange-600"
             >
               Compare car rental costs
             </Link>
@@ -70,7 +74,7 @@ export default function HomePage() {
             <Link
               href="/get-help"
               onClick={() => track("cta_click", { placement: "home_hero", cta: "ask_before_booking" })}
-              className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white hover:bg-white/10 transition"
+              className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Ask before booking
             </Link>
@@ -78,7 +82,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FLOATING DECISION CARDS (no orange) */}
+      {/* FLOATING DECISION CARDS */}
       <section className="relative -mt-36 z-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 lg:grid-cols-3">
@@ -88,9 +92,7 @@ export default function HomePage() {
                 Car rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">
-                Car rental in Finland
-              </h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">Car rental in Finland</h3>
               <p className="mt-3 text-slate-700">
                 Credit card deposits, debit card rules, airport pickup surprises.
               </p>
@@ -98,9 +100,9 @@ export default function HomePage() {
               <Link
                 href="/car-rental-helsinki"
                 onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_car_rental" })}
-                className="mt-6 inline-flex rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500 transition"
+                className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
-                Read the guide
+                Open guide
               </Link>
             </div>
 
@@ -110,9 +112,7 @@ export default function HomePage() {
                 Camper rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">
-                Camper rental in Finland
-              </h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">Camper rental in Finland</h3>
               <p className="mt-3 text-slate-700">
                 Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
               </p>
@@ -120,9 +120,9 @@ export default function HomePage() {
               <Link
                 href="/camper-rental-finland"
                 onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })}
-                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 transition"
+                className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
-                Compare camper options
+                Open guide
               </Link>
             </div>
 
@@ -132,9 +132,7 @@ export default function HomePage() {
                 Lapland tours
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">
-                Lapland tours & experiences
-              </h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">Lapland tours & experiences</h3>
               <p className="mt-3 text-slate-700">
                 What’s included, what’s not, and how tourists overpay.
               </p>
@@ -142,9 +140,9 @@ export default function HomePage() {
               <Link
                 href="/lapland-tours"
                 onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })}
-                className="mt-6 inline-flex rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500 transition"
+                className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
-                Compare tours
+                Open guide
               </Link>
             </div>
           </div>
@@ -158,15 +156,15 @@ export default function HomePage() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {destinations.map((dest) => (
             <Link
-              key={dest.name}
+              key={dest.slug}
               href={dest.href}
               onClick={() =>
                 track("cta_click", {
                   placement: "home_destinations",
-                  cta: dest.name.toLowerCase(),
+                  cta: dest.slug,
                 })
               }
-              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-slate-100 transition"
+              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:bg-slate-100"
             >
               <div className="flex items-center gap-4">
                 <div className="h-14 w-14 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
@@ -184,7 +182,7 @@ export default function HomePage() {
               <p className="mt-3 text-sm text-slate-700">{dest.blurb}</p>
 
               <div className="mt-5">
-                <span className="inline-flex rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-800 group-hover:bg-slate-200 transition">
+                <span className="inline-flex rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-800 transition group-hover:bg-slate-200">
                   Open {dest.name} →
                 </span>
               </div>
