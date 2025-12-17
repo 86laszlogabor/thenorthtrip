@@ -4,6 +4,7 @@ export type PartnerStatus = "live" | "placeholder";
 
 export type PartnerType =
   | "car_search"
+  | "car_operator"
   | "camper_fleet"
   | "camper_p2p"
   | "camper_local"
@@ -18,6 +19,7 @@ export type PartnerType =
 export type PartnerKey =
   // Car rental
   | "discovercars"
+  | "autoeurope"
 
   // Camper
   | "indie_campers"
@@ -70,6 +72,18 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     blurb: "Compare prices and availability across multiple rental companies.",
     status: "live",
     href: "https://www.discovercars.com?a_aid=86laszlogabor",
+    note: "Affiliate link live.",
+  },
+
+  autoeurope: {
+    key: "autoeurope",
+    name: "Auto Europe",
+    type: "car_operator",
+    badge: "Top pick",
+    blurb:
+      "Trusted car rental broker with strong support. Good if you value fewer surprises over chasing the cheapest price.",
+    status: "placeholder",
+    note: "Awaiting affiliate onboarding / tracking link.",
   },
 
   // -------------------------
@@ -127,6 +141,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     blurb: "Platform backup for availability and last-minute bookings.",
     status: "live",
     href: "https://www.viator.com/Lapland/d4470-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriplapland",
+    note: "Affiliate link live.",
   },
   getyourguide_lapland: {
     key: "getyourguide_lapland",
@@ -135,7 +150,8 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Backup",
     blurb: "Reliable booking platform for tours and activities.",
     status: "live",
-    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=thenorthtrip_lapland",
+    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=share_to_earn",
+    note: "Affiliate link live.",
   },
 
   // -------------------------
