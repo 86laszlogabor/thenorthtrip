@@ -74,10 +74,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FLOATING DECISION CARDS (pulled up more) */}
+      {/* FLOATING DECISION CARDS (3 cards) */}
       <section className="relative -mt-36 z-20">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Car rental */}
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
               <h3 className="text-xl font-semibold">Car rental in Finland</h3>
               <p className="mt-3 text-slate-600">
@@ -91,6 +92,21 @@ export default function HomePage() {
               </a>
             </div>
 
+            {/* Camper rental */}
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+              <h3 className="text-xl font-semibold">Camper rental in Finland</h3>
+              <p className="mt-3 text-slate-600">
+                Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
+              </p>
+              <a
+                href="/camper-rental-finland"
+                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
+              >
+                Compare camper options
+              </a>
+            </div>
+
+            {/* Tours */}
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
               <h3 className="text-xl font-semibold">Lapland tours & experiences</h3>
               <p className="mt-3 text-slate-600">
