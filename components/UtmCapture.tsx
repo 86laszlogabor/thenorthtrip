@@ -13,7 +13,6 @@ export default function UtmCapture() {
     const utm = pickUtm(sp);
     if (Object.keys(utm).length === 0) return;
     storeUtm(utm);
-    // semmi track itt, csak tárolás: stabilabb build, kevesebb zaj
   }, [sp, pathname]);
 
   return null;

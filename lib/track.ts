@@ -1,5 +1,4 @@
 export type TrackEventName = "affiliate_click" | "cta_click";
-
 export type TrackProps = Record<string, string | number | boolean | null | undefined>;
 
 declare global {

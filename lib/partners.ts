@@ -1,5 +1,3 @@
-// lib/partners.ts
-
 export type PartnerStatus = "live" | "placeholder";
 
 export type PartnerType =
@@ -32,18 +30,18 @@ export type PartnerKey =
   | "getyourguide_lapland"
   | "viator_lapland"
 
-  // Helsinki ferry (TEMP = platform fallback)
+  // Helsinki ferry
   | "direct_ferries"
   | "tallink_silja"
   | "viking_line"
 
-  // Helsinki sauna (TEMP = platform fallback)
+  // Helsinki sauna
   | "loyly"
   | "allas_sea_pool"
   | "getyourguide_sauna"
   | "tiqets_sauna"
 
-  // Helsinki city (platforms live)
+  // Helsinki city
   | "getyourguide_city"
   | "viator_city"
   | "helsinki_city_tours"
@@ -59,11 +57,6 @@ export type Partner = {
   href?: string;
   note?: string;
 };
-
-const GYG_BASE = "https://www.getyourguide.com";
-const GYG_AFF = "partner_id=WZOJZJM";
-const VIATOR_BASE = "https://www.viator.com";
-const VIATOR_AFF = "pid=P00281199&mcid=42383&medium=link";
 
 export const PARTNERS: Record<PartnerKey, Partner> = {
   // -------------------------
@@ -101,7 +94,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Top pick",
     blurb: "Fleet-based camper rental. Simple booking for first-time trips.",
     status: "placeholder",
-    note: "Add tracking link when onboarded.",
   },
   mycamper: {
     key: "mycamper",
@@ -110,7 +102,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Local",
     blurb: "Peer-to-peer rentals from local owners. Often better value.",
     status: "placeholder",
-    note: "Add tracking link when onboarded.",
   },
   touring_cars_finland: {
     key: "touring_cars_finland",
@@ -119,11 +110,10 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Winter-ready",
     blurb: "Premium local operator. Strong option for off-season and Lapland routes.",
     status: "placeholder",
-    note: "Add tracking link when onboarded.",
   },
 
   // -------------------------
-  // LAPLAND TOURS (LIVE)
+  // LAPLAND TOURS
   // -------------------------
   staylapland: {
     key: "staylapland",
@@ -132,7 +122,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Local",
     blurb: "Curated Lapland experiences with a local-first approach.",
     status: "placeholder",
-    note: "Outreach sent.",
   },
   arctic_lifestyle: {
     key: "arctic_lifestyle",
@@ -141,20 +130,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Local",
     blurb: "Small-group, experience-focused Lapland tours.",
     status: "placeholder",
-    note: "Outreach sent.",
   },
-
-  getyourguide_lapland: {
-    key: "getyourguide_lapland",
-    name: "GetYourGuide (Lapland)",
-    type: "tour_platform",
-    badge: "Backup",
-    blurb: "Reliable booking platform for tours and activities.",
-    status: "live",
-    href: `${GYG_BASE}/?${GYG_AFF}&cmp=lapland`,
-    note: "Affiliate link live.",
-  },
-
   viator_lapland: {
     key: "viator_lapland",
     name: "Viator (Lapland)",
@@ -162,32 +138,42 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Backup",
     blurb: "Platform backup for availability and last-minute bookings.",
     status: "live",
-    href: `${VIATOR_BASE}/Rovaniemi/d22130-ttd?${VIATOR_AFF}&campaign=thenorthtriplapland`,
+    href: "https://www.viator.com/Rovaniemi/d22130-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriplapland",
+    note: "Affiliate link live.",
+  },
+  getyourguide_lapland: {
+    key: "getyourguide_lapland",
+    name: "GetYourGuide (Lapland)",
+    type: "tour_platform",
+    badge: "Backup",
+    blurb: "Reliable booking platform for tours and activities.",
+    status: "live",
+    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=thenorthtriplapland",
     note: "Affiliate link live.",
   },
 
   // -------------------------
-  // HELSINKI FERRY (TEMP via platforms)
+  // HELSINKI FERRY (TEMP: route to platforms)
   // -------------------------
   direct_ferries: {
     key: "direct_ferries",
-    name: "Direct Ferries",
+    name: "GetYourGuide (Helsinki)",
     type: "ferry_search",
     badge: "Compare",
-    blurb: "Compare routes and ferry operators.",
+    blurb: "Temporary platform option while local ferry partners are being onboarded.",
     status: "live",
-    href: `${GYG_BASE}/helsinki-l13/?${GYG_AFF}&cmp=helsinki_ferry&search=tallinn%20ferry`,
-    note: "TEMP: routed to GetYourGuide search (Tallinn ferry/day trips).",
+    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=thenorthtriphelsinki",
+    note: "Temporary: routed to platform.",
   },
   tallink_silja: {
     key: "tallink_silja",
-    name: "Tallink Silja",
+    name: "Viator (Helsinki)",
     type: "ferry_operator",
     badge: "Direct",
-    blurb: "Direct operator for Helsinki–Tallinn and Stockholm routes.",
+    blurb: "Temporary platform option while direct ferry partners are being onboarded.",
     status: "live",
-    href: `${VIATOR_BASE}/Helsinki-tours/Day-Trips-and-Excursions/d803-g5?${VIATOR_AFF}&campaign=thenorthtriphelsinki_ferry`,
-    note: "TEMP: routed to Viator day trips (includes Tallinn-style options).",
+    href: "https://www.viator.com/Helsinki/d803-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriphelsinki",
+    note: "Temporary: routed to platform.",
   },
   viking_line: {
     key: "viking_line",
@@ -195,13 +181,11 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "ferry_operator",
     badge: "Direct",
     blurb: "Alternative ferry operator with good schedules.",
-    status: "live",
-    href: `${VIATOR_BASE}/Helsinki/d803-ttd?${VIATOR_AFF}&campaign=thenorthtriphelsinki_ferry`,
-    note: "TEMP: routed to Viator Helsinki activities (ferry/day-trip style).",
+    status: "placeholder",
   },
 
   // -------------------------
-  // HELSINKI SAUNA (TEMP via platforms)
+  // HELSINKI SAUNA (TEMP: route to platforms)
   // -------------------------
   loyly: {
     key: "loyly",
@@ -209,9 +193,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "sauna_local",
     badge: "Top pick",
     blurb: "Iconic seaside sauna. Book ahead on weekends.",
-    status: "live",
-    href: `${GYG_BASE}/helsinki-l13/?${GYG_AFF}&cmp=helsinki_loyly&search=sauna%20l%C3%B6yly`,
-    note: "TEMP: routed to GetYourGuide search.",
+    status: "placeholder",
   },
   allas_sea_pool: {
     key: "allas_sea_pool",
@@ -219,19 +201,17 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     type: "sauna_local",
     badge: "Local",
     blurb: "Central sauna and sea pool combo.",
-    status: "live",
-    href: `${GYG_BASE}/helsinki-l13/?${GYG_AFF}&cmp=helsinki_allas&search=sauna%20allas`,
-    note: "TEMP: routed to GetYourGuide search.",
+    status: "placeholder",
   },
   getyourguide_sauna: {
     key: "getyourguide_sauna",
-    name: "GetYourGuide (Sauna)",
+    name: "GetYourGuide (Helsinki)",
     type: "ticketing",
     badge: "Backup",
-    blurb: "Platform backup for sauna tickets.",
+    blurb: "Platform option for tickets and activities (temporary while local partners onboard).",
     status: "live",
-    href: `${GYG_BASE}/helsinki-l13/?${GYG_AFF}&cmp=helsinki_sauna&search=sauna`,
-    note: "Affiliate link live (sauna search landing).",
+    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=thenorthtriphelsinki",
+    note: "Affiliate link live.",
   },
   tiqets_sauna: {
     key: "tiqets_sauna",
@@ -240,11 +220,10 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Backup",
     blurb: "Mobile-friendly ticketing backup.",
     status: "placeholder",
-    note: "Later: add Tiqets tracking link when ready.",
   },
 
   // -------------------------
-  // HELSINKI CITY (LIVE platforms; locals later)
+  // HELSINKI CITY
   // -------------------------
   getyourguide_city: {
     key: "getyourguide_city",
@@ -253,7 +232,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Backup",
     blurb: "Platform backup for common city tours.",
     status: "live",
-    href: `${GYG_BASE}/helsinki-l13/?${GYG_AFF}&cmp=helsinki_city`,
+    href: "https://www.getyourguide.com?partner_id=WZOJZJM&cmp=thenorthtriphelsinki",
     note: "Affiliate link live.",
   },
   viator_city: {
@@ -261,9 +240,9 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     name: "Viator (Helsinki)",
     type: "city_tours",
     badge: "Backup",
-    blurb: "Alternative platform for city activities.",
+    blurb: "Alternative platform for Helsinki activities.",
     status: "live",
-    href: `${VIATOR_BASE}/Helsinki/d803-ttd?${VIATOR_AFF}&campaign=thenorthtriphelsinki`,
+    href: "https://www.viator.com/Helsinki/d803-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriphelsinki",
     note: "Affiliate link live.",
   },
   helsinki_city_tours: {
@@ -273,7 +252,6 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Top pick",
     blurb: "Local sightseeing routes and first-day tours.",
     status: "placeholder",
-    note: "Later: replace with direct partner link if onboarded.",
   },
   redrib_experience: {
     key: "redrib_experience",
@@ -282,6 +260,5 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Local",
     blurb: "Speedboat experiences. Short, memorable, expensive in a good way.",
     status: "placeholder",
-    note: "Later: add direct booking link when onboarded.",
   },
 };
