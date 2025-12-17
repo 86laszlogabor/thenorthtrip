@@ -14,8 +14,8 @@ const NAV = [
   { href: "/camper-rental-finland", label: "Camper rental", cta: "nav_camper_rental" },
   { href: "/lapland-tours", label: "Lapland tours", cta: "nav_lapland_tours" },
   { href: "/blog", label: "Blog", cta: "nav_blog" },
+  { href: "/who-we-are", label: "Who we are", cta: "nav_who_we_are" },
 ];
-
 export default function SiteHeader() {
   const pathname = usePathname();
 
