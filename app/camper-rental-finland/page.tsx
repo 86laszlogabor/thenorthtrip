@@ -34,11 +34,10 @@ export default function CamperRentalFinlandPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row (unified: green primary) */}
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
-            className="rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
+            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600"
           >
             Free booking checklist
           </Link>
@@ -56,10 +55,10 @@ export default function CamperRentalFinlandPage() {
           {cards.map((x) => (
             <div
               key={x.t}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-slate-100 transition"
             >
               <div className="text-base font-semibold text-slate-900">{x.t}</div>
-              <div className="mt-2 text-sm text-slate-600">{x.d}</div>
+              <div className="mt-2 text-sm text-slate-700">{x.d}</div>
             </div>
           ))}
         </section>
@@ -67,7 +66,7 @@ export default function CamperRentalFinlandPage() {
         {/* Partners */}
         <section className="mt-12">
           <h2 className="text-2xl font-bold">Recommended camper partners</h2>
-          <p className="mt-2 max-w-2xl text-slate-600">
+          <p className="mt-2 max-w-2xl text-slate-700">
             One mainstream option, one local peer-to-peer, and winter-ready local fleets.
           </p>
 

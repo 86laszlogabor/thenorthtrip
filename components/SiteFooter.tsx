@@ -30,22 +30,34 @@ export default function SiteFooter() {
           <div>
             <div className="text-sm font-bold text-slate-900">Guides</div>
             <div className="mt-3 space-y-2 text-sm">
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/car-rental-helsinki">
+              <Link
+                className="block text-slate-700 hover:text-slate-900 hover:underline"
+                href="/car-rental-helsinki"
+              >
                 Car rental Helsinki
               </Link>
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/camper-rental-finland">
+              <Link
+                className="block text-slate-700 hover:text-slate-900 hover:underline"
+                href="/camper-rental-finland"
+              >
                 Camper rental Finland
               </Link>
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/lapland-tours">
+              <Link
+                className="block text-slate-700 hover:text-slate-900 hover:underline"
+                href="/lapland-tours"
+              >
                 Lapland tours
               </Link>
             </div>
           </div>
 
           <div>
-            <div className="text-sm font-bold text-slate-900">Partnereink</div>
+            <div className="text-sm font-bold text-slate-900">Partners</div>
             <div className="mt-3 space-y-3 text-sm">
-              <Link className="block text-slate-700 hover:text-slate-900 hover:underline" href="/car-rental-helsinki">
+              <Link
+                className="block text-slate-700 hover:text-slate-900 hover:underline"
+                href="/car-rental-helsinki"
+              >
                 Car rental partners
               </Link>
 
@@ -58,9 +70,7 @@ export default function SiteFooter() {
                 DiscoverCars: compare prices
               </a>
 
-              <div className="text-xs text-slate-500">
-                Some links may be sponsored.
-              </div>
+              <div className="text-xs text-slate-500">Some links may be sponsored.</div>
             </div>
           </div>
 
@@ -70,7 +80,10 @@ export default function SiteFooter() {
             <div className="mt-3 space-y-4 text-sm text-slate-600">
               <div>
                 <div className="font-semibold text-slate-900">Customer support & help</div>
-                <a className="mt-1 block font-semibold text-slate-900 hover:underline" href="mailto:hello@thenorthtrip.com">
+                <a
+                  className="mt-1 block font-semibold text-slate-900 hover:underline"
+                  href="mailto:hello@thenorthtrip.com"
+                >
                   hello@thenorthtrip.com
                 </a>
                 <div className="mt-1 text-xs text-slate-500">
@@ -80,7 +93,10 @@ export default function SiteFooter() {
 
               <div>
                 <div className="font-semibold text-slate-900">Partnerships & collaborations</div>
-                <a className="mt-1 block font-semibold text-slate-900 hover:underline" href="mailto:partners@thenorthtrip.com">
+                <a
+                  className="mt-1 block font-semibold text-slate-900 hover:underline"
+                  href="mailto:partners@thenorthtrip.com"
+                >
                   partners@thenorthtrip.com
                 </a>
                 <div className="mt-1 text-xs text-slate-500">

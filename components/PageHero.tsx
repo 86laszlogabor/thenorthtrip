@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 type Props = {
   title: string;
@@ -26,15 +26,14 @@ export default function PageHero({
   return (
     <section className="relative isolate overflow-hidden">
       <div className="relative h-[360px] sm:h-[480px] lg:h-[560px] bg-slate-900">
-        <img
+        <Image
           src={src}
           alt={imageAlt}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
+          fill
+          priority={!!priority}
+          className="object-cover"
         />
 
-        {/* FINAL light tuning */}
         <div className="absolute inset-0 bg-black/20" />
         <div
           className="absolute inset-0"
@@ -54,9 +53,9 @@ export default function PageHero({
       </div>
 
       <div className="mx-auto max-w-6xl px-4">
-        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-white/95 backdrop-blur p-6 sm:p-8 shadow-sm">
+        <div className="-mt-28 sm:-mt-32 relative rounded-3xl border border-slate-200 bg-slate-50/95 backdrop-blur p-6 sm:p-8 shadow-sm">
           {badge ? (
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-600">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs text-slate-700">
               {badge}
             </div>
           ) : null}
@@ -66,7 +65,7 @@ export default function PageHero({
           </h1>
 
           {subtitle ? (
-            <p className="mt-3 max-w-3xl text-slate-600">{subtitle}</p>
+            <p className="mt-3 max-w-3xl text-slate-700">{subtitle}</p>
           ) : null}
         </div>
       </div>

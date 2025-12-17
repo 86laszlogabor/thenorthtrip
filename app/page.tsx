@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   const destinations = [
@@ -29,7 +30,7 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="bg-slate-50 text-slate-900">
+    <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
       <section className="relative h-[62vh] min-h-[480px] w-full overflow-hidden bg-slate-950">
         <Image
@@ -42,8 +43,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 pt-24 text-white">
-          {/* BADGE REMOVED ON PURPOSE */}
-
           <h1 className="max-w-2xl text-5xl font-extrabold leading-tight tracking-tight">
             Get clear facts before you book.
           </h1>
@@ -55,65 +54,61 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
+            <Link
               href="/car-rental-helsinki"
-              className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-500"
+              className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black hover:bg-orange-600"
             >
               Compare car rental costs
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/get-help"
               className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
               Ask before booking
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* FLOATING DECISION CARDS (canvas-style, not white) */}
+      {/* FLOATING DECISION CARDS */}
       <section className="relative -mt-36 z-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 lg:grid-cols-3">
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
-              <h3 className="text-xl font-semibold">Car rental in Finland</h3>
-              <p className="mt-3 text-slate-600">
-                Credit card deposits, debit card rules, airport pickup surprises.
-              </p>
-              <a
-                href="/car-rental-helsinki"
-                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
+            {[
+              {
+                title: "Car rental in Finland",
+                desc: "Credit card deposits, debit card rules, airport pickup surprises.",
+                href: "/car-rental-helsinki",
+                cta: "Read the guide",
+              },
+              {
+                title: "Camper rental in Finland",
+                desc: "Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.",
+                href: "/camper-rental-finland",
+                cta: "Compare camper options",
+              },
+              {
+                title: "Lapland tours & experiences",
+                desc: "What’s included, what’s not, and how tourists overpay.",
+                href: "/lapland-tours",
+                cta: "Compare tours",
+              },
+            ].map((c) => (
+              <div
+                key={c.title}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg"
               >
-                Read the guide
-              </a>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
-              <h3 className="text-xl font-semibold">Camper rental in Finland</h3>
-              <p className="mt-3 text-slate-600">
-                Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
-              </p>
-              <a
-                href="/camper-rental-finland"
-                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
-              >
-                Compare camper options
-              </a>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
-              <h3 className="text-xl font-semibold">Lapland tours & experiences</h3>
-              <p className="mt-3 text-slate-600">
-                What’s included, what’s not, and how tourists overpay.
-              </p>
-              <a
-                href="/lapland-tours"
-                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
-              >
-                Compare tours
-              </a>
-            </div>
+                <h3 className="text-xl font-semibold text-slate-900">{c.title}</h3>
+                <p className="mt-3 text-slate-700">{c.desc}</p>
+                <Link
+                  href={c.href}
+                  className="mt-6 inline-flex rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600"
+                >
+                  {c.cta}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -124,10 +119,10 @@ export default function HomePage() {
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {destinations.map((dest) => (
-            <a
+            <Link
               key={dest.name}
               href={dest.href}
-              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-white"
+              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-slate-100"
             >
               <div className="flex items-center gap-4">
                 <div className="h-14 w-14 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
@@ -142,14 +137,14 @@ export default function HomePage() {
                 <div className="font-semibold text-slate-900">{dest.name}</div>
               </div>
 
-              <p className="mt-3 text-sm text-slate-600">{dest.blurb}</p>
+              <p className="mt-3 text-sm text-slate-700">{dest.blurb}</p>
 
               <div className="mt-5">
-                <span className="inline-flex rounded-xl bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 group-hover:bg-emerald-100">
+                <span className="inline-flex rounded-xl bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-800 group-hover:bg-orange-100">
                   Open {dest.name} →
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

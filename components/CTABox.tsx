@@ -18,16 +18,16 @@ export default function CTABox({
   secondaryLabel,
 }: CTABoxProps) {
   return (
-    <section className="rounded-2xl border border-white/20 bg-white/5 p-6 sm:p-8">
+    <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 shadow-sm">
       <div className="space-y-3">
-        <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="max-w-2xl text-sm text-white/70">{text}</p>
+        <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
+        <p className="max-w-2xl text-sm text-slate-700">{text}</p>
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href={primaryHref}
-          className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-500"
+          className="rounded-lg bg-orange-500 px-5 py-2 text-sm font-semibold text-black hover:bg-orange-600"
         >
           {primaryLabel}
         </Link>
@@ -35,7 +35,7 @@ export default function CTABox({
         {secondaryHref && secondaryLabel && (
           <Link
             href={secondaryHref}
-            className="rounded-lg border border-white/30 px-5 py-2 text-sm text-white/80 hover:bg-white/10"
+            className="rounded-lg border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50"
           >
             {secondaryLabel}
           </Link>

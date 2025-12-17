@@ -18,7 +18,7 @@ export default function LaplandToursPage() {
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
-            className="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500"
+            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600"
           >
             Free booking checklist
           </Link>
@@ -32,7 +32,7 @@ export default function LaplandToursPage() {
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold">Recommended providers</h2>
-          <p className="mt-2 max-w-2xl text-slate-600">
+          <p className="mt-2 max-w-2xl text-slate-700">
             Local premium + niche specialist + platform backups for last-minute availability.
           </p>
 
