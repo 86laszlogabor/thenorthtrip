@@ -9,7 +9,7 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
-const nav = [
+const NAV = [
   { href: "/car-rental-helsinki", label: "Car rental" },
   { href: "/camper-rental-finland", label: "Camper rental" },
   { href: "/lapland-tours", label: "Lapland tours" },
@@ -31,7 +31,7 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {nav.map((item) => {
+          {NAV.map((item) => {
             const active = isActive(pathname, item.href);
             return (
               <Link
@@ -70,16 +70,18 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile nav (simple) */}
+      {/* Mobile nav (simple horizontal scroll) */}
       <div className="border-t border-slate-200 bg-white md:hidden">
         <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-2">
-          {nav.map((item) => {
+          {NAV.map((item) => {
             const active = isActive(pathname, item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => track("cta_click", { placement: "header_nav_mobile", cta: item.href })}
+                onClick={() =>
+                  track("cta_click", { placement: "header_nav_mobile", cta: item.href })
+                }
                 className={[
                   "shrink-0 rounded-xl px-3 py-2 text-sm font-semibold transition",
                   active
