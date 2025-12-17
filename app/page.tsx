@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/track";
+import WhoWeAreExcerpt from "@/components/WhoWeAreExcerpt";
 
 export default function HomePage() {
   const destinations = [
@@ -65,7 +66,10 @@ export default function HomePage() {
             <Link
               href="/car-rental-helsinki"
               onClick={() =>
-                track("cta_click", { placement: "home_hero", cta: "compare_car_rental" })
+                track("cta_click", {
+                  placement: "home_hero",
+                  cta: "compare_car_rental",
+                })
               }
               className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black transition hover:bg-orange-600"
             >
@@ -75,16 +79,23 @@ export default function HomePage() {
             {/* Secondary */}
             <Link
               href="/get-help"
-              onClick={() => track("cta_click", { placement: "home_hero", cta: "ask_before_booking" })}
+              onClick={() =>
+                track("cta_click", {
+                  placement: "home_hero",
+                  cta: "ask_before_booking",
+                })
+              }
               className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Ask before booking
             </Link>
 
-            {/* New: Start here (tracked) */}
+            {/* Start here */}
             <Link
               href="/helsinki"
-              onClick={() => track("cta_click", { placement: "home_hero", cta: "start_helsinki" })}
+              onClick={() =>
+                track("cta_click", { placement: "home_hero", cta: "start_helsinki" })
+              }
               className="rounded-xl bg-white/15 px-6 py-3 font-semibold text-white transition hover:bg-white/25"
             >
               Start with Helsinki →
@@ -103,7 +114,9 @@ export default function HomePage() {
                 Car rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Car rental in Finland</h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Car rental in Finland
+              </h3>
               <p className="mt-3 text-slate-700">
                 Credit card deposits, debit card rules, airport pickup surprises.
               </p>
@@ -111,7 +124,10 @@ export default function HomePage() {
               <Link
                 href="/car-rental-helsinki"
                 onClick={() =>
-                  track("cta_click", { placement: "home_cards", cta: "home_cards_car_rental" })
+                  track("cta_click", {
+                    placement: "home_cards",
+                    cta: "home_cards_car_rental",
+                  })
                 }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
@@ -125,14 +141,18 @@ export default function HomePage() {
                 Camper rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Camper rental in Finland</h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Camper rental in Finland
+              </h3>
               <p className="mt-3 text-slate-700">
                 Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
               </p>
 
               <Link
                 href="/camper-rental-finland"
-                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })}
+                onClick={() =>
+                  track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })
+                }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 Open guide →
@@ -145,12 +165,18 @@ export default function HomePage() {
                 Lapland tours
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Lapland tours & experiences</h3>
-              <p className="mt-3 text-slate-700">What’s included, what’s not, and how tourists overpay.</p>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Lapland tours & experiences
+              </h3>
+              <p className="mt-3 text-slate-700">
+                What’s included, what’s not, and how tourists overpay.
+              </p>
 
               <Link
                 href="/lapland-tours"
-                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })}
+                onClick={() =>
+                  track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })
+                }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 Open guide →
@@ -159,6 +185,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* WHO WE ARE EXCERPT (placed between cards and destinations) */}
+      <WhoWeAreExcerpt />
 
       {/* DESTINATIONS */}
       <section className="mx-auto max-w-6xl px-6 pt-12 pb-16">
@@ -169,9 +198,7 @@ export default function HomePage() {
             <Link
               key={dest.slug}
               href={dest.href}
-              onClick={() =>
-                track("cta_click", { placement: "home_destinations", cta: dest.slug })
-              }
+              onClick={() => track("cta_click", { placement: "home_destinations", cta: dest.slug })}
               className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:bg-slate-100"
             >
               <div className="flex items-center gap-4">
