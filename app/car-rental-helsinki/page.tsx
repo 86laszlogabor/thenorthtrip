@@ -12,14 +12,11 @@ export default function CarRentalHelsinkiPage() {
   const dc = PARTNERS.discovercars;
   const sx = PARTNERS.sixt;
 
-  const dcHref = dc?.href ?? "https://www.discovercars.com?a_aid=86laszlogabor";
+  const dcHref = dc?.href ?? "#";
   const sxHref = sx?.href ?? "#";
 
   const dcLive = isLive(dcHref);
   const sxLive = isLive(sxHref);
-
-  // Hard guarantee: direct (non-widget) DiscoverCars link exists on page
-  const directDiscoverCars = "https://www.discovercars.com?a_aid=86laszlogabor";
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -33,37 +30,37 @@ export default function CarRentalHelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* DIRECT DiscoverCars link (bonus requirement friendly) */}
-        <section className="mt-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        {/* 1) COMPARE (DiscoverCars) – ONLY ONCE */}
+        <section className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                Compare tool (recommended first step)
+              <div className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 border border-slate-200">
+                Compare first (recommended)
               </div>
-              <h2 className="mt-3 text-2xl font-bold text-slate-900">DiscoverCars</h2>
-              <p className="mt-2 text-slate-700">
-                Quick way to compare prices, availability, and conditions across providers before you commit.
-              </p>
-              <p className="mt-2 text-xs text-slate-500">
-                Affiliate disclosure applies. Link may be sponsored.
+
+              <h2 className="mt-3 text-2xl font-bold text-slate-900">{dc.name}</h2>
+              <p className="mt-2 text-slate-700">{dc.blurb}</p>
+
+              <p className="mt-3 text-sm text-slate-600">
+                One step: compare prices, availability, and conditions across providers.
               </p>
             </div>
 
             <div className="mt-4 sm:mt-0 sm:pl-6">
-              <a
-                href={directDiscoverCars}
-                target="_blank"
-                rel="sponsored nofollow noopener"
+              <SponsoredLink
+                href={dcLive ? dcHref : "#"}
+                label="Compare prices"
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-500 text-black hover:bg-orange-600 transition"
-              >
-                Compare prices on DiscoverCars
-              </a>
+              />
+              <div className="mt-2 text-xs text-slate-500">
+                Affiliate disclosure applies. Links may be sponsored.
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Top pick */}
-        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        {/* 2) TOP PICK (SIXT) – ONLY ONCE */}
+        <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">
               <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
@@ -91,46 +88,19 @@ export default function CarRentalHelsinkiPage() {
           </div>
         </section>
 
-        {/* Step 1 (kept for structure) */}
+        {/* 3) Optional: a CLEAN partner grid (NO DUPLICATE STORYTELLING) */}
         <section className="mt-10">
-          <h2 className="text-2xl font-bold">Step 1: Compare the market</h2>
+          <h2 className="text-2xl font-bold">Recommended options</h2>
           <p className="mt-2 max-w-3xl text-slate-700">
-            Use a comparison tool to see prices, availability, and conditions across companies.
+            Keep it simple: compare first, then decide.
           </p>
 
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                  Compare tool
-                </div>
-
-                <h3 className="mt-3 text-xl font-bold text-slate-900">{dc.name}</h3>
-                <p className="mt-2 text-slate-700">{dc.blurb}</p>
-              </div>
-
-              <div className="mt-4 sm:mt-0 sm:pl-6">
-                <SponsoredLink
-                  href={dcLive ? dcHref : directDiscoverCars}
-                  label="Compare prices"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-orange-500 text-black hover:bg-orange-600 transition"
-                />
-                <div className="mt-2 text-xs text-slate-500">
-                  Affiliate disclosure applies. Links may be sponsored.
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold">Recommended options</h2>
-          <p className="mt-2 max-w-3xl text-slate-700">Two-step logic: compare first, then decide.</p>
           <div className="mt-6">
             <PartnerGrid keys={["sixt", "discovercars"]} ctaLabel="Open" />
           </div>
         </section>
 
+        {/* Disclosure */}
         <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <h2 className="text-xl font-bold text-slate-900">Affiliate disclosure</h2>
           <p className="mt-2 text-sm text-slate-700">
