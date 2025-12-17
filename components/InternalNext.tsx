@@ -8,7 +8,7 @@ type Item = {
   href: string;
   title: string;
   desc: string;
-  cta: string; // event cta key
+  cta: string;
 };
 
 type Props = {
@@ -20,9 +20,7 @@ export default function InternalNext({ placement = "internal_next", items }: Pro
   return (
     <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
       <h2 className="text-lg font-bold text-slate-900">Next step</h2>
-      <p className="mt-1 text-sm text-slate-700">
-        Keep momentum. Pick one logical next move.
-      </p>
+      <p className="mt-1 text-sm text-slate-700">Pick one logical next move.</p>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         {items.map((x) => (

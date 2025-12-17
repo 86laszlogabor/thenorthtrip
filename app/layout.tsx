@@ -37,11 +37,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </Suspense>
 
         <Analytics />
-
         <SiteHeader />
         {children}
         <SiteFooter />
-
         <StickyCtaBar />
       </body>
     </html>

@@ -8,7 +8,11 @@ type Props = {
   placement?: Placement;
 };
 
-export default function PartnerGrid({ keys, ctaLabel = "Check availability", placement = "footer" }: Props) {
+export default function PartnerGrid({
+  keys,
+  ctaLabel = "Check availability",
+  placement = "footer",
+}: Props) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {keys.map((k) => {
