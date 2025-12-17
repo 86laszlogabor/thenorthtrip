@@ -55,7 +55,7 @@ export default function CamperRentalFinlandPage() {
           {cards.map((x) => (
             <div
               key={x.t}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-slate-100 transition"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:bg-slate-100"
             >
               <div className="text-base font-semibold text-slate-900">{x.t}</div>
               <div className="mt-2 text-sm text-slate-700">{x.d}</div>
@@ -74,6 +74,7 @@ export default function CamperRentalFinlandPage() {
             <PartnerGrid
               keys={["indie_campers", "mycamper", "nordic_campers", "touring_cars_finland"]}
               ctaLabel="Check availability"
+              placement="pillar_camper_rental"
             />
           </div>
 

@@ -4,9 +4,14 @@ import SponsoredLink from "./SponsoredLink";
 type Props = {
   keys: PartnerKey[];
   ctaLabel?: string;
+  placement?: string;
 };
 
-export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props) {
+export default function PartnerGrid({
+  keys,
+  ctaLabel = "Check options",
+  placement,
+}: Props) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {keys.map((k) => {
@@ -35,7 +40,9 @@ export default function PartnerGrid({ keys, ctaLabel = "Check options" }: Props)
               <SponsoredLink
                 href={p.href ?? "#"}
                 label={ctaLabel}
-                className="inline-flex w-full items-center justify-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-500 transition"
+                placement={placement ?? "partner_grid"}
+                partner={p.key}
+                className="inline-flex w-full items-center justify-center rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-500"
               />
               <div className="mt-2 text-xs text-slate-500">
                 Affiliate disclosure applies. Links may be sponsored.
