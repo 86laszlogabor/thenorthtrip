@@ -10,10 +10,10 @@ function isActive(pathname: string, href: string) {
 }
 
 const NAV = [
-  { href: "/car-rental-helsinki", label: "Car rental" },
-  { href: "/camper-rental-finland", label: "Camper rental" },
-  { href: "/lapland-tours", label: "Lapland tours" },
-  { href: "/blog", label: "Blog" },
+  { href: "/car-rental-helsinki", label: "Car rental", cta: "nav_car_rental" },
+  { href: "/camper-rental-finland", label: "Camper rental", cta: "nav_camper_rental" },
+  { href: "/lapland-tours", label: "Lapland tours", cta: "nav_lapland_tours" },
+  { href: "/blog", label: "Blog", cta: "nav_blog" },
 ];
 
 export default function SiteHeader() {
@@ -37,7 +37,7 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => track("cta_click", { placement: "header_nav", cta: item.href })}
+                onClick={() => track("cta_click", { placement: "header_nav", cta: item.cta })}
                 className={[
                   "rounded-xl px-3 py-2 text-sm font-semibold transition",
                   active
@@ -55,7 +55,7 @@ export default function SiteHeader() {
           <Link
             href="/offer-checklist"
             onClick={() => track("cta_click", { placement: "header", cta: "free_checklist" })}
-            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600 transition"
+            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
           >
             Free checklist
           </Link>
@@ -63,7 +63,7 @@ export default function SiteHeader() {
           <Link
             href="/get-help"
             onClick={() => track("cta_click", { placement: "header", cta: "get_help" })}
-            className="hidden rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 transition sm:inline-flex"
+            className="hidden rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 sm:inline-flex"
           >
             Get help
           </Link>
@@ -79,9 +79,7 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() =>
-                  track("cta_click", { placement: "header_nav_mobile", cta: item.href })
-                }
+                onClick={() => track("cta_click", { placement: "header_nav_mobile", cta: item.cta })}
                 className={[
                   "shrink-0 rounded-xl px-3 py-2 text-sm font-semibold transition",
                   active
