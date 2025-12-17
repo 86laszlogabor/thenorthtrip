@@ -1,34 +1,28 @@
 // components/WhoWeAreCtas.tsx
-"use client";
-
 import Link from "next/link";
-import { track } from "@/lib/track";
 
 export default function WhoWeAreCtas() {
   return (
     <div className="flex flex-wrap gap-3">
       <Link
-        href="/car-rental-helsinki"
-        onClick={() => track("cta_click", { placement: "who_we_are_top", cta: "car_rental_guide" })}
+        href="/offer-checklist"
         className="rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
       >
-        Car rental guide →
-      </Link>
-
-      <Link
-        href="/lapland-tours"
-        onClick={() => track("cta_click", { placement: "who_we_are_top", cta: "lapland_tours" })}
-        className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-      >
-        Lapland tours →
+        Open the checklist
       </Link>
 
       <Link
         href="/get-help"
-        onClick={() => track("cta_click", { placement: "who_we_are_top", cta: "ask_before_booking" })}
-        className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+        className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
       >
-        Ask before booking →
+        Ask before booking
+      </Link>
+
+      <Link
+        href="/car-rental-helsinki"
+        className="rounded-xl px-5 py-3 text-sm font-semibold text-white/80 underline underline-offset-4 transition hover:text-white"
+      >
+        Read: Car rental traps →
       </Link>
     </div>
   );
