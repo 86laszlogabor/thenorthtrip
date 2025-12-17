@@ -13,8 +13,7 @@ type CTABoxProps = {
   secondaryHref?: string;
   secondaryLabel?: string;
 
-  // analytics (optional)
-  placement?: string; // e.g. "home_cta_box", "pillar_car_rental"
+  placement?: string; // e.g. "helsinki_cta_box"
   primaryCta?: string; // e.g. "open_checklist"
   secondaryCta?: string; // e.g. "get_help"
 };

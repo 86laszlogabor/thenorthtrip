@@ -21,13 +21,8 @@ export function track(eventName: TrackEventName, props?: TrackProps) {
   try {
     if (typeof window.plausible !== "function") return;
 
-    const page = safePathname();
-
-    // Backward compat:
-    // - ha valaki még "cta" kulcsot küld, hagyjuk meg
-    // - de preferáljuk a "label" kulcsot
     const merged: TrackProps = {
-      page,
+      page: safePathname(),
       ...(props ?? {}),
     };
 

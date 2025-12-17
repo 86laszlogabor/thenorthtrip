@@ -1,6 +1,5 @@
 import SponsoredLink from "@/components/SponsoredLink";
 import { PARTNERS, type PartnerKey } from "@/lib/partners";
-import { gridPlacement } from "@/lib/placements";
 
 type Props = {
   keys: PartnerKey[];
@@ -32,11 +31,11 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
       {keys.map((key, idx) => {
         const p = PARTNERS[key];
 
+        // placement = grid_card_1..n
+        const placement = `grid_card_${idx + 1}`;
+
         return (
-          <div
-            key={key}
-            className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-          >
+          <div key={key} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <div className="text-lg font-bold text-slate-900">{p.name}</div>
@@ -44,12 +43,7 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
               </div>
 
               {p.badge ? (
-                <span
-                  className={
-                    "shrink-0 rounded-full px-2 py-1 text-xs font-semibold " +
-                    badgeClass(p.badge)
-                  }
-                >
+                <span className={"shrink-0 rounded-full px-2 py-1 text-xs font-semibold " + badgeClass(p.badge)}>
                   {p.badge}
                 </span>
               ) : null}
@@ -60,17 +54,15 @@ export default function PartnerGrid({ keys, ctaLabel = "See options" }: Props) {
                 href={p.href ?? "tbd"}
                 label={ctaLabel}
                 partner={p.key}
-                placement={gridPlacement(idx)}
+                placement={placement}
               />
             </div>
 
-            {p.status === "placeholder" && (
+            {p.status === "placeholder" ? (
               <div className="mt-3 text-xs text-slate-500">Coming soon</div>
-            )}
-
-            {p.note ? (
-              <div className="mt-2 text-xs text-slate-500">{p.note}</div>
             ) : null}
+
+            {p.note ? <div className="mt-2 text-xs text-slate-500">{p.note}</div> : null}
           </div>
         );
       })}

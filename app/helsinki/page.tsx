@@ -2,7 +2,6 @@ import Link from "next/link";
 import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
 import CTABox from "@/components/CTABox";
-import Recommended from "@/components/Recommended";
 
 export default function HelsinkiPage() {
   return (
@@ -17,7 +16,7 @@ export default function HelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row (site-standard) */}
+        {/* CTA row */}
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
@@ -33,7 +32,7 @@ export default function HelsinkiPage() {
           </Link>
         </div>
 
-        {/* “Recommended next step” */}
+        {/* CTABox (tracked) */}
         <div className="mt-10">
           <CTABox
             title="If you’re booking anything time-sensitive"
@@ -77,7 +76,7 @@ export default function HelsinkiPage() {
         <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold">City sightseeing</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            If you only have one day, do a practical city route first. Then add something unique like the speedboat experience.
+            If you only have one day, do a practical route first. Then add something unique like the speedboat experience.
           </p>
           <div className="mt-6">
             <PartnerGrid
@@ -87,16 +86,16 @@ export default function HelsinkiPage() {
           </div>
         </section>
 
-        {/* Optional “recommended” block */}
-        <div className="mt-10">
-          <Recommended
-            title="Quick picks"
-            subtitle="If you don’t want to overthink it: a couple of solid options people actually book."
-            items={["tallink_silja", "loyly", "getyourguide_city"]}
-            ctaLabel="Check availability"
-            placement="city_helsinki_recommended"
-          />
-        </div>
+        {/* Quick picks (simple, no extra component) */}
+        <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+          <h2 className="text-xl font-bold">Quick picks</h2>
+          <p className="mt-2 text-sm text-slate-700">
+            If you don’t want to overthink it: a couple of solid options people actually book.
+          </p>
+          <div className="mt-6">
+            <PartnerGrid keys={["tallink_silja", "loyly", "getyourguide_city"]} ctaLabel="Check availability" />
+          </div>
+        </section>
 
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
           Affiliate disclosure: Some links may be sponsored. We focus on practical, decision-helpful guidance.
