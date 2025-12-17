@@ -59,7 +59,7 @@ export default function CarRentalHelsinkiPage() {
               <SponsoredLink
                 href={dcLive ? dcHref : "#"}
                 label="Compare prices"
-                placement="pillar_car_rental_primary"
+                placement="pillar_car_rental"
                 partner="discovercars"
                 className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
               />
