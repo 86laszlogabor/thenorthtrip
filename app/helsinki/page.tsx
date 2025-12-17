@@ -1,6 +1,9 @@
 import Link from "next/link";
 import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
+import CTABox from "@/components/CTABox";
+import Recommended from "@/components/Recommended";
+import InternalNext from "@/components/InternalNext";
 
 export default function HelsinkiPage() {
   return (
@@ -15,7 +18,7 @@ export default function HelsinkiPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-12">
-        {/* CTA row */}
+        {/* CTA row (site-standard) */}
         <div className="mt-2 flex flex-wrap gap-3">
           <Link
             href="/offer-checklist"
@@ -23,13 +26,27 @@ export default function HelsinkiPage() {
           >
             Free booking checklist
           </Link>
-
           <Link
             href="/get-help"
             className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
           >
             Ask before booking
           </Link>
+        </div>
+
+        {/* “Recommended next step” (tracked) */}
+        <div className="mt-10">
+          <CTABox
+            title="If you’re booking anything time-sensitive"
+            text="Use the checklist first. It prevents the classic mistakes: wrong dates, hidden add-ons, cancellation traps, and last-minute sell-outs."
+            primaryHref="/offer-checklist"
+            primaryLabel="Open the checklist"
+            secondaryHref="/get-help"
+            secondaryLabel="Ask a question"
+            placement="helsinki_cta_box"
+            primaryCta="open_checklist"
+            secondaryCta="get_help"
+          />
         </div>
 
         {/* Ferry tickets */}
@@ -42,7 +59,6 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["direct_ferries", "tallink_silja", "viking_line"]}
               ctaLabel="Check schedules"
-              placement="city_helsinki_ferries"
             />
           </div>
         </section>
@@ -57,7 +73,6 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["loyly", "allas_sea_pool", "getyourguide_sauna", "tiqets_sauna"]}
               ctaLabel="View tickets"
-              placement="city_helsinki_sauna"
             />
           </div>
         </section>
@@ -72,10 +87,39 @@ export default function HelsinkiPage() {
             <PartnerGrid
               keys={["helsinki_city_tours", "redrib_experience", "getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
-              placement="city_helsinki_tours"
             />
           </div>
         </section>
+
+        {/* Optional “recommended” block */}
+        <div className="mt-10">
+          <Recommended
+            title="Quick picks"
+            subtitle="If you don’t want to overthink it: a couple of solid options people actually book."
+            items={["tallink_silja", "loyly", "getyourguide_city"]}
+            ctaLabel="Check availability"
+            placement="city_helsinki_recommended"
+          />
+        </div>
+
+        {/* Next step loop (internal depth) */}
+        <InternalNext
+          placement="internal_next"
+          items={[
+            {
+              href: "/car-rental-helsinki",
+              title: "Car rental rules",
+              desc: "Deposits, debit cards, winter extras.",
+              cta: "next_car_rental",
+            },
+            {
+              href: "/lapland-tours",
+              title: "Lapland tours",
+              desc: "Local-first, platforms as backup.",
+              cta: "next_lapland",
+            },
+          ]}
+        />
 
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
           Affiliate disclosure: Some links may be sponsored. We focus on practical, decision-helpful guidance.
