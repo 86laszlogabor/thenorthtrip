@@ -29,24 +29,22 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="bg-white text-slate-900">
-      {/* HERO (slightly shorter) */}
-      <section className="relative h-[62vh] min-h-[480px] w-full overflow-hidden">
+    <main className="bg-slate-50 text-slate-900">
+      {/* HERO */}
+      <section className="relative h-[62vh] min-h-[480px] w-full overflow-hidden bg-slate-950">
         <Image
           src="/images/hero/hero-lapland.jpg"
-          alt="Lapland winter road"
+          alt="Lapland winter sky"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 pt-24 text-white">
-          <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm backdrop-blur">
-            Finland rentals · Lapland tours
-          </span>
+          {/* BADGE REMOVED ON PURPOSE */}
 
-          <h1 className="mt-5 max-w-2xl text-5xl font-extrabold leading-tight">
+          <h1 className="max-w-2xl text-5xl font-extrabold leading-tight tracking-tight">
             Get clear facts before you book.
           </h1>
 
@@ -66,7 +64,7 @@ export default function HomePage() {
 
             <a
               href="/get-help"
-              className="rounded-xl border border-white/30 px-6 py-3 font-semibold text-white hover:bg-white/10"
+              className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
               Ask before booking
             </a>
@@ -74,12 +72,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FLOATING DECISION CARDS (3 cards) */}
+      {/* FLOATING DECISION CARDS (canvas-style, not white) */}
       <section className="relative -mt-36 z-20">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Car rental */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
               <h3 className="text-xl font-semibold">Car rental in Finland</h3>
               <p className="mt-3 text-slate-600">
                 Credit card deposits, debit card rules, airport pickup surprises.
@@ -92,8 +89,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Camper rental */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
               <h3 className="text-xl font-semibold">Camper rental in Finland</h3>
               <p className="mt-3 text-slate-600">
                 Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
@@ -106,8 +102,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Tours */}
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-lg">
               <h3 className="text-xl font-semibold">Lapland tours & experiences</h3>
               <p className="mt-3 text-slate-600">
                 What’s included, what’s not, and how tourists overpay.
@@ -123,7 +118,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DESTINATIONS (pulled up) */}
+      {/* DESTINATIONS */}
       <section className="mx-auto max-w-6xl px-6 pt-12 pb-16">
         <h2 className="text-2xl font-semibold">Popular destinations</h2>
 
@@ -132,10 +127,10 @@ export default function HomePage() {
             <a
               key={dest.name}
               href={dest.href}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:bg-slate-50"
+              className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm hover:bg-white"
             >
               <div className="flex items-center gap-4">
-                <div className="h-14 w-14 overflow-hidden rounded-xl border border-slate-200">
+                <div className="h-14 w-14 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
                   <Image
                     src={dest.image}
                     alt={dest.name}
@@ -144,7 +139,7 @@ export default function HomePage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="font-semibold">{dest.name}</div>
+                <div className="font-semibold text-slate-900">{dest.name}</div>
               </div>
 
               <p className="mt-3 text-sm text-slate-600">{dest.blurb}</p>
