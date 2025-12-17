@@ -140,7 +140,7 @@ export const PARTNERS: Record<PartnerKey, Partner> = {
     badge: "Backup",
     blurb: "Platform backup for availability and last-minute bookings.",
     status: "live",
-    href: "https://www.viator.com/Lapland/d4470-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriplapland",
+    href: "https://www.viator.com/Rovaniemi/d22130-ttd?pid=P00281199&mcid=42383&medium=link&campaign=thenorthtriplapland",
     note: "Affiliate link live.",
   },
   getyourguide_lapland: {
