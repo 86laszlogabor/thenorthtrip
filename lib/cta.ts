@@ -1,33 +1,31 @@
 // lib/cta.ts
-import { PillarKey } from "./blog";
 
-export type CTA = {
+export type PillarPath = "/car-rental-helsinki" | "/camper-rental-finland" | "/lapland-tours";
+
+export type StickyCta = {
   title: string;
   description: string;
   primary: { href: string; label: string };
   secondary: { href: string; label: string };
 };
 
-export const CTA_BY_PILLAR: Record<PillarKey, CTA> = {
+export const CTA_BY_PILLAR: Record<PillarPath, StickyCta> = {
   "/car-rental-helsinki": {
-    title: "Ready to book without surprises?",
-    description:
-      "Compare options first, then choose a reliable operator. Avoid the pickup traps people only discover too late.",
-    primary: { href: "/car-rental-helsinki", label: "See car rental options" },
-    secondary: { href: "/offer-checklist", label: "Free booking checklist" },
+    title: "Avoid deposit surprises",
+    description: "Use the checklist before you pay.",
+    primary: { href: "/offer-checklist", label: "Open checklist" },
+    secondary: { href: "/get-help", label: "Ask" },
   },
   "/camper-rental-finland": {
-    title: "Planning a camper trip in Finland?",
-    description:
-      "Compare platforms and understand winter constraints before committing to a route.",
-    primary: { href: "/camper-rental-finland", label: "Compare camper rentals" },
-    secondary: { href: "/offer-checklist", label: "Free booking checklist" },
+    title: "Winter-ready? Don’t guess",
+    description: "Checklist prevents expensive “oops”.",
+    primary: { href: "/offer-checklist", label: "Checklist" },
+    secondary: { href: "/get-help", label: "Ask" },
   },
   "/lapland-tours": {
-    title: "Want Lapland tours without hidden extras?",
-    description:
-      "Compare what’s included vs what’s extra, and avoid the classic upsells that inflate the final price.",
-    primary: { href: "/lapland-tours", label: "Explore Lapland tours" },
-    secondary: { href: "/offer-checklist", label: "Free booking checklist" },
+    title: "Lapland tours: avoid tourist traps",
+    description: "Checklist first, then book.",
+    primary: { href: "/offer-checklist", label: "Checklist" },
+    secondary: { href: "/get-help", label: "Ask" },
   },
 };

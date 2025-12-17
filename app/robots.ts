@@ -1,12 +1,15 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = SITE.url;
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://thenorthtrip.com";
 
   return {
-    rules: [{ userAgent: "*", allow: "/" }],
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
     sitemap: `${base}/sitemap.xml`,
-    host: base,
   };
 }

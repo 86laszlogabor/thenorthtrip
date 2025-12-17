@@ -1,28 +1,26 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/site";
-import { BLOG } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = SITE.url;
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://thenorthtrip.com";
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/car-rental-helsinki`, lastModified: new Date() },
-    { url: `${base}/camper-rental-finland`, lastModified: new Date() },
-    { url: `${base}/lapland-tours`, lastModified: new Date() },
-    { url: `${base}/offer-checklist`, lastModified: new Date() },
-    { url: `${base}/blog`, lastModified: new Date() },
-    { url: `${base}/about`, lastModified: new Date() },
-    { url: `${base}/contact`, lastModified: new Date() },
-    { url: `${base}/affiliate-disclosure`, lastModified: new Date() },
-    { url: `${base}/privacy`, lastModified: new Date() },
-    { url: `${base}/terms`, lastModified: new Date() },
+  const routes = [
+    "/",
+    "/helsinki",
+    "/car-rental-helsinki",
+    "/camper-rental-finland",
+    "/lapland-tours",
+    "/blog",
+    "/offer-checklist",
+    "/get-help",
+    "/about",
+    "/contact",
+    "/affiliate-disclosure",
+    "/privacy",
+    "/terms",
   ];
 
-  const blogRoutes: MetadataRoute.Sitemap = BLOG.map((p) => ({
-    url: `${base}/blog/${p.slug}`,
-    lastModified: new Date(p.publishedAt),
+  return routes.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
   }));
-
-  return [...staticRoutes, ...blogRoutes];
 }

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-slate-900">
+      <body className="bg-white text-slate-900 pb-20 sm:pb-0">
         {plausibleDomain ? (
           <Script
             src="https://plausible.io/js/script.js"
