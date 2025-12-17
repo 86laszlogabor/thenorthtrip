@@ -1,6 +1,5 @@
-import React from "react";
-
-export default function JsonLd({ data }: { data: Record<string, any> }) {
+// components/JsonLd.tsx
+export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"

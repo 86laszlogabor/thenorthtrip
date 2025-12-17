@@ -1,3 +1,4 @@
+// components/BlogCTA.tsx
 import Link from "next/link";
 
 type CTA = { href: string; label: string };
@@ -19,18 +20,18 @@ type OldProps = {
 type Props = NewProps | OldProps;
 
 function isNewProps(p: Props): p is NewProps {
-  return (p as any).primary?.href && (p as any).primary?.label;
+  return "primary" in p;
 }
 
 export default function BlogCTA(props: Props) {
   const title = props.title;
   const description = props.description;
 
-  const primary = isNewProps(props)
+  const primary: CTA = isNewProps(props)
     ? props.primary
     : { href: props.href, label: props.button };
 
-  const secondary = isNewProps(props) ? props.secondary : undefined;
+  const secondary: CTA | undefined = isNewProps(props) ? props.secondary : undefined;
 
   return (
     <div className="mt-16 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">

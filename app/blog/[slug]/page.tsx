@@ -1,6 +1,5 @@
-"use client";
-
-import { useParams } from "next/navigation";
+// app/blog/[slug]/page.tsx
+import type { Metadata } from "next";
 import { BLOG } from "@/lib/blog";
 import { CONTENT } from "./content";
 
@@ -9,6 +8,10 @@ import BackToBlog from "@/components/BackToBlog";
 import BlogCTA from "@/components/BlogCTA";
 
 type Pillar = "/car-rental-helsinki" | "/camper-rental-finland" | "/lapland-tours";
+
+type PageProps = {
+  params: { slug: string };
+};
 
 function getCtaForPillar(pillar: Pillar) {
   if (pillar === "/car-rental-helsinki") {
@@ -40,15 +43,23 @@ function getCtaForPillar(pillar: Pillar) {
   };
 }
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const raw = (params as any)?.slug;
-  const slug = Array.isArray(raw) ? raw[0] : raw;
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const post = BLOG.find((p) => p.slug === params.slug);
+  if (!post) return { title: "Post not found | TheNorthTrip" };
+
+  return {
+    title: `${post.title} | TheNorthTrip`,
+    description: post.description,
+  };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
+  const slug = params.slug;
 
   const post = BLOG.find((p) => p.slug === slug);
-  const body = (slug && (CONTENT as any)[slug]) || null;
+  const body = CONTENT[slug] ?? null;
 
-  if (!slug || !post) {
+  if (!post || !body) {
     return (
       <main className="min-h-screen bg-white text-slate-900">
         <div className="mx-auto max-w-3xl px-4 py-12">

@@ -1,5 +1,6 @@
 // app/blog/[slug]/content.tsx
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 export const CONTENT: Record<string, ReactNode> = {
   "helsinki-airport-credit-card-deposit-hold": (
@@ -42,7 +43,11 @@ export const CONTENT: Record<string, ReactNode> = {
       </ol>
 
       <p>
-        Want the full “don’t get surprised at the counter” list? Use our <a href="/offer-checklist">booking checklist</a>.
+        Want the full “don’t get surprised at the counter” list? Use our{" "}
+        <Link href="/offer-checklist" className="underline underline-offset-4">
+          booking checklist
+        </Link>
+        .
       </p>
     </>
   ),
@@ -81,7 +86,11 @@ export const CONTENT: Record<string, ReactNode> = {
       </ol>
 
       <p>
-        If you’re booking Helsinki pickup: start with our <a href="/car-rental-helsinki">Helsinki car rental guide</a>.
+        If you’re booking Helsinki pickup: start with our{" "}
+        <Link href="/car-rental-helsinki" className="underline underline-offset-4">
+          Helsinki car rental guide
+        </Link>
+        .
       </p>
     </>
   ),
@@ -122,7 +131,14 @@ export const CONTENT: Record<string, ReactNode> = {
       </p>
 
       <p>
-        Related: <a href="/blog/car-rental-insurance-finland-cdw-supercdw-explained">insurance explained without fluff</a>.
+        Related:{" "}
+        <Link
+          href="/blog/car-rental-insurance-finland-cdw-supercdw-explained"
+          className="underline underline-offset-4"
+        >
+          insurance explained without fluff
+        </Link>
+        .
       </p>
     </>
   ),
@@ -161,7 +177,14 @@ export const CONTENT: Record<string, ReactNode> = {
       </ol>
 
       <p>
-        If you’re picking up in Helsinki: <a href="/blog/helsinki-airport-credit-card-deposit-hold">deposit holds explained</a>.
+        If you’re picking up in Helsinki:{" "}
+        <Link
+          href="/blog/helsinki-airport-credit-card-deposit-hold"
+          className="underline underline-offset-4"
+        >
+          deposit holds explained
+        </Link>
+        .
       </p>
     </>
   ),
@@ -194,7 +217,14 @@ export const CONTENT: Record<string, ReactNode> = {
       </ul>
 
       <p>
-        Touring instead of driving? Read: <a href="/blog/lapland-tours-what-included-what-not">what tours include vs what’s extra</a>.
+        Touring instead of driving? Read:{" "}
+        <Link
+          href="/blog/lapland-tours-what-included-what-not"
+          className="underline underline-offset-4"
+        >
+          what tours include vs what’s extra
+        </Link>
+        .
       </p>
     </>
   ),
@@ -224,7 +254,14 @@ export const CONTENT: Record<string, ReactNode> = {
       </ol>
 
       <p>
-        Picking a base first helps. See: <a href="/blog/rovaniemi-levi-yllas-which-base-to-choose">Rovaniemi vs Levi vs Ylläs</a>.
+        Picking a base first helps. See:{" "}
+        <Link
+          href="/blog/rovaniemi-levi-yllas-which-base-to-choose"
+          className="underline underline-offset-4"
+        >
+          Rovaniemi vs Levi vs Ylläs
+        </Link>
+        .
       </p>
     </>
   ),
