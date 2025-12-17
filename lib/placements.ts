@@ -1,15 +1,23 @@
-// lib/placements.ts
-// Click-validáció fázisban a Placement legyen szabad string.
-// Később, ha akarsz, csinálhatunk strict uniont. Most csak működjön.
+export const PLACEMENTS = [
+  "home_hero",
+  "home_cards",
+  "home_destinations",
+  "sticky_bar",
 
-export type Placement = string;
+  "helsinki_top",
+  "helsinki_ferries",
+  "helsinki_sauna",
+  "helsinki_tours",
+  "city_helsinki_recommended",
 
-export function gridPlacement(i: number): Placement {
-  const n = Math.max(1, Math.min(10, Math.floor(i + 1)));
-  return `grid_card_${n}`;
-}
+  "pillar_car_rental",
+  "pillar_car_rental_primary",
+  "pillar_car_rental_secondary",
+  "pillar_camper_rental",
+  "pillar_lapland_tours",
 
-export function inlinePlacement(i: number): Placement {
-  const n = Math.max(1, Math.min(10, Math.floor(i + 1)));
-  return `inline_${n}`;
-}
+  "internal_next",
+  "footer",
+] as const;
+
+export type Placement = (typeof PLACEMENTS)[number];
