@@ -1,5 +1,3 @@
-import { SITE } from "@/lib/site";
-
 export default function manifest() {
   return {
     name: "thenorthtrip",
