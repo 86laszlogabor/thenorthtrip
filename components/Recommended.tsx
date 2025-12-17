@@ -8,13 +8,15 @@ type Props = {
   subtitle?: string;
   items: Item[];
   ctaLabel?: string;
+  placement?: string; // e.g. "home_recommended", "pillar_car_rental"
 };
 
 export default function Recommended({
   title = "Recommended options",
   subtitle = "Hand-picked options with a clear role. Some links may be sponsored.",
   items,
-  ctaLabel = "Open",
+  ctaLabel = "Check availability",
+  placement = "recommended",
 }: Props) {
   return (
     <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
@@ -26,13 +28,14 @@ export default function Recommended({
       <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((key) => {
           const p = PARTNERS[key];
-          const href = p?.href || "#";
-          const isPlaceholder = href === "#" || href.toLowerCase() === "tbd";
+          if (!p) return null;
+
+          const href = p.href ?? "#";
 
           return (
             <div
               key={p.key}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 hover:bg-slate-100 transition"
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:bg-slate-100"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -51,12 +54,9 @@ export default function Recommended({
                 <SponsoredLink
                   href={href}
                   label={ctaLabel}
-                  className={[
-                    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition",
-                    isPlaceholder
-                      ? "bg-slate-200 text-slate-500 cursor-not-allowed pointer-events-none"
-                      : "bg-orange-500 hover:bg-orange-600 text-black",
-                  ].join(" ")}
+                  placement={placement}
+                  partner={p.key}
+                  className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
                 />
                 <div className="mt-2 text-xs text-slate-500">
                   Affiliate disclosure applies. Links may be sponsored.
