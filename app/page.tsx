@@ -4,8 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/track";
 
+type Destination = {
+  name: string;
+  slug: string;
+  href: string;
+  image: string;
+  blurb: string;
+};
+
 export default function HomePage() {
-  const destinations = [
+  const destinations: Destination[] = [
     {
       name: "Rovaniemi",
       slug: "rovaniemi",
@@ -61,19 +69,29 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            {/* Primary: single orange on home */}
+            {/* Primary */}
             <Link
               href="/car-rental-helsinki"
-              onClick={() => track("cta_click", { placement: "home_hero", cta: "compare_car_rental" })}
+              onClick={() =>
+                track("cta_click", {
+                  placement: "home_hero_primary",
+                  label: "compare_car_rental_costs",
+                })
+              }
               className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black transition hover:bg-orange-600"
             >
               Compare car rental costs
             </Link>
 
-            {/* Secondary: neutral glass */}
+            {/* Secondary */}
             <Link
               href="/get-help"
-              onClick={() => track("cta_click", { placement: "home_hero", cta: "ask_before_booking" })}
+              onClick={() =>
+                track("cta_click", {
+                  placement: "home_hero_secondary",
+                  label: "ask_before_booking",
+                })
+              }
               className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Ask before booking
@@ -92,14 +110,21 @@ export default function HomePage() {
                 Car rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Car rental in Finland</h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Car rental in Finland
+              </h3>
               <p className="mt-3 text-slate-700">
                 Credit card deposits, debit card rules, airport pickup surprises.
               </p>
 
               <Link
                 href="/car-rental-helsinki"
-                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_car_rental" })}
+                onClick={() =>
+                  track("cta_click", {
+                    placement: "home_cards_car_rental",
+                    label: "open_guide",
+                  })
+                }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 Open guide
@@ -112,14 +137,21 @@ export default function HomePage() {
                 Camper rental
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Camper rental in Finland</h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Camper rental in Finland
+              </h3>
               <p className="mt-3 text-slate-700">
                 Fleet vs peer-to-peer, winter-ready setups, and pickup logic that affects price.
               </p>
 
               <Link
                 href="/camper-rental-finland"
-                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })}
+                onClick={() =>
+                  track("cta_click", {
+                    placement: "home_cards_camper",
+                    label: "open_guide",
+                  })
+                }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 Open guide
@@ -132,14 +164,21 @@ export default function HomePage() {
                 Lapland tours
               </div>
 
-              <h3 className="mt-3 text-xl font-semibold text-slate-900">Lapland tours & experiences</h3>
+              <h3 className="mt-3 text-xl font-semibold text-slate-900">
+                Lapland tours & experiences
+              </h3>
               <p className="mt-3 text-slate-700">
                 What’s included, what’s not, and how tourists overpay.
               </p>
 
               <Link
                 href="/lapland-tours"
-                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })}
+                onClick={() =>
+                  track("cta_click", {
+                    placement: "home_cards_lapland_tours",
+                    label: "open_guide",
+                  })
+                }
                 className="mt-6 inline-flex rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
               >
                 Open guide
@@ -154,14 +193,14 @@ export default function HomePage() {
         <h2 className="text-2xl font-semibold">Popular destinations</h2>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {destinations.map((dest) => (
+          {destinations.map((dest, idx) => (
             <Link
               key={dest.slug}
               href={dest.href}
               onClick={() =>
                 track("cta_click", {
-                  placement: "home_destinations",
-                  cta: dest.slug,
+                  placement: `home_destinations_${idx + 1}`,
+                  label: `open_${dest.slug}`,
                 })
               }
               className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:bg-slate-100"

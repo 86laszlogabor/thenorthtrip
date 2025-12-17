@@ -1,15 +1,16 @@
 "use client";
 
 import { track } from "@/lib/track";
+import type { PartnerKey } from "@/lib/partners";
+import type { Placement } from "@/lib/placements";
 
 type Props = {
   href: string;
   label: string;
   className?: string;
 
-  // measurement
-  placement?: string; // "hero_primary" | "grid_card_1" | "inline_1" ...
-  partner?: string;   // partner key, e.g. "discovercars", "viator_lapland"
+  placement?: Placement;
+  partner?: PartnerKey | "unknown";
 };
 
 function isPlaceholderHref(href: string) {
@@ -19,8 +20,7 @@ function isPlaceholderHref(href: string) {
 
 function safePathname() {
   if (typeof window === "undefined") return "ssr";
-  const p = window.location?.pathname || "unknown";
-  return p.length ? p : "unknown";
+  return window.location?.pathname || "unknown";
 }
 
 export default function SponsoredLink({
@@ -36,11 +36,11 @@ export default function SponsoredLink({
     return (
       <span
         aria-disabled="true"
+        title="Coming soon"
         className={
           className ??
           "inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-400 cursor-not-allowed"
         }
-        title="Coming soon"
       >
         {label}
         <span className="ml-2 opacity-60">↗</span>
@@ -57,14 +57,14 @@ export default function SponsoredLink({
         className ??
         "inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
       }
-      onClick={() => {
+      onClick={() =>
         track("affiliate_click", {
           page: safePathname(),
           placement,
           partner,
           href,
-        });
-      }}
+        })
+      }
     >
       {label}
       <span className="ml-2 opacity-70">↗</span>
