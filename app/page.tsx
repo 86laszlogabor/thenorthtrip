@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/track";
@@ -56,24 +57,20 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            {/* PRIMARY: only orange on home */}
+            {/* Primary: single orange on home */}
             <Link
               href="/car-rental-helsinki"
-              onClick={() =>
-                track("cta_click", { placement: "home_hero", cta: "compare_car_rental" })
-              }
-              className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black hover:bg-orange-600"
+              onClick={() => track("cta_click", { placement: "home_hero", cta: "compare_car_rental" })}
+              className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-black hover:bg-orange-600 transition"
             >
               Compare car rental costs
             </Link>
 
-            {/* SECONDARY: neutral glass */}
+            {/* Secondary: neutral glass */}
             <Link
               href="/get-help"
-              onClick={() =>
-                track("cta_click", { placement: "home_hero", cta: "ask_before_booking" })
-              }
-              className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white hover:bg-white/10"
+              onClick={() => track("cta_click", { placement: "home_hero", cta: "ask_before_booking" })}
+              className="rounded-xl border border-white/25 px-6 py-3 font-semibold text-white hover:bg-white/10 transition"
             >
               Ask before booking
             </Link>
@@ -81,7 +78,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FLOATING DECISION CARDS (3 pillars, own color, no orange) */}
+      {/* FLOATING DECISION CARDS (no orange) */}
       <section className="relative -mt-36 z-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 lg:grid-cols-3">
@@ -100,10 +97,8 @@ export default function HomePage() {
 
               <Link
                 href="/car-rental-helsinki"
-                onClick={() =>
-                  track("cta_click", { placement: "home_cards", cta: "home_cards_car_rental" })
-                }
-                className="mt-6 inline-flex rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500"
+                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_car_rental" })}
+                className="mt-6 inline-flex rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500 transition"
               >
                 Read the guide
               </Link>
@@ -124,10 +119,8 @@ export default function HomePage() {
 
               <Link
                 href="/camper-rental-finland"
-                onClick={() =>
-                  track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })
-                }
-                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500"
+                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_camper" })}
+                className="mt-6 inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 transition"
               >
                 Compare camper options
               </Link>
@@ -148,10 +141,8 @@ export default function HomePage() {
 
               <Link
                 href="/lapland-tours"
-                onClick={() =>
-                  track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })
-                }
-                className="mt-6 inline-flex rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500"
+                onClick={() => track("cta_click", { placement: "home_cards", cta: "home_cards_tours" })}
+                className="mt-6 inline-flex rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500 transition"
               >
                 Compare tours
               </Link>
