@@ -1,24 +1,50 @@
+// components/TrackedLink.tsx
 "use client";
 
-import Link from "next/link";
-import { trackPlus } from "@/lib/track-plus";
-import type { Placement } from "@/lib/placements";
+import Link, { type LinkProps } from "next/link";
+import { track, type TrackEventName, type TrackProps } from "@/lib/track";
+import React from "react";
 
-type Props = {
-  href: string;
-  children: React.ReactNode;
-  placement: Placement;
-  cta: string;
+type Props = LinkProps & {
   className?: string;
+  children: React.ReactNode;
+  eventName?: TrackEventName; // default: "cta_click"
+  props?: TrackProps;
+  external?: boolean; // if true, render <a> instead of Next Link
+  href: string; // make explicit
+  target?: string;
+  rel?: string;
 };
 
-export default function TrackedLink({ href, children, placement, cta, className }: Props) {
+export default function TrackedLink({
+  className,
+  children,
+  eventName = "cta_click",
+  props,
+  external,
+  href,
+  target,
+  rel,
+  ...rest
+}: Props) {
+  const onClick = () => track(eventName, props);
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        className={className}
+        target={target}
+        rel={rel}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      onClick={() => trackPlus("cta_click", { placement, cta, href })}
-      className={className}
-    >
+    <Link href={href} onClick={onClick} className={className} {...rest}>
       {children}
     </Link>
   );

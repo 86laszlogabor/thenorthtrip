@@ -1,199 +1,146 @@
 // app/page.tsx
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { track } from "@/lib/track";
+import TrackedLink from "@/components/TrackedLink";
+import HeroCardRail, { type HeroCard } from "@/components/HeroCardRail";
 
-type HomeCard = {
-  title: string;
-  href: string;
-  image: string;
+export const metadata = {
+  title: "TheNorthTrip | Finland & Lapland travel, without surprises",
+  description:
+    "Decision-first travel planning for Finland and Lapland: car rental rules, tours, real costs, and practical checklists.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
-  const cards: HomeCard[] = [
+  const cards: HeroCard[] = [
     {
-      title: "Rovaniemi: Santa logistics & timing",
+      title: "Rovaniemi: Santa logistics",
       href: "/rovaniemi",
       image: "/images/destinations/dest-rovaniemi.jpg",
+      trackingCta: "card_rovaniemi",
     },
     {
-      title: "Helsinki: car rental deposit traps",
+      title: "Car rental: the real cost traps",
       href: "/car-rental-helsinki",
       image: "/images/destinations/dest-helsinki.jpg",
+      trackingCta: "card_car_rental",
     },
     {
       title: "Lapland tours: what people overpay for",
       href: "/lapland-tours",
       image: "/images/destinations/dest-yllas.jpg",
+      trackingCta: "card_tours",
     },
     {
       title: "Cabins & stays: pick the right base",
       href: "/offer-checklist",
       image: "/images/destinations/dest-levi.jpg",
+      trackingCta: "card_stays",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO (full-bleed) */}
-      <section className="relative">
-        <div className="relative h-[78vh] min-h-[560px] w-full">
+    <main className="min-h-screen bg-slate-950">
+      {/* HERO full-bleed */}
+      <section className="relative isolate">
+        <div className="relative h-[70vh] min-h-[560px] w-full overflow-hidden bg-slate-950">
           <Image
             src="/images/hero/hero-lapland.jpg"
-            alt="Northern lights above a cabin in Finnish Lapland"
+            alt="Aurora over Lapland"
             fill
             priority
             className="object-cover"
           />
-          {/* readability layers */}
           <div className="absolute inset-0 bg-black/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/35 to-slate-950" />
 
-        {/* HERO content */}
-        <div className="absolute inset-x-0 top-0">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8 pt-24 sm:pt-28">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl">
-                Plan Finland &amp; Lapland
-                <span className="block text-white/85">without expensive surprises.</span>
-              </h1>
+          {/* Hero content */}
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-6 lg:px-8">
+              <div className="max-w-2xl text-white">
+                <div className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85 ring-1 ring-white/20 backdrop-blur">
+                  Finland & Lapland travel
+                </div>
 
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-                Real-world guidance on car rental deposits, card rules, winter logistics, and tour
-                fine print. Clear decisions first, smoother trips later.
-              </p>
+                <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
+                  Gondtalan utazás Finnországban és Lappföldön.
+                </h1>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
-                  href="/offer-checklist"
-                  onClick={() => track("cta_click", { placement: "home_hero", cta: "open_checklist" })}
-                  className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
-                >
-                  Free booking checklist
-                </Link>
+                <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
+                  Döntési segítség, nem zaj: autóbérlés szabályok, kauciók, kártyák, téli logisztika,
+                  túrák apróbetűje, és a “mi kerül mennyibe valójában” rész.
+                </p>
 
-                <Link
-                  href="/get-help"
-                  onClick={() => track("cta_click", { placement: "home_hero", cta: "get_help" })}
-                  className="inline-flex items-center justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15"
-                >
-                  Get help
-                </Link>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <TrackedLink
+                    href="/offer-checklist"
+                    eventName="cta_click"
+                    props={{ placement: "home_hero", cta: "free_checklist" }}
+                    className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-black transition hover:bg-orange-600"
+                  >
+                    Free checklist
+                  </TrackedLink>
 
-                <Link
-                  href="/who-we-are"
-                  onClick={() => track("cta_click", { placement: "home_hero", cta: "who_we_are" })}
-                  className="text-sm font-semibold text-white/85 underline underline-offset-4 transition hover:text-white"
-                >
-                  Who we are →
-                </Link>
+                  <TrackedLink
+                    href="/get-help"
+                    eventName="cta_click"
+                    props={{ placement: "home_hero", cta: "get_help" }}
+                    className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15"
+                  >
+                    Get help
+                  </TrackedLink>
+                </div>
+
+                {/* Cards: mobile swipe + desktop grid */}
+                <HeroCardRail cards={cards} placement="home_cards" />
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Cards overlay (a bit lower, cleaner, no extra CTA strip) */}
-        <div className="absolute inset-x-0 bottom-[-54px] sm:bottom-[-64px]">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {cards.map((c) => (
-                <Link
-                  key={c.href}
-                  href={c.href}
-                  onClick={() => track("cta_click", { placement: "home_cards", cta: c.href })}
-                  className="group relative overflow-hidden rounded-2xl ring-1 ring-white/15"
-                >
-                  <div className="relative h-44 w-full">
-                    <Image
-                      src={c.image}
-                      alt={c.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="text-sm font-semibold text-white">{c.title}</div>
-                  </div>
-                </Link>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* White editorial section */}
-      <section className="bg-white text-slate-900 pt-28 sm:pt-32 pb-16">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-            {/* Left: value */}
-            <div className="lg:col-span-7">
+      {/* WHITE BODY (pulled up) */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="-mt-10 pb-16">
+            <div className="rounded-[28px] border border-slate-200 bg-white p-8 sm:p-10 shadow-sm">
               <p className="text-xs font-semibold tracking-wide text-slate-500">
                 Decision-first travel planning
               </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight">
-                Avoid the mistakes that quietly burn your budget.
+
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900">
+                We help you avoid the expensive mistakes.
               </h2>
-              <p className="mt-4 max-w-2xl leading-relaxed text-slate-700">
-                Lapland looks simple on a map. In reality it’s timing, distance, weather, and rules.
-                We translate that into practical comparisons and checklists so you don’t learn it the
-                expensive way at a rental desk or a tour counter.
+
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700">
+                Lapland isn’t a checklist. It’s distance, weather, timing, and rules.
+                Mi ezt lefordítjuk érthető döntésekre, összehasonlításokra, és egy tiszta foglalási útvonalra.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
+              <div className="mt-6 flex flex-wrap gap-3">
+                <TrackedLink
+                  href="/who-we-are"
+                  eventName="cta_click"
+                  props={{ placement: "home_body", cta: "who_we_are" }}
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+                >
+                  Read: Who we are →
+                </TrackedLink>
+
+                <TrackedLink
                   href="/car-rental-helsinki"
-                  onClick={() => track("cta_click", { placement: "home_white", cta: "car_rental_guide" })}
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+                  eventName="cta_click"
+                  props={{ placement: "home_body", cta: "car_rental" }}
+                  className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
                   Car rental guide →
-                </Link>
-                <Link
-                  href="/lapland-tours"
-                  onClick={() => track("cta_click", { placement: "home_white", cta: "lapland_tours" })}
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
-                >
-                  Lapland tours guide →
-                </Link>
+                </TrackedLink>
               </div>
             </div>
-
-            {/* Right: Who we are card (moved to the right like you asked) */}
-            <aside className="lg:col-span-5">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <p className="text-xs font-semibold tracking-wide text-slate-500">Who we are</p>
-                <h3 className="mt-2 text-xl font-bold">
-                  Calm trips come from boring clarity.
-                </h3>
-                <p className="mt-3 leading-relaxed text-slate-700">
-                  We’re not a travel agency. We don’t sell “best experiences”. We build decision tools:
-                  deposits, card rules, insurance gotchas, winter logistics, and the stuff platforms
-                  gloss over.
-                </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <Link
-                    href="/who-we-are"
-                    onClick={() => track("cta_click", { placement: "home_who_card", cta: "read_who_we_are" })}
-                    className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
-                  >
-                    Read Who we are →
-                  </Link>
-                  <Link
-                    href="/offer-checklist"
-                    onClick={() => track("cta_click", { placement: "home_who_card", cta: "open_checklist" })}
-                    className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
-                  >
-                    Open checklist
-                  </Link>
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
+
+      <div className="h-14 bg-slate-950" />
     </main>
   );
 }

@@ -1,287 +1,128 @@
-import Link from "next/link";
+// app/offer-checklist/page.tsx
+import Image from "next/image";
+import TrackedLink from "@/components/TrackedLink";
+import { CarRentalPartnerBlock } from "@/components/PartnerBlocks";
 
-type Item = {
-  title: string;
-  desc: string;
-  checks: string[];
-  pitfall: string;
-
-  bestDefault: string;
-  ifStuck: string;
-  fastRule: string;
+export const metadata = {
+  title: "Offer checklist | TheNorthTrip",
+  description:
+    "Free checklist for Finland & Lapland bookings: car rental deposits, card rules, insurance, winter add-ons, and tour fine print.",
+  alternates: { canonical: "/offer-checklist" },
 };
-
-const ITEMS: Item[] = [
-  {
-    title: "Payment method accepted",
-    desc: "Credit card vs debit card. If it’s not explicitly accepted, assume credit is required at pickup.",
-    checks: [
-      "Is a credit card required in the driver’s name?",
-      "Is debit card accepted for THIS supplier/location/category?",
-      "Do they require 2 cards or a minimum credit limit?",
-    ],
-    pitfall: "Online payment ≠ accepted payment method at pickup.",
-    fastRule: "If it doesn’t say “debit accepted at pickup”, assume credit card is required.",
-    bestDefault:
-      "Bring a credit card in the main driver’s name. Treat debit as “maybe”, not a plan.",
-    ifStuck:
-      "If you only have debit: switch to city pickup, choose a supplier that confirms debit in writing, and expect a higher hold.",
-  },
-  {
-    title: "Deposit amount + hold time",
-    desc: "How much gets blocked and how long until it releases (often bank-dependent).",
-    checks: [
-      "Exact deposit amount (not “from …”)",
-      "Hold release timing (supplier vs your bank)",
-      "Extra deposit rules (young driver, premium cars, cross-border)",
-    ],
-    pitfall: "The “deposit” can be bigger than the rental price.",
-    fastRule: "Assume the hold will be meaningful. Don’t arrive with tight available credit.",
-    bestDefault:
-      "Plan available credit for a real hold (not symbolic). If you’re tight, reduce risk: smaller car class, better coverage, clearer supplier.",
-    ifStuck:
-      "If you can’t find the exact hold amount: treat it as unknown downside and pick a different offer or operator.",
-  },
-  {
-    title: "Insurance: excess + exclusions",
-    desc: "Ignore marketing names. Confirm deductible and common exclusions.",
-    checks: [
-      "Deductible (excess) amount and what triggers it",
-      "Common exclusions (glass/tires/undercarriage, key loss)",
-      "Third-party coverage clarity + what’s included by default",
-    ],
-    pitfall: "Cheap coverage names often hide big exclusions.",
-    fastRule: "Excess + exclusions matter more than the insurance brand name.",
-    bestDefault:
-      "Prefer predictable downside: pay for excess reduction if winter driving or long trips are involved.",
-    ifStuck:
-      "If exclusions aren’t clear: assume tires/glass/underbody are excluded and don’t book that offer unless price is insanely good and you accept the risk.",
-  },
-  {
-    title: "Fuel policy",
-    desc: "Full-to-full is usually cleanest. Other policies hide costs.",
-    checks: [
-      "Full-to-full available?",
-      "If not: refuel charge / admin fee details",
-      "Is pre-purchase fuel forced at pickup?",
-    ],
-    pitfall: "“Same-to-same” is where surprise fees love to live.",
-    fastRule: "Full-to-full is the default. Anything else needs scrutiny.",
-    bestDefault:
-      "Choose full-to-full if possible. It’s the simplest way to avoid invisible fees.",
-    ifStuck:
-      "If you can’t get full-to-full: calculate worst-case fuel + admin fee and compare again. Many “cheap” offers stop being cheap.",
-  },
-  {
-    title: "Mileage and borders",
-    desc: "Unlimited mileage? Cross-border allowed? Verify before booking.",
-    checks: [
-      "Unlimited mileage or daily cap?",
-      "Cross-border permitted (Finland → Estonia/Sweden/Norway)?",
-      "Ferry use allowed and documented?",
-    ],
-    pitfall: "Cross-border bans are common and expensive if ignored.",
-    fastRule: "If your plan includes borders/ferries, only book offers that explicitly allow it.",
-    bestDefault:
-      "If you might cross borders or take a ferry, pick offers with clear written permission. No guessing.",
-    ifStuck:
-      "If it’s unclear: assume it’s not allowed. Choose a different supplier or keep your route domestic.",
-  },
-  {
-    title: "Cancellation terms",
-    desc: "Free cancellation window and what counts as a no-show.",
-    checks: [
-      "Free cancellation deadline (48h/24h etc.)",
-      "No-show definition (late pickup, missing card, missing docs)",
-      "Amendment rules (time changes, location changes)",
-    ],
-    pitfall: "“No-show” can happen even if you are physically there.",
-    fastRule: "No-show rules are brutal. Treat pickup time as a hard deadline.",
-    bestDefault:
-      "Pick offers with free cancellation and clear no-show definitions. Pay a bit more for flexibility if timing is uncertain.",
-    ifStuck:
-      "If terms are vague: assume strict no-show and don’t cut timing close (flight delays, queues, after-hours).",
-  },
-];
-
-function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-600">
-      {children}
-    </span>
-  );
-}
-
-function CardLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-700 ring-1 ring-slate-200">
-      {children}
-    </span>
-  );
-}
-
-function CheckDot() {
-  return (
-    <span className="mt-[3px] inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 ring-1 ring-slate-200">
-      <span className="h-2 w-2 rounded-full bg-slate-700" />
-    </span>
-  );
-}
-
-const PrimaryPillCta =
-  "rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black hover:bg-orange-600 transition";
 
 export default function OfferChecklistPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      {/* Top tint to avoid “rikító fehér” */}
-      <div className="bg-gradient-to-b from-slate-100 to-white">
-        <section className="mx-auto max-w-6xl px-6 py-14">
-          {/* HERO */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-              <div className="max-w-3xl">
-                <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
-                  Offer checklist
+    <main className="min-h-screen bg-slate-950">
+      {/* HERO */}
+      <section className="relative isolate">
+        <div className="relative h-[56vh] min-h-[460px] w-full overflow-hidden bg-slate-950">
+          <Image
+            src="/images/hero/hero-lapland.jpg"
+            alt="Lapland planning"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/35 to-slate-950" />
+
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+              <div className="max-w-2xl text-white">
+                <div className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85 ring-1 ring-white/20 backdrop-blur">
+                  Free checklist
+                </div>
+
+                <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
+                  The checklist that prevents
+                  <span className="block text-white/85">“surprise costs”.</span>
                 </h1>
-                <p className="mt-2 text-slate-600">
-                  Use this before you book anything. It’s boring. That’s why it works.
+
+                <p className="mt-5 text-base leading-relaxed text-white/80 sm:text-lg">
+                  Autóbérlés, túrák, biztosítás, kártyák, kauciók, téli kiegészítők.
+                  5 perc ellenőrzés, sok száz euró idegeskedés helyett.
                 </p>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <Badge>Deposits</Badge>
-                  <Badge>Debit cards</Badge>
-                  <Badge>Insurance</Badge>
-                  <Badge>Winter policy</Badge>
-                  <Badge>After-hours pickup</Badge>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <TrackedLink
+                    href="/get-help"
+                    eventName="cta_click"
+                    props={{ placement: "checklist_hero", cta: "get_help" }}
+                    className="inline-flex items-center justify-center rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15"
+                  >
+                    Get help
+                  </TrackedLink>
+
+                  <TrackedLink
+                    href="/car-rental-helsinki"
+                    eventName="cta_click"
+                    props={{ placement: "checklist_hero", cta: "car_rental" }}
+                    className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    Car rental guide →
+                  </TrackedLink>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="flex flex-col gap-3 sm:flex-row md:flex-col md:items-stretch">
-                <Link href="/car-rental-helsinki" className={PrimaryPillCta}>
-                  Car rental Helsinki
-                </Link>
-                <Link
-                  href="/get-help"
-                  className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-center text-sm font-semibold text-slate-900 hover:bg-slate-50 transition"
-                >
-                  Ask before booking
-                </Link>
+      {/* WHITE BODY */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="-mt-10 pb-16">
+            <div className="rounded-[28px] border border-slate-200 bg-white p-8 sm:p-10">
+              <div className="mx-auto max-w-3xl">
+                <p className="text-xs font-semibold tracking-wide text-slate-500">
+                  Use this before you pay
+                </p>
+
+                <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900">
+                  Checklist: what to verify
+                </h2>
+
+                <div className="mt-6 space-y-8 text-slate-700">
+                  <section>
+                    <h3 className="text-lg font-semibold text-slate-900">Car rental</h3>
+                    <ul className="mt-3 list-disc pl-5 space-y-2">
+                      <li>Card type accepted (credit vs debit), and whose name must be on the card</li>
+                      <li>Deposit hold amount and conditions</li>
+                      <li>Excess amount + what “full coverage” actually covers (tyres, windshield, underbody)</li>
+                      <li>Winter tyres included? Any winter add-ons mandatory?</li>
+                      <li>Pickup/return timing rules, late fees, cancellation policy</li>
+                    </ul>
+                  </section>
+
+                  <section>
+                    <h3 className="text-lg font-semibold text-slate-900">Tours & experiences</h3>
+                    <ul className="mt-3 list-disc pl-5 space-y-2">
+                      <li>What’s included (gear, food, transfers) and what’s extra</li>
+                      <li>Cancellation rules and weather policy</li>
+                      <li>Pickup area, duration breakdown (transport vs activity)</li>
+                      <li>Group size and minimum age/health requirements</li>
+                    </ul>
+                  </section>
+
+                  <section>
+                    <h3 className="text-lg font-semibold text-slate-900">Stays</h3>
+                    <ul className="mt-3 list-disc pl-5 space-y-2">
+                      <li>Location realism: distances in winter, not just on the map</li>
+                      <li>Check-in/out constraints vs your flight times</li>
+                      <li>Heating, parking, road access in heavy snow</li>
+                    </ul>
+                  </section>
+                </div>
+
+                {/* Discrete partner help */}
+                <CarRentalPartnerBlock placement="checklist_partners" />
               </div>
             </div>
-
-            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-              Some links on this site may be affiliate links. If you click and book, we may earn a
-              commission at no extra cost to you. See{" "}
-              <Link className="underline underline-offset-4" href="/affiliate-disclosure">
-                affiliate disclosure
-              </Link>
-              .
-            </div>
           </div>
+        </div>
+      </section>
 
-          {/* CHECKLIST GRID */}
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {ITEMS.map((it) => (
-              <div
-                key={it.title}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="text-lg font-semibold text-slate-900">{it.title}</h2>
-                    <p className="mt-2 text-sm text-slate-600">{it.desc}</p>
-                  </div>
-                  <CardLabel>Checklist</CardLabel>
-                </div>
-
-                <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
-                  <div className="text-xs font-semibold text-slate-900">What to verify</div>
-
-                  <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                    {it.checks.map((c) => (
-                      <li key={c} className="flex gap-3">
-                        <CheckDot />
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-                    <span className="font-semibold text-slate-900">Common pitfall:</span>{" "}
-                    {it.pitfall}
-                  </div>
-                </div>
-
-                {/* Answers (decision-first) */}
-                <div className="mt-4 grid gap-3">
-                  <div className="rounded-xl border border-slate-200 bg-white p-4">
-                    <div className="text-xs font-semibold text-slate-900">Fast rule</div>
-                    <p className="mt-1 text-sm text-slate-700">{it.fastRule}</p>
-                  </div>
-
-                  <div className="rounded-xl border border-slate-200 bg-white p-4">
-                    <div className="text-xs font-semibold text-slate-900">Best default</div>
-                    <p className="mt-1 text-sm text-slate-700">{it.bestDefault}</p>
-                  </div>
-
-                  <div className="rounded-xl border border-slate-200 bg-white p-4">
-                    <div className="text-xs font-semibold text-slate-900">If you’re stuck</div>
-                    <p className="mt-1 text-sm text-slate-700">{it.ifStuck}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* APPLY TO PILLAR */}
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Apply it to a pillar</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Pick what you’re actually booking, then use the pillar guides to avoid the most common traps.
-            </p>
-
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/car-rental-helsinki" className={PrimaryPillCta}>
-                Car rental Helsinki
-              </Link>
-              <Link href="/camper-rental-finland" className={PrimaryPillCta}>
-                Camper rentals
-              </Link>
-              <Link href="/lapland-tours" className={PrimaryPillCta}>
-                Lapland tours
-              </Link>
-            </div>
-          </div>
-
-          {/* QUICK COPY TEMPLATE */}
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Quick copy template</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Paste this into your notes while comparing offers.
-            </p>
-
-            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-slate-100">
-              <pre className="whitespace-pre-wrap text-sm leading-6">{`Offer:
-Price:
-Payment method:
-Deposit amount:
-Deposit hold time:
-Insurance excess:
-Key exclusions:
-Fuel policy:
-Mileage:
-Cross-border / ferry:
-After-hours pickup:
-Cancellation:`}</pre>
-            </div>
-
-            <div className="mt-4 text-xs text-slate-500">
-              If you want, we can generate a “car rental Helsinki” filled version once you paste real partner policy details.
-            </div>
-          </div>
-        </section>
-      </div>
+      <div className="h-14 bg-slate-950" />
     </main>
   );
 }
