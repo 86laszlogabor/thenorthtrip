@@ -1,3 +1,4 @@
+// app/helsinki/page.tsx
 import Link from "next/link";
 import PartnerGrid from "@/components/PartnerGrid";
 import PageHero from "@/components/PageHero";
@@ -10,7 +11,7 @@ export default function HelsinkiPage() {
     <main className="min-h-screen bg-white text-slate-900">
       <PageHero
         title="Helsinki city guide"
-        subtitle="Practical picks for ferries, saunas, and sightseeing. Decision-first, not link-dump chaos."
+        subtitle="Practical picks for ferries, saunas, and sightseeing. Decision-first, not chaos."
         imageSrc="/images/pages/helsinki/helsinki-hero.jpg"
         imageAlt="Helsinki city view"
         badge="Finland • Helsinki"
@@ -52,9 +53,10 @@ export default function HelsinkiPage() {
           <p className="mt-2 max-w-2xl text-slate-600">
             Until direct ferry partners are onboarded, we route you to reliable booking platforms.
           </p>
+
           <div className="mt-6">
             <PartnerGrid
-              keys={["getyourguide_city", "viator_city"]}
+              partnerKeys={["getyourguide_city", "viator_city"]}
               ctaLabel="Check schedules"
               placement="helsinki_ferries"
             />
@@ -66,9 +68,10 @@ export default function HelsinkiPage() {
           <p className="mt-2 max-w-2xl text-slate-600">
             Weekend slots can sell out. Platforms help when local partners aren’t wired yet.
           </p>
+
           <div className="mt-6">
             <PartnerGrid
-              keys={["getyourguide_sauna", "viator_city"]}
+              partnerKeys={["getyourguide_sauna", "viator_city"]}
               ctaLabel="View tickets"
               placement="helsinki_sauna"
             />
@@ -80,9 +83,10 @@ export default function HelsinkiPage() {
           <p className="mt-2 max-w-2xl text-slate-600">
             If you only have one day, do a practical route first. Then add something unique.
           </p>
+
           <div className="mt-6">
             <PartnerGrid
-              keys={["getyourguide_city", "viator_city"]}
+              partnerKeys={["getyourguide_city", "viator_city"]}
               ctaLabel="See tours"
               placement="helsinki_tours"
             />

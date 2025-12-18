@@ -1,4 +1,3 @@
-// components/TrackedLink.tsx
 "use client";
 
 import Link, { type LinkProps } from "next/link";
@@ -9,17 +8,16 @@ type TrackedLinkProps = LinkProps & {
   className?: string;
   children: React.ReactNode;
 
-  /** tracking (defaults) */
   eventName?: TrackEventName; // default: "cta_click"
   props?: TrackProps;
 
-  /** convenience props (so you can write placement="..." cta="...") */
   placement?: string;
   cta?: string;
 
-  /** optional */
   rel?: string;
   target?: string;
+
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 export default function TrackedLink({
@@ -34,10 +32,8 @@ export default function TrackedLink({
     <Link
       {...rest}
       onClick={(e) => {
-        // keep caller behavior
-        onClick?.(e as any);
+        onClick?.(e);
 
-        // track
         track(eventName, {
           ...(props ?? {}),
           ...(placement ? { placement } : {}),

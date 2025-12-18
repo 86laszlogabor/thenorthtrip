@@ -1,58 +1,36 @@
-"use client";
-
-import { trackPlus } from "@/lib/track-plus";
-import type { Placement } from "@/lib/placements";
+// components/SponsoredLink.tsx
+import React from "react";
+import TrackedExternal from "@/components/TrackedExternal";
+import type { PartnerKey } from "@/lib/partners";
 
 type Props = {
   href: string;
-  label: string;
+  label: string;        // a gomb/link szövege vagy CTA label
+  placement: string;    // tracking placement
+  partner: PartnerKey;  // partner kulcs
   className?: string;
-  placement?: Placement;
-  partner?: string;
+  rel?: string;
+  children?: React.ReactNode; // opcionálisan felülírhatod a labelt
 };
-
-function isPlaceholderHref(href: string) {
-  const h = (href || "").trim().toLowerCase();
-  return !h || h === "#" || h === "tbd";
-}
 
 export default function SponsoredLink({
   href,
   label,
-  className,
-  placement = "footer",
-  partner = "unknown",
+  placement,
+  partner,
+  className = "",
+  rel = "sponsored nofollow noopener",
+  children,
 }: Props) {
-  const placeholder = isPlaceholderHref(href);
-
-  if (placeholder) {
-    return (
-      <span
-        aria-disabled="true"
-        className={
-          className ??
-          "inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-400 cursor-not-allowed"
-        }
-      >
-        {label}
-        <span className="ml-2 opacity-60">↗</span>
-      </span>
-    );
-  }
-
   return (
-    <a
+    <TrackedExternal
       href={href}
-      target="_blank"
-      rel="sponsored nofollow noopener"
-      className={
-        className ??
-        "inline-flex items-center justify-center rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-orange-600"
-      }
-      onClick={() => trackPlus("affiliate_click", { placement, partner, href })}
+      label={`partner:${partner}`}
+      placement={placement}
+      className={className}
+      rel={rel}
     >
-      {label}
-      <span className="ml-2 opacity-70">↗</span>
-    </a>
+      {children ?? label}
+    </TrackedExternal>
   );
 }
