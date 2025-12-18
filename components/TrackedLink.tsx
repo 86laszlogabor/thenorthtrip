@@ -2,50 +2,48 @@
 "use client";
 
 import Link, { type LinkProps } from "next/link";
-import { track, type TrackEventName, type TrackProps } from "@/lib/track";
 import React from "react";
+import { track, type TrackEventName, type TrackProps } from "@/lib/track";
 
-type Props = LinkProps & {
+type TrackedLinkProps = LinkProps & {
   className?: string;
   children: React.ReactNode;
+
+  /** tracking (defaults) */
   eventName?: TrackEventName; // default: "cta_click"
   props?: TrackProps;
-  external?: boolean; // if true, render <a> instead of Next Link
-  href: string; // make explicit
-  target?: string;
+
+  /** convenience props (so you can write placement="..." cta="...") */
+  placement?: string;
+  cta?: string;
+
+  /** optional */
   rel?: string;
+  target?: string;
 };
 
 export default function TrackedLink({
-  className,
-  children,
   eventName = "cta_click",
   props,
-  external,
-  href,
-  target,
-  rel,
+  placement,
+  cta,
+  onClick,
   ...rest
-}: Props) {
-  const onClick = () => track(eventName, props);
-
-  if (external) {
-    return (
-      <a
-        href={href}
-        onClick={onClick}
-        className={className}
-        target={target}
-        rel={rel}
-      >
-        {children}
-      </a>
-    );
-  }
-
+}: TrackedLinkProps) {
   return (
-    <Link href={href} onClick={onClick} className={className} {...rest}>
-      {children}
-    </Link>
+    <Link
+      {...rest}
+      onClick={(e) => {
+        // keep caller behavior
+        onClick?.(e as any);
+
+        // track
+        track(eventName, {
+          ...(props ?? {}),
+          ...(placement ? { placement } : {}),
+          ...(cta ? { cta } : {}),
+        });
+      }}
+    />
   );
 }
