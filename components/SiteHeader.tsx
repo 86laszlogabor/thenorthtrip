@@ -1,4 +1,6 @@
+// components/SiteHeader.tsx
 import Link from "next/link";
+import CtaButton from "@/components/CtaButton";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -14,38 +16,41 @@ const nav = [
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-black/5">
-      <div className="mx-auto max-w-site px-4 py-3 flex items-center justify-between gap-4">
-        <Link href="/" className="font-semibold tracking-tight text-lg">
-          TheNorthTrip
-        </Link>
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="h-14 flex items-center justify-between gap-4">
+          <Link href="/" className="font-semibold tracking-tight">
+            TheNorthTrip
+          </Link>
 
-        <nav className="hidden lg:flex items-center gap-4 text-sm" aria-label="Primary navigation">
-          {nav.map((i) => (
-            <Link key={i.href} href={i.href} className="text-brand-text/80 hover:text-brand-text">
-              {i.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden lg:flex items-center gap-4 text-sm text-slate-700">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="hover:text-slate-900 hover:underline underline-offset-4"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <nav className="lg:hidden" aria-label="Mobile navigation">
-          <details className="relative">
-            <summary className="list-none cursor-pointer select-none rounded-card border border-black/10 px-3 py-2 text-sm">
-              Menu
-            </summary>
-            <div className="absolute right-0 mt-2 w-72 rounded-card bg-white shadow-soft border border-black/5 p-2">
-              {nav.map((i) => (
-                <Link
-                  key={i.href}
-                  href={i.href}
-                  className="block rounded-card px-3 py-2 text-sm text-brand-text/80 hover:bg-brand-bluegray hover:text-brand-text"
-                >
-                  {i.label}
-                </Link>
-              ))}
+          <div className="flex items-center gap-3">
+            <div className="hidden md:block">
+              <CtaButton href="/car-rental-helsinki" variant="primary">
+                Compare Best Options
+              </CtaButton>
             </div>
-          </details>
-        </nav>
+
+            {/* simple mobile fallback: keep it minimal, no “burger app” right now */}
+            <Link
+              className="lg:hidden text-sm font-semibold underline underline-offset-4"
+              href="/car-rental-helsinki"
+            >
+              Menu →
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );

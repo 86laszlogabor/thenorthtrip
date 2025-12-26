@@ -1,15 +1,16 @@
+// components/Card.tsx
 export default function Card({
   children,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
   return (
-    <article
-      className={`rounded-card bg-white shadow-softer border border-black/5 p-5 ${className ?? ""}`.trim()}
+    <div
+      className={`rounded-xl bg-white border border-black/5 shadow-sm shadow-black/5 overflow-hidden ${className}`}
     >
       {children}
-    </article>
+    </div>
   );
 }
