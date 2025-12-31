@@ -28,28 +28,28 @@ export default function BlogPage() {
             <h3 className="text-lg font-semibold">Car rental</h3>
             <p className="mt-2 text-sm text-brand-text/70">Intent: deposits, debit vs credit, winter tyres, insurance language.</p>
             <p className="mt-3 text-sm">
-              <Link href="/car-rental-helsinki" className="font-semibold hover:underline">Car Rental Helsinki →</Link>
+              <Link href="/car-rental-helsinki" className="font-semibold hover:underline">Car Rental Helsinki â†’</Link>
             </p>
           </Card>
           <Card>
             <h3 className="text-lg font-semibold">Lapland tours</h3>
             <p className="mt-2 text-sm text-brand-text/70">Intent: choosing tour types, seasonal timing, destination comparisons.</p>
             <p className="mt-3 text-sm">
-              <Link href="/lapland-tours" className="font-semibold hover:underline">Lapland Tours →</Link>
+              <Link href="/lapland-tours" className="font-semibold hover:underline">Lapland Tours â†’</Link>
             </p>
           </Card>
           <Card>
             <h3 className="text-lg font-semibold">Camper rental</h3>
             <p className="mt-2 text-sm text-brand-text/70">Intent: winterization, routes, stations, legal/parking realities.</p>
             <p className="mt-3 text-sm">
-              <Link href="/camper-rental-finland" className="font-semibold hover:underline">Camper Rental Finland →</Link>
+              <Link href="/camper-rental-finland" className="font-semibold hover:underline">Camper Rental Finland â†’</Link>
             </p>
           </Card>
           <Card>
             <h3 className="text-lg font-semibold">Getting around</h3>
             <p className="mt-2 text-sm text-brand-text/70">Intent: mode comparisons, itineraries, transfer logic.</p>
             <p className="mt-3 text-sm">
-              <Link href="/getting-around-finland" className="font-semibold hover:underline">Getting Around Finland →</Link>
+              <Link href="/getting-around-finland" className="font-semibold hover:underline">Getting Around Finland â†’</Link>
             </p>
           </Card>
         </div>
@@ -57,12 +57,12 @@ export default function BlogPage() {
         <h2 className="mt-10 text-2xl md:text-3xl font-semibold tracking-tight">Example posts (SEO placeholders, realistic titles)</h2>
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
           {[
-            "“Helsinki car rental deposit: what to expect (and what to confirm)”",
-            "“Debit card vs credit card in Finland rentals: common patterns”",
-            "“Lapland tour types: husky vs snowmobile vs aurora, how to choose”",
-            "“Rovaniemi vs Levi: which base fits your trip?”",
-            "“Camper rental in winter: what ‘winterized’ actually means”",
-            "“Train vs flight to Lapland: time, cost, and transfer friction”",
+            "â€œHelsinki car rental deposit: what to expect (and what to confirm)â€",
+            "â€œDebit card vs credit card in Finland rentals: common patternsâ€",
+            "â€œLapland tour types: husky vs snowmobile vs aurora, how to chooseâ€",
+            "â€œRovaniemi vs Levi: which base fits your trip?â€",
+            "â€œCamper rental in winter: what â€˜winterizedâ€™ actually meansâ€",
+            "â€œTrain vs flight to Lapland: time, cost, and transfer frictionâ€",
           ].map((t) => (
             <Card key={t}>
               <p className="text-sm text-brand-text/70">{t}</p>

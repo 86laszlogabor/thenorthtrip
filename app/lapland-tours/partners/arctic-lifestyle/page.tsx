@@ -36,7 +36,7 @@ export default function ArcticLifestylePartnerPage() {
           <Card>
             <h3 className="text-lg font-semibold">Meeting point / pickup</h3>
             <p className="mt-2 text-sm text-brand-text/70">
-              Exact location, time window, and what happens if you’re late.
+              Exact location, time window, and what happens if youâ€™re late.
             </p>
           </Card>
           <Card>

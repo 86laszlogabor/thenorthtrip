@@ -23,21 +23,21 @@ export default function PolicyPage() {
         <Card>
           <h2 className="text-2xl font-semibold">Affiliate disclosure</h2>
           <p className="mt-3 text-sm text-brand-text/70">
-            We may earn a commission when you book through our links. This doesn’t change your price, but it helps fund comparisons, updates, and support.
+            We may earn a commission when you book through our links. This doesnâ€™t change your price, but it helps fund comparisons, updates, and support.
           </p>
         </Card>
 
         <Card className="mt-6">
           <h2 className="text-2xl font-semibold">Promotions</h2>
           <p className="mt-3 text-sm text-brand-text/70">
-            Promotions Section title: Promotions and deals We only show promotions that: are visible on partner pages or official sources include clear conditions are time-stamped when published No fake countdowns. No “exclusive” claims unless verified.
+            Promotions Section title: Promotions and deals We only show promotions that: are visible on partner pages or official sources include clear conditions are time-stamped when published No fake countdowns. No â€œexclusiveâ€ claims unless verified.
           </p>
         </Card>
 
         <Card className="mt-6">
           <h2 className="text-2xl font-semibold">Update &amp; verification method</h2>
           <p className="mt-3 text-sm text-brand-text/70">
-            Update &amp; verification method Section title: How we review content We check partner listings and policy pages regularly. We add “Last verified” dates on comparison-heavy pages. Terms and prices can change. Always confirm at booking. Verification methods label examples: Provider policy page Checkout terms screenshot (internal) Supplier website What we’re not We are not a rental desk, not a tour operator, and not a legal authority. We summarize and route you to partners and support.
+            Update &amp; verification method Section title: How we review content We check partner listings and policy pages regularly. We add â€œLast verifiedâ€ dates on comparison-heavy pages. Terms and prices can change. Always confirm at booking. Verification methods label examples: Provider policy page Checkout terms screenshot (internal) Supplier website What weâ€™re not We are not a rental desk, not a tour operator, and not a legal authority. We summarize and route you to partners and support.
           </p>
         </Card>
       </Section>

@@ -1,82 +1,57 @@
-﻿import Section from "@/components/Section";
+import Section from "@/components/Section";
 import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Camper station: Helsinki | Camper Rental Finland | TheNorthTrip",
-  description:
-    "Helsinki camper pickup station: a decision-first skeleton page for what to check before booking.",
-};
 
 export default function CamperStationHelsinkiPage() {
   return (
     <div className="bg-white">
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
-          Camper rental / Stations
-        </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
-          Helsinki station
+      <Section>
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+          Camper station: Helsinki
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. Later we add verified fleets, pickup logistics, and route pairing.
+          Best when you want a southern start with lower friction. Typically easier for handover logistics, but
+          demand peaks in summer and station details vary by operator.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <CtaButton href="/camper-rental-finland" variant="primary">
-            Back to Camper Rental Finland
-          </CtaButton>
-          <CtaButton href="/rental-terms-prices" variant="outline">
-            Open terms checklist
-          </CtaButton>
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card>
+            <h2 className="text-xl font-semibold">Good fit when</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>You want to begin in the south and build confidence before longer drives.</li>
+              <li>You plan a Southern Lakes loop or coastal routing first.</li>
+              <li>You prefer simpler logistics over “rush north immediately”.</li>
+            </ul>
+          </Card>
+          <Card>
+            <h2 className="text-xl font-semibold">What often goes wrong</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Assuming airport pickup when it’s a city/industrial-area station.</li>
+              <li>Underestimating summer demand and weekend handover congestion.</li>
+              <li>Not verifying mileage caps and deposit/card requirements.</li>
+            </ul>
+          </Card>
         </div>
 
-        <p className="mt-6 text-sm text-brand-text/70">
-          Pair with routes:{" "}
-          <Link href="/camper-rental-finland/routes/coastal" className="font-semibold hover:underline">
-            Coastal
-          </Link>{" "}
-          •{" "}
-          <Link href="/camper-rental-finland/routes/southern-lakes" className="font-semibold hover:underline">
-            Southern lakes
+        <Card className="mt-6">
+          <h2 className="text-xl font-semibold">Quick verify checklist</h2>
+          <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+            <li>Exact pickup location + opening hours (especially weekends).</li>
+            <li>Deposit hold method + card requirements (varies by operator).</li>
+            <li>Mileage policy and “extra km” fees.</li>
+            <li>What “winterised” means (heating + water system behavior in cold).</li>
+          </ul>
+          <p className="mt-4 text-xs text-brand-text/60">Last verified: 2025.12.31</p>
+        </Card>
+
+        <div className="mt-8 text-sm text-brand-text/75">
+          <Link href="/camper-rental-finland" className="font-semibold hover:underline">
+            Back to Camper Rental Finland →
           </Link>
-        </p>
-      </section>
-
-      <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          What to confirm before pickup
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <h3 className="text-lg font-semibold">Pickup window</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Desk/handover hours, late pickup rules, after-hours fees.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Deposit + card rules</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Hold amount, accepted cards, refund timing.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Winter readiness</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Heating, water system limitations, tyres, and what is actually included.
-            </p>
-          </Card>
-        </div>
-
-        <div className="mt-10 text-sm text-brand-text/75">
-          <p>
-            Need help?{" "}
-            <Link href="/get-help" className="font-semibold hover:underline">
-              Get Help
-            </Link>
-          </p>
+          <span className="mx-2">•</span>
+          <Link href="/rental-terms-prices" className="font-semibold hover:underline">
+            Terms checklist →
+          </Link>
         </div>
       </Section>
     </div>

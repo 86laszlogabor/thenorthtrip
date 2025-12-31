@@ -5,69 +5,76 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Helsinki city mobility | TheNorthTrip",
-  description:
-    "City mobility in Helsinki: a decision-first skeleton page for short trips and seasonal constraints.",
+  description: "HSL zones, apps, and winter pace. Verify zones and ticket types before you board.",
 };
 
-export default function HelsinkiCityMobilityPage() {
+export default function Page() {
   return (
     <div className="bg-white">
       <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
-          Helsinki / City mobility
-        </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
-          City mobility in Helsinki: short trips, low friction
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+          Helsinki city mobility
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. Later we’ll add verified options and rules. For now this
-          is the routing target.
+          HSL zones, apps, and winter pace. Verify zones and ticket types before you board.
         </p>
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <CtaButton href="/get-help" variant="primary">
-            See options
-          </CtaButton>
-          <CtaButton href="/getting-around-finland" variant="outline">
-            Back to Getting Around
+        <div className="mt-8">
+          <CtaButton href="/car-rental-helsinki" variant="primary">
+            Go back to the decision hub
           </CtaButton>
         </div>
-
-        <p className="mt-6 text-sm text-brand-text/70">
-          Related:{" "}
-          <Link href="/helsinki/ferry-cruise" className="font-semibold hover:underline">
-            Helsinki Ferry &amp; Cruise
-          </Link>
-        </p>
       </section>
 
-      <Section>
+      <Section className="bg-brand-bluegray">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          What we’ll place here (later)
+          What usually causes friction
         </h2>
 
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <h3 className="text-lg font-semibold">Seasonal reality</h3>
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Timing assumptions</h3>
             <p className="mt-2 text-sm text-brand-text/70">
-              What works in summer vs winter. No fantasy planning.
+              People plan like it’s summer: tight buffers, no backups, and optimistic walking times.
             </p>
           </Card>
-
-          <Card>
-            <h3 className="text-lg font-semibold">Rules &amp; safety</h3>
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Rules vs expectations</h3>
             <p className="mt-2 text-sm text-brand-text/70">
-              Local rules, where it’s allowed, and what to avoid.
+              Helsinki is calm, literal, and procedural. “Should be fine” is not a plan.
             </p>
           </Card>
-
-          <Card>
-            <h3 className="text-lg font-semibold">When not to bother</h3>
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Verification gap</h3>
             <p className="mt-2 text-sm text-brand-text/70">
-              When walking / transit is simpler than any micro mobility.
+              Confirm the detail that matters (terminal, zone, booking window) in writing when possible.
             </p>
           </Card>
         </div>
+
+        <div className="mt-8 text-sm text-brand-text/75">
+          <p>
+            Related:{" "}
+            <Link href="/getting-around-finland" className="font-semibold hover:underline">
+              Getting Around Finland
+            </Link>
+          </p>
+          <p className="mt-2">
+            Terms logic:{" "}
+            <Link href="/rental-terms-prices" className="font-semibold hover:underline">
+              Rental Terms &amp; Prices
+            </Link>
+          </p>
+          <p className="mt-2">
+            If something breaks:{" "}
+            <Link href="/get-help" className="font-semibold hover:underline">
+              Get Help
+            </Link>
+          </p>
+        </div>
+
+        <p className="mt-6 text-xs text-brand-text/60">
+          Last verified: 2025-12-31
+        </p>
       </Section>
     </div>
   );

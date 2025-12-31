@@ -42,7 +42,7 @@ export default function ViatorPartnerPage() {
           <Card>
             <h3 className="text-lg font-semibold">Language</h3>
             <p className="mt-2 text-sm text-brand-text/70">
-              Confirm the tour language and what happens if it’s “mixed”.
+              Confirm the tour language and what happens if itâ€™s â€œmixedâ€.
             </p>
           </Card>
           <Card>

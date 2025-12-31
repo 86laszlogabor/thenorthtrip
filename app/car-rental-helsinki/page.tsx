@@ -1,204 +1,186 @@
+// app/car-rental-helsinki/page.tsx
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 import PartnerStrip, { type PartnerSlot } from "@/components/PartnerStrip";
 import Link from "next/link";
 
-export default function CamperRentalFinlandPage() {
+export const metadata = {
+  title: "Car Rental Helsinki | TheNorthTrip",
+  description:
+    "Partners first, then the rules that actually matter at pickup: card/deposit, insurance language, winter requirements, and timing.",
+};
+
+export default function CarRentalHelsinkiPage() {
   const partners: [PartnerSlot, PartnerSlot, PartnerSlot] = [
-    // Most nincs valós camper partner megadva, így 3 slot: 1 “operator/local” placeholder + 2 empty
     {
-      name: "Local fleet (placeholder)",
-      kind: "operator",
+      name: "DiscoverCars",
+      kind: "aggregator",
       blurb:
-        "Direct handover, local advice, and clearer accountability. We’ll add a verified partner after validation.",
-      href: "/camper-rental-finland",
-      ctaLabel: "See options",
+        "Strong comparison flow. Still verify deposit + card rules per supplier before booking.",
+      href: "PASTE_DISCOVERCARS_AFFILIATE_LINK",
+      ctaLabel: "Compare options",
     },
-    { empty: true, label: "Marketplace partner" },
-    { empty: true, label: "Peer-to-peer" },
+    {
+      name: "Rentalcars.com",
+      kind: "aggregator",
+      blurb:
+        "Big inventory and reviews. Double-check desk hours, deposit, and what ‘included’ really means.",
+      href: "PASTE_RENTALCARS_AFFILIATE_LINK",
+      ctaLabel: "Browse offers",
+    },
+    { empty: true, label: "Direct brand (Sixt/Europcar etc.)" },
   ];
 
   return (
     <div className="bg-white">
+      {/* HERO */}
       <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Camper rental in Finland, with the winter realities included.
+        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
+          Car rental / Helsinki
+        </p>
+        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
+          Car rental in Helsinki, without the expensive surprises.
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Start with partners, then choose stations and routes that match your season and comfort level.
+          Partners first. Then the checks that decide whether pickup is smooth or a disaster:
+          card &amp; deposit rules, winter requirements, insurance wording, desk hours.
         </p>
-        <div className="mt-8">
-          <CtaButton href="/camper-rental-finland" variant="primary">
-            Compare Camper Options
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <CtaButton href="/car-rental-helsinki" variant="primary">
+            Compare car rental options
+          </CtaButton>
+          <CtaButton href="/rental-terms-prices" variant="outline">
+            Open terms checklist
           </CtaButton>
         </div>
       </section>
 
-      {/* Partner list FIRST */}
+      {/* PARTNERS FIRST */}
       <Section>
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          Recommended camper partners
+          Recommended booking paths (3 options only)
         </h2>
 
-        {/* ADD: 3-slot strip (does not remove your existing detailed blocks) */}
         <PartnerStrip
           title="Compare partners (3 options)"
-          subtitle="Three slots only. We’ll fill them with verified partners as we validate inventory + support quality."
+          subtitle="Use a marketplace for speed, or go direct if you already trust a brand. Always confirm deposit + card acceptance in writing."
           partners={partners}
           intentHref="/rental-terms-prices"
           intentLabel="Open terms checklist"
         />
 
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card className="flex flex-col">
-            <h3 className="text-lg font-semibold">Marketplace partner (placeholder)</h3>
+            <h3 className="text-lg font-semibold">Card &amp; deposit reality</h3>
             <p className="mt-3 text-sm text-brand-text/70">
-              <span className="font-semibold">Best for:</span> Quick comparison across fleets
+              The #1 failure mode: assuming debit/credit acceptance is “standard”.
             </p>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">Highlights:</p>
-              <ul className="mt-2 list-disc pl-5 space-y-1">
-                <li>Broad inventory</li>
-                <li>Clear pickup locations</li>
-                <li>Easy date changes (depends on policy)</li>
-              </ul>
-            </div>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">What to double-check:</p>
-              <p className="mt-1">Mileage caps, insurance deductibles, winterization</p>
-            </div>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Confirm: credit vs debit, name match, hold amount, release timing.</li>
+              <li>Ask: “What happens if card type is rejected at desk?”</li>
+              <li>Verify: deposit is per supplier, not per website claim.</li>
+            </ul>
             <div className="mt-auto pt-4">
-              {/* FIX: secondary -> success (conversion green) */}
-              <CtaButton href="/camper-rental-finland" variant="success" className="w-full">
-                Check availability
-              </CtaButton>
+              <Link href="/rental-terms-prices" className="text-sm font-semibold hover:underline">
+                See terms checklist →
+              </Link>
             </div>
           </Card>
 
           <Card className="flex flex-col">
-            <h3 className="text-lg font-semibold">Local fleet partner (placeholder)</h3>
+            <h3 className="text-lg font-semibold">Winter requirements</h3>
             <p className="mt-3 text-sm text-brand-text/70">
-              <span className="font-semibold">Best for:</span> Handovers, local advice, and route support
+              In winter, “car model” matters less than tyres, visibility, and practical equipment.
             </p>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">Highlights:</p>
-              <ul className="mt-2 list-disc pl-5 space-y-1">
-                <li>Better local guidance</li>
-                <li>Flexible pickup sometimes possible</li>
-                <li>More direct accountability</li>
-              </ul>
-            </div>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">What to double-check:</p>
-              <p className="mt-1">Heating system, road restrictions, deposit terms</p>
-            </div>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Confirm tyres (type/season) and what’s included vs optional.</li>
+              <li>Check: pickup time vs daylight and road conditions.</li>
+              <li>Plan buffers for weather delays.</li>
+            </ul>
             <div className="mt-auto pt-4">
-              {/* FIX: secondary -> success */}
-              <CtaButton href="/camper-rental-finland" variant="success" className="w-full">
-                See options
-              </CtaButton>
+              <Link href="/getting-around-finland" className="text-sm font-semibold hover:underline">
+                Compare transport modes →
+              </Link>
             </div>
           </Card>
 
-          <Card className="flex flex-col md:col-span-2">
-            <h3 className="text-lg font-semibold">Peer-to-peer style (placeholder)</h3>
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Insurance wording traps</h3>
             <p className="mt-3 text-sm text-brand-text/70">
-              <span className="font-semibold">Best for:</span> Unique rigs, potentially better value
+              “Insurance included” can still mean a huge deductible and exclusions.
             </p>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">Highlights:</p>
-              <ul className="mt-2 list-disc pl-5 space-y-1">
-                <li>Variety of camper types</li>
-                <li>Sometimes lower base cost</li>
-                <li>Owner guidance can be helpful</li>
-              </ul>
-            </div>
-            <div className="mt-3 text-sm text-brand-text/70">
-              <p className="font-semibold">What to double-check:</p>
-              <p className="mt-1">Support if something breaks, cancellation rules</p>
-            </div>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Focus on: deductible, exclusions, claim handling.</li>
+              <li>Don’t assume: glass/tyres/undercarriage are covered.</li>
+              <li>Keep proof: what you bought, what’s included, screenshots.</li>
+            </ul>
             <div className="mt-auto pt-4">
-              {/* FIX: secondary -> success */}
-              <CtaButton href="/camper-rental-finland" variant="success" className="w-full">
-                See options
-              </CtaButton>
+              <Link href="/rental-terms-prices" className="text-sm font-semibold hover:underline">
+                Read insurance checklist →
+              </Link>
             </div>
           </Card>
         </div>
 
         <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
           <Card>
-            {/* Keep your block, but make it usable without changing intent */}
-            <h3 className="text-lg font-semibold">
-              Explain winterization, mileage, deposits, legality.
-            </h3>
+            <h3 className="text-lg font-semibold">Pickup timing &amp; desk hours</h3>
             <p className="mt-3 text-sm text-brand-text/70">
-              Explain winterization, mileage, deposits, legality.
+              Late arrivals + optimistic buffers create the classic “no desk, no car” story.
             </p>
             <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>Winterization: what it means in practice (heating + water system)</li>
-              <li>Mileage: caps, extra km fees, realistic distances</li>
-              <li>Deposits: holds, timing, card requirements</li>
-              <li>Legality: where you can stop/park and what “allowed” means</li>
+              <li>Confirm desk hours for your exact location (airport vs city).</li>
+              <li>Ask about late pickup policy in writing if arriving late.</li>
+              <li>Keep a backup plan (alternative provider or transport).</li>
             </ul>
           </Card>
 
           <Card>
-            <h3 className="text-lg font-semibold">For terms that commonly trip people up</h3>
+            <h3 className="text-lg font-semibold">If anything feels unclear</h3>
             <p className="mt-3 text-sm text-brand-text/70">
+              Use the escalation ladder. Don’t argue at the desk with zero documentation.
+            </p>
+            <div className="mt-4">
+              <CtaButton href="/get-help" variant="success" className="w-full">
+                Get Help
+              </CtaButton>
+            </div>
+          </Card>
+        </div>
+
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+      </Section>
+
+      {/* ROUTING */}
+      <Section className="bg-brand-bluegray">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          Related decision hubs
+        </h2>
+
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
+          <Card>
+            <p className="text-sm text-brand-text/70">
               <Link href="/rental-terms-prices" className="font-semibold hover:underline">
-                Rental Terms &amp; Prices
+                Rental Terms &amp; Prices →
               </Link>
             </p>
           </Card>
-        </div>
-      </Section>
-
-      {/* Stations + routes */}
-      <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          Stations: Helsinki, Tampere/Turku, Rovaniemi
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
-          {[
-            { title: "Helsinki", href: "/camper-rental-finland/stations/helsinki" },
-            { title: "Tampere/Turku", href: "/camper-rental-finland/stations/tampere-turku" },
-            { title: "Rovaniemi", href: "/camper-rental-finland/stations/rovaniemi" },
-          ].map((s) => (
-            <Card key={s.title} className="flex flex-col">
-              <h3 className="text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-brand-text/70">1–2 lines + CTA</p>
-              <div className="mt-auto pt-4">
-                <Link href={s.href} className="text-sm font-semibold hover:underline">
-                  See station options →
-                </Link>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        <h2 className="mt-10 text-2xl md:text-3xl font-semibold tracking-tight">
-          Routes: Southern lakes, Helsinki–Lapland, Coastal
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
-          {[
-            { title: "Southern lakes", text: "Best for: mild season, flexible stops.", href: "/camper-rental-finland/routes/southern-lakes", cta: "Explore route →" },
-            { title: "Helsinki–Lapland", text: "Best for: committed road-trip travelers who understand winter constraints.", href: "/camper-rental-finland/routes/helsinki-lapland", cta: "Explore route →" },
-            { title: "Coastal", text: "Best for: scenery + easier logistics in warmer months.", href: "/camper-rental-finland/routes/coastal", cta: "Explore route →" },
-          ].map((r) => (
-            <Card key={r.title} className="flex flex-col">
-              <h3 className="text-lg font-semibold">{r.title}</h3>
-              <p className="mt-2 text-sm text-brand-text/70">{r.text}</p>
-              <div className="mt-auto pt-4">
-                <Link href={r.href} className="text-sm font-semibold hover:underline">
-                  {r.cta}
-                </Link>
-              </div>
-            </Card>
-          ))}
+          <Card>
+            <p className="text-sm text-brand-text/70">
+              <Link href="/getting-around-finland" className="font-semibold hover:underline">
+                Getting Around Finland →
+              </Link>
+            </p>
+          </Card>
+          <Card>
+            <p className="text-sm text-brand-text/70">
+              <Link href="/lapland-tours" className="font-semibold hover:underline">
+                Lapland Tours →
+              </Link>
+            </p>
+          </Card>
         </div>
       </Section>
     </div>

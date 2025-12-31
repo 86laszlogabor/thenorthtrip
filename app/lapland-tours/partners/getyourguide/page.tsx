@@ -54,7 +54,7 @@ export default function GetYourGuidePartnerPage() {
         </div>
 
         <p className="mt-10 text-sm text-brand-text/70">
-          If you’re unsure, use{" "}
+          If youâ€™re unsure, use{" "}
           <Link href="/get-help" className="font-semibold hover:underline">
             Get Help
           </Link>

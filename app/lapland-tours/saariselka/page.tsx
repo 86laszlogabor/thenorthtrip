@@ -1,4 +1,4 @@
-﻿import Section from "@/components/Section";
+import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 import Link from "next/link";

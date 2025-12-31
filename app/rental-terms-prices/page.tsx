@@ -65,10 +65,10 @@ export default function RentalTermsPricesPage() {
         </div>
 
         <div className="mt-6 text-sm text-brand-text/70 space-y-2">
-          <p>Clear disclaimers: “May vary”, “Always confirm”.</p>
-          <p>“May vary by location, season, and supplier.”</p>
-          <p>“Always verify deposit and card acceptance before booking.”</p>
-          <p>“Insurance wording differs. Deductible and exclusions matter most.”</p>
+          <p>Clear disclaimers: â€œMay varyâ€, â€œAlways confirmâ€.</p>
+          <p>â€œMay vary by location, season, and supplier.â€</p>
+          <p>â€œAlways verify deposit and card acceptance before booking.â€</p>
+          <p>â€œInsurance wording differs. Deductible and exclusions matter most.â€</p>
           <p>Last verified: [insert date when you publish]</p>
           <p>Sources: Provider policy pages, booking checkout terms, supplier websites.</p>
         </div>

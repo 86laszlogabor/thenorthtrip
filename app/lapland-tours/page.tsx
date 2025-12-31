@@ -10,7 +10,7 @@ export default function LaplandToursPage() {
       name: "Arctic Lifestyle",
       kind: "operator",
       blurb:
-        "Local-operator-first. Smaller groups and more ‘real tour’ signal than marketplace browsing.",
+        "Local-operator-first. Smaller groups and more â€˜real tourâ€™ signal than marketplace browsing.",
       href: "PASTE_ARCTIC_LIFESTYLE_LINK",
       ctaLabel: "See Lapland tours",
     },
@@ -163,12 +163,12 @@ export default function LaplandToursPage() {
         </h2>
 
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {["Rovaniemi", "Levi", "Saariselkä", "Ylläs", "Inari"].map((d) => (
+          {["Rovaniemi", "Levi", "SaariselkÃ¤", "YllÃ¤s", "Inari"].map((d) => (
             <Card key={d} className="flex flex-col">
               <h3 className="text-lg font-semibold">{d}</h3>
               <div className="mt-auto pt-4">
                 <Link href="/lapland-tours" className="text-sm font-semibold hover:underline">
-                  Explore tours →
+                  Explore tours â†’
                 </Link>
               </div>
             </Card>

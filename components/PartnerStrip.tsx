@@ -16,7 +16,7 @@ export type PartnerSlot = Partner | { empty: true; label?: string };
 type Props = {
   title?: string;
   subtitle?: string;
-  partners: [PartnerSlot, PartnerSlot, PartnerSlot]; // szigorúan 3 slot
+  partners: [PartnerSlot, PartnerSlot, PartnerSlot]; // szigorÃºan 3 slot
   intentHref: string;
   intentLabel?: string;
   note?: string; // ADD: optional footer note
@@ -61,7 +61,7 @@ export default function PartnerStrip({
                 {p.label ?? "Partner slot"}
               </div>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                Placeholder. We’ll add a verified partner here after validation.
+                Placeholder. Weâ€™ll add a verified partner here after validation.
               </p>
               <div className="mt-auto pt-4">
                 <div className="h-10 w-full rounded-xl bg-slate-100" />

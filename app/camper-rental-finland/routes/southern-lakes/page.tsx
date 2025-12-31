@@ -1,82 +1,48 @@
-﻿import Section from "@/components/Section";
+import Section from "@/components/Section";
 import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Camper route: Southern lakes | Camper Rental Finland | TheNorthTrip",
-  description:
-    "Southern lakes route: a decision-first skeleton page for season fit, distance realism, and key booking checks.",
-};
 
 export default function CamperRouteSouthernLakesPage() {
   return (
     <div className="bg-white">
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
-          Camper rental / Routes
-        </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
-          Southern lakes route
+      <Section>
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+          Camper route: Southern Lakes
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. Later we add best season windows, “distance realism”, and station pairing.
+          Best for slower travel, short hops, and flexible stops. Typically easiest in warmer months. The main failure
+          mode is assuming “overnight anywhere” without checking vehicle rules.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <CtaButton href="/camper-rental-finland" variant="primary">
-            Back to Camper Rental Finland
-          </CtaButton>
-          <CtaButton href="/rental-terms-prices" variant="outline">
-            Open terms checklist
-          </CtaButton>
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card>
+            <h2 className="text-xl font-semibold">Decision logic</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>If comfort and low-stress days matter, this route fits.</li>
+              <li>If you want maximum distance per day, it usually disappoints.</li>
+              <li>Plan around realistic stop options, not “map vibes”.</li>
+            </ul>
+          </Card>
+          <Card>
+            <h2 className="text-xl font-semibold">What to verify</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Mileage caps vs intended daily distances.</li>
+              <li>Parking/overnight rules for vehicles (not hiking rights).</li>
+              <li>Power/heating needs if shoulder season turns cold.</li>
+            </ul>
+          </Card>
         </div>
 
-        <p className="mt-6 text-sm text-brand-text/70">
-          Best paired stations:{" "}
-          <Link href="/camper-rental-finland/stations/tampere-turku" className="font-semibold hover:underline">
-            Tampere/Turku
-          </Link>{" "}
-          •{" "}
-          <Link href="/camper-rental-finland/stations/helsinki" className="font-semibold hover:underline">
-            Helsinki
+        <p className="mt-6 text-xs text-brand-text/60">Last verified: 2025.12.31</p>
+
+        <div className="mt-8 text-sm text-brand-text/75">
+          <Link href="/camper-rental-finland" className="font-semibold hover:underline">
+            Back to Camper Rental Finland →
           </Link>
-        </p>
-      </section>
-
-      <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          What we’ll cover here (later)
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <h3 className="text-lg font-semibold">Season fit</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              When this route is realistic without winter pain.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Distance realism</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Daily driving limits that keep trips enjoyable.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Stop + parking logic</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Where you can stop, what to avoid, and what “allowed” means.
-            </p>
-          </Card>
-        </div>
-
-        <div className="mt-10 text-sm text-brand-text/75">
-          <p>
-            Need help?{" "}
-            <Link href="/get-help" className="font-semibold hover:underline">
-              Get Help
-            </Link>
-          </p>
+          <span className="mx-2">•</span>
+          <Link href="/rental-terms-prices" className="font-semibold hover:underline">
+            Terms checklist →
+          </Link>
         </div>
       </Section>
     </div>

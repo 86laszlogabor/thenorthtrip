@@ -9,7 +9,7 @@ export default function SiteFooter() {
             </div>
             <p className="mt-3 text-sm text-slate-600">
               Affiliate disclosure (short): We may earn a commission when you
-              book through our links. It doesn’t change your price, but it helps
+              book through our links. It doesnâ€™t change your price, but it helps
               fund independent comparisons.
             </p>
             <p className="mt-2 text-xs text-slate-500">
@@ -72,7 +72,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-10 text-xs text-slate-400">
-          © {new Date().getFullYear()} TheNorthTrip
+          Â© {new Date().getFullYear()} TheNorthTrip
         </div>
       </div>
     </footer>

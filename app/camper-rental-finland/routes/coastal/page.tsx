@@ -1,78 +1,48 @@
-﻿import Section from "@/components/Section";
+import Section from "@/components/Section";
 import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Camper route: Coastal | Camper Rental Finland | TheNorthTrip",
-  description:
-    "Coastal route: a decision-first skeleton page for season fit, logistics, and key booking checks.",
-};
 
 export default function CamperRouteCoastalPage() {
   return (
     <div className="bg-white">
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
-          Camper rental / Routes
-        </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
-          Coastal route
+      <Section>
+        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+          Camper route: Coastal
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. Later we add best season windows, “easy logistics” logic, and station pairing.
+          Good for scenery and a flexible pace, but weather exposure (wind/rain) can change comfort quickly. Typically
+          easiest in warmer months. Verify ferry integrations and seasonal gaps.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <CtaButton href="/camper-rental-finland" variant="primary">
-            Back to Camper Rental Finland
-          </CtaButton>
-          <CtaButton href="/rental-terms-prices" variant="outline">
-            Open terms checklist
-          </CtaButton>
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card>
+            <h2 className="text-xl font-semibold">Decision logic</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>If you want “easy logistics”, coastal isn’t always that.</li>
+              <li>If you want variety and scenic short hops, it fits.</li>
+              <li>Plan around ports and schedules, not just distance.</li>
+            </ul>
+          </Card>
+          <Card>
+            <h2 className="text-xl font-semibold">What to verify</h2>
+            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
+              <li>Ferry schedules and seasonal availability.</li>
+              <li>Wind/rain comfort assumptions (especially shoulder season).</li>
+              <li>Stop planning for overnight (vehicle rules vary).</li>
+            </ul>
+          </Card>
         </div>
 
-        <p className="mt-6 text-sm text-brand-text/70">
-          Best paired station:{" "}
-          <Link href="/camper-rental-finland/stations/helsinki" className="font-semibold hover:underline">
-            Helsinki
+        <p className="mt-6 text-xs text-brand-text/60">Last verified: 2025.12.31</p>
+
+        <div className="mt-8 text-sm text-brand-text/75">
+          <Link href="/camper-rental-finland" className="font-semibold hover:underline">
+            Back to Camper Rental Finland →
           </Link>
-        </p>
-      </section>
-
-      <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          What we’ll cover here (later)
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <h3 className="text-lg font-semibold">Season fit</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              When the coast is pleasant vs pointless.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Logistics</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Where this route is simplest without “surprises”.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Stop + parking logic</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              What to confirm so you don’t improvise badly.
-            </p>
-          </Card>
-        </div>
-
-        <div className="mt-10 text-sm text-brand-text/75">
-          <p>
-            Need help?{" "}
-            <Link href="/get-help" className="font-semibold hover:underline">
-              Get Help
-            </Link>
-          </p>
+          <span className="mx-2">•</span>
+          <Link href="/getting-around-finland" className="font-semibold hover:underline">
+            Transport tradeoffs →
+          </Link>
         </div>
       </Section>
     </div>

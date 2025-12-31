@@ -92,7 +92,7 @@ export default function HomePage() {
               5 Costly Mistakes to Avoid
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-              Most “bad deals” are really bad assumptions. Here are the ones that
+              Most â€œbad dealsâ€ are really bad assumptions. Here are the ones that
               keep showing up.
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function HomePage() {
             <Card
               image="/images/mistake-winter.jpg"
               title="Underestimating winter requirements"
-              description="Tyres, visibility, and local conditions matter more than the car model. Know what you’re actually getting."
+              description="Tyres, visibility, and local conditions matter more than the car model. Know what youâ€™re actually getting."
               ctaLabel="Check Availability"
               ctaHref="/car-rental-helsinki"
               highlighted
@@ -126,7 +126,7 @@ export default function HomePage() {
             <Card
               image="/images/mistake-insurance.jpg"
               title="Buying the wrong coverage"
-              description="Focus on deductible, exclusions, and claim handling. “Insurance included” often hides the important parts."
+              description="Focus on deductible, exclusions, and claim handling. â€œInsurance includedâ€ often hides the important parts."
               ctaLabel="Check Availability"
               ctaHref="/car-rental-helsinki"
             />

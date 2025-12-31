@@ -31,7 +31,7 @@ export default function GetHelpPage() {
               <li>Cancellation and change questions</li>
               <li>After booking</li>
               <li>Name corrections, date changes (when possible)</li>
-              <li>Understanding what’s included vs add-ons</li>
+              <li>Understanding whatâ€™s included vs add-ons</li>
               <li>Document checklist for pickup</li>
             </ul>
           </Card>
@@ -46,7 +46,7 @@ export default function GetHelpPage() {
             <h2 className="mt-6 text-2xl font-semibold">If you booked elsewhere</h2>
             <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
               <li>Best-effort guidance</li>
-              <li>We can’t access private bookings, but we can tell you what to ask and where</li>
+              <li>We canâ€™t access private bookings, but we can tell you what to ask and where</li>
             </ul>
           </Card>
         </div>
@@ -65,19 +65,19 @@ export default function GetHelpPage() {
         <Card className="mt-6">
           <h2 className="text-2xl font-semibold">FAQs (what people ask)</h2>
           <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-            <li>“Will my debit card work for the deposit?”</li>
-            <li>“What does ‘insurance included’ actually mean?”</li>
-            <li>“I arrive late, will the desk be open?”</li>
-            <li>“Can I change dates after booking?”</li>
-            <li>“What do I do if the provider tries to upsell at pickup?”</li>
-            <li>“What documents do I need?”</li>
+            <li>â€œWill my debit card work for the deposit?â€</li>
+            <li>â€œWhat does â€˜insurance includedâ€™ actually mean?â€</li>
+            <li>â€œI arrive late, will the desk be open?â€</li>
+            <li>â€œCan I change dates after booking?â€</li>
+            <li>â€œWhat do I do if the provider tries to upsell at pickup?â€</li>
+            <li>â€œWhat documents do I need?â€</li>
           </ul>
         </Card>
 
         <Card className="mt-6">
           <h2 className="text-2xl font-semibold">Expectations (short, honest)</h2>
           <p className="mt-3 text-sm text-brand-text/70">
-            We respond as fast as possible, but we’re not 24/7. We can’t override partner policies. We can help you understand them, and choose the right next step.
+            We respond as fast as possible, but weâ€™re not 24/7. We canâ€™t override partner policies. We can help you understand them, and choose the right next step.
           </p>
         </Card>
       </Section>

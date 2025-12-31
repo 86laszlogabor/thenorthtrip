@@ -137,10 +137,10 @@ export default function CamperRentalFinlandPage() {
           ].map((s) => (
             <Card key={s.title} className="flex flex-col">
               <h3 className="text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-brand-text/70">1–2 lines + CTA</p>
+              <p className="mt-2 text-sm text-brand-text/70">1â€“2 lines + CTA</p>
               <div className="mt-auto pt-4">
                 <Link href={s.href} className="text-sm font-semibold hover:underline">
-                  See station options →
+                  See station options â†’
                 </Link>
               </div>
             </Card>
@@ -148,7 +148,7 @@ export default function CamperRentalFinlandPage() {
         </div>
 
         <h2 className="mt-10 text-2xl md:text-3xl font-semibold tracking-tight">
-          Routes: Southern lakes, Helsinki–Lapland, Coastal
+          Routes: Southern lakes, Helsinkiâ€“Lapland, Coastal
         </h2>
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
           {[
@@ -156,19 +156,19 @@ export default function CamperRentalFinlandPage() {
               title: "Southern lakes",
               text: "Best for: mild season, flexible stops.",
               href: "/camper-rental-finland/routes/southern-lakes",
-              cta: "Explore route →",
+              cta: "Explore route â†’",
             },
             {
-              title: "Helsinki–Lapland",
+              title: "Helsinkiâ€“Lapland",
               text: "Best for: committed road-trip travelers who understand winter constraints.",
               href: "/camper-rental-finland/routes/helsinki-lapland",
-              cta: "Explore route →",
+              cta: "Explore route â†’",
             },
             {
               title: "Coastal",
               text: "Best for: scenery + easier logistics in warmer months.",
               href: "/camper-rental-finland/routes/coastal",
-              cta: "Explore route →",
+              cta: "Explore route â†’",
             },
           ].map((r) => (
             <Card key={r.title} className="flex flex-col">

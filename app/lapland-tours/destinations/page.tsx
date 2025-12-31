@@ -14,7 +14,7 @@ export default function LaplandDestinationsPage() {
           Lapland bases: choose the hub before you book the tour
         </h1>
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. This becomes the target for “Flights → Lapland bases” routing.
+          Skeleton page. This becomes the target for â€œFlights â†’ Lapland basesâ€ routing.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -23,7 +23,7 @@ export default function LaplandDestinationsPage() {
         </div>
 
         <p className="mt-6 text-sm text-brand-text/70">
-          If you’re stuck, use{" "}
+          If youâ€™re stuck, use{" "}
           <Link href="/get-help" className="font-semibold hover:underline">
             Get Help
           </Link>
@@ -37,7 +37,7 @@ export default function LaplandDestinationsPage() {
         </h2>
 
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {["Rovaniemi", "Levi", "Saariselkä", "Ylläs", "Inari"].map((d) => (
+          {["Rovaniemi", "Levi", "SaariselkÃ¤", "YllÃ¤s", "Inari"].map((d) => (
             <Card key={d} className="flex flex-col">
               <h3 className="text-lg font-semibold">{d}</h3>
               <p className="mt-2 text-sm text-brand-text/70">
@@ -45,7 +45,7 @@ export default function LaplandDestinationsPage() {
               </p>
               <div className="mt-auto pt-4">
                 <Link href="/lapland-tours" className="text-sm font-semibold hover:underline">
-                  Explore tours →
+                  Explore tours â†’
                 </Link>
               </div>
             </Card>
