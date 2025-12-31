@@ -1,34 +1,30 @@
-// components/CtaButton.tsx
-import Link from "next/link";
-
-type Variant = "primary" | "secondary" | "ghost";
+type Props = {
+  href: string;
+  children: React.ReactNode;
+  variant?: "primary" | "success" | "outline";
+  full?: boolean;
+};
 
 export default function CtaButton({
   href,
   children,
   variant = "primary",
-  className = "",
-}: {
-  href: string;
-  children: React.ReactNode;
-  variant?: Variant;
-  className?: string;
-}) {
+  full,
+}: Props) {
   const base =
-    "inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold tracking-tight transition focus:outline-none focus:ring-2 focus:ring-emerald-500/40";
+    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold shadow-sm transition-colors";
+  const width = full ? "w-full" : "";
 
-  const styles: Record<Variant, string> = {
-    primary:
-      "bg-orange-600 text-white hover:opacity-95 shadow-sm shadow-orange-600/20",
-    secondary:
-      "bg-emerald-600 text-white hover:opacity-95 shadow-sm shadow-emerald-600/20",
-    ghost:
-      "bg-white text-slate-900 border border-black/10 hover:bg-slate-50",
-  };
+  const styles =
+    variant === "primary"
+      ? "bg-orange-500 text-white hover:bg-orange-600"
+      : variant === "success"
+      ? "bg-emerald-600 text-white hover:bg-emerald-700"
+      : "border border-slate-200 bg-white text-slate-800 hover:bg-slate-50";
 
   return (
-    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
+    <a href={href} className={[base, styles, width].join(" ")}>
       {children}
-    </Link>
+    </a>
   );
 }

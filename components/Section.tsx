@@ -1,4 +1,3 @@
-// components/Section.tsx
 export default function Section({
   children,
   className = "",
@@ -7,8 +6,8 @@ export default function Section({
   className?: string;
 }) {
   return (
-    <section className={`py-12 md:py-16 ${className}`}>
-      <div className="mx-auto w-full max-w-6xl px-4">{children}</div>
+    <section className={className}>
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:py-16">{children}</div>
     </section>
   );
 }
