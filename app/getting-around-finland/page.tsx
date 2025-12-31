@@ -21,16 +21,54 @@ export default function GettingAroundFinlandPage() {
       </section>
 
       <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Decision table comparing:</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          Decision table comparing:
+        </h2>
 
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { mode: "Train", best: "you want reliable city-to-city travel with low hassle.", check: "timetables, seat classes, station locations.", cta: "Pair with Lapland tours →", href: "/lapland-tours" },
-            { mode: "Bus", best: "budget matters and timing is flexible.", check: "luggage rules, night buses, transfer reliability.", cta: "Compare with car rental →", href: "/car-rental-helsinki" },
-            { mode: "Flights", best: "time is the priority.", check: "airport transfers, baggage fees, weather delays.", cta: "See Lapland bases →", href: "/lapland-tours" },
-            { mode: "Taxi", best: "late arrival, heavy luggage, zero tolerance for stress.", check: "fixed price vs meter, pickup details.", cta: "Get Help with booking →", href: "/get-help" },
-            { mode: "Scooter (seasonal)", best: "short city mobility in suitable weather.", check: "seasonal availability, local rules, insurance.", cta: "Explore Helsinki options →", href: "/car-rental-helsinki" },
-            { mode: "Ferries", best: "islands, coastal trips, and short scenic travel.", check: "schedules, weather disruption, boarding logistics.", cta: "Explore Helsinki ferry options →", href: "/car-rental-helsinki" },
+            {
+              mode: "Train",
+              best: "you want reliable city-to-city travel with low hassle.",
+              check: "timetables, seat classes, station locations.",
+              cta: "Pair with Lapland tours →",
+              href: "/lapland-tours",
+            },
+            {
+              mode: "Bus",
+              best: "budget matters and timing is flexible.",
+              check: "luggage rules, night buses, transfer reliability.",
+              cta: "Compare with car rental →",
+              href: "/car-rental-helsinki",
+            },
+            {
+              mode: "Flights",
+              best: "time is the priority.",
+              check: "airport transfers, baggage fees, weather delays.",
+              cta: "See Lapland bases →",
+              href: "/lapland-tours/destinations",
+            },
+            {
+              mode: "Taxi",
+              best: "late arrival, heavy luggage, zero tolerance for stress.",
+              check: "fixed price vs meter, pickup details.",
+              cta: "Get Help with booking →",
+              href: "/get-help",
+            },
+            {
+              mode: "Scooter (seasonal)",
+              best: "short city mobility in suitable weather.",
+              check: "seasonal availability, local rules, insurance.",
+              cta: "Explore Helsinki options →",
+              href: "/helsinki/city-mobility",
+            },
+            {
+              mode: "Ferries",
+              best: "islands, coastal trips, and short scenic travel.",
+              check: "schedules, weather disruption, boarding logistics.",
+              cta: "Explore Helsinki ferry options →",
+              href: "/helsinki/ferry-cruise",
+            },
           ].map((r) => (
             <Card key={r.mode} className="flex flex-col">
               <h3 className="text-lg font-semibold">{r.mode}</h3>
@@ -51,21 +89,29 @@ export default function GettingAroundFinlandPage() {
       </Section>
 
       <Section>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Routing section:</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          Routing section:
+        </h2>
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
           <Card>
             <p className="text-sm text-brand-text/70">
-              <Link href="/car-rental-helsinki" className="font-semibold hover:underline">Car Rental Helsinki</Link>
+              <Link href="/car-rental-helsinki" className="font-semibold hover:underline">
+                Car Rental Helsinki
+              </Link>
             </p>
           </Card>
           <Card>
             <p className="text-sm text-brand-text/70">
-              <Link href="/lapland-tours" className="font-semibold hover:underline">Lapland Tours</Link>
+              <Link href="/lapland-tours" className="font-semibold hover:underline">
+                Lapland Tours
+              </Link>
             </p>
           </Card>
           <Card>
             <p className="text-sm text-brand-text/70">
-              <Link href="/camper-rental-finland" className="font-semibold hover:underline">Camper Rental Finland</Link>
+              <Link href="/camper-rental-finland" className="font-semibold hover:underline">
+                Camper Rental Finland
+              </Link>
             </p>
           </Card>
         </div>

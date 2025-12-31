@@ -1,9 +1,37 @@
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
+import PartnerStrip, { type PartnerSlot } from "@/components/PartnerStrip";
 import Link from "next/link";
 
 export default function LaplandToursPage() {
+  const partners: [PartnerSlot, PartnerSlot, PartnerSlot] = [
+    {
+      name: "Arctic Lifestyle",
+      kind: "operator",
+      blurb:
+        "Local-operator-first. Smaller groups and more ‘real tour’ signal than marketplace browsing.",
+      href: "PASTE_ARCTIC_LIFESTYLE_LINK",
+      ctaLabel: "See Lapland tours",
+    },
+    {
+      name: "Viator",
+      kind: "aggregator",
+      blurb:
+        "Structured listings and lots of operators. Useful filters. Still verify pickup, group size, and language.",
+      href: "PASTE_VIATOR_AFFILIATE_LINK",
+      ctaLabel: "Browse tours",
+    },
+    {
+      name: "GetYourGuide",
+      kind: "aggregator",
+      blurb:
+        "Fast booking flow and wide selection across hubs. Always confirm meeting point + gear included.",
+      href: "PASTE_GYG_AFFILIATE_LINK",
+      ctaLabel: "Browse activities",
+    },
+  ];
+
   return (
     <div className="bg-white">
       <section className="mx-auto max-w-site px-4 py-12 md:py-16">
@@ -22,12 +50,25 @@ export default function LaplandToursPage() {
 
       {/* Partner list FIRST */}
       <Section>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Recommended partners for Lapland tours</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          Recommended partners for Lapland tours
+        </h2>
+
+        {/* ADD: 3-slot PartnerStrip (does not remove existing partner cards) */}
+        <PartnerStrip
+          title="Compare partners (3 options)"
+          subtitle="Operator-first here. Three choices only, then verify meeting point, gear included, and cancellation terms."
+          partners={partners}
+          intentHref="/get-help"
+          intentLabel="Get Help if unclear"
+        />
 
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
           <Card className="flex flex-col">
             <h3 className="text-lg font-semibold">GetYourGuide (Marketplace)</h3>
-            <p className="mt-3 text-sm text-brand-text/70"><span className="font-semibold">Best for:</span> Fast booking + wide tour selection</p>
+            <p className="mt-3 text-sm text-brand-text/70">
+              <span className="font-semibold">Best for:</span> Fast booking + wide tour selection
+            </p>
             <div className="mt-3 text-sm text-brand-text/70">
               <p className="font-semibold">Highlights:</p>
               <ul className="mt-2 list-disc pl-5 space-y-1">
@@ -41,7 +82,8 @@ export default function LaplandToursPage() {
               <p className="mt-1">Meeting point, gear included, cancellation terms</p>
             </div>
             <div className="mt-auto pt-4">
-              <CtaButton href="/lapland-tours" variant="secondary" className="w-full">
+              {/* FINISH: conversion CTA = success (green) */}
+              <CtaButton href="/lapland-tours" variant="success" className="w-full">
                 Check availability
               </CtaButton>
             </div>
@@ -49,7 +91,9 @@ export default function LaplandToursPage() {
 
           <Card className="flex flex-col">
             <h3 className="text-lg font-semibold">Viator (Marketplace)</h3>
-            <p className="mt-3 text-sm text-brand-text/70"><span className="font-semibold">Best for:</span> Established operators + structured listings</p>
+            <p className="mt-3 text-sm text-brand-text/70">
+              <span className="font-semibold">Best for:</span> Established operators + structured listings
+            </p>
             <div className="mt-3 text-sm text-brand-text/70">
               <p className="font-semibold">Highlights:</p>
               <ul className="mt-2 list-disc pl-5 space-y-1">
@@ -63,7 +107,8 @@ export default function LaplandToursPage() {
               <p className="mt-1">Group size, pickup options, language</p>
             </div>
             <div className="mt-auto pt-4">
-              <CtaButton href="/lapland-tours" variant="secondary" className="w-full">
+              {/* FINISH: conversion CTA = success (green) */}
+              <CtaButton href="/lapland-tours" variant="success" className="w-full">
                 Check availability
               </CtaButton>
             </div>
@@ -71,7 +116,9 @@ export default function LaplandToursPage() {
 
           <Card className="flex flex-col md:col-span-2">
             <h3 className="text-lg font-semibold">Local operator (placeholder)</h3>
-            <p className="mt-3 text-sm text-brand-text/70"><span className="font-semibold">Best for:</span> Specialized experiences and smaller groups</p>
+            <p className="mt-3 text-sm text-brand-text/70">
+              <span className="font-semibold">Best for:</span> Specialized experiences and smaller groups
+            </p>
             <div className="mt-3 text-sm text-brand-text/70">
               <p className="font-semibold">Highlights:</p>
               <ul className="mt-2 list-disc pl-5 space-y-1">
@@ -85,7 +132,8 @@ export default function LaplandToursPage() {
               <p className="mt-1">Licensing, safety equipment, winter readiness</p>
             </div>
             <div className="mt-auto pt-4">
-              <CtaButton href="/lapland-tours" variant="secondary" className="w-full">
+              {/* FINISH: conversion CTA = success (green) */}
+              <CtaButton href="/lapland-tours" variant="success" className="w-full">
                 See options
               </CtaButton>
             </div>
@@ -129,13 +177,19 @@ export default function LaplandToursPage() {
 
         <div className="mt-8 text-sm text-brand-text/75">
           <p>
-            <Link href="/getting-around-finland" className="font-semibold hover:underline">Getting Around Finland</Link>
+            <Link href="/getting-around-finland" className="font-semibold hover:underline">
+              Getting Around Finland
+            </Link>
           </p>
           <p className="mt-2">
-            <Link href="/policy" className="font-semibold hover:underline">Policy</Link>
+            <Link href="/policy" className="font-semibold hover:underline">
+              Policy
+            </Link>
           </p>
           <p className="mt-2">
-            <Link href="/get-help" className="font-semibold hover:underline">Get Help</Link>
+            <Link href="/get-help" className="font-semibold hover:underline">
+              Get Help
+            </Link>
           </p>
         </div>
       </Section>
