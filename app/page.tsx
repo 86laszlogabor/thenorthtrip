@@ -1,5 +1,6 @@
-import Card from "@/components/Card";
+﻿import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
+import PageHero from "@/components/PageHero";
 
 export const metadata = {
   title: "TheNorthTrip | Decision-first Finland travel",
@@ -10,7 +11,11 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* HERO */}
+      <PageHero
+        title="Decision-first guide"
+        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        imageSrc="/images/hero/hero-default.jpg"
+      />{/* HERO */}
       <section className="relative min-h-[72vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -92,7 +97,7 @@ export default function HomePage() {
               5 Costly Mistakes to Avoid
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-              Most â€œbad dealsâ€ are really bad assumptions. Here are the ones that
+              Most Ã¢â‚¬Å“bad dealsÃ¢â‚¬Â are really bad assumptions. Here are the ones that
               keep showing up.
             </p>
           </div>
@@ -109,7 +114,7 @@ export default function HomePage() {
             <Card
               image="/images/mistake-winter.jpg"
               title="Underestimating winter requirements"
-              description="Tyres, visibility, and local conditions matter more than the car model. Know what youâ€™re actually getting."
+              description="Tyres, visibility, and local conditions matter more than the car model. Know what youÃ¢â‚¬â„¢re actually getting."
               ctaLabel="Check Availability"
               ctaHref="/car-rental-helsinki"
               highlighted
@@ -126,7 +131,7 @@ export default function HomePage() {
             <Card
               image="/images/mistake-insurance.jpg"
               title="Buying the wrong coverage"
-              description="Focus on deductible, exclusions, and claim handling. â€œInsurance includedâ€ often hides the important parts."
+              description="Focus on deductible, exclusions, and claim handling. Ã¢â‚¬Å“Insurance includedÃ¢â‚¬Â often hides the important parts."
               ctaLabel="Check Availability"
               ctaHref="/car-rental-helsinki"
             />
@@ -232,3 +237,4 @@ export default function HomePage() {
     </main>
   );
 }
+

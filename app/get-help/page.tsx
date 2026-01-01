@@ -1,86 +1,137 @@
-import Section from "@/components/Section";
-import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
+﻿import type { Metadata } from "next";
+import Link from "next/link";
+import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Get Help | TheNorthTrip",
+  description:
+    "Paid, decision-first help for Finland travel: itinerary stress-tests, rental/tour verification checklists, and risk review before you book.",
+};
+
+type Tier = {
+  title: string;
+  who: string;
+  includes: string[];
+  note: string;
+};
+
+const tiers: Tier[] = [
+  {
+    title: "Plan stress-test (fast)",
+    who: "You already have an itinerary and want to reduce fragility.",
+    includes: [
+      "Connection chain review (last services, buffers, day-one overload)",
+      "Winter fragility checks (pace, daylight, recovery margin)",
+      "Top 5 verification questions to send providers",
+    ],
+    note: "No promises. Just risk-based pruning and verification prompts.",
+  },
+  {
+    title: "Rental & payment check",
+    who: "Youâ€™re booking rentals and want to avoid deposit/card surprises.",
+    includes: [
+      "Deposit and card-rule risk review",
+      "Pickup/return timing constraints review",
+      "A short â€œconfirm in writingâ€ checklist tailored to your booking",
+    ],
+    note: "Desk rules override aggregator summaries. We structure confirmations accordingly.",
+  },
+  {
+    title: "Decision-first routing",
+    who: "Youâ€™re unsure which mode chain fits your tolerance and constraints.",
+    includes: [
+      "Mode tradeoff summary (train/bus/flight/rental)",
+      "Least-fragile chain recommendation (based on your constraints)",
+      "Fallback planning: what happens if you miss one segment",
+    ],
+    note: "We optimize for fragility reduction, not maximum activity density.",
+  },
+];
 
 export default function GetHelpPage() {
   return (
-    <div className="bg-white">
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Paid support funnel.
+    <main className="min-h-screen bg-white text-slate-900">
+      <PageHero
+        title="Decision-first guide"
+        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        imageSrc="/images/hero/hero-default.jpg"
+      /><header className="border-b">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+          <Link href="/" className="font-semibold tracking-tight">
+            TheNorthTrip
+          </Link>
+          <nav className="flex gap-4 text-sm text-slate-700">
+            <Link href="/offer-checklist" className="hover:text-slate-900">
+              Offer checklist
+            </Link>
+            <Link href="/getting-around-finland" className="hover:text-slate-900">
+              Getting around
+            </Link>
+            <Link href="/policy" className="hover:text-slate-900">
+              Policy
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-4 py-10">
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Get help
         </h1>
-        <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-3xl">
-          WhatsApp + email. Priority for bookings via site links. Clear limitations and expectations.
+        <p className="mt-3 max-w-3xl text-slate-700">
+          If you want a calm, risk-based review before you pay, this is it.
+          The goal is not perfection. Itâ€™s fewer brittle assumptions.
         </p>
-        <div className="mt-8">
-          <CtaButton href="/get-help" variant="primary">
-            Contact Support
-          </CtaButton>
-        </div>
-      </section>
 
-      <Section className="bg-brand-bluegray">
-        <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-          <Card>
-            <h2 className="text-2xl font-semibold">What we help with</h2>
-            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>Booking problems</li>
-              <li>Payment failures or unclear card requirements</li>
-              <li>Deposit surprises or confusion</li>
-              <li>Pickup/return timing issues</li>
-              <li>Cancellation and change questions</li>
-              <li>After booking</li>
-              <li>Name corrections, date changes (when possible)</li>
-              <li>Understanding whatâ€™s included vs add-ons</li>
-              <li>Document checklist for pickup</li>
-            </ul>
-          </Card>
-
-          <Card>
-            <h2 className="text-2xl font-semibold">If you booked via our links</h2>
-            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>Priority triage and faster resolution routing</li>
-              <li>We can help interpret terms and escalate via the correct support channels</li>
-            </ul>
-
-            <h2 className="mt-6 text-2xl font-semibold">If you booked elsewhere</h2>
-            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>Best-effort guidance</li>
-              <li>We canâ€™t access private bookings, but we can tell you what to ask and where</li>
-            </ul>
-          </Card>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {tiers.map((t) => (
+            <div key={t.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="font-semibold">{t.title}</h2>
+              <p className="mt-2 text-sm text-slate-700">
+                <span className="font-medium">Best for:</span> {t.who}
+              </p>
+              <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
+                {t.includes.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs text-slate-500">{t.note}</p>
+            </div>
+          ))}
         </div>
 
-        <Card className="mt-6">
-          <h2 className="text-2xl font-semibold">Contact options</h2>
-          <p className="mt-3 text-sm text-brand-text/70">WhatsApp: [your WhatsApp link]</p>
-          <p className="mt-2 text-sm text-brand-text/70">Email: [your support email]</p>
-          <div className="mt-4">
-            <CtaButton href="/get-help" variant="secondary">
-              See common fixes
-            </CtaButton>
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <h2 className="font-semibold">How to request help</h2>
+          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-2">
+            <li>Send your itinerary or booking links.</li>
+            <li>State your constraints (budget, winter comfort, risk tolerance, fixed dates).</li>
+            <li>We reply with a structured risk review and the exact verification questions.</li>
+          </ol>
+
+          <div className="mt-5 flex flex-col sm:flex-row gap-3">
+            <a
+              href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
+              className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-white font-medium hover:bg-orange-700"
+            >
+              Email: hello@thenorthtrip.com
+            </a>
+            <Link
+              href="/offer-checklist"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-slate-900 font-medium hover:bg-white"
+            >
+              Start with the checklist
+            </Link>
           </div>
-        </Card>
 
-        <Card className="mt-6">
-          <h2 className="text-2xl font-semibold">FAQs (what people ask)</h2>
-          <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-            <li>â€œWill my debit card work for the deposit?â€</li>
-            <li>â€œWhat does â€˜insurance includedâ€™ actually mean?â€</li>
-            <li>â€œI arrive late, will the desk be open?â€</li>
-            <li>â€œCan I change dates after booking?â€</li>
-            <li>â€œWhat do I do if the provider tries to upsell at pickup?â€</li>
-            <li>â€œWhat documents do I need?â€</li>
-          </ul>
-        </Card>
-
-        <Card className="mt-6">
-          <h2 className="text-2xl font-semibold">Expectations (short, honest)</h2>
-          <p className="mt-3 text-sm text-brand-text/70">
-            We respond as fast as possible, but weâ€™re not 24/7. We canâ€™t override partner policies. We can help you understand them, and choose the right next step.
+          <p className="mt-4 text-xs text-slate-500">
+            Notes: We donâ€™t guarantee outcomes (weather, operators, availability). We focus on verification and fragility reduction.
           </p>
-        </Card>
-      </Section>
-    </div>
+        </div>
+
+        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
+      </section>
+    </main>
   );
 }
+
+

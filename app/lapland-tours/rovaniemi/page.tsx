@@ -1,73 +1,149 @@
-import Section from "@/components/Section";
-import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
-export const metadata = {
-  title: "Rovaniemi tours | Lapland Tours | TheNorthTrip",
+export const metadata: Metadata = {
+  title: "Rovaniemi Lapland Tours | TheNorthTrip",
   description:
-    "Rovaniemi as a Lapland base: a decision-first skeleton page for tours, season fit, and booking checks.",
+    "Rovaniemi as a Lapland base: planning buffers, seasonal tradeoffs, common misunderstandings, and decision guidance for resilient itineraries.",
 };
+
+const seasonal = [
+  { aspect: "Availability", summer: "More flexible options", winter: "More fixed windows, higher demand" },
+  { aspect: "Pacing", summer: "Higher", winter: "Lower; fatigue earlier" },
+  { aspect: "Recovery margin", summer: "More forgiving", winter: "Less forgiving" },
+];
+
+const misunderstandings = [
+  "Rovaniemi is small so you can chain everything",
+  "Winter only changes comfort",
+  "You can arrive late and still do the full plan",
+  "Meeting points are always â€˜obviousâ€™",
+  "You can always reschedule tours easily",
+  "One missed pickup wonâ€™t matter",
+  "Walking time is negligible in winter",
+  "Aurora is guaranteed if you book something",
+  "Rules will bend if you explain",
+  "A packed itinerary is the best itinerary",
+];
+
+const decisionRows = [
+  { situation: "Multiple tours in one day", safer: "Anchor one main activity; keep the rest flexible" },
+  { situation: "Late flight arrival", safer: "Do not chain fixed-time activities on day one" },
+  { situation: "Winter week", safer: "Add buffers between activities; accept earlier fatigue" },
+  { situation: "Family travel", safer: "Reduce segments; prioritize proximity and rest" },
+];
 
 export default function RovaniemiPage() {
   return (
-    <div className="bg-white">
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
-          Lapland tours / Destinations
-        </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
-          Rovaniemi: the practical base for first-time Lapland
+    <main className="min-h-screen bg-white text-slate-900">
+      <PageHero
+        title="Decision-first guide"
+        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        imageSrc="/images/hero/hero-default.jpg"
+      /><header className="border-b">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+          <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
+          <nav className="flex gap-4 text-sm text-slate-700">
+            <Link href="/lapland-tours" className="hover:text-slate-900">Lapland tours hub</Link>
+            <Link href="/lapland-tours/destinations" className="hover:text-slate-900">Destinations</Link>
+            <Link href="/lapland-tours/partners/viator" className="hover:text-slate-900">Viator</Link>
+          </nav>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-4 py-10">
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Rovaniemi: convenient base, easy to overpack
         </h1>
-        <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Skeleton page. Later we add verified tour types, season guidance, and partner routing.
+        <p className="mt-3 max-w-3xl text-slate-700">
+          Rovaniemi makes Lapland accessible. That convenience is also how people build brittle plans:
+          tight chains, too many fixed bookings, and winter pacing not priced in. Buffer beats ambition.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-          <CtaButton href="/lapland-tours" variant="primary">Explore Lapland tours</CtaButton>
-          <CtaButton href="/lapland-tours/destinations" variant="outline">Back to destinations</CtaButton>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+            <h2 className="font-semibold">What to verify</h2>
+            <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
+              <li>Meeting point details and cutoff times for each booking.</li>
+              <li>Transport time between activities, including winter pace.</li>
+              <li>Change/cancel rules and what counts as â€œno-showâ€.</li>
+              <li>Whether your day still works if one item shifts or cancels.</li>
+              <li>Fallback plan for evenings if you miss a slot.</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+            <h2 className="font-semibold">Seasonal changes table</h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-left">
+                  <tr className="border-b">
+                    <th className="py-2 pr-4">Aspect</th>
+                    <th className="py-2 pr-4">Summer</th>
+                    <th className="py-2">Winter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {seasonal.map((r) => (
+                    <tr key={r.aspect} className="border-b">
+                      <td className="py-2 pr-4 font-medium">{r.aspect}</td>
+                      <td className="py-2 pr-4 text-slate-700">{r.summer}</td>
+                      <td className="py-2 text-slate-700">{r.winter}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+          <h2 className="font-semibold">10 common misunderstandings</h2>
+          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-1">
+            {misunderstandings.map((x) => <li key={x}>{x}</li>)}
+          </ol>
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <h2 className="font-semibold">Decision table</h2>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left">
+                <tr className="border-b">
+                  <th className="py-2 pr-4">Situation</th>
+                  <th className="py-2">Safer plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                {decisionRows.map((r) => (
+                  <tr key={r.situation} className="border-b">
+                    <td className="py-2 pr-4 font-medium">{r.situation}</td>
+                    <td className="py-2 text-slate-700">{r.safer}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-5 text-sm text-slate-700">
+            <p className="font-medium">Internal links</p>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <Link className="underline hover:text-slate-900" href="/lapland-tours">/lapland-tours</Link>
+              <Link className="underline hover:text-slate-900" href="/lapland-tours/destinations">/lapland-tours/destinations</Link>
+              <Link className="underline hover:text-slate-900" href="/lapland-tours/levi">/lapland-tours/levi</Link>
+              <Link className="underline hover:text-slate-900" href="/lapland-tours/saariselka">/lapland-tours/saariselka</Link>
+              <Link className="underline hover:text-slate-900" href="/lapland-tours/partners/getyourguide">/lapland-tours/partners/getyourguide</Link>
+              <Link className="underline hover:text-slate-900" href="/offer-checklist">/offer-checklist</Link>
+              <Link className="underline hover:text-slate-900" href="/policy">/policy</Link>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
       </section>
-
-      <Section className="bg-brand-bluegray">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-          What we’ll cover here (later)
-        </h2>
-
-        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <h3 className="text-lg font-semibold">Best for</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              First-time Lapland trips and mixed itineraries.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">Tour types</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Aurora, husky, snowmobile, and day trip logic.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-semibold">What to confirm</h3>
-            <p className="mt-2 text-sm text-brand-text/70">
-              Meeting point, gear included, cancellation window.
-            </p>
-          </Card>
-        </div>
-
-        <div className="mt-10 text-sm text-brand-text/75">
-          <p>
-            Links:{" "}
-            <Link href="/getting-around-finland" className="font-semibold hover:underline">
-              Getting Around Finland
-            </Link>{" "}
-            •{" "}
-            <Link href="/get-help" className="font-semibold hover:underline">
-              Get Help
-            </Link>
-          </p>
-        </div>
-      </Section>
-    </div>
+    </main>
   );
 }
+
+

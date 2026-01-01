@@ -1,59 +1,149 @@
-import Section from "@/components/Section";
-import Card from "@/components/Card";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Camper Station: Helsinki | TheNorthTrip",
+  description:
+    "Helsinki camper pickup: what to verify, timing buffers, city constraints, seasonal changes, and common misunderstandings.",
+};
+
+const seasonal = [
+  { aspect: "Pickup-day pace", summer: "More forgiving", winter: "More tiring, needs buffer" },
+  { aspect: "Driving comfort", summer: "Higher", winter: "Lower, slower and more cautious" },
+  { aspect: "Plan recovery options", summer: "More", winter: "Less late-day flexibility" },
+];
+
+const misunderstandings = [
+  "Pickup day can also be a full sightseeing day",
+  "Helsinki is small so timing doesnâ€™t matter",
+  "Vehicle handover is always fast",
+  "Winter only changes comfort, not feasibility",
+  "You can arrive late and still complete everything smoothly",
+  "Parking and access are straightforward everywhere",
+  "The first night location doesnâ€™t matter",
+  "Supplies are always easy to get anytime",
+  "If something goes wrong, procedures will bend",
+  "A long day one is fine if youâ€™re motivated",
+];
+
+const decisionRows = [
+  { situation: "Same-day flight arrival + pickup", safer: "Keep day one light; avoid long drives immediately" },
+  { situation: "Winter pickup", safer: "Earlier pickup time, shorter first leg, more buffer" },
+  { situation: "City-heavy day", safer: "Separate city day from pickup day if possible" },
+  { situation: "Late pickup window", safer: "Verify handover rules; plan a near-by first night fallback" },
+];
 
 export default function CamperStationHelsinkiPage() {
   return (
-    <div className="bg-white">
-      <Section>
-        <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-          Camper station: Helsinki
+    <main className="min-h-screen bg-white text-slate-900">
+      <PageHero
+        title="Decision-first guide"
+        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        imageSrc="/images/hero/hero-default.jpg"
+      /><header className="border-b">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+          <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
+          <nav className="flex gap-4 text-sm text-slate-700">
+            <Link href="/camper-rental-finland" className="hover:text-slate-900">Camper hub</Link>
+            <Link href="/helsinki/airport-transfers" className="hover:text-slate-900">Airport transfers</Link>
+            <Link href="/offer-checklist" className="hover:text-slate-900">Offer checklist</Link>
+          </nav>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-4 py-10">
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Camper pickup station: Helsinki
         </h1>
-        <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
-          Best when you want a southern start with lower friction. Typically easier for handover logistics, but
-          demand peaks in summer and station details vary by operator.
+        <p className="mt-3 max-w-3xl text-slate-700">
+          Helsinki is a common start point, which makes it easy to overpack day one. Pickup is not a
+          formality. Treat it like an operational day: handover, checks, supplies, and a conservative first leg.
         </p>
 
-        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">
-          <Card>
-            <h2 className="text-xl font-semibold">Good fit when</h2>
-            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>You want to begin in the south and build confidence before longer drives.</li>
-              <li>You plan a Southern Lakes loop or coastal routing first.</li>
-              <li>You prefer simpler logistics over “rush north immediately”.</li>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+            <h2 className="font-semibold">What to verify at/around pickup</h2>
+            <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
+              <li>Exact pickup location and access (do not assume â€œnear airport/centerâ€).</li>
+              <li>Handover steps: time required, documentation, and what is checked.</li>
+              <li>Return expectations: fuel, cleanliness, inspection process (as described in your contract).</li>
+              <li>First-night plan: choose something that still works if pickup runs late.</li>
+              <li>Winter pace: treat the first driving leg as shorter than you want.</li>
             </ul>
-          </Card>
-          <Card>
-            <h2 className="text-xl font-semibold">What often goes wrong</h2>
-            <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-              <li>Assuming airport pickup when it’s a city/industrial-area station.</li>
-              <li>Underestimating summer demand and weekend handover congestion.</li>
-              <li>Not verifying mileage caps and deposit/card requirements.</li>
-            </ul>
-          </Card>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+            <h2 className="font-semibold">Seasonal changes table</h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-left">
+                  <tr className="border-b">
+                    <th className="py-2 pr-4">Aspect</th>
+                    <th className="py-2 pr-4">Summer</th>
+                    <th className="py-2">Winter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {seasonal.map((r) => (
+                    <tr key={r.aspect} className="border-b">
+                      <td className="py-2 pr-4 font-medium">{r.aspect}</td>
+                      <td className="py-2 pr-4 text-slate-700">{r.summer}</td>
+                      <td className="py-2 text-slate-700">{r.winter}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
-        <Card className="mt-6">
-          <h2 className="text-xl font-semibold">Quick verify checklist</h2>
-          <ul className="mt-3 text-sm text-brand-text/70 list-disc pl-5 space-y-1">
-            <li>Exact pickup location + opening hours (especially weekends).</li>
-            <li>Deposit hold method + card requirements (varies by operator).</li>
-            <li>Mileage policy and “extra km” fees.</li>
-            <li>What “winterised” means (heating + water system behavior in cold).</li>
-          </ul>
-          <p className="mt-4 text-xs text-brand-text/60">Last verified: 2025.12.31</p>
-        </Card>
-
-        <div className="mt-8 text-sm text-brand-text/75">
-          <Link href="/camper-rental-finland" className="font-semibold hover:underline">
-            Back to Camper Rental Finland →
-          </Link>
-          <span className="mx-2">•</span>
-          <Link href="/rental-terms-prices" className="font-semibold hover:underline">
-            Terms checklist →
-          </Link>
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+          <h2 className="font-semibold">10 common misunderstandings</h2>
+          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-1">
+            {misunderstandings.map((x) => <li key={x}>{x}</li>)}
+          </ol>
         </div>
-      </Section>
-    </div>
+
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <h2 className="font-semibold">Decision table</h2>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left">
+                <tr className="border-b">
+                  <th className="py-2 pr-4">Situation</th>
+                  <th className="py-2">Safer plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                {decisionRows.map((r) => (
+                  <tr key={r.situation} className="border-b">
+                    <td className="py-2 pr-4 font-medium">{r.situation}</td>
+                    <td className="py-2 text-slate-700">{r.safer}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-5 text-sm text-slate-700">
+            <p className="font-medium">Internal links</p>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <Link className="underline hover:text-slate-900" href="/">/</Link>
+              <Link className="underline hover:text-slate-900" href="/camper-rental-finland">/camper-rental-finland</Link>
+              <Link className="underline hover:text-slate-900" href="/camper-rental-finland/routes/coastal">/camper-rental-finland/routes/coastal</Link>
+              <Link className="underline hover:text-slate-900" href="/camper-rental-finland/routes/helsinki-lapland">/camper-rental-finland/routes/helsinki-lapland</Link>
+              <Link className="underline hover:text-slate-900" href="/offer-checklist">/offer-checklist</Link>
+              <Link className="underline hover:text-slate-900" href="/policy">/policy</Link>
+              <Link className="underline hover:text-slate-900" href="/get-help">/get-help</Link>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
+      </section>
+    </main>
   );
 }
+
+
