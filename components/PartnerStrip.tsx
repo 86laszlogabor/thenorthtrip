@@ -8,7 +8,8 @@ export type Partner = {
   href: string;
   ctaLabel?: string;
   kind?: "aggregator" | "operator";
-  newTab?: boolean; // ADD: optional, defaults false
+  newTab?: boolean;
+  logoSrc?: string; // ✅ ADD: optional logo
 };
 
 export type PartnerSlot = Partner | { empty: true; label?: string };
@@ -16,11 +17,19 @@ export type PartnerSlot = Partner | { empty: true; label?: string };
 type Props = {
   title?: string;
   subtitle?: string;
-  partners: [PartnerSlot, PartnerSlot, PartnerSlot]; // szigorÃºan 3 slot
+  partners: [PartnerSlot, PartnerSlot, PartnerSlot];
   intentHref: string;
   intentLabel?: string;
-  note?: string; // ADD: optional footer note
+  note?: string;
 };
+
+function LogoFallback({ name }: { name: string }) {
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-sm font-semibold text-slate-700">
+      {name.charAt(0).toUpperCase()}
+    </div>
+  );
+}
 
 export default function PartnerStrip({
   title = "Compare partners (3 options)",
@@ -61,7 +70,7 @@ export default function PartnerStrip({
                 {p.label ?? "Partner slot"}
               </div>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                Placeholder. Weâ€™ll add a verified partner here after validation.
+                Placeholder. We’ll add a verified partner here after validation.
               </p>
               <div className="mt-auto pt-4">
                 <div className="h-10 w-full rounded-xl bg-slate-100" />
@@ -73,17 +82,32 @@ export default function PartnerStrip({
               key={p.name}
               className="flex h-full flex-col rounded-2xl border border-orange-300 bg-white p-5 shadow-sm"
             >
-              <div className="flex items-center justify-between gap-3">
-                <div className="text-sm font-semibold text-slate-900">{p.name}</div>
-                <span className="text-[11px] rounded-full border border-slate-200 px-2 py-0.5 text-slate-600">
-                  {p.kind === "operator" ? "Operator" : "Marketplace"}
-                </span>
+              <div className="flex items-center gap-3">
+                {p.logoSrc ? (
+                  <img
+                    src={p.logoSrc}
+                    alt={`${p.name} logo`}
+                    className="h-10 w-10 rounded-lg object-contain bg-white border border-slate-200"
+                  />
+                ) : (
+                  <LogoFallback name={p.name} />
+                )}
+
+                <div className="flex-1">
+                  <div className="text-sm font-semibold text-slate-900">
+                    {p.name}
+                  </div>
+                  <span className="mt-0.5 inline-block text-[11px] rounded-full border border-slate-200 px-2 py-0.5 text-slate-600">
+                    {p.kind === "operator" ? "Operator" : "Marketplace"}
+                  </span>
+                </div>
               </div>
 
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">{p.blurb}</p>
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                {p.blurb}
+              </p>
 
               <div className="mt-auto pt-4">
-                {/* ADD: optional new tab */}
                 {p.newTab ? (
                   <a href={p.href} target="_blank" rel="noopener noreferrer">
                     <CtaButton href={p.href} variant="success" full>

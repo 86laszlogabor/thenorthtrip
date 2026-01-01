@@ -1,7 +1,5 @@
 ﻿import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
-import PageHero from "@/components/PageHero";
-
 export const metadata = {
   title: "TheNorthTrip | Decision-first Finland travel",
   description:
@@ -10,16 +8,11 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="bg-white">
-      <PageHero
-        title="Decision-first guide"
-        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
-        imageSrc="/images/hero/hero-default.jpg"
-      />{/* HERO */}
+    <main className="bg-white">{/* HERO */}
       <section className="relative min-h-[72vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/hero-finland-winter-road.jpg"
+            src="/images/hero/hero-finland-winter-road.jpg"
             alt="Winter road in Finland"
             className="h-full w-full object-cover"
           />
@@ -237,4 +230,6 @@ export default function HomePage() {
     </main>
   );
 }
+
+
 

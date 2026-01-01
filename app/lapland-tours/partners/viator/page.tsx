@@ -35,7 +35,7 @@ export default function PartnerViatorPage() {
       <PageHero
         title="Decision-first guide"
         subtitle="Practical tradeoffs, what to confirm, and the safest next step."
-        imageSrc="/images/hero/hero-default.jpg"
+        imageSrc="/images/hero/hero-partner-viator.jfif"
       /><header className="border-b">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
@@ -111,5 +111,6 @@ export default function PartnerViatorPage() {
     </main>
   );
 }
+
 
 
