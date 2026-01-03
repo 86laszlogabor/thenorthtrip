@@ -1,11 +1,26 @@
-﻿import type { Metadata } from "next";
-import Link from "next/link";
+﻿import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
+import CtaButton from "@/components/CtaButton";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Get Help | TheNorthTrip",
   description:
-    "Paid, decision-first help for Finland travel: itinerary stress-tests, rental/tour verification checklists, and risk review before you book.",
+    "Calm, risk-based review before you pay. We stress-test itineraries, rentals, deposits, timing constraints, and winter fragility.",
+  openGraph: {
+    title: "Get Help | TheNorthTrip",
+    description:
+      "Calm, risk-based review before you pay. We stress-test itineraries, rentals, deposits, timing constraints, and winter fragility.",
+    images: ["/images/og/og-get-help.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get Help | TheNorthTrip",
+    description:
+      "Calm, risk-based review before you pay. We stress-test itineraries, rentals, deposits, timing constraints, and winter fragility.",
+    images: ["/images/og/og-get-help.jpg"],
+  },
 };
 
 type Tier = {
@@ -28,17 +43,17 @@ const tiers: Tier[] = [
   },
   {
     title: "Rental & payment check",
-    who: "Youâ€™re booking rentals and want to avoid deposit/card surprises.",
+    who: "You’re booking rentals and want to avoid deposit/card surprises.",
     includes: [
       "Deposit and card-rule risk review",
       "Pickup/return timing constraints review",
-      "A short â€œconfirm in writingâ€ checklist tailored to your booking",
+      "A short “confirm in writing” checklist tailored to your booking",
     ],
     note: "Desk rules override aggregator summaries. We structure confirmations accordingly.",
   },
   {
     title: "Decision-first routing",
-    who: "Youâ€™re unsure which mode chain fits your tolerance and constraints.",
+    who: "You’re unsure which mode chain fits your tolerance and constraints.",
     includes: [
       "Mode tradeoff summary (train/bus/flight/rental)",
       "Least-fragile chain recommendation (based on your constraints)",
@@ -50,89 +65,97 @@ const tiers: Tier[] = [
 
 export default function GetHelpPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <div className="bg-white">
       <PageHero
-        title="Decision-first guide"
-        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        variant="home"
+        title="Get help: calm, risk-based review before you pay."
+        subtitle="We don’t promise outcomes. We reduce brittle assumptions: deposits, timing constraints, winter fragility, and desk-level rules."
         imageSrc="/images/hero/hero-get-help.jpg"
-      /><header className="border-b">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">
-            TheNorthTrip
-          </Link>
-          <nav className="flex gap-4 text-sm text-slate-700">
-            <Link href="/offer-checklist" className="hover:text-slate-900">
-              Offer checklist
-            </Link>
-            <Link href="/getting-around-finland" className="hover:text-slate-900">
-              Getting around
-            </Link>
-            <Link href="/policy" className="hover:text-slate-900">
-              Policy
-            </Link>
-          </nav>
-        </div>
-      </header>
+        primaryCta={{
+          href: "mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request",
+          label: "Email: hello@thenorthtrip.com",
+        }}
+        secondaryCta={{ href: "/offer-checklist", label: "Start with the checklist" }}
+      />
 
-      <section className="mx-auto max-w-6xl px-4 py-10">
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Get help
-        </h1>
-        <p className="mt-3 max-w-3xl text-slate-700">
-          If you want a calm, risk-based review before you pay, this is it.
-          The goal is not perfection. Itâ€™s fewer brittle assumptions.
+      <Section>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Get help</h2>
+        <p className="mt-3 max-w-3xl text-sm text-brand-text/70">
+          If you want a calm, risk-based review before you pay, this is it. The goal is not perfection. It’s fewer brittle assumptions.
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-3">
           {tiers.map((t) => (
-            <div key={t.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="font-semibold">{t.title}</h2>
-              <p className="mt-2 text-sm text-slate-700">
-                <span className="font-medium">Best for:</span> {t.who}
+            <Card key={t.title} className="flex flex-col p-6">
+              <h3 className="text-lg font-semibold">{t.title}</h3>
+              <p className="mt-2 text-sm text-brand-text/70">
+                <span className="font-semibold">Best for:</span> {t.who}
               </p>
-              <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
+
+              <ul className="mt-3 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
                 {t.includes.map((x) => (
                   <li key={x}>{x}</li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-slate-500">{t.note}</p>
-            </div>
+
+              <p className="mt-4 text-xs text-brand-text/60">{t.note}</p>
+
+              <div className="mt-auto pt-5">
+                <CtaButton
+                  href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
+                  variant="success"
+                  className="w-full"
+                >
+                  Request this review
+                </CtaButton>
+              </div>
+            </Card>
           ))}
         </div>
 
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <h2 className="font-semibold">How to request help</h2>
-          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-2">
-            <li>Send your itinerary or booking links.</li>
-            <li>State your constraints (budget, winter comfort, risk tolerance, fixed dates).</li>
-            <li>We reply with a structured risk review and the exact verification questions.</li>
-          </ol>
+        <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card className="p-6 bg-slate-50">
+            <h3 className="text-lg font-semibold">How to request help</h3>
+            <ol className="mt-3 list-decimal pl-5 text-sm text-brand-text/70 space-y-2">
+              <li>Send your itinerary or booking links.</li>
+              <li>State your constraints (budget, winter comfort, risk tolerance, fixed dates).</li>
+              <li>We reply with a structured risk review and the exact verification questions.</li>
+            </ol>
 
-          <div className="mt-5 flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
-              className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-white font-medium hover:bg-orange-700"
-            >
-              Email: hello@thenorthtrip.com
-            </a>
-            <Link
-              href="/offer-checklist"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-slate-900 font-medium hover:bg-white"
-            >
-              Start with the checklist
-            </Link>
-          </div>
+            <div className="mt-5 flex flex-col sm:flex-row gap-3">
+              <a
+                href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
+                className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-white font-semibold hover:bg-orange-700"
+              >
+                Email now
+              </a>
+              <Link
+                href="/offer-checklist"
+                className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-slate-900 font-semibold hover:bg-white"
+              >
+                Start with the checklist
+              </Link>
+            </div>
+          </Card>
 
-          <p className="mt-4 text-xs text-slate-500">
-            Notes: We donâ€™t guarantee outcomes (weather, operators, availability). We focus on verification and fragility reduction.
-          </p>
+          <Card className="p-6">
+            <h3 className="text-lg font-semibold">What this is (and isn’t)</h3>
+            <ul className="mt-3 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
+              <li>We don’t guarantee outcomes (weather, operators, availability).</li>
+              <li>We focus on verification and fragility reduction.</li>
+              <li>If a rule matters, we push you to confirm it in writing with the enforcing provider.</li>
+            </ul>
+
+            <div className="mt-5">
+              <Link href="/policy" className="text-sm font-semibold hover:underline">
+                Read the policy →
+              </Link>
+            </div>
+          </Card>
         </div>
 
-        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
-      </section>
-    </main>
+        <p className="mt-6 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+      </Section>
+    </div>
   );
 }
-
-
-

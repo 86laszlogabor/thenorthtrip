@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-restaurants.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki Restaurants | TheNorthTrip",
-  description:
-    "How to eat well in Helsinki without itinerary failure: opening hours, reservations, timing buffers, and the common assumptions that waste evenings.",
-};
 
 const seasonal = [
   { aspect: "Spontaneity", summer: "More options", winter: "More friction on peak times" },
@@ -144,6 +140,8 @@ export default function HelsinkiRestaurantsPage() {
     </main>
   );
 }
+
+
 
 
 

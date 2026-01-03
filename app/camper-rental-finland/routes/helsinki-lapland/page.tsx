@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-camper-helsinki-lapland.jpg'] },
   title: "Helsinki to Lapland by Camper | TheNorthTrip",
   description:
     "Helsinki to Lapland by camper: planning buffers, winter fragility, segment choices, and common mistakes that cause route failure.",
@@ -146,6 +146,9 @@ export default function HelsinkiLaplandRoutePage() {
     </main>
   );
 }
+
+
+
 
 
 

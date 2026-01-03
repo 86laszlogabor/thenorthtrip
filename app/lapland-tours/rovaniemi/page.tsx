@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-lapland-rovaniemi.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Rovaniemi Lapland Tours | TheNorthTrip",
-  description:
-    "Rovaniemi as a Lapland base: planning buffers, seasonal tradeoffs, common misunderstandings, and decision guidance for resilient itineraries.",
-};
 
 const seasonal = [
   { aspect: "Availability", summer: "More flexible options", winter: "More fixed windows, higher demand" },
@@ -145,6 +141,8 @@ export default function RovaniemiPage() {
     </main>
   );
 }
+
+
 
 
 

@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-lapland-levi.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Levi Lapland Tours | TheNorthTrip",
-  description:
-    "Levi as a Lapland base: resort-style planning, seasonal tradeoffs, misunderstandings, and decision guidance to avoid fragile itineraries.",
-};
 
 const seasonal = [
   { aspect: "Structure", summer: "More flexible days", winter: "More fixed windows and peak-time crowding" },
@@ -145,6 +141,8 @@ export default function LeviPage() {
     </main>
   );
 }
+
+
 
 
 

@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-lapland-yllas.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "YllÃ¤s Lapland Tours | TheNorthTrip",
-  description:
-    "YllÃ¤s as a Lapland base: space and calm, seasonal tradeoffs, misunderstandings, and decision guidance to keep plans resilient.",
-};
 
 const seasonal = [
   { aspect: "Outdoor capacity", summer: "Higher", winter: "Lower; fatigue earlier" },
@@ -145,6 +141,8 @@ export default function YllasPage() {
     </main>
   );
 }
+
+
 
 
 

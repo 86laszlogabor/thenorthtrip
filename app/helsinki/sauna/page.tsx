@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-sauna.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki Sauna Guide | TheNorthTrip",
-  description:
-    "Helsinki sauna basics without awkward mistakes: etiquette, timing, what to bring, booking expectations, and winter logistics.",
-};
 
 const seasonal = [
   { aspect: "Post-sauna movement", summer: "Easy", winter: "More tiring, colder, slower" },
@@ -144,6 +140,8 @@ export default function HelsinkiSaunaPage() {
     </main>
   );
 }
+
+
 
 
 

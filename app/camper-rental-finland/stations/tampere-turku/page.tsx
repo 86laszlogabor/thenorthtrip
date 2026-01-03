@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-camper-station-tampere-turku.jpg'] },
   title: "Camper Stations: Tampere & Turku | TheNorthTrip",
   description:
     "Tampere and Turku camper pickup: practical checks, timing buffers, seasonal changes, and the common misunderstandings that derail plans.",
@@ -145,6 +145,9 @@ export default function CamperStationsTampereTurkuPage() {
     </main>
   );
 }
+
+
+
 
 
 

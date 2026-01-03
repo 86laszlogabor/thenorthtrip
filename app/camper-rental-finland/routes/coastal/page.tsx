@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-camper-coastal.jpg'] },
   title: "Finland Coastal Camper Route | TheNorthTrip",
   description:
     "Coastal camper route planning in Finland: what to verify, seasonal changes, common misunderstandings, and a decision table for making it less fragile.",
@@ -146,6 +146,9 @@ export default function CoastalRoutePage() {
     </main>
   );
 }
+
+
+
 
 
 

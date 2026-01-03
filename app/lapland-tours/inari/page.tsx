@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-lapland-inari.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Inari Lapland Tours | TheNorthTrip",
-  description:
-    "Inari as a Lapland base: what to expect, seasonal tradeoffs, common misunderstandings, and a decision table for planning with buffer.",
-};
 
 const seasonal = [
   { aspect: "Pace and daylight", summer: "Higher capacity", winter: "Lower capacity, earlier fatigue" },
@@ -145,6 +141,8 @@ export default function InariPage() {
     </main>
   );
 }
+
+
 
 
 

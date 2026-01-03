@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-ferry-cruise.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki Ferry & Cruise Tips | TheNorthTrip",
-  description:
-    "Helsinki ferries and cruises: timing, terminals, buffers, weather, and the common assumptions that cause missed departures.",
-};
 
 const seasonal = [
   { aspect: "Weather disruption", summer: "Lower impact", winter: "Higher impact on comfort and schedules" },
@@ -145,6 +141,8 @@ export default function HelsinkiFerryCruisePage() {
     </main>
   );
 }
+
+
 
 
 

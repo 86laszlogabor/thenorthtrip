@@ -35,7 +35,7 @@ export default function PartnerArcticLifestylePage() {
       <PageHero
         title="Decision-first guide"
         subtitle="Practical tradeoffs, what to confirm, and the safest next step."
-        imageSrc="/images/hero/hero-partner-arctic-lifestyle.jfif"
+        imageSrc="/images/hero/hero-partner-arctic-lifestyle.jpg"
       /><header className="border-b">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
@@ -112,6 +112,7 @@ export default function PartnerArcticLifestylePage() {
     </main>
   );
 }
+
 
 
 

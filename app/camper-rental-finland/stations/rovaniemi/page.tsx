@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-camper-station-rovaniemi.jpg'] },
   title: "Camper Station: Rovaniemi | TheNorthTrip",
   description:
     "Rovaniemi camper pickup: Lapland constraints, winter pace, timing buffers, seasonal changes, and common mistakes that break plans.",
@@ -145,6 +145,9 @@ export default function CamperStationRovaniemiPage() {
     </main>
   );
 }
+
+
+
 
 
 

@@ -1,235 +1,177 @@
-﻿import Card from "@/components/Card";
-import CtaButton from "@/components/CtaButton";
-export const metadata = {
-  title: "TheNorthTrip | Decision-first Finland travel",
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "TheNorthTrip | Finland travel, decision-first",
   description:
-    "Compare trusted partners, understand the real rules, and avoid the mistakes that cost travelers time and money.",
+    "Decision-first Finland travel guides for Finland. Verify what breaks first. Checklists, tradeoffs, and realistic travel planning.",
 };
+
+const hubs = [
+  {
+    title: "Car rental (Helsinki)",
+    href: "/car-rental-helsinki",
+    image: "/images/home-entry-car.jpg",
+    note: "Deposits, cards, timing, winter rules.",
+  },
+  {
+    title: "Lapland tours",
+    href: "/lapland-tours",
+    image: "/images/home-entry-lapland.jpg",
+    note: "Weather, operators, cancellations, seasonality.",
+  },
+  {
+    title: "Camper rental (Finland)",
+    href: "/camper-rental-finland",
+    image: "/images/home-entry-camper.jpg",
+    note: "Winterization, mileage, legal stops.",
+  },
+  {
+    title: "Getting around Finland",
+    href: "/getting-around-finland",
+    image: "/images/home-entry-transport.jpg",
+    note: "Train, bus, flight tradeoffs.",
+  },
+];
 
 export default function HomePage() {
   return (
-    <main className="bg-white">{/* HERO */}
-      <section className="relative min-h-[72vh] w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/hero/hero-finland-winter-road.jpg"
-            alt="Winter road in Finland"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-slate-950/55" />
-        </div>
+    <main className="bg-white text-slate-900">
 
-        <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
-              Rent smarter in Finland.
+      {/* HERO */}
+      <section className="relative min-h-[80vh] flex items-center">
+        <img
+          src="/images/hero/hero-finland-winter-road.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" aria-hidden />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-white/80">
+              Finland travel, without the quiet failures.
+            </p>
+
+            <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight text-white">
+              Verify what breaks first. Then book.
             </h1>
 
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-              Compare trusted partners, understand the real rules, and avoid the
-              mistakes that cost travelers time and money.
+            <p className="mt-4 text-base md:text-lg text-white/85">
+              Calm, decision-first guides for Finland travel.
+              No hype. No invented policy facts.
+              Just the operational reality travellers hit at desks,
+              meeting points, and last services.
             </p>
 
-            <div className="mt-8">
-              <CtaButton href="/car-rental-helsinki">Compare Best Options</CtaButton>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/offer-checklist"
+                className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-white font-medium hover:bg-orange-700"
+              >
+                Open the offer checklist
+              </Link>
+              <Link
+                href="/getting-around-finland"
+                className="inline-flex items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-white font-medium hover:bg-white/10"
+              >
+                Compare transport options
+              </Link>
             </div>
-
-            <p className="mt-4 text-sm text-white/70">
-              Partner-first recommendations, with transparent notes on how the
-              market really works.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ENTRY CARDS (4) */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card
-              image="/images/home-entry-car.jpg"
-              title="Car Rental Helsinki"
-              description="The fastest path to a clean booking. Partners first, then what to expect at pickup."
-              ctaLabel="Open Car Rental Helsinki"
-              ctaHref="/car-rental-helsinki"
-              highlighted
-            />
-
-            <Card
-              image="/images/home-entry-lapland.jpg"
-              title="Lapland Tours"
-              description="Operators, tour types, and destinations. Choose what fits your trip."
-              ctaLabel="Explore Lapland Tours"
-              ctaHref="/lapland-tours"
-            />
-
-            <Card
-              image="/images/home-entry-camper.jpg"
-              title="Camper Rental Finland"
-              description="Compare camper partners, stations, and routes. Know the winter realities before you commit."
-              ctaLabel="See Camper Options"
-              ctaHref="/camper-rental-finland"
-            />
-
-            <Card
-              image="/images/home-entry-transport.jpg"
-              title="Getting Around Finland"
-              description="Train vs bus vs flights vs taxi. Clear tradeoffs and what to double-check."
-              ctaLabel="Compare Travel Modes"
-              ctaHref="/getting-around-finland"
-            />
+      {/* CORE HUB CARDS – FELTOLVA A HERO ALÁ */}
+      <section className="relative z-20">
+        <div className="mx-auto max-w-6xl px-4 -mt-24 md:-mt-32">
+          <div className="grid gap-4 md:grid-cols-4">
+            {hubs.map((h) => (
+              <Link
+                key={h.title}
+                href={h.href}
+                className="group rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition"
+              >
+                <div className="relative h-40">
+                  <img
+                    src={h.image}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition"
+                  />
+                </div>
+                <div className="p-4">
+                  <h2 className="font-semibold text-sm">{h.title}</h2>
+                  <p className="mt-1 text-xs text-slate-600">
+                    {h.note}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 5 COSTLY MISTAKES (4) */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-6 pb-14">
-          <div className="mb-8">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-              5 Costly Mistakes to Avoid
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-              Most Ã¢â‚¬Å“bad dealsÃ¢â‚¬Â are really bad assumptions. Here are the ones that
-              keep showing up.
-            </p>
-          </div>
+      {/* DECISIONS */}
+      <section className="mt-20 border-t bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="text-xl md:text-2xl font-semibold tracking-tight">
+            Decisions with consequences
+          </h2>
+          <p className="mt-2 max-w-3xl text-slate-700">
+            The goal is not to over-plan. It’s to surface the assumptions
+            that typically break first.
+          </p>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card
-              image="/images/mistake-fees.jpg"
-              title="Assuming your card will be accepted"
-              description="Deposit rules vary. Some desks require credit, some accept debit with conditions. Confirm before you fly."
-              ctaLabel="Check Availability"
-              ctaHref="/car-rental-helsinki"
-            />
-
-            <Card
-              image="/images/mistake-winter.jpg"
-              title="Underestimating winter requirements"
-              description="Tyres, visibility, and local conditions matter more than the car model. Know what youÃ¢â‚¬â„¢re actually getting."
-              ctaLabel="Check Availability"
-              ctaHref="/car-rental-helsinki"
-              highlighted
-            />
-
-            <Card
-              image="/images/mistake-card.jpg"
-              title="Missing the true total cost"
-              description="Fuel policy, extra drivers, young driver fees, and cross-border rules can change the final number fast."
-              ctaLabel="Check Availability"
-              ctaHref="/car-rental-helsinki"
-            />
-
-            <Card
-              image="/images/mistake-insurance.jpg"
-              title="Buying the wrong coverage"
-              description="Focus on deductible, exclusions, and claim handling. Ã¢â‚¬Å“Insurance includedÃ¢â‚¬Â often hides the important parts."
-              ctaLabel="Check Availability"
-              ctaHref="/car-rental-helsinki"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-                Why Trust Our Partners
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">Title + short explanation</p>
-
-              <ul className="mt-6 space-y-3 text-sm text-slate-700">
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                  <span>No hidden-fee surprises in our recommendations</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                  <span>24/7 customer support options through major platforms</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                  <span>Trusted by travelers worldwide (and reviewed publicly)</span>
-                </li>
-              </ul>
-
-              <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm">
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  DiscoverCars
-                </span>
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  Rentalcars.com
-                </span>
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  Sixt
-                </span>
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  Europcar
-                </span>
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  Hertz
-                </span>
-                <span className="border-b-2 border-emerald-600 pb-0.5 text-slate-700">
-                  Avis
-                </span>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {[
+              {
+                title: "Deposits and payment rules",
+                body: "Most desk-level failures are payment and deposit related.",
+                href: "/offer-checklist",
+                cta: "Use the checklist",
+              },
+              {
+                title: "Winter changes the physics",
+                body: "Winter compresses daylight, buffers, and recovery options.",
+                href: "/getting-around-finland",
+                cta: "Compare transport modes",
+              },
+              {
+                title: "Timing is the real price",
+                body: "Late arrivals and last services cause most failures.",
+                href: "/offer-checklist",
+                cta: "Stress-test your plan",
+              },
+              {
+                title: "Rules are procedural",
+                body: "Exceptions are rare. Preparation beats persuasion.",
+                href: "/policy",
+                cta: "How we verify",
+              },
+            ].map((d) => (
+              <div
+                key={d.title}
+                className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm"
+              >
+                <h3 className="font-semibold">{d.title}</h3>
+                <p className="mt-2 text-sm text-slate-700">{d.body}</p>
+                <div className="mt-4">
+                  <Link
+                    href={d.href}
+                    className="inline-flex items-center rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium hover:bg-slate-50"
+                  >
+                    {d.cta}
+                  </Link>
+                </div>
               </div>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-              <img
-                src="/images/trust-finland-lake-boat.jpg"
-                alt="Finland lake scenery"
-                className="h-full w-full object-cover"
-              />
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* BOTTOM CTA */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-                Find Your Perfect Trip in Finland
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Start with Helsinki, then expand to Lapland and beyond.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <CtaButton href="/offer-checklist">Get Started</CtaButton>
-                <a
-                  href="/car-rental-helsinki"
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-900 shadow-sm hover:bg-slate-50"
-                >
-                  Compare options
-                </a>
-              </div>
-
-              <p className="mt-4 text-xs text-slate-500">
-                Terms and prices can change. Always confirm at booking.
-              </p>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-              <img
-                src="/images/cta-aurora-reindeer.jpg"
-                alt="Lapland reindeer"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
+          <p className="mt-8 text-xs text-slate-500">
+            Last verified: 2025-12-31
+          </p>
         </div>
       </section>
     </main>
   );
 }
-
-
-

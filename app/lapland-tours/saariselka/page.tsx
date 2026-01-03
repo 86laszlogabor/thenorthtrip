@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-lapland-saariselka.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "SaariselkÃ¤ Lapland Tours | TheNorthTrip",
-  description:
-    "SaariselkÃ¤ as a Lapland base: quieter pacing, seasonal tradeoffs, misunderstandings, and decision guidance for resilient planning.",
-};
 
 const seasonal = [
   { aspect: "Pacing comfort", summer: "Higher", winter: "Lower; fatigue earlier" },
@@ -145,6 +141,8 @@ export default function SaariselkaPage() {
     </main>
   );
 }
+
+
 
 
 

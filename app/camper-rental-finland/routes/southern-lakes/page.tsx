@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-camper-southern-lakes.jpg'] },
   title: "Southern Lakes Camper Route | TheNorthTrip",
   description:
     "Southern lakes by camper in Finland: decision-first planning, seasonal changes, common misunderstandings, and a table to keep the route resilient.",
@@ -145,6 +145,9 @@ export default function SouthernLakesRoutePage() {
     </main>
   );
 }
+
+
+
 
 
 

@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-sightseeing.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki Sightseeing | TheNorthTrip",
-  description:
-    "Helsinki sightseeing without itinerary collapse: pacing, buffers, winter reality, and the mistakes that waste a short visit.",
-};
 
 const seasonal = [
   { aspect: "Pacing capacity", summer: "Higher", winter: "Lower (fatigue earlier)" },
@@ -144,6 +140,8 @@ export default function HelsinkiSightseeingPage() {
     </main>
   );
 }
+
+
 
 
 

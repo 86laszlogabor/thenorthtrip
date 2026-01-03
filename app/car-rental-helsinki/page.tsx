@@ -1,14 +1,27 @@
-// app/car-rental-helsinki/page.tsx
+﻿import PageHero from "@/components/PageHero";
+import Link from "next/link";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 import PartnerStrip, { type PartnerSlot } from "@/components/PartnerStrip";
-import Link from "next/link";
 
 export const metadata = {
   title: "Car Rental Helsinki | TheNorthTrip",
   description:
     "Partners first, then the rules that actually matter at pickup: card/deposit, insurance language, winter requirements, and timing.",
+  openGraph: {
+    title: "Car Rental Helsinki | TheNorthTrip",
+    description:
+      "Partners first, then the rules that actually matter at pickup: card/deposit, insurance language, winter requirements, and timing.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Car Rental Helsinki | TheNorthTrip",
+    description:
+      "Partners first, then the rules that actually matter at pickup: card/deposit, insurance language, winter requirements, and timing.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
 };
 
 export default function CarRentalHelsinkiPage() {
@@ -25,23 +38,86 @@ export default function CarRentalHelsinkiPage() {
       name: "Rentalcars.com",
       kind: "aggregator",
       blurb:
-        "Big inventory and reviews. Double-check desk hours, deposit, and what ‘included’ really means.",
+        "Big inventory and reviews. Double-check desk hours, deposit, and what 'included' really means.",
       href: "PASTE_RENTALCARS_AFFILIATE_LINK",
       ctaLabel: "Browse offers",
     },
     { empty: true, label: "Direct brand (Sixt/Europcar etc.)" },
   ];
 
+  // Use OG images inside cards to avoid "empty card" feel
+  const helsinkiHubs = [
+    {
+      image: "/images/og/og-helsinki-airport-transfers.jpg",
+      title: "Helsinki Airport pickup reality",
+      description:
+        "Most rentals start at the airport. Verify desk hours, terminal location, and late-arrival policy before you pay.",
+      ctaLabel: "Airport transfers & pickup →",
+      ctaHref: "/helsinki/airport",
+    },
+    {
+      image: "/images/og/og-helsinki-city-mobility.jpg",
+      title: "City driving vs public transport",
+      description:
+        "If your plan is mostly Helsinki city: compare parking, traffic, and time costs versus transit before committing to a rental.",
+      ctaLabel: "City mobility checklist →",
+      ctaHref: "/helsinki/city-mobility",
+    },
+    {
+      image: "/images/og/og-helsinki-sauna.jpg",
+      title: "Sauna visits by car",
+      description:
+        "Sauna hopping sounds simple until parking and timing collide. Plan route + buffer time instead of improvising.",
+      ctaLabel: "Sauna routing →",
+      ctaHref: "/helsinki/sauna",
+    },
+    {
+      image: "/images/og/og-helsinki-sightseeing.jpg",
+      title: "Day-trip sightseeing planning",
+      description:
+        "Car helps outside the center. For day trips, confirm winter roads, daylight, and realistic driving time.",
+      ctaLabel: "Sightseeing hubs →",
+      ctaHref: "/helsinki/sightseeing",
+    },
+    {
+      image: "/images/og/og-helsinki-ferry-cruise.jpg",
+      title: "Ferry timing & vehicle rules",
+      description:
+        "If you combine rental + ferry: check check-in timing, vehicle category rules, and cancellation flexibility.",
+      ctaLabel: "Ferry & cruise planning →",
+      ctaHref: "/helsinki/ferry",
+    },
+    {
+      image: "/images/og/og-helsinki-restaurants.jpg",
+      title: "Restaurants without schedule stress",
+      description:
+        "Parking + peak hours create hidden friction. Build a plan that doesn’t collapse into ‘we’ll figure it out’.",
+      ctaLabel: "Restaurant planning →",
+      ctaHref: "/helsinki/restaurants",
+    },
+  ] as const;
+
   return (
     <div className="bg-white">
-      {/* HERO */}
-      <section className="mx-auto max-w-site px-4 py-12 md:py-16">
+      <PageHero
+        variant="home"
+        title="Car rental in Helsinki, without the expensive surprises."
+        subtitle="Partners first. Then the checks that decide whether pickup is smooth or a disaster."
+        imageSrc="/images/hero/hero-helsinki-airport.jpg"
+        primaryCta={{ href: "/car-rental-helsinki", label: "Compare car rental options" }}
+        secondaryCta={{ href: "/rental-terms-prices", label: "Open terms checklist" }}
+      />
+
+      {/* INTRO (keep content) */}
+      <section className="mx-auto max-w-6xl px-4 py-10 md:py-12">
         <p className="text-xs font-semibold tracking-wide text-brand-text/60">
           Car rental / Helsinki
         </p>
-        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
+
+        <h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
           Car rental in Helsinki, without the expensive surprises.
-        </h1>
+        </h2>
+
         <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-2xl">
           Partners first. Then the checks that decide whether pickup is smooth or a disaster:
           card &amp; deposit rules, winter requirements, insurance wording, desk hours.
@@ -153,8 +229,31 @@ export default function CarRentalHelsinkiPage() {
         <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
       </Section>
 
-      {/* ROUTING */}
+      {/* HELSINKI HUBS (NEW: image cards using OG images) */}
       <Section className="bg-brand-bluegray">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          Helsinki booking hubs (quick routing)
+        </h2>
+        <p className="mt-3 text-sm text-brand-text/70 max-w-3xl">
+          If your plan depends on timing (airport pickup, ferry schedules, sauna slots), route from here instead of guessing.
+        </p>
+
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {helsinkiHubs.map((c) => (
+            <Card
+              key={c.title}
+              image={c.image}
+              title={c.title}
+              description={c.description}
+              ctaLabel={c.ctaLabel}
+              ctaHref={c.ctaHref}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* ROUTING */}
+      <Section>
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
           Related decision hubs
         </h2>

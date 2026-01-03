@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
 export const metadata: Metadata = {
+  openGraph: { images: ['/images/og/og-offer-checklist.jpg'] },
   title: "Offer Checklist | TheNorthTrip",
   description:
     "A decision-first checklist for Finland travel: verify deposits, timing, winter constraints, and desk-level rules before you pay.",
@@ -84,7 +84,38 @@ export default function OfferChecklistPage() {
         title="Decision-first guide"
         subtitle="Practical tradeoffs, what to confirm, and the safest next step."
         imageSrc="/images/hero/hero-offer-checklist.jpg"
-      /><header className="border-b">
+      />
+<section className="mx-auto max-w-6xl px-4 py-10">
+  <h2 className="text-lg md:text-xl font-semibold tracking-tight text-slate-900">
+    The checklist, visualised
+  </h2>
+  <p className="mt-2 max-w-2xl text-sm text-slate-600">
+    Two quick anchors: what you must have ready, and what you must time correctly.
+  </p>
+
+  <div className="mt-6 grid gap-4 md:grid-cols-2">
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <img src="/images/cards/card-checklist-documents.jpg" alt="" className="h-56 w-full object-cover" />
+      <div className="p-5">
+        <div className="text-sm font-semibold text-slate-900">Documents & cards</div>
+        <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+          License, card type, deposit expectations, and the boring stuff that becomes expensive if missing.
+        </p>
+      </div>
+    </div>
+
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <img src="/images/cards/card-checklist-calendar.jpg" alt="" className="h-56 w-full object-cover" />
+      <div className="p-5">
+        <div className="text-sm font-semibold text-slate-900">Timing & seasonality</div>
+        <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+          Winter clauses, pickup times, cancellations, and day-by-day constraints that change the outcome.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<header className="border-b">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link href="/" className="font-semibold tracking-tight">
             TheNorthTrip
@@ -157,6 +188,10 @@ export default function OfferChecklistPage() {
     </main>
   );
 }
+
+
+
+
 
 
 

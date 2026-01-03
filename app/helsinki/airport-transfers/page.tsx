@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-airport-transfers.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki Airport Transfers | TheNorthTrip",
-  description:
-    "Helsinki Airport transfers explained: trains, buses, taxis, buffers, late arrivals, and common timing mistakes that break plans.",
-};
 
 const seasonal = [
   { aspect: "Night options", summer: "Better coverage", winter: "More limited windows" },
@@ -148,6 +144,8 @@ export default function HelsinkiAirportTransfersPage() {
     </main>
   );
 }
+
+
 
 
 

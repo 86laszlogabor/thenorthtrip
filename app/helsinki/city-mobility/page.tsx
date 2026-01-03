@@ -1,12 +1,8 @@
-﻿import type { Metadata } from "next";
+﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-city-mobility.jpg'] } };
+
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-
-export const metadata: Metadata = {
-  title: "Helsinki City Mobility | TheNorthTrip",
-  description:
-    "How to move around Helsinki: walk, tram/metro/bus, taxis, scooters, and the mistakes that waste time in winter or tight schedules.",
-};
 
 const seasonal = [
   { aspect: "Walking", summer: "Easy and fast", winter: "Slower, more tiring" },
@@ -143,6 +139,8 @@ export default function HelsinkiCityMobilityPage() {
     </main>
   );
 }
+
+
 
 
 
