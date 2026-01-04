@@ -1,147 +1,129 @@
-﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-sauna.jpg'] } };
-
-import type { Metadata } from "next";
+﻿import PageHero from "@/components/PageHero";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
+import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 
-const seasonal = [
-  { aspect: "Post-sauna movement", summer: "Easy", winter: "More tiring, colder, slower" },
-  { aspect: "Crowding", summer: "Variable", winter: "Often higher at peak times" },
-  { aspect: "Outdoor transitions", summer: "Milder", winter: "More intense" },
-];
+export const metadata = {
+  title: "Helsinki Sauna Routing | TheNorthTrip",
+  description:
+    "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn’t collapse into peak-hour chaos.",
+  openGraph: {
+    title: "Helsinki Sauna Routing | TheNorthTrip",
+    description:
+      "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn’t collapse into peak-hour chaos.",
+    images: ["/images/og/og-helsinki-sauna.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Helsinki Sauna Routing | TheNorthTrip",
+    description:
+      "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn’t collapse into peak-hour chaos.",
+    images: ["/images/og/og-helsinki-sauna.jpg"],
+  },
+};
 
-const misunderstandings = [
-  "Sauna is a tourist show, not a routine",
-  "Everyone speaks a lot and explains everything",
-  "Etiquette is flexible if youâ€™re new",
-  "You can always walk in at peak time",
-  "Winter makes sauna less relevant",
-  "You can rush it like a quick activity slot",
-  "What to bring doesnâ€™t matter",
-  "Silence means people are unhappy",
-  "Rules are negotiable if you ask nicely",
-  "Location doesnâ€™t matter for return logistics",
-];
-
-const decision = [
-  { situation: "Tight schedule day", best: "Book a buffer; avoid rushing to the next fixed commitment" },
-  { situation: "Winter evening", best: "Choose a sauna close to your base or with easy transport back" },
-  { situation: "First sauna experience", best: "Pick a straightforward option; focus on comfort and pacing" },
-  { situation: "Crowd-avoidance", best: "Go earlier; avoid peak weekend windows" },
+const rules = [
+  { title: "One sauna anchor per day", body: "Pick one main sauna and route the day around it. Don’t stack time-sensitive blocks." },
+  { title: "Assume +45 minutes friction", body: "Parking, walking, queues, changing. Add friction by default and surprises disappear." },
+  { title: "Sauna last if you’re driving", body: "Wet gear + winter transitions + timing. Sauna last prevents cascading delays." },
 ];
 
 export default function HelsinkiSaunaPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <div className="bg-white">
       <PageHero
-        title="Decision-first guide"
-        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
+        variant="home"
+        title="Helsinki sauna by car, without the schedule collapse."
+        subtitle="The hidden friction is parking + peak hours. Route it like a plan, not an afterthought."
         imageSrc="/images/hero/hero-helsinki-sauna.jpg"
-      /><header className="border-b">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
-          <nav className="flex gap-4 text-sm text-slate-700">
-            <Link href="/helsinki/city-mobility" className="hover:text-slate-900">City mobility</Link>
-            <Link href="/helsinki/restaurants" className="hover:text-slate-900">Restaurants</Link>
-            <Link href="/offer-checklist" className="hover:text-slate-900">Offer checklist</Link>
-          </nav>
-        </div>
-      </header>
+        primaryCta={{ href: "/helsinki/city-mobility", label: "City mobility checklist" }}
+        secondaryCta={{ href: "/car-rental-helsinki", label: "Back to car rental hub" }}
+      />
 
-      <section className="mx-auto max-w-6xl px-4 py-10">
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Helsinki sauna: what travellers get wrong
-        </h1>
-        <p className="mt-3 max-w-3xl text-slate-700">
-          Sauna culture is calm and procedural. Instructions are brief. Silence is normal.
-          The main mistakes are pacing and logistics, not â€œdoing it wrongâ€.
+      <Section>
+        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
+          Helsinki / Sauna
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
-            <h2 className="font-semibold">Practical checks</h2>
-            <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
-              <li>Confirm whether booking/reservation is needed at your time.</li>
-              <li>Plan a buffer before and after, especially in winter.</li>
-              <li>Bring basics: towel, water, simple layers for after.</li>
-              <li>Respect the space: calm behavior, clean habits, follow posted rules.</li>
-              <li>Choose location based on return logistics, not just vibes.</li>
-            </ul>
-          </div>
+        <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">
+          Sauna is easy. Sauna + timing is where plans die.
+        </h2>
 
-          <div className="rounded-2xl border border-slate-200 p-6 bg-slate-50">
-            <h2 className="font-semibold">Seasonal changes table</h2>
+        <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
+          Sauna “hopping” sounds harmless until you mix it with winter pace, parking roulette, and peak-hour dinner.
+          Use a simple routing model and your day stays intact.
+        </p>
+
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {rules.map((r) => (
+            <Card key={r.title}>
+              <h3 className="text-lg font-semibold">{r.title}</h3>
+              <p className="mt-3 text-sm text-brand-text/70">{r.body}</p>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card>
+            <h3 className="text-lg font-semibold">Decision table</h3>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="text-left">
-                  <tr className="border-b">
-                    <th className="py-2 pr-4">Aspect</th>
-                    <th className="py-2 pr-4">Summer</th>
-                    <th className="py-2">Winter</th>
+                <thead>
+                  <tr className="text-left text-brand-text/70 border-b border-slate-200">
+                    <th className="py-2 pr-4">Your day</th>
+                    <th className="py-2 pr-4">Better move</th>
+                    <th className="py-2">Why</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {seasonal.map((r) => (
-                    <tr key={r.aspect} className="border-b">
-                      <td className="py-2 pr-4 font-medium">{r.aspect}</td>
-                      <td className="py-2 pr-4 text-slate-700">{r.summer}</td>
-                      <td className="py-2 text-slate-700">{r.winter}</td>
-                    </tr>
-                  ))}
+                <tbody className="text-brand-text/70">
+                  <tr className="border-b border-slate-200">
+                    <td className="py-2 pr-4 font-medium">City-only day</td>
+                    <td className="py-2 pr-4">Transit + walking</td>
+                    <td className="py-2">Avoids parking tax</td>
+                  </tr>
+                  <tr className="border-b border-slate-200">
+                    <td className="py-2 pr-4 font-medium">Day trip + sauna</td>
+                    <td className="py-2 pr-4">Sauna last</td>
+                    <td className="py-2">Prevents time collisions</td>
+                  </tr>
+                  <tr className="border-b border-slate-200">
+                    <td className="py-2 pr-4 font-medium">Peak hour evening</td>
+                    <td className="py-2 pr-4">Reserve + arrive early</td>
+                    <td className="py-2">Queues are predictable</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="font-semibold">10 common misunderstandings</h2>
-          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-1">
-            {misunderstandings.map((x) => <li key={x}>{x}</li>)}
-          </ol>
-        </div>
-
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <h2 className="font-semibold">Decision table</h2>
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-left">
-                <tr className="border-b">
-                  <th className="py-2 pr-4">Situation</th>
-                  <th className="py-2">Better fit</th>
-                </tr>
-              </thead>
-              <tbody>
-                {decision.map((r) => (
-                  <tr key={r.situation} className="border-b">
-                    <td className="py-2 pr-4 font-medium">{r.situation}</td>
-                    <td className="py-2 text-slate-700">{r.best}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-5 text-sm text-slate-700">
-            <p className="font-medium">Internal links</p>
-            <div className="mt-2 flex flex-wrap gap-3">
-              <Link className="underline hover:text-slate-900" href="/">/</Link>
-              <Link className="underline hover:text-slate-900" href="/helsinki/city-mobility">/helsinki/city-mobility</Link>
-              <Link className="underline hover:text-slate-900" href="/helsinki/restaurants">/helsinki/restaurants</Link>
-              <Link className="underline hover:text-slate-900" href="/offer-checklist">/offer-checklist</Link>
-              <Link className="underline hover:text-slate-900" href="/policy">/policy</Link>
-              <Link className="underline hover:text-slate-900" href="/get-help">/get-help</Link>
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Internal routes</h3>
+            <div className="mt-4 grid gap-3 text-sm">
+              <Link href="/helsinki/restaurants" className="font-semibold hover:underline text-brand-text/70">
+                Restaurant planning →
+              </Link>
+              <Link href="/helsinki/sightseeing" className="font-semibold hover:underline text-brand-text/70">
+                Sightseeing hubs →
+              </Link>
+              <Link href="/rental-terms-prices" className="font-semibold hover:underline text-brand-text/70">
+                Rental terms checklist →
+              </Link>
             </div>
-          </div>
+
+            <div className="mt-auto pt-5 grid gap-3">
+              <CtaButton href="/get-help" variant="success" className="w-full">
+                Get Help
+              </CtaButton>
+              <CtaButton href="/car-rental-helsinki" variant="outline" className="w-full">
+                Back to car rental hub
+              </CtaButton>
+            </div>
+          </Card>
         </div>
 
-        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
-      </section>
-    </main>
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+      </Section>
+    </div>
   );
 }
-
-
-
-
-

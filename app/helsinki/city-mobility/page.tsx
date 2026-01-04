@@ -1,146 +1,145 @@
-﻿export const metadata = { openGraph: { images: ['/images/og/og-helsinki-city-mobility.jpg'] } };
-
-import type { Metadata } from "next";
+﻿import PageHero from "@/components/PageHero";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
+import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 
-const seasonal = [
-  { aspect: "Walking", summer: "Easy and fast", winter: "Slower, more tiring" },
-  { aspect: "Micro-mobility", summer: "Convenient", winter: "Less reliable / less pleasant" },
-  { aspect: "Buffers", summer: "More forgiving", winter: "More necessary" },
-];
+export const metadata = {
+  title: "Helsinki City Mobility | Car vs Public Transport | TheNorthTrip",
+  description:
+    "Decision-first checklist: when a rental helps in Helsinki, when it creates friction, and how to avoid parking and timing traps.",
+  openGraph: {
+    title: "Helsinki City Mobility | TheNorthTrip",
+    description:
+      "Decision-first checklist: when a rental helps in Helsinki, when it creates friction, and how to avoid parking and timing traps.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Helsinki City Mobility | TheNorthTrip",
+    description:
+      "Decision-first checklist: when a rental helps in Helsinki, when it creates friction, and how to avoid parking and timing traps.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
+};
 
-const misunderstandings = [
-  "Everything is walkable in the same way year-round",
-  "A tight schedule is fine because transit is â€˜efficientâ€™",
-  "Scooters solve last-mile problems in winter",
-  "Taxis are always available instantly",
-  "One missed tram is irrelevant",
-  "Distances equal effort",
-  "Late-night mobility is identical to daytime",
-  "Helsinki works like any other European city",
-  "Weather affects only outdoors",
-  "Rules and procedures flex under pressure",
-];
-
-const decision = [
-  { situation: "Short hops in the center", best: "Walk + tram/metro as needed" },
-  { situation: "Tight schedule / fixed booking time", best: "Build buffer, reduce segment count" },
-  { situation: "Late evening movements", best: "Verify service windows; have a fallback plan" },
-  { situation: "Winter + lots of walking", best: "Shorten routes; avoid optimistic pacing" },
+const decisionRows = [
+  { plan: "Mostly city center", defaultChoice: "Public transport + walking", why: "Less friction than parking + paperwork" },
+  { plan: "2–3 day trips outside Helsinki", defaultChoice: "Rental (with buffers)", why: "Flexibility beats fixed schedules" },
+  { plan: "Family + lots of gear", defaultChoice: "Rental or taxi mix", why: "Control + comfort, fewer compromises" },
+  { plan: "Tight schedule day", defaultChoice: "Avoid rental that day", why: "Pickup + parking kills ‘fast’ plans" },
 ];
 
 export default function HelsinkiCityMobilityPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <div className="bg-white">
       <PageHero
-        title="Decision-first guide"
-        subtitle="Practical tradeoffs, what to confirm, and the safest next step."
-        imageSrc="/images/hero/hero-helsinki-tram.jpg"
-      /><header className="border-b">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">TheNorthTrip</Link>
-          <nav className="flex gap-4 text-sm text-slate-700">
-            <Link href="/offer-checklist" className="hover:text-slate-900">Offer checklist</Link>
-            <Link href="/helsinki/airport-transfers" className="hover:text-slate-900">Airport transfers</Link>
-            <Link href="/get-help" className="hover:text-slate-900">Get help</Link>
-          </nav>
-        </div>
-      </header>
+        variant="home"
+        title="Helsinki mobility: the car is not automatically the ‘easy option’."
+        subtitle="If your plan is mostly the city core, a rental can become paid friction: parking, timing, and unnecessary risk."
+        imageSrc="/images/hero/hero-helsinki-city.jpg"
+        primaryCta={{ href: "/car-rental-helsinki", label: "Back to car rental hub" }}
+        secondaryCta={{ href: "/getting-around-finland", label: "Compare transport modes" }}
+      />
 
-      <section className="mx-auto max-w-6xl px-4 py-10">
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Helsinki city mobility: what works, where it breaks
-        </h1>
-        <p className="mt-3 max-w-3xl text-slate-700">
-          Helsinki is easy to navigate, but plans still fail on timing assumptions. The biggest
-          mistake is treating â€œshortâ€ distances as low effort and building tight chains without buffer.
+      <Section>
+        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
+          Helsinki / City mobility
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
-            <h2 className="font-semibold">Quick reality checks</h2>
-            <ul className="mt-3 list-disc pl-5 text-sm text-slate-700 space-y-2">
-              <li>Assume walking is slower with luggage, snow, or darkness.</li>
-              <li>If missing one connection breaks your day, add buffer or simplify.</li>
-              <li>Late-night mobility needs verification, not optimism.</li>
-              <li>Use the least fragile route, not the fastest theoretical route.</li>
-            </ul>
-          </div>
+        <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">
+          Use a car when it buys control. Skip it when it buys friction.
+        </h2>
 
-          <div className="rounded-2xl border border-slate-200 p-6 bg-slate-50">
-            <h2 className="font-semibold">Seasonal changes table</h2>
+        <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
+          The usual trap is assuming “car = faster”. In Helsinki, speed often collapses into parking, walking back,
+          and the operational cost of pickup/return. Choose the mode that survives real-world timing.
+        </p>
+
+        <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <h3 className="text-lg font-semibold">When a rental helps</h3>
+            <ul className="mt-4 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
+              <li>Multiple stops outside the core in one day</li>
+              <li>Family logistics (stroller, naps, bags)</li>
+              <li>Weather comfort, if your plan is not tight</li>
+            </ul>
+          </Card>
+
+          <Card>
+            <h3 className="text-lg font-semibold">When it backfires</h3>
+            <ul className="mt-4 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
+              <li>City-center only plans with “quick hops”</li>
+              <li>Peak-hour evenings where parking is roulette</li>
+              <li>Tight schedules that assume zero delay variance</li>
+            </ul>
+          </Card>
+
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">The safe default</h3>
+            <p className="mt-3 text-sm text-brand-text/70">
+              If you’re unsure: go transit + walking for the city, then rent only for the day-trip day.
+            </p>
+            <div className="mt-auto pt-5">
+              <CtaButton href="/car-rental-helsinki" variant="primary" className="w-full">
+                Car rental hub
+              </CtaButton>
+            </div>
+          </Card>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card>
+            <h3 className="text-lg font-semibold">Decision table</h3>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="text-left">
-                  <tr className="border-b">
-                    <th className="py-2 pr-4">Aspect</th>
-                    <th className="py-2 pr-4">Summer</th>
-                    <th className="py-2">Winter</th>
+                <thead>
+                  <tr className="text-left text-brand-text/70 border-b border-slate-200">
+                    <th className="py-2 pr-4">Your plan</th>
+                    <th className="py-2 pr-4">Better default</th>
+                    <th className="py-2">Why</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {seasonal.map((r) => (
-                    <tr key={r.aspect} className="border-b">
-                      <td className="py-2 pr-4 font-medium">{r.aspect}</td>
-                      <td className="py-2 pr-4 text-slate-700">{r.summer}</td>
-                      <td className="py-2 text-slate-700">{r.winter}</td>
+                <tbody className="text-brand-text/70">
+                  {decisionRows.map((r) => (
+                    <tr key={r.plan} className="border-b border-slate-200">
+                      <td className="py-2 pr-4 font-medium">{r.plan}</td>
+                      <td className="py-2 pr-4">{r.defaultChoice}</td>
+                      <td className="py-2">{r.why}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="font-semibold">10 common misunderstandings</h2>
-          <ol className="mt-3 list-decimal pl-5 text-sm text-slate-700 space-y-1">
-            {misunderstandings.map((x) => <li key={x}>{x}</li>)}
-          </ol>
-        </div>
-
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <h2 className="font-semibold">Decision table</h2>
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-left">
-                <tr className="border-b">
-                  <th className="py-2 pr-4">Situation</th>
-                  <th className="py-2">Better fit</th>
-                </tr>
-              </thead>
-              <tbody>
-                {decision.map((r) => (
-                  <tr key={r.situation} className="border-b">
-                    <td className="py-2 pr-4 font-medium">{r.situation}</td>
-                    <td className="py-2 text-slate-700">{r.best}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-5 text-sm text-slate-700">
-            <p className="font-medium">Internal links</p>
-            <div className="mt-2 flex flex-wrap gap-3">
-              <Link className="underline hover:text-slate-900" href="/">/</Link>
-              <Link className="underline hover:text-slate-900" href="/helsinki/airport-transfers">/helsinki/airport-transfers</Link>
-              <Link className="underline hover:text-slate-900" href="/getting-around-finland">/getting-around-finland</Link>
-              <Link className="underline hover:text-slate-900" href="/offer-checklist">/offer-checklist</Link>
-              <Link className="underline hover:text-slate-900" href="/get-help">/get-help</Link>
-              <Link className="underline hover:text-slate-900" href="/policy">/policy</Link>
+          <Card className="flex flex-col">
+            <h3 className="text-lg font-semibold">Internal routes</h3>
+            <div className="mt-4 grid gap-3 text-sm">
+              <Link href="/helsinki/sightseeing" className="font-semibold hover:underline text-brand-text/70">
+                Sightseeing hubs →
+              </Link>
+              <Link href="/helsinki/sauna" className="font-semibold hover:underline text-brand-text/70">
+                Sauna routing →
+              </Link>
+              <Link href="/rental-terms-prices" className="font-semibold hover:underline text-brand-text/70">
+                Rental terms checklist →
+              </Link>
             </div>
-          </div>
+
+            <div className="mt-auto pt-5 grid gap-3">
+              <CtaButton href="/getting-around-finland" variant="outline" className="w-full">
+                Compare transport modes
+              </CtaButton>
+              <CtaButton href="/get-help" variant="success" className="w-full">
+                Get Help
+              </CtaButton>
+            </div>
+          </Card>
         </div>
 
-        <p className="mt-6 text-xs text-slate-500">Last verified: 2025-12-31</p>
-      </section>
-    </main>
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+      </Section>
+    </div>
   );
 }
-
-
-
-
-

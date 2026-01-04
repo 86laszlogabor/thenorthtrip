@@ -24,6 +24,40 @@ export const metadata = {
   },
 };
 
+type Hub = {
+  image: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+};
+
+function HubTile({ hub }: { hub: Hub }) {
+  return (
+    <Card className="flex flex-col overflow-hidden">
+      {/* image block */}
+      <div className="h-40 w-full overflow-hidden rounded-xl bg-slate-100">
+        {/* use <img> for local public assets without next/image config friction */}
+        <img
+          src={hub.image}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      <h3 className="mt-4 text-lg font-semibold">{hub.title}</h3>
+      <p className="mt-2 text-sm text-brand-text/70">{hub.description}</p>
+
+      <div className="mt-auto pt-4">
+        <Link href={hub.ctaHref} className="text-sm font-semibold hover:underline">
+          {hub.ctaLabel}
+        </Link>
+      </div>
+    </Card>
+  );
+}
+
 export default function CarRentalHelsinkiPage() {
   const partners: [PartnerSlot, PartnerSlot, PartnerSlot] = [
     {
@@ -45,15 +79,14 @@ export default function CarRentalHelsinkiPage() {
     { empty: true, label: "Direct brand (Sixt/Europcar etc.)" },
   ];
 
-  // Use OG images inside cards to avoid "empty card" feel
-  const helsinkiHubs = [
+  const helsinkiHubs: Hub[] = [
     {
       image: "/images/og/og-helsinki-airport-transfers.jpg",
       title: "Helsinki Airport pickup reality",
       description:
         "Most rentals start at the airport. Verify desk hours, terminal location, and late-arrival policy before you pay.",
       ctaLabel: "Airport transfers & pickup →",
-      ctaHref: "/helsinki/airport",
+      ctaHref: "/helsinki/airport-transfers",
     },
     {
       image: "/images/og/og-helsinki-city-mobility.jpg",
@@ -85,7 +118,7 @@ export default function CarRentalHelsinkiPage() {
       description:
         "If you combine rental + ferry: check check-in timing, vehicle category rules, and cancellation flexibility.",
       ctaLabel: "Ferry & cruise planning →",
-      ctaHref: "/helsinki/ferry",
+      ctaHref: "/helsinki/ferry-cruise",
     },
     {
       image: "/images/og/og-helsinki-restaurants.jpg",
@@ -95,7 +128,7 @@ export default function CarRentalHelsinkiPage() {
       ctaLabel: "Restaurant planning →",
       ctaHref: "/helsinki/restaurants",
     },
-  ] as const;
+  ];
 
   return (
     <div className="bg-white">
@@ -108,7 +141,7 @@ export default function CarRentalHelsinkiPage() {
         secondaryCta={{ href: "/rental-terms-prices", label: "Open terms checklist" }}
       />
 
-      {/* INTRO (keep content) */}
+      {/* INTRO */}
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-12">
         <p className="text-xs font-semibold tracking-wide text-brand-text/60">
           Car rental / Helsinki
@@ -229,7 +262,7 @@ export default function CarRentalHelsinkiPage() {
         <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
       </Section>
 
-      {/* HELSINKI HUBS (NEW: image cards using OG images) */}
+      {/* HELSINKI HUBS */}
       <Section className="bg-brand-bluegray">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
           Helsinki booking hubs (quick routing)
@@ -239,15 +272,8 @@ export default function CarRentalHelsinkiPage() {
         </p>
 
         <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {helsinkiHubs.map((c) => (
-            <Card
-              key={c.title}
-              image={c.image}
-              title={c.title}
-              description={c.description}
-              ctaLabel={c.ctaLabel}
-              ctaHref={c.ctaHref}
-            />
+          {helsinkiHubs.map((hub) => (
+            <HubTile key={hub.title} hub={hub} />
           ))}
         </div>
       </Section>
