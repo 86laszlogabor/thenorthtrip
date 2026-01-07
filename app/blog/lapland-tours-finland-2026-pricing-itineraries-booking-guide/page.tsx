@@ -5,7 +5,22 @@ export const metadata: Metadata = {
   title: "Lapland Tours Finland 2026: Pricing, Itineraries & Booking Guide",
   description:
     "Plan Lapland tours 2026 with realistic costs, 7-day itineraries, husky safaris, Northern Lights tours, and smart Helsinki–Lapland logistics.",
+  openGraph: {
+    title: "Lapland Tours Finland 2026: Pricing, Itineraries & Booking Guide",
+    description:
+      "Realistic Lapland tour costs, base choice, a balanced 7-day plan, and booking rules that reduce regret in winter.",
+    images: ["/images/og/og-lapland-tours-finland-2026.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lapland Tours Finland 2026: Pricing, Itineraries & Booking Guide",
+    description:
+      "Realistic pricing, 7-day itineraries, and booking logic for Lapland tours in 2026.",
+    images: ["/images/og/og-lapland-tours-finland-2026.jpg"],
+  },
 };
+
+const slug = "lapland-tours-finland-2026-pricing-itineraries-booking-guide";
 
 export default function Page() {
   return (
@@ -15,7 +30,14 @@ export default function Page() {
         subtitle="Real pricing, realistic itineraries, and booking logic that actually works."
       />
 
-      <article className="prose prose-slate max-w-3xl mx-auto px-4 py-10">
+      <article className="prose prose-slate mx-auto max-w-3xl px-4 py-10">
+        <p className="text-sm text-slate-600">
+          <strong>Target keywords:</strong> Lapland tours 2026, Lapland tour pricing 2026, husky safari Lapland,
+          Northern Lights tours Finland, 7-day Lapland itinerary
+        </p>
+
+        <hr />
+
         <p>
           Lapland looks simple on social media. Snow, dogs, lights in the sky. In reality, it is one of the least
           forgiving winter destinations to plan badly.
@@ -33,13 +55,17 @@ export default function Page() {
         <hr />
 
         <h2>The core rule of Lapland planning</h2>
-        <p>
-          Successful Lapland trips follow three rules:
-        </p>
+        <p>Successful Lapland trips follow three rules:</p>
         <ul>
-          <li><strong>Choose one base.</strong> Moving every day wastes energy.</li>
-          <li><strong>Book the big tours first.</strong> Husky, snowmobile, aurora.</li>
-          <li><strong>Keep one buffer day.</strong> Winter always uses it.</li>
+          <li>
+            <strong>Choose one base.</strong> Moving every day wastes energy.
+          </li>
+          <li>
+            <strong>Book the big tours first.</strong> Husky, snowmobile, aurora.
+          </li>
+          <li>
+            <strong>Keep one buffer day.</strong> Winter always uses it.
+          </li>
         </ul>
 
         <hr />
@@ -47,19 +73,13 @@ export default function Page() {
         <h2>Choosing your Lapland base</h2>
 
         <h3>Rovaniemi</h3>
-        <p>
-          Best overall logistics, widest tour choice, easiest connection from Helsinki. Busier, but predictable.
-        </p>
+        <p>Best overall logistics, widest tour choice, easiest connection from Helsinki. Busier, but predictable.</p>
 
         <h3>Levi / Kittilä</h3>
-        <p>
-          Resort comfort, strong winter sports, polished operations. Less wild, more efficient.
-        </p>
+        <p>Resort comfort, strong winter sports, polished operations. Less wild, more efficient.</p>
 
         <h3>Saariselkä / Ivalo</h3>
-        <p>
-          Quieter, darker skies, stronger aurora atmosphere. Fewer services, higher transport complexity.
-        </p>
+        <p>Quieter, darker skies, stronger aurora atmosphere. Fewer services, higher transport complexity.</p>
 
         <hr />
 
@@ -97,15 +117,15 @@ export default function Page() {
         </table>
 
         <p>
-          Cheaper tours usually mean shorter routes, larger groups, or controlled circuits. Longer wilderness routes
-          cost more because they actually go somewhere.
+          Cheaper tours usually mean shorter routes, larger groups, or controlled circuits. Longer wilderness routes cost
+          more because they actually go somewhere.
         </p>
 
         <hr />
 
         <h2>7-day Lapland itinerary (first-timer balanced)</h2>
 
-        <h3>Day 1 – Arrival & reset</h3>
+        <h3>Day 1 – Arrival &amp; reset</h3>
         <p>Arrive, gear up, light walk, early sleep.</p>
 
         <h3>Day 2 – Husky safari</h3>
@@ -123,7 +143,7 @@ export default function Page() {
         <h3>Day 6 – Ice hotel or culture</h3>
         <p>Low-stress, visually strong day.</p>
 
-        <h3>Day 7 – Buffer & departure</h3>
+        <h3>Day 7 – Buffer &amp; departure</h3>
         <p>Reschedule, retry aurora, or rest.</p>
 
         <hr />
@@ -142,6 +162,13 @@ export default function Page() {
         <p>
           Lapland is not about stacking activities. It is about rhythm. One base, a few high-impact tours, real rest, and
           enough flexibility to let the Arctic behave like the Arctic.
+        </p>
+
+        <p className="text-sm text-slate-600">
+          <strong>Internal links:</strong>{" "}
+          <a href="/lapland-tours">Lapland tours hub</a> ·{" "}
+          <a href="/getting-around-finland">Getting around Finland</a> ·{" "}
+          <a href="/offer-checklist">Offer checklist</a>
         </p>
 
         <p className="text-sm text-slate-600">

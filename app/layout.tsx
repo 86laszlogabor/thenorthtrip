@@ -6,17 +6,6 @@ export const metadata = {
   metadataBase: new URL("https://thenorthtrip.com"),
   title: "TheNorthTrip",
   description: "Decision-first Finland travel.",
-  openGraph: {
-    title: "TheNorthTrip",
-    description: "Decision-first Finland travel.",
-    images: ["/images/og/og-default.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TheNorthTrip",
-    description: "Decision-first Finland travel.",
-    images: ["/images/og/og-default.jpg"],
-  },
 };
 
 export default function RootLayout({
@@ -28,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-white text-slate-900 antialiased">
         <SiteHeader />
-        {children}
+        <main>{children}</main>
         <SiteFooter />
       </body>
     </html>
