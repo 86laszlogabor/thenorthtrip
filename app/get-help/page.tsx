@@ -23,47 +23,94 @@ export const metadata = {
   },
 };
 
-type Tier = {
+type Service = {
   title: string;
-  who: string;
-  includes: string[];
+  subtitle: string;
+  bullets: string[];
   note: string;
+  icon: string;
+  mailSubject: string;
+  mailBody: string;
+  cta: string;
 };
 
-const tiers: Tier[] = [
+function mailto(subject: string, body: string) {
+  const s = encodeURIComponent(subject);
+  const b = encodeURIComponent(body);
+  return `mailto:hello@thenorthtrip.com?subject=${s}&body=${b}`;
+}
+
+const services: Service[] = [
   {
-    title: "Plan stress-test (fast)",
-    who: "You already have an itinerary and want to reduce fragility.",
-    includes: [
+    title: "Plan Stress-Test",
+    subtitle:
+      "You already have an itinerary. You want fewer brittle assumptions.",
+    bullets: [
       "Connection chain review (last services, buffers, day-one overload)",
-      "Winter fragility checks (pace, daylight, recovery margin)",
-      "Top 5 verification questions to send providers",
+      "Winter realism checks (pace, daylight, recovery margin)",
+      "5 provider questions to confirm in writing",
     ],
-    note: "No promises. Just risk-based pruning and verification prompts.",
+    note:
+      "No promises. Just risk-based pruning and verification prompts.",
+    icon: "🔍",
+    mailSubject: "TheNorthTrip – Plan Stress-Test",
+    mailBody:
+      "Hi TheNorthTrip,\n\nI’d like a Plan Stress-Test.\n\nLinks / itinerary:\n- \n\nConstraints:\n- Dates:\n- Budget range:\n- Winter comfort level:\n- Must-do items:\n\nQuestions / concerns:\n- \n\nThanks,",
+    cta: "Get a stress-test →",
   },
   {
-    title: "Rental & payment check",
-    who: "You’re booking rentals and want to avoid deposit/card surprises.",
-    includes: [
-      "Deposit and card-rule risk review",
-      "Pickup/return timing constraints review",
-      "A short “confirm in writing” checklist tailored to your booking",
+    title: "Rental Check",
+    subtitle:
+      "You’re booking a rental. You want to avoid deposit/card/timing surprises.",
+    bullets: [
+      "Deposit + card rule risk review (debit/credit, cardholder rules)",
+      "Pickup/return timing risks (desk hours, late arrival handling)",
+      "Short “confirm in writing” script tailored to your booking",
     ],
-    note: "Desk rules override aggregator summaries. We structure confirmations accordingly.",
+    note:
+      "Desk rules override aggregator summaries. We structure confirmations accordingly.",
+    icon: "💳",
+    mailSubject: "TheNorthTrip – Rental & Payment Check",
+    mailBody:
+      "Hi TheNorthTrip,\n\nI’d like a Rental & Payment Check.\n\nBooking links (provider + confirmation if available):\n- \n\nPickup details:\n- Location:\n- Date/time:\n- Flight (if applicable):\n\nPayment situation:\n- Debit/credit:\n- Backup card available? (yes/no)\n\nMain worry:\n- \n\nThanks,",
+    cta: "Check my booking →",
   },
   {
-    title: "Decision-first routing",
-    who: "You’re unsure which mode chain fits your tolerance and constraints.",
-    includes: [
-      "Mode tradeoff summary (train/bus/flight/rental)",
-      "Least-fragile chain recommendation (based on your constraints)",
-      "Fallback planning: what happens if you miss one segment",
+    title: "Decision Routing",
+    subtitle:
+      "You’re unsure which transport chain fits your tolerance and constraints.",
+    bullets: [
+      "Mode tradeoff summary (train/bus/flight/rental) based on your plan",
+      "Least-fragile chain recommendation (not maximum activity density)",
+      "Fallback plan: what to do if one segment fails",
     ],
-    note: "We optimize for fragility reduction, not maximum activity density.",
+    note:
+      "We optimize for fragility reduction, not maximum activity density.",
+    icon: "🧭",
+    mailSubject: "TheNorthTrip – Decision Routing Help",
+    mailBody:
+      "Hi TheNorthTrip,\n\nI’d like help choosing the least-fragile transport chain.\n\nPlan:\n- Start city:\n- End city:\n- Dates:\n- Fixed bookings (if any):\n\nConstraints:\n- Budget:\n- Winter comfort:\n- Must-do items:\n\nWhat I’m deciding between:\n- \n\nThanks,",
+    cta: "Help me choose →",
   },
 ];
 
+function ChecklistLine({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="flex gap-2">
+      <span className="mt-[2px] text-sm" aria-hidden="true">
+        ✅
+      </span>
+      <span>{children}</span>
+    </li>
+  );
+}
+
 export default function GetHelpPage() {
+  const defaultMail = mailto(
+    "TheNorthTrip – Help Request",
+    "Hi TheNorthTrip,\n\nI’d like a risk-based review before I pay.\n\nLinks / bookings:\n- \n\nConstraints:\n- Dates:\n- Budget:\n- Winter comfort level:\n- Must-do items:\n\nWhat feels fragile:\n- \n\nThanks,"
+  );
+
   return (
     <div className="bg-white">
       <PageHero
@@ -72,78 +119,109 @@ export default function GetHelpPage() {
         subtitle="We don’t promise outcomes. We reduce brittle assumptions: deposits, timing constraints, winter fragility, and desk-level rules."
         imageSrc="/images/hero/hero-get-help.jpg"
         primaryCta={{
-          href: "mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request",
-          label: "Email: hello@thenorthtrip.com",
+          href: defaultMail,
+          label: "Email us (hello@thenorthtrip.com)",
         }}
-        secondaryCta={{ href: "/offer-checklist", label: "Start with the checklist" }}
+        secondaryCta={{
+          href: "/offer-checklist",
+          label: "Start with the checklist",
+        }}
       />
 
       <Section>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Get help</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+          What we do here
+        </h2>
         <p className="mt-3 max-w-3xl text-sm text-brand-text/70">
-          If you want a calm, risk-based review before you pay, this is it. The goal is not perfection. It’s fewer brittle assumptions.
+          Finland trips don’t usually fail loudly. They fail quietly: desk rules, timing gaps, winter buffers,
+          and assumptions that don’t survive contact with reality. If you want a calm review before you pay,
+          pick one of the options below.
         </p>
 
+        {/* services */}
         <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-3">
-          {tiers.map((t) => (
-            <Card key={t.title} className="flex flex-col p-6">
-              <h3 className="text-lg font-semibold">{t.title}</h3>
-              <p className="mt-2 text-sm text-brand-text/70">
-                <span className="font-semibold">Best for:</span> {t.who}
-              </p>
+          {services.map((s) => (
+            <Card key={s.title} className="flex flex-col p-6">
+              <div className="flex items-start gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-slate-50">
+                  <span className="text-lg" aria-hidden="true">
+                    {s.icon}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {s.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-brand-text/70">
+                    {s.subtitle}
+                  </p>
+                </div>
+              </div>
 
-              <ul className="mt-3 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
-                {t.includes.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold text-slate-900">
+                  What you get
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-brand-text/70">
+                  {s.bullets.map((b) => (
+                    <ChecklistLine key={b}>{b}</ChecklistLine>
+                  ))}
+                </ul>
+              </div>
 
-              <p className="mt-4 text-xs text-brand-text/60">{t.note}</p>
+              <p className="mt-4 text-xs text-brand-text/60">{s.note}</p>
 
               <div className="mt-auto pt-5">
                 <CtaButton
-                  href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
+                  href={mailto(s.mailSubject, s.mailBody)}
                   variant="success"
                   className="w-full"
                 >
-                  Request this review
+                  {s.cta}
                 </CtaButton>
               </div>
             </Card>
           ))}
         </div>
 
+        {/* how it works + boundaries */}
         <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
           <Card className="p-6 bg-slate-50">
-            <h3 className="text-lg font-semibold">How to request help</h3>
+            <h3 className="text-lg font-semibold text-slate-900">
+              How to request help (fast)
+            </h3>
+
             <ol className="mt-3 list-decimal pl-5 text-sm text-brand-text/70 space-y-2">
-              <li>Send your itinerary or booking links.</li>
-              <li>State your constraints (budget, winter comfort, risk tolerance, fixed dates).</li>
-              <li>We reply with a structured risk review and the exact verification questions.</li>
+              <li>Paste links (itinerary, bookings, provider pages).</li>
+              <li>State constraints: dates, budget, winter comfort level.</li>
+              <li>We reply with a structured risk review + copy-paste questions to confirm in writing.</li>
             </ol>
 
             <div className="mt-5 flex flex-col sm:flex-row gap-3">
-              <a
-                href="mailto:hello@thenorthtrip.com?subject=TheNorthTrip%20Help%20Request"
-                className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-white font-semibold hover:bg-orange-700"
-              >
+              <CtaButton href={defaultMail} variant="primary" className="w-full sm:w-auto">
                 Email now
-              </a>
-              <Link
-                href="/offer-checklist"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-slate-900 font-semibold hover:bg-white"
-              >
-                Start with the checklist
-              </Link>
+              </CtaButton>
+              <CtaButton href="/offer-checklist" variant="outline" className="w-full sm:w-auto">
+                Open checklist
+              </CtaButton>
             </div>
           </Card>
 
           <Card className="p-6">
-            <h3 className="text-lg font-semibold">What this is (and isn’t)</h3>
-            <ul className="mt-3 list-disc pl-5 text-sm text-brand-text/70 space-y-2">
-              <li>We don’t guarantee outcomes (weather, operators, availability).</li>
-              <li>We focus on verification and fragility reduction.</li>
-              <li>If a rule matters, we push you to confirm it in writing with the enforcing provider.</li>
+            <h3 className="text-lg font-semibold text-slate-900">
+              What this is (and isn’t)
+            </h3>
+
+            <ul className="mt-3 space-y-2 text-sm text-brand-text/70">
+              <ChecklistLine>
+                We don’t guarantee outcomes (weather, operators, availability).
+              </ChecklistLine>
+              <ChecklistLine>
+                We focus on verification and fragility reduction.
+              </ChecklistLine>
+              <ChecklistLine>
+                If a rule matters, you confirm it in writing with the enforcing provider.
+              </ChecklistLine>
             </ul>
 
             <div className="mt-5">
@@ -154,7 +232,7 @@ export default function GetHelpPage() {
           </Card>
         </div>
 
-        <p className="mt-6 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+        <p className="mt-6 text-xs text-brand-text/60">Last verified: 2026-01-09</p>
       </Section>
     </div>
   );

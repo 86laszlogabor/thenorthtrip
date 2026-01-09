@@ -24,10 +24,43 @@ export const metadata = {
 };
 
 const rules = [
-  { title: "One sauna anchor per day", body: "Pick one main sauna and route the day around it. Don’t stack time-sensitive blocks." },
-  { title: "Assume +45 minutes friction", body: "Parking, walking, queues, changing. Add friction by default and surprises disappear." },
-  { title: "Sauna last if you’re driving", body: "Wet gear + winter transitions + timing. Sauna last prevents cascading delays." },
-];
+  {
+    title: "One sauna anchor per day",
+    body: "Pick one main sauna and route the day around it. Stacking time-sensitive blocks is how plans snap.",
+    icon: "🧭",
+  },
+  {
+    title: "Assume +45 minutes of friction",
+    body: "Parking, walking, queues, changing. Add it by default and the evening stops surprising you.",
+    icon: "⏱️",
+  },
+  {
+    title: "If you drive: sauna last",
+    body: "Wet gear + winter transitions + peak-hour timing. Putting sauna last prevents cascading delays.",
+    icon: "🚗",
+  },
+] as const;
+
+const decisionRows = [
+  { day: "City-only day", better: "Transit + walking", why: "Avoids the parking tax" },
+  { day: "Day trip + sauna", better: "Sauna last", why: "Prevents time collisions" },
+  { day: "Peak hour evening", better: "Reserve + arrive early", why: "Queues are predictable" },
+] as const;
+
+function Pill({
+  icon,
+  children,
+}: {
+  icon: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm">
+      <span aria-hidden="true">{icon}</span>
+      <span>{children}</span>
+    </div>
+  );
+}
 
 export default function HelsinkiSaunaPage() {
   return (
@@ -38,7 +71,7 @@ export default function HelsinkiSaunaPage() {
         subtitle="The hidden friction is parking + peak hours. Route it like a plan, not an afterthought."
         imageSrc="/images/hero/hero-helsinki-sauna.jpg"
         primaryCta={{ href: "/helsinki/city-mobility", label: "City mobility checklist" }}
-        secondaryCta={{ href: "/car-rental-helsinki", label: "Back to car rental hub" }}
+        secondaryCta={{ href: "/car-rental-helsinki", label: "Car rental planning" }}
       />
 
       <Section>
@@ -55,74 +88,99 @@ export default function HelsinkiSaunaPage() {
           Use a simple routing model and your day stays intact.
         </p>
 
+        <div className="mt-6 flex flex-wrap gap-2">
+          <Pill icon="🧭">One anchor</Pill>
+          <Pill icon="⏱️">+45 min friction</Pill>
+          <Pill icon="🚗">Sauna last if driving</Pill>
+        </div>
+
         <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {rules.map((r) => (
-            <Card key={r.title}>
-              <h3 className="text-lg font-semibold">{r.title}</h3>
-              <p className="mt-3 text-sm text-brand-text/70">{r.body}</p>
+            <Card key={r.title} className="p-6">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white">
+                  <span aria-hidden="true">{r.icon}</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{r.title}</h3>
+                  <p className="mt-2 text-sm text-brand-text/70">{r.body}</p>
+                </div>
+              </div>
             </Card>
           ))}
         </div>
 
         <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
-          <Card>
+          <Card className="p-6">
             <h3 className="text-lg font-semibold">Decision table</h3>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full text-sm">
+            <p className="mt-2 text-sm text-brand-text/70">
+              Defaults that stop the end-of-day timing spiral.
+            </p>
+
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
+              <table className="w-full text-sm bg-white">
                 <thead>
                   <tr className="text-left text-brand-text/70 border-b border-slate-200">
-                    <th className="py-2 pr-4">Your day</th>
-                    <th className="py-2 pr-4">Better move</th>
-                    <th className="py-2">Why</th>
+                    <th className="py-3 px-4">Your day</th>
+                    <th className="py-3 px-4">Better move</th>
+                    <th className="py-3 px-4">Why</th>
                   </tr>
                 </thead>
                 <tbody className="text-brand-text/70">
-                  <tr className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">City-only day</td>
-                    <td className="py-2 pr-4">Transit + walking</td>
-                    <td className="py-2">Avoids parking tax</td>
-                  </tr>
-                  <tr className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">Day trip + sauna</td>
-                    <td className="py-2 pr-4">Sauna last</td>
-                    <td className="py-2">Prevents time collisions</td>
-                  </tr>
-                  <tr className="border-b border-slate-200">
-                    <td className="py-2 pr-4 font-medium">Peak hour evening</td>
-                    <td className="py-2 pr-4">Reserve + arrive early</td>
-                    <td className="py-2">Queues are predictable</td>
-                  </tr>
+                  {decisionRows.map((r) => (
+                    <tr key={r.day} className="border-b border-slate-200 last:border-b-0">
+                      <td className="py-3 px-4 font-medium">{r.day}</td>
+                      <td className="py-3 px-4">{r.better}</td>
+                      <td className="py-3 px-4">{r.why}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </Card>
 
-          <Card className="flex flex-col">
-            <h3 className="text-lg font-semibold">Internal routes</h3>
-            <div className="mt-4 grid gap-3 text-sm">
-              <Link href="/helsinki/restaurants" className="font-semibold hover:underline text-brand-text/70">
-                Restaurant planning →
+          <Card className="flex flex-col p-6 bg-slate-50">
+            <h3 className="text-lg font-semibold">Useful next steps</h3>
+            <p className="mt-2 text-sm text-brand-text/70">
+              Keep the chain simple. Remove fragile assumptions first, then lock the details.
+            </p>
+
+            <div className="mt-5 grid gap-3 text-sm">
+              <Link
+                href="/helsinki/restaurants"
+                className="inline-flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                <span>Restaurant planning</span>
+                <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/helsinki/sightseeing" className="font-semibold hover:underline text-brand-text/70">
-                Sightseeing hubs →
+              <Link
+                href="/helsinki/sightseeing"
+                className="inline-flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                <span>Sightseeing planning</span>
+                <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/rental-terms-prices" className="font-semibold hover:underline text-brand-text/70">
-                Rental terms checklist →
+              <Link
+                href="/rental-terms-prices"
+                className="inline-flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-900 hover:bg-slate-50"
+              >
+                <span>Rental terms that bite</span>
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
 
-            <div className="mt-auto pt-5 grid gap-3">
+            <div className="mt-auto pt-6 grid gap-3">
               <CtaButton href="/get-help" variant="success" className="w-full">
-                Get Help
+                Get help
               </CtaButton>
-              <CtaButton href="/car-rental-helsinki" variant="outline" className="w-full">
-                Back to car rental hub
+              <CtaButton href="/helsinki/city-mobility" variant="outline" className="w-full">
+                City mobility checklist
               </CtaButton>
             </div>
           </Card>
         </div>
 
-        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2026-01-09</p>
       </Section>
     </div>
   );

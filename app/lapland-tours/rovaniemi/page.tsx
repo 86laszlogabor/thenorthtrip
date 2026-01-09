@@ -52,7 +52,25 @@ export default function RovaniemiHubPage() {
       <Section>
         <p className="text-xs font-semibold tracking-wide text-brand-text/60">Lapland / Rovaniemi</p>
 
-        <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">What to book here (without overbooking)</h2>
+        {/* Verified city facts (no opinions, no expiry) */}
+        <div className="mt-4 flex flex-wrap gap-2 text-xs text-brand-text/70">
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Official Hometown of Santa Claus
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Santa Claus Village on the Arctic Circle
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Santa Claus Village ~8 km from city centre
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            City at the confluence of Kemijoki + Ounasjoki
+          </span>
+        </div>
+
+        <h2 className="mt-8 text-2xl md:text-4xl font-semibold tracking-tight">
+          What to book here (without overbooking)
+        </h2>
 
         <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tourTypes.map((t) => (
@@ -108,7 +126,7 @@ export default function RovaniemiHubPage() {
           </Card>
         </div>
 
-        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2026-01-09</p>
       </Section>
     </div>
   );

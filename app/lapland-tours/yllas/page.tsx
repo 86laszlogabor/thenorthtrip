@@ -24,10 +24,22 @@ export const metadata = {
 };
 
 const points = [
-  { title: "Distance is the theme", body: "Routes are wider. Travel time is part of your day, not a footnote." },
-  { title: "Weather variance matters", body: "Your plan should survive a slower day. Build slack." },
-  { title: "Outdoor density", body: "Great if you want nature. Don’t overschedule tour slots." },
-  { title: "Gear included (or not)", body: "Verify clothing and boots. Missing gear is the fastest way to hate Lapland." },
+  {
+    title: "Distance is the theme",
+    body: "Routes are wider. Travel time is part of your day, not a footnote.",
+  },
+  {
+    title: "Weather variance matters",
+    body: "Your plan should survive a slower day. Build slack.",
+  },
+  {
+    title: "Outdoor density",
+    body: "Great if you want nature. Don’t overschedule tour slots.",
+  },
+  {
+    title: "Gear included (or not)",
+    body: "Verify clothing and boots. Missing gear is the fastest way to hate Lapland.",
+  },
 ];
 
 export default function YllasHubPage() {
@@ -43,7 +55,25 @@ export default function YllasHubPage() {
       />
 
       <Section>
-        <p className="text-xs font-semibold tracking-wide text-brand-text/60">Lapland / Ylläs</p>
+        <p className="text-xs font-semibold tracking-wide text-brand-text/60">
+          Lapland / Ylläs
+        </p>
+
+        {/* Facts badges (E-E-A-T polish, matches Rovaniemi pattern) */}
+        <div className="mt-4 flex flex-wrap gap-2 text-xs text-brand-text/70">
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Largest ski area Finland
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Pallas-Ylläs National Park
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            330km north Rovaniemi
+          </span>
+          <span className="rounded-full border border-slate-200 px-3 py-1">
+            Strong aurora location
+          </span>
+        </div>
 
         <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {points.map((p) => (
@@ -52,6 +82,7 @@ export default function YllasHubPage() {
               <p className="mt-3 text-sm text-brand-text/70">{p.body}</p>
             </Card>
           ))}
+
           <Card className="flex flex-col">
             <h3 className="text-lg font-semibold">Safe booking path</h3>
             <p className="mt-3 text-sm text-brand-text/70">
@@ -69,15 +100,26 @@ export default function YllasHubPage() {
           <Card className="flex flex-col">
             <h3 className="text-lg font-semibold">Internal routes</h3>
             <div className="mt-4 grid gap-3 text-sm">
-              <Link href="/lapland-tours/partners/getyourguide" className="font-semibold hover:underline text-brand-text/70">
+              <Link
+                href="/lapland-tours/partners/getyourguide"
+                className="font-semibold hover:underline text-brand-text/70"
+              >
                 Browse via GetYourGuide →
               </Link>
-              <Link href="/lapland-tours/partners/viator" className="font-semibold hover:underline text-brand-text/70">
+              <Link
+                href="/lapland-tours/partners/viator"
+                className="font-semibold hover:underline text-brand-text/70"
+              >
                 Browse via Viator →
               </Link>
             </div>
+
             <div className="mt-auto pt-5">
-              <CtaButton href="/lapland-tours/destinations" variant="outline" className="w-full">
+              <CtaButton
+                href="/lapland-tours/destinations"
+                variant="outline"
+                className="w-full"
+              >
                 Back to destinations
               </CtaButton>
             </div>
@@ -91,7 +133,8 @@ export default function YllasHubPage() {
           </Card>
         </div>
 
-        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2025-12-31</p>
+        {/* Updated verification date */}
+        <p className="mt-8 text-xs text-brand-text/60">Last verified: 2026-01-09</p>
       </Section>
     </div>
   );
