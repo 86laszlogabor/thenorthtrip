@@ -31,7 +31,7 @@ const checks = [
  },
  {
  title: "Handover buffer",
- body: "Still expect walkthrough + paperwork. Don’t plan tight first-day routes.",
+ body: "Still expect walkthrough + paperwork. Donâ€™t plan tight first-day routes.",
  icon: "??",
  },
  {
@@ -50,7 +50,7 @@ const nextSteps = [
  {
  label: "Southern lakes route",
  href: "/camper-rental-finland/routes/southern-lakes",
- note: "The ‘slow win’ route. Short days, early stops, certainty over improvisation.",
+ note: "The â€˜slow winâ€™ route. Short days, early stops, certainty over improvisation.",
  icon: "??",
  },
  {
@@ -91,7 +91,7 @@ export default function CamperStationTampereTurkuPage() {
  <PageHero
  variant="home"
  title="Tampere/Turku stations: a cleaner start for southern routes."
- subtitle="Use these stations when your route doesn’t need Helsinki. The same rules still apply: buffer and certainty."
+ subtitle="Use these stations when your route doesnâ€™t need Helsinki. The same rules still apply: buffer and certainty."
  imageSrc="/images/hero/hero-finland-lakes.jpg"
  primaryCta={{ href: "/camper-rental-finland", label: "Camper rentals" }}
  secondaryCta={{
@@ -102,7 +102,7 @@ export default function CamperStationTampereTurkuPage() {
 
  <Section>
  <p className="text-xs font-semibold tracking-wide text-brand-text/60">
- Camper / Stations / Tampere–Turku
+ Camper / Stations / Tampereâ€“Turku
  </p>
 
  <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">

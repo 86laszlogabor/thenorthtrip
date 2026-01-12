@@ -46,14 +46,14 @@ const quickChecks = [
 ];
 
 const priceRows = [
- { item: "Winter-capable camper (planning band)", value: "€110–180 / night" },
+ { item: "Winter-capable camper (planning band)", value: "â‚¬110â€“180 / night" },
  { item: "Most common cost spike", value: "Late booking + peak weeks" },
  { item: "Stress reducer", value: "Power hookup access + realistic buffers" },
 ];
 
 const winterReady = [
  "Reliable heating that protects living space and systems",
- "Proper winter tyres (and you know what you’re getting)",
+ "Proper winter tyres (and you know what youâ€™re getting)",
  "Insulation + thermal covers (cab + windows matter)",
  "Basic winter equipment (visibility, traction, emergency basics)",
 ];
@@ -70,24 +70,24 @@ const itinerary = [
  note: "Keep it modest. Treat this as transit, not sightseeing marathon.",
  },
  {
- day: "3–4",
+ day: "3â€“4",
  base: "Rovaniemi",
  note: "Two-night base. Build buffers. Avoid stacking tight time windows.",
  },
  {
- day: "5–6",
- base: "Levi / Ylläs area",
+ day: "5â€“6",
+ base: "Levi / YllÃ¤s area",
  note: "Another two-night base. Choose activities that match daylight + energy.",
  },
  {
- day: "7–8",
- base: "Inari / Saariselkä",
+ day: "7â€“8",
+ base: "Inari / SaariselkÃ¤",
  note: "Remote feel, fewer fallbacks. Plan slack and confirm meeting points.",
  },
  {
  day: "9",
  base: "Return leg",
- note: "Do not gamble on ‘last-day hero drive’. Winter punishes optimism.",
+ note: "Do not gamble on â€˜last-day hero driveâ€™. Winter punishes optimism.",
  },
  {
  day: "10",
@@ -103,18 +103,18 @@ const faqs = [
  },
  {
  q: "Is winter camper travel actually comfortable?",
- a: "Yes, if the heating and power plan are real. No, if you assume “it’ll be fine” and discover the limits at -15°C.",
+ a: "Yes, if the heating and power plan are real. No, if you assume â€œitâ€™ll be fineâ€ and discover the limits at -15Â°C.",
  },
  {
  q: "Can you wild-camp in winter like in summer?",
- a: "Freedom exists, but it’s narrower. Think legality, access, snow clearance, and not blocking anyone’s day. Plan overnight stops that stay viable in bad weather.",
+ a: "Freedom exists, but itâ€™s narrower. Think legality, access, snow clearance, and not blocking anyoneâ€™s day. Plan overnight stops that stay viable in bad weather.",
  },
  {
- q: "What’s the #1 mistake with pickup day?",
+ q: "Whatâ€™s the #1 mistake with pickup day?",
  a: "Driving too far immediately. Use day one to test heating, power, and how the vehicle behaves. Fixing problems near Helsinki is easier than in the north.",
  },
  {
- q: "What’s the simplest way to reduce risk?",
+ q: "Whatâ€™s the simplest way to reduce risk?",
  a: "Two-night bases + short driving days + one deliberate buffer day. Winter rewards calm planning.",
  },
 ];
@@ -159,7 +159,7 @@ export default function Page() {
  <Section>
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
- <span className="font-medium">Blog</span> ·{" "}
+ <span className="font-medium">Blog</span> Â·{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
 
@@ -183,7 +183,7 @@ export default function Page() {
  <article className="max-w-none">
  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
  <span className="h-2 w-2 rounded-full bg-emerald-500" />
- Practical guide · winter-first planning
+ Practical guide Â· winter-first planning
  </div>
 
  <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
@@ -198,7 +198,7 @@ export default function Page() {
 
  {/* Key metrics strip */}
  <div className="mt-6 grid gap-3 sm:grid-cols-3">
- <InfoStrip label="Planning cost band" value="€110–180 / night" />
+ <InfoStrip label="Planning cost band" value="â‚¬110â€“180 / night" />
  <InfoStrip label="Route style" value="Two-night bases + buffers" />
  <InfoStrip label="Pickup strategy" value="Test day, then go north" />
  </div>
@@ -216,7 +216,7 @@ export default function Page() {
  <h2 className="text-lg font-semibold text-slate-900">In this guide</h2>
  <div className="mt-4 grid gap-2 text-sm text-slate-700 md:grid-cols-2">
  <a className="hover:underline" href="#who">Who this is for</a>
- <a className="hover:underline" href="#winter-ready">What “winter-ready” means</a>
+ <a className="hover:underline" href="#winter-ready">What â€œwinter-readyâ€ means</a>
  <a className="hover:underline" href="#price">Price reality (Winter 2026)</a>
  <a className="hover:underline" href="#pickup">Helsinki pickup reality</a>
  <a className="hover:underline" href="#4x4">Do you need 4x4?</a>
@@ -236,7 +236,7 @@ export default function Page() {
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  This is for travellers who want independence, accept planning, and respect winter constraints.
- It’s not for summer-style roaming with “we’ll figure it out” energy.
+ Itâ€™s not for summer-style roaming with â€œweâ€™ll figure it outâ€ energy.
  </p>
 
  <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -244,8 +244,8 @@ export default function Page() {
  <p className="text-xs font-medium text-slate-500">Good fit if</p>
  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
  <li>You can drive calmly on snow and in darkness.</li>
- <li>You’ll build buffers instead of gambling on timings.</li>
- <li>You’re happy with “warm and functional” over “luxury”.</li>
+ <li>Youâ€™ll build buffers instead of gambling on timings.</li>
+ <li>Youâ€™re happy with â€œwarm and functionalâ€ over â€œluxuryâ€.</li>
  </ul>
  </Card>
  <Card className="p-6">
@@ -263,7 +263,7 @@ export default function Page() {
  <section>
  <Anchor id="winter-ready" />
  <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
- What “winter-ready” actually means
+ What â€œwinter-readyâ€ actually means
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  Ignore marketing labels. Verify systems. In winter, one weak link becomes the entire trip.
@@ -284,8 +284,8 @@ export default function Page() {
  What to confirm in writing
  </h3>
  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
- <li>Heating type and how it’s used overnight.</li>
- <li>What’s included (power cables, shovel, scraper, etc.).</li>
+ <li>Heating type and how itâ€™s used overnight.</li>
+ <li>Whatâ€™s included (power cables, shovel, scraper, etc.).</li>
  <li>How freezing protection works for water systems.</li>
  <li>Roadside assistance details and limits.</li>
  </ul>
@@ -302,8 +302,8 @@ export default function Page() {
 
  <p className="mt-3 max-w-3xl text-slate-700">
  A realistic planning band for winter-capable campers sits around{" "}
- <strong>€110–180 per night</strong>, depending on vehicle, timing, and pickup location.
- Heating and power access are not optional “nice-to-haves”.
+ <strong>â‚¬110â€“180 per night</strong>, depending on vehicle, timing, and pickup location.
+ Heating and power access are not optional â€œnice-to-havesâ€.
  </p>
 
  <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -326,7 +326,7 @@ export default function Page() {
  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
  <h3 className="text-base font-semibold text-slate-900">Planning rule</h3>
  <p className="mt-2 text-sm text-slate-700">
- If a provider is vague about winter capability, treat it as a “no”. Winter punishes assumptions quietly.
+ If a provider is vague about winter capability, treat it as a â€œnoâ€. Winter punishes assumptions quietly.
  </p>
  </div>
  </section>
@@ -384,7 +384,7 @@ export default function Page() {
 
  <p className="mt-3 max-w-3xl text-slate-700">
  Decide early how dependent you want to be on onboard plumbing. Power hookups reduce stress massively.
- If you rely on water systems, you also rely on temperatures staying friendly. Winter doesn’t care.
+ If you rely on water systems, you also rely on temperatures staying friendly. Winter doesnâ€™t care.
  </p>
 
  <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -393,13 +393,13 @@ export default function Page() {
  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
  <li>Prioritize power hookups when possible.</li>
  <li>Keep driving days shorter than your ego wants.</li>
- <li>Don’t stack tight schedules in darkness.</li>
+ <li>Donâ€™t stack tight schedules in darkness.</li>
  </ul>
  </Card>
  <Card className="p-6">
  <h3 className="text-base font-semibold text-slate-900">Simple rule</h3>
  <p className="mt-2 text-sm text-slate-700">
- If you’re unsure: prioritize warmth + power access over “freedom parking”. Comfort keeps the trip alive.
+ If youâ€™re unsure: prioritize warmth + power access over â€œfreedom parkingâ€. Comfort keeps the trip alive.
  </p>
  </Card>
  </div>
@@ -413,7 +413,7 @@ export default function Page() {
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  Winter overnighting is about legality, access, and not blocking snow clearance. Freedom exists, but
- it’s narrower than in summer. Pick places that remain viable when conditions change.
+ itâ€™s narrower than in summer. Pick places that remain viable when conditions change.
  </p>
  <div className="mt-5 grid gap-4 md:grid-cols-2">
  <Card className="p-6">
@@ -429,7 +429,7 @@ export default function Page() {
  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
  <li>Never block snow clearance routes</li>
  <li>Respect signage and private property</li>
- <li>Choose safety over “perfect photos”</li>
+ <li>Choose safety over â€œperfect photosâ€</li>
  </ul>
  </Card>
  </div>
@@ -469,7 +469,7 @@ export default function Page() {
  <Card className="p-6">
  <h3 className="text-base font-semibold text-slate-900">The buffer rule</h3>
  <p className="mt-2 text-sm text-slate-700">
- Build at least one deliberate flex day so weather doesn’t delete your best experience.
+ Build at least one deliberate flex day so weather doesnâ€™t delete your best experience.
  </p>
  </Card>
  <Card className="p-6">
@@ -510,8 +510,8 @@ export default function Page() {
  Conclusion
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
- Winter camper travel in Finland isn’t about bravery. It’s about preparation. Do it right and the
- Arctic feels vast, quiet, and deeply personal. Do it casually and you’ll spend money fixing avoidable
+ Winter camper travel in Finland isnâ€™t about bravery. Itâ€™s about preparation. Do it right and the
+ Arctic feels vast, quiet, and deeply personal. Do it casually and youâ€™ll spend money fixing avoidable
  problems.
  </p>
 
@@ -521,11 +521,11 @@ export default function Page() {
  <Link className="font-semibold hover:underline" href="/camper-rental-finland">
  Camper rental Finland
  </Link>{" "}
- ·{" "}
+ Â·{" "}
  <Link className="font-semibold hover:underline" href="/offer-checklist">
  Offer checklist
  </Link>{" "}
- ·{" "}
+ Â·{" "}
  <Link className="font-semibold hover:underline" href="/lapland-tours">
  Lapland tours
  </Link>
@@ -544,32 +544,32 @@ export default function Page() {
  Want fewer surprises and cleaner booking decisions?
  </h3>
  <p className="mt-2 max-w-3xl text-sm text-slate-700">
- Use the booking pages and verify the trip-critical details before paying. Winter doesn’t do refunds.
+ Use the booking pages and verify the trip-critical details before paying. Winter doesnâ€™t do refunds.
  </p>
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/camper-rental-finland" variant="primary">
- Camper rental overview →
+ Camper rental overview â†’
  </CtaButton>
  <CtaButton href="/offer-checklist" variant="outline">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/car-rental-helsinki" variant="outline">
- Car rental Helsinki →
+ Car rental Helsinki â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline text-slate-700">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
- Get help →
+ Get help â†’
  </Link>
  </div>
 
@@ -603,14 +603,14 @@ export default function Page() {
  <Card className="p-6">
  <h2 className="text-base font-semibold text-slate-900">Start here if booking</h2>
  <p className="mt-2 text-sm text-slate-700">
- Use these pages to avoid the classic “everything looked fine online” moment.
+ Use these pages to avoid the classic â€œeverything looked fine onlineâ€ moment.
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/camper-rental-finland" variant="primary" className="w-full">
- Camper rental overview →
+ Camper rental overview â†’
  </CtaButton>
  <CtaButton href="/offer-checklist" variant="outline" className="w-full">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  </div>
  </Card>
@@ -622,11 +622,11 @@ export default function Page() {
  </p>
  <div className="mt-4 text-sm">
  <Link href="/policy" className="font-semibold text-slate-700 hover:underline">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold text-slate-700 hover:underline">
- Get help →
+ Get help â†’
  </Link>
  </div>
  </Card>

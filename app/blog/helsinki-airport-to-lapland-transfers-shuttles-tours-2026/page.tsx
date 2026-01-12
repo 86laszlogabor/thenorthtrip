@@ -67,15 +67,15 @@ const decisionRows = [
  {
  option: "Connecting flight",
  time: "Fastest",
- friction: "Low–medium",
- bestFor: "3–5 day trips, families, fixed tour schedules",
+ friction: "Lowâ€“medium",
+ bestFor: "3â€“5 day trips, families, fixed tour schedules",
  risk: "Baggage rules + last-mile timing",
  },
  {
  option: "Night train (via Helsinki city)",
  time: "Overnight (sleep while moving)",
  friction: "Medium",
- bestFor: "6–10 day trips, comfort-first winter planning",
+ bestFor: "6â€“10 day trips, comfort-first winter planning",
  risk: "Cabins sell out, needs a city transfer step",
  },
  {
@@ -83,7 +83,7 @@ const decisionRows = [
  time: "End-to-end outcome",
  friction: "Lowest",
  bestFor: "First-timers, limited planning time, fixed dates",
- risk: "Low flexibility, you’re locked into the schedule",
+ risk: "Low flexibility, youâ€™re locked into the schedule",
  },
  {
  option: "Self-drive from HEL",
@@ -103,7 +103,7 @@ const arrivalRows = [
  {
  method: "Public bus (seasonal / timetable-based)",
  outcome: "Budget-friendly when it lines up",
- tradeoff: "Unforgiving if it doesn’t match your arrival",
+ tradeoff: "Unforgiving if it doesnâ€™t match your arrival",
  },
  {
  method: "Private transfer",
@@ -218,7 +218,7 @@ export default function Page() {
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
  <span className="font-medium text-slate-900">Blog</span>{" "}
- <span className="text-slate-300">·</span>{" "}
+ <span className="text-slate-300">Â·</span>{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
 
@@ -314,10 +314,10 @@ export default function Page() {
  <Anchor id="reality-check" />
  <h2>First reality check</h2>
  <p>
- Helsinki Airport is not Lapland. Lapland starts hundreds of kilometres north. A “direct transfer” on
+ Helsinki Airport is not Lapland. Lapland starts hundreds of kilometres north. A â€œdirect transferâ€ on
  arrival day usually means a misunderstanding that costs time and energy.
  </p>
- <p>When people search “HEL airport Lapland transfer”, they usually mean one of four things:</p>
+ <p>When people search â€œHEL airport Lapland transferâ€, they usually mean one of four things:</p>
  <ul>
  <li>a connecting flight north</li>
  <li>a train connection (often overnight)</li>
@@ -338,7 +338,7 @@ export default function Page() {
  <p>Every airport-to-Lapland movement fits one of these:</p>
  <ul>
  <li>fly north from Helsinki Airport</li>
- <li>train north after an airport → city transfer</li>
+ <li>train north after an airport â†’ city transfer</li>
  <li>join a Lapland tour with transfers included</li>
  <li>self-drive (only with staging)</li>
  </ul>
@@ -361,7 +361,7 @@ export default function Page() {
  <Anchor id="option-fly" />
  <h2>Option 1: Flying north (fastest and cleanest)</h2>
  <p>
- For most travellers, the simplest HEL airport → Lapland route is another flight. You land, connect,
+ For most travellers, the simplest HEL airport â†’ Lapland route is another flight. You land, connect,
  and arrive north quickly.
  </p>
  <p>
@@ -374,7 +374,7 @@ export default function Page() {
  <Anchor id="option-train" />
  <h2>Option 2: Train connections (sleep your way north)</h2>
  <p>
- Trains are Finland’s quiet superpower. You don’t board Lapland trains at the airport: you first
+ Trains are Finlandâ€™s quiet superpower. You donâ€™t board Lapland trains at the airport: you first
  transfer into the city, then continue north.
  </p>
  <p>
@@ -388,7 +388,7 @@ export default function Page() {
  <h2>Option 3: Lapland tours with transfers included</h2>
  <p>
  Many Lapland packages bundle transport, Lapland transfers, accommodation and activities. In these
- cases, you’re buying an outcome: “arrive and start”.
+ cases, youâ€™re buying an outcome: â€œarrive and startâ€.
  </p>
  <p>Best for first-timers and limited-time trips. Worst for travellers who want flexibility.</p>
 
@@ -414,7 +414,7 @@ export default function Page() {
  <h2>Arrival in Lapland: the second transfer problem</h2>
  <p>
  Getting to Lapland is only half the job. You still need to reach your accommodation. In winter, the
- “last mile” is where time disappears.
+ â€œlast mileâ€ is where time disappears.
  </p>
 
  <DataTable
@@ -446,7 +446,7 @@ export default function Page() {
  <Anchor id="conclusion" />
  <h2>Conclusion</h2>
  <p>
- Helsinki Airport → Lapland transfers aren’t complicated. They’re structured. Choose deliberately: fast
+ Helsinki Airport â†’ Lapland transfers arenâ€™t complicated. Theyâ€™re structured. Choose deliberately: fast
  when time matters, shared when structure matters, private when comfort matters.
  </p>
 
@@ -456,11 +456,11 @@ export default function Page() {
  <Link href="/getting-around-finland" className="font-semibold hover:underline underline-offset-4">
  Getting around Finland
  </Link>{" "}
- <span className="mx-2 text-slate-300">·</span>
+ <span className="mx-2 text-slate-300">Â·</span>
  <Link href="/lapland-tours" className="font-semibold hover:underline underline-offset-4">
  Lapland tours
  </Link>{" "}
- <span className="mx-2 text-slate-300">·</span>
+ <span className="mx-2 text-slate-300">Â·</span>
  <Link href="/offer-checklist" className="font-semibold hover:underline underline-offset-4">
  Offer checklist
  </Link>
@@ -483,27 +483,27 @@ export default function Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Get help →
+ Get help â†’
  </Link>
  </div>
 
@@ -557,14 +557,14 @@ export default function Page() {
  <Card className="p-6">
  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">Booking flow</p>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- Decide the mode first, then compare options. Reverse that and you’ll pay for “surprises”.
+ Decide the mode first, then compare options. Reverse that and youâ€™ll pay for â€œsurprisesâ€.
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline" className="w-full">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  </div>
  </Card>

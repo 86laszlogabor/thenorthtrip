@@ -15,7 +15,7 @@ const verify = [
  },
  {
  icon: "?",
- text: "What is included vs ëavailableí",
+ text: "What is included vs ‚Äòavailable‚Äô",
  },
  {
  icon: "??",
@@ -34,10 +34,10 @@ const verify = [
 const misunderstandings = [
  "A partner page means guaranteed outcomes",
  "All activities are identical across providers",
- "Meeting points donít matter",
- "Winter conditions donít change feasibility",
+ "Meeting points don‚Äôt matter",
+ "Winter conditions don‚Äôt change feasibility",
  "You can always reschedule easily",
- "If you arrive late theyíll wait",
+ "If you arrive late they‚Äôll wait",
  "Inclusions are the same as the photos",
  "Policies are negotiable",
  "Aggregator summary overrides operator procedures",
@@ -82,8 +82,8 @@ export default function PartnerArcticLifestylePage() {
  </h1>
 
  <p className="mt-3 text-slate-700">
- This page is not a promise. Itís a decision filter. Operators and aggregators are procedural:
- the only way to avoid ìsurpriseî is verifying whatís enforced and building buffer.
+ This page is not a promise. It‚Äôs a decision filter. Operators and aggregators are procedural:
+ the only way to avoid ‚Äúsurprise‚Äù is verifying what‚Äôs enforced and building buffer.
  </p>
 
  <div className="mt-5 flex flex-wrap gap-2">

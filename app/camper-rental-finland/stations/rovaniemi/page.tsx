@@ -26,12 +26,12 @@ export const metadata = {
 const checks = [
  {
  title: "Winter readiness",
- body: "Confirm heating/insulation support in writing. ìProbably fineî is not a spec.",
+ body: "Confirm heating/insulation support in writing. ‚ÄúProbably fine‚Äù is not a spec.",
  icon: "??",
  },
  {
  title: "Handover buffer",
- body: "You still need time for walkthrough + paperwork. Donít schedule tight slots.",
+ body: "You still need time for walkthrough + paperwork. Don‚Äôt schedule tight slots.",
  icon: "??",
  },
  {
@@ -48,7 +48,7 @@ const checks = [
 
 const nextSteps = [
  {
- label: "HelsinkiñLapland route",
+ label: "Helsinki‚ÄìLapland route",
  href: "/camper-rental-finland/routes/helsinki-lapland",
  note: "Distance caps + winter buffers. Make the plan recoverable.",
  icon: "??",
@@ -107,7 +107,7 @@ export default function CamperStationRovaniemiPage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- In Lapland, ìminor uncertaintyî compounds fast. Winter rules, handover friction, and first-night planning
+ In Lapland, ‚Äúminor uncertainty‚Äù compounds fast. Winter rules, handover friction, and first-night planning
  decide whether the trip starts calm or starts bleeding time.
  </p>
 
@@ -148,7 +148,7 @@ export default function CamperStationRovaniemiPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Next steps</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Pick what matches your actual next move, not what sounds ìniceî.
+ Pick what matches your actual next move, not what sounds ‚Äúnice‚Äù.
  </p>
 
  <div className="mt-5 grid gap-3">
@@ -188,13 +188,13 @@ export default function CamperStationRovaniemiPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Assuming the first night will be ìeasy to findî. In Lapland, certainty wins.
+ Assuming the first night will be ‚Äúeasy to find‚Äù. In Lapland, certainty wins.
  </p>
 
  <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
  <div className="text-sm font-semibold text-slate-900">Simple rule</div>
  <p className="mt-2 text-sm text-brand-text/70">
- If youíre leaving pickup without a confirmed overnight plan, youíre already spending tomorrowís buffer.
+ If you‚Äôre leaving pickup without a confirmed overnight plan, you‚Äôre already spending tomorrow‚Äôs buffer.
  </p>
  </div>
 

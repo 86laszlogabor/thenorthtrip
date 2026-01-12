@@ -7,20 +7,20 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
- title: "Siida Sámi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
+ title: "Siida SÃ¡mi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
  description:
- "Siida Sámi Museum in Inari (2026): Sámi culture context before aurora tours, €13 adult entry planning anchor, indoor + open-air museum, winter pacing, visit time, and itinerary order.",
+ "Siida SÃ¡mi Museum in Inari (2026): SÃ¡mi culture context before aurora tours, â‚¬13 adult entry planning anchor, indoor + open-air museum, winter pacing, visit time, and itinerary order.",
  openGraph: {
- title: "Siida Sámi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
+ title: "Siida SÃ¡mi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
  description:
- "Culture before aurora tours. Context first, sky second. €13 adult entry, indoor + open-air museum, winter pacing, and realistic visit time.",
+ "Culture before aurora tours. Context first, sky second. â‚¬13 adult entry, indoor + open-air museum, winter pacing, and realistic visit time.",
  images: ["/images/og/og-siida-sami-museum-inari-2026.jpg"],
  },
  twitter: {
  card: "summary_large_image",
- title: "Siida Sámi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
+ title: "Siida SÃ¡mi Museum Inari 2026: Culture Before Aurora Tours, Tickets",
  description:
- "Culture before aurora tours. Context first, sky second. €13 adult entry, indoor + open-air museum, winter pacing, and realistic visit time.",
+ "Culture before aurora tours. Context first, sky second. â‚¬13 adult entry, indoor + open-air museum, winter pacing, and realistic visit time.",
  images: ["/images/og/og-siida-sami-museum-inari-2026.jpg"],
  },
 };
@@ -32,7 +32,7 @@ const visuals = [
  image: "/images/blog/siida/siida-winter-dwellings.jpg",
  },
  {
- title: "Sámi gákti detail",
+ title: "SÃ¡mi gÃ¡kti detail",
  body: "Clothing = language, not costume.",
  image: "/images/blog/siida/saami-gakti-closeup.jpg",
  },
@@ -49,15 +49,15 @@ const visuals = [
 ];
 
 const toc = [
- { id: "what-siida", label: "What Siida is (and isn’t)" },
+ { id: "what-siida", label: "What Siida is (and isnâ€™t)" },
  { id: "culture-first", label: "Culture before aurora tours" },
- { id: "sami-people", label: "The Sámi: not one story" },
+ { id: "sami-people", label: "The SÃ¡mi: not one story" },
  { id: "indoor-museum", label: "Indoor exhibits" },
  { id: "reindeer", label: "Reindeer reality" },
- { id: "clothing", label: "Sámi clothing" },
+ { id: "clothing", label: "SÃ¡mi clothing" },
  { id: "open-air", label: "Open-air museum" },
  { id: "winter-siida", label: "Winter advantage" },
- { id: "euro13", label: "Tickets: €13" },
+ { id: "euro13", label: "Tickets: â‚¬13" },
  { id: "visit-time", label: "How long you need" },
  { id: "practical-tips", label: "Practical winter tips" },
  { id: "representation", label: "Representation matters" },
@@ -74,10 +74,10 @@ function Divider() {
 export default function Page() {
  return (<>
  <PageHero
- title="Siida Sámi Museum Inari (2026)"
+ title="Siida SÃ¡mi Museum Inari (2026)"
  subtitle="Culture before aurora tours. Context first, sky second."
- primaryCta={{ href: "/lapland-tours", label: "Lapland tours →" }}
- secondaryCta={{ href: "/offer-checklist", label: "Checklist →" }}
+ primaryCta={{ href: "/lapland-tours", label: "Lapland tours â†’" }}
+ secondaryCta={{ href: "/offer-checklist", label: "Checklist â†’" }}
  />
 
  <Section>
@@ -86,16 +86,16 @@ export default function Page() {
  <div className="mb-8">
  <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-950">
- Inari • Lapland
+ Inari â€¢ Lapland
  </span>
  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-950">
- Planning anchor: €13
+ Planning anchor: â‚¬13
  </span>
  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-950">
- Visit time: 2.5–3h
+ Visit time: 2.5â€“3h
  </span>
  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-950">
- Order: Siida → aurora
+ Order: Siida â†’ aurora
  </span>
  </div>
 
@@ -106,10 +106,10 @@ export default function Page() {
  </p>
  <div className="flex gap-3">
  <CtaButton href="/offer-checklist" variant="primary">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="secondary">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
  </div>
@@ -125,7 +125,7 @@ export default function Page() {
  key={v.title}
  className={[
  "group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-950",
- // give a slightly “magazine” cadence
+ // give a slightly â€œmagazineâ€ cadence
  idx === 0? "sm:col-span-2": "",
  ].join(" ")}
  >
@@ -167,14 +167,14 @@ export default function Page() {
  {/* Editorial kicker + title line */}
  <div className="mb-8">
  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
- Inari • Culture • Winter pacing
+ Inari â€¢ Culture â€¢ Winter pacing
  </p>
  <h1 className="mt-2 text-2xl font-semibold leading-tight text-slate-900 dark:text-slate-100 sm:text-3xl">
- Siida is the antidote to “aurora gambling.”
+ Siida is the antidote to â€œaurora gambling.â€
  </h1>
  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
- Context first, sky second. If you only chase the lights, you’ll still get photos. You just
- won’t understand where you are.
+ Context first, sky second. If you only chase the lights, youâ€™ll still get photos. You just
+ wonâ€™t understand where you are.
  </p>
  <Divider />
  </div>
@@ -185,11 +185,11 @@ export default function Page() {
  for 01:30. Fine. Understandable. But if you do Lapland in that order, you miss something
  fundamental.
  </p>
- <p>Siida Sámi Museum in Inari flips the sequence the right way around.</p>
+ <p>Siida SÃ¡mi Museum in Inari flips the sequence the right way around.</p>
  <p>
  This is not a museum you squeeze in between husky safaris. It is the place that explains why
  Lapland looks the way it does, who has lived here long before tourism arrived, and how people
- adapted to a land where winter isn’t a season but a condition.
+ adapted to a land where winter isnâ€™t a season but a condition.
  </p>
  <p>
  If you want aurora photos, you can skip this and still go home happy. If you want understanding,
@@ -199,10 +199,10 @@ export default function Page() {
  <h2 id="what-siida" className="scroll-mt-28">
  What Siida is (and what it is not)
  </h2>
- <p>Let’s strip away expectations early.</p>
- <p>Siida Sámi Museum is:</p>
+ <p>Letâ€™s strip away expectations early.</p>
+ <p>Siida SÃ¡mi Museum is:</p>
  <ul>
- <li>Finland’s central museum for Sámi culture</li>
+ <li>Finlandâ€™s central museum for SÃ¡mi culture</li>
  <li>a combined indoor museum + open-air heritage area</li>
  <li>a national-level cultural institution, not a local curiosity</li>
  </ul>
@@ -213,15 +213,15 @@ export default function Page() {
  <li>a souvenir-heavy attraction</li>
  <li>a quick stop you rush through in 40 minutes</li>
  </ul>
- <p>It is calm, precise, and deliberately unspectacular. That’s the point.</p>
+ <p>It is calm, precise, and deliberately unspectacular. Thatâ€™s the point.</p>
 
  <h2 id="culture-first" className="scroll-mt-28">
- Why “culture before aurora tours” is not a slogan
+ Why â€œculture before aurora toursâ€ is not a slogan
  </h2>
  <p>
  Aurora tourism turns Lapland into a night-time obsession. That skews perspective.
  </p>
- <p>Sámi culture is:</p>
+ <p>SÃ¡mi culture is:</p>
  <ul>
  <li>daylight-based</li>
  <li>seasonal</li>
@@ -230,7 +230,7 @@ export default function Page() {
  </ul>
  <p>Visiting Siida before aurora tours does three important things:</p>
  <ul>
- <li>It gives context to the landscape you’ll later photograph in the dark</li>
+ <li>It gives context to the landscape youâ€™ll later photograph in the dark</li>
  <li>It explains why certain areas are sacred, used, or avoided</li>
  <li>It prevents you from reducing Lapland to a sky event</li>
  </ul>
@@ -240,19 +240,19 @@ export default function Page() {
  </p>
 
  <h2 id="sami-people" className="scroll-mt-28">
- The Sámi: one people, not one story
+ The SÃ¡mi: one people, not one story
  </h2>
  <p>
- A basic correction most visitors need: There is no single “Sámi culture.”
+ A basic correction most visitors need: There is no single â€œSÃ¡mi culture.â€
  </p>
- <p>The Sámi are an Indigenous people of Northern Europe, living across:</p>
+ <p>The SÃ¡mi are an Indigenous people of Northern Europe, living across:</p>
  <ul>
  <li>Finland</li>
  <li>Norway</li>
  <li>Sweden</li>
  <li>Russia (Kola Peninsula)</li>
  </ul>
- <p>Even within Finland, Sámi life varies by:</p>
+ <p>Even within Finland, SÃ¡mi life varies by:</p>
  <ul>
  <li>region</li>
  <li>livelihood</li>
@@ -272,14 +272,14 @@ export default function Page() {
  </p>
  <p>Core exhibition themes include:</p>
  <ul>
- <li>Sámi history and colonization</li>
+ <li>SÃ¡mi history and colonization</li>
  <li>Traditional livelihoods (reindeer herding, fishing, hunting)</li>
  <li>Seasonal movement and survival strategies</li>
  <li>Language, clothing, and identity</li>
- <li>Modern Sámi life and political reality</li>
+ <li>Modern SÃ¡mi life and political reality</li>
  </ul>
  <p>Nothing is over-explained. Nothing is dramatized.</p>
- <p>This is not “look how exotic.” This is “this is how life worked, and still works.”</p>
+ <p>This is not â€œlook how exotic.â€ This is â€œthis is how life worked, and still works.â€</p>
 
  <h2 id="reindeer" className="scroll-mt-28">
  Reindeer herding: reality, not postcards
@@ -296,15 +296,15 @@ export default function Page() {
  <li>Snow conditions and climate shifts matter more than tradition alone</li>
  </ul>
  <p>
- After this, booking a “reindeer experience” without understanding context feels slightly
+ After this, booking a â€œreindeer experienceâ€ without understanding context feels slightly
  irresponsible. That discomfort is healthy.
  </p>
 
  <h2 id="clothing" className="scroll-mt-28">
- Sámi clothing: function first, identity always
+ SÃ¡mi clothing: function first, identity always
  </h2>
  <p>
- Traditional Sámi clothing (gákti) is often photographed without understanding.
+ Traditional SÃ¡mi clothing (gÃ¡kti) is often photographed without understanding.
  </p>
  <p>At Siida, clothing is explained as:</p>
  <ul>
@@ -313,7 +313,7 @@ export default function Page() {
  <li>a living identifier, not a costume</li>
  </ul>
  <p>
- Patterns, colors, and cuts communicate information locals can read instantly. That’s culture as
+ Patterns, colors, and cuts communicate information locals can read instantly. Thatâ€™s culture as
  language, not decoration.
  </p>
 
@@ -330,7 +330,7 @@ export default function Page() {
  In winter, this area is especially effective. Snow simplifies shapes. Silence amplifies scale. You
  understand quickly why mobility, not permanence, defined survival.
  </p>
- <p>This is not a reenactment village. It’s spatial education.</p>
+ <p>This is not a reenactment village. Itâ€™s spatial education.</p>
 
  <h2 id="winter-siida" className="scroll-mt-28">
  Winter at Siida: why it works better than summer
@@ -349,10 +349,10 @@ export default function Page() {
  </p>
 
  <h2 id="euro13" className="scroll-mt-28">
- Siida museum tickets: €13 that actually makes sense
+ Siida museum tickets: â‚¬13 that actually makes sense
  </h2>
- <p>Let’s talk cost.</p>
- <p>€13 adult entry is a realistic planning anchor for Siida museum tickets.</p>
+ <p>Letâ€™s talk cost.</p>
+ <p>â‚¬13 adult entry is a realistic planning anchor for Siida museum tickets.</p>
  <p>That ticket gives you:</p>
  <ul>
  <li>full access to indoor exhibitions</li>
@@ -360,11 +360,11 @@ export default function Page() {
  <li>facilities, rest areas, and interpretation material</li>
  </ul>
  <p>
- For Lapland, €13 is: less than a café lunch, a fraction of any guided tour, and disproportionately
+ For Lapland, â‚¬13 is: less than a cafÃ© lunch, a fraction of any guided tour, and disproportionately
  high in value.
  </p>
  <p>
- If you’re spending €150–€250 per activity elsewhere, skipping Siida to “save money” is bad math.
+ If youâ€™re spending â‚¬150â€“â‚¬250 per activity elsewhere, skipping Siida to â€œsave moneyâ€ is bad math.
  </p>
 
  <h2 id="visit-time" className="scroll-mt-28">
@@ -374,7 +374,7 @@ export default function Page() {
  <strong>Minimum visit:</strong> 1.5 hours (indoors only, rushed)
  </p>
  <p>
- <strong>Recommended visit:</strong> 2.5–3 hours (indoors + outdoor area)
+ <strong>Recommended visit:</strong> 2.5â€“3 hours (indoors + outdoor area)
  </p>
  <p>
  <strong>Ideal winter visit:</strong> 3 hours, with breaks
@@ -391,23 +391,23 @@ export default function Page() {
  <li>Wear proper winter shoes. Paths are maintained but snowy.</li>
  <li>Do the indoor museum first, outdoor second.</li>
  <li>Use rest areas. Information density is high.</li>
- <li>Don’t stack this between two adrenaline activities.</li>
+ <li>Donâ€™t stack this between two adrenaline activities.</li>
  <li>Go before sunset if possible. Daylight helps orientation.</li>
  </ul>
 
  <h2 id="representation" className="scroll-mt-28">
- Siida and Sámi representation: why this museum matters
+ Siida and SÃ¡mi representation: why this museum matters
  </h2>
  <p>One uncomfortable truth: Indigenous cultures are often presented by others.</p>
  <p>
- Siida is different. It operates with Sámi participation, research input, and national
+ Siida is different. It operates with SÃ¡mi participation, research input, and national
  responsibility.
  </p>
  <p>That shows in:</p>
  <ul>
  <li>language choices</li>
  <li>refusal to oversimplify</li>
- <li>inclusion of modern Sámi voices</li>
+ <li>inclusion of modern SÃ¡mi voices</li>
  <li>political and land-right context</li>
  </ul>
  <p>This is not nostalgia. It is continuity.</p>
@@ -424,7 +424,7 @@ export default function Page() {
  <p>After Siida, Inari becomes:</p>
  <ul>
  <li>a cultural center</li>
- <li>a living Sámi region</li>
+ <li>a living SÃ¡mi region</li>
  <li>a place where tourism is recent, not defining</li>
  </ul>
  <p>
@@ -435,13 +435,13 @@ export default function Page() {
  Pairing Siida with aurora tours (the right order)
  </h2>
  <p>
- <strong>Correct order:</strong> Siida during the day → Dinner → Aurora watch or tour at night
+ <strong>Correct order:</strong> Siida during the day â†’ Dinner â†’ Aurora watch or tour at night
  </p>
  <p>
- <strong>Wrong order:</strong> Late-night aurora hunt → No sleep → Rushed museum visit → “It was
- interesting, I guess”
+ <strong>Wrong order:</strong> Late-night aurora hunt â†’ No sleep â†’ Rushed museum visit â†’ â€œIt was
+ interesting, I guessâ€
  </p>
- <p>Culture requires attention. Don’t starve it.</p>
+ <p>Culture requires attention. Donâ€™t starve it.</p>
 
  <h2 id="mistakes" className="scroll-mt-28">
  Common mistakes visitors make at Siida
@@ -453,14 +453,14 @@ export default function Page() {
  <li>Visiting after exhaustion sets in</li>
  <li>Expecting entertainment instead of insight</li>
  </ul>
- <p>Siida is quiet. If you need constant stimulation, that’s on you.</p>
+ <p>Siida is quiet. If you need constant stimulation, thatâ€™s on you.</p>
 
  <h2 id="who-should" className="scroll-mt-28">
  Who should prioritize Siida
  </h2>
  <p>Absolutely visit if you are:</p>
  <ul>
- <li>interested in Sámi culture Inari context</li>
+ <li>interested in SÃ¡mi culture Inari context</li>
  <li>traveling beyond Rovaniemi</li>
  <li>visiting Utsjoki, Inari, or northern Lapland</li>
  <li>serious about understanding where you are</li>
@@ -478,9 +478,9 @@ export default function Page() {
  </h2>
  <p>Photography is allowed in many areas, but:</p>
  <ul>
- <li>don’t photograph people without permission</li>
- <li>don’t treat objects as props</li>
- <li>don’t stage “ethnic” shots</li>
+ <li>donâ€™t photograph people without permission</li>
+ <li>donâ€™t treat objects as props</li>
+ <li>donâ€™t stage â€œethnicâ€ shots</li>
  </ul>
  <p>Some things are informational, not aesthetic.</p>
 
@@ -494,7 +494,7 @@ export default function Page() {
  <p>
  You stop seeing Lapland as empty. You start seeing it as inhabited, managed, contested, lived-in.
  </p>
- <p>That awareness doesn’t reduce the magic. It deepens it.</p>
+ <p>That awareness doesnâ€™t reduce the magic. It deepens it.</p>
 
  <h2 id="sample-day" className="scroll-mt-28">
  Sample Inari day with Siida
@@ -517,15 +517,15 @@ export default function Page() {
  <p>No rushing. No stacking. This works.</p>
 
  <h2 id="final-check" className="scroll-mt-28">
- Final reality check: is Siida worth €13?
+ Final reality check: is Siida worth â‚¬13?
  </h2>
  <p>
- If you want to understand Sámi culture Inari, plan to spend time in northern Lapland, and care
+ If you want to understand SÃ¡mi culture Inari, plan to spend time in northern Lapland, and care
  about where you are (not just what you see), then yes. Unequivocally.
  </p>
  <p>
- If you skip Siida and only chase aurora, you’ll still get photos. But you’ll leave without
- context. And context is the one thing Lapland doesn’t give you automatically.
+ If you skip Siida and only chase aurora, youâ€™ll still get photos. But youâ€™ll leave without
+ context. And context is the one thing Lapland doesnâ€™t give you automatically.
  </p>
  <p>Siida does. </p>
 
@@ -533,10 +533,10 @@ export default function Page() {
 
  <p>
  <strong>Internal links:</strong>{" "}
- <Link href="/getting-around-finland">Getting around Finland</Link> •{" "}
- <Link href="/lapland-tours-finland">Lapland tours Finland</Link> •{" "}
- <Link href="/offer-checklist">Offer checklist</Link> •{" "}
- <Link href="/get-help">Get help</Link> •{" "}
+ <Link href="/getting-around-finland">Getting around Finland</Link> â€¢{" "}
+ <Link href="/lapland-tours-finland">Lapland tours Finland</Link> â€¢{" "}
+ <Link href="/offer-checklist">Offer checklist</Link> â€¢{" "}
+ <Link href="/get-help">Get help</Link> â€¢{" "}
  <Link href="/policy">Policy</Link>
  </p>
 
@@ -552,7 +552,7 @@ export default function Page() {
  <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
  <div className="space-y-1">
  <p className="text-base font-semibold text-slate-900 dark:text-slate-100">
- Build an Inari plan that isn’t just “aurora gambling.”
+ Build an Inari plan that isnâ€™t just â€œaurora gambling.â€
  </p>
  <p className="text-sm text-slate-600 dark:text-slate-300">
  Use the checklist to avoid stacked costs, dead time, and winter pacing mistakes.
@@ -560,10 +560,10 @@ export default function Page() {
  </div>
  <div className="flex gap-3">
  <CtaButton href="/offer-checklist" variant="primary">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="secondary">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
  </div>
@@ -581,11 +581,11 @@ export default function Page() {
  <dl className="mt-4 space-y-3 text-sm">
  <div className="flex items-start justify-between gap-4">
  <dt className="text-slate-600 dark:text-slate-300">Planning anchor</dt>
- <dd className="font-semibold text-slate-900 dark:text-slate-100">€13 adult entry</dd>
+ <dd className="font-semibold text-slate-900 dark:text-slate-100">â‚¬13 adult entry</dd>
  </div>
  <div className="flex items-start justify-between gap-4">
  <dt className="text-slate-600 dark:text-slate-300">Recommended time</dt>
- <dd className="font-semibold text-slate-900 dark:text-slate-100">2.5–3 hours</dd>
+ <dd className="font-semibold text-slate-900 dark:text-slate-100">2.5â€“3 hours</dd>
  </div>
  <div className="flex items-start justify-between gap-4">
  <dt className="text-slate-600 dark:text-slate-300">Location</dt>
@@ -593,16 +593,16 @@ export default function Page() {
  </div>
  <div className="flex items-start justify-between gap-4">
  <dt className="text-slate-600 dark:text-slate-300">Best order</dt>
- <dd className="font-semibold text-slate-900 dark:text-slate-100">Siida → aurora</dd>
+ <dd className="font-semibold text-slate-900 dark:text-slate-100">Siida â†’ aurora</dd>
  </div>
  </dl>
 
  <div className="mt-5 flex gap-3">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full justify-center">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="secondary" className="w-full justify-center">
- Tours →
+ Tours â†’
  </CtaButton>
  </div>
  </div>
@@ -632,14 +632,14 @@ export default function Page() {
  <Card className="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
  <div className="p-5">
  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
- Photography: don’t be weird
+ Photography: donâ€™t be weird
  </p>
  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
  Photos are fine. Treat people and objects like reality, not props.
  </p>
  <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600 dark:text-slate-300">
  <li>No photographing people without permission.</li>
- <li>No staged “ethnic” shots.</li>
+ <li>No staged â€œethnicâ€ shots.</li>
  <li>No rushing it on zero sleep.</li>
  </ul>
  </div>

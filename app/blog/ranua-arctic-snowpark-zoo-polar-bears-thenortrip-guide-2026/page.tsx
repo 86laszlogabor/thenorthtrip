@@ -10,7 +10,7 @@ import CtaButton from "@/components/CtaButton";
 export const metadata: Metadata = {
  title: "Ranua Arctic SnowPark & Zoo 2026: Polar Bears, Winter Visit, Tickets",
  description:
- "Ranua Zoo winter guide (2026): polar bears, Arctic wildlife, SnowPark meaning, €24 adult entry planning anchor, winter clothing strategy, timing, transport from Rovaniemi, and itinerary placement.",
+ "Ranua Zoo winter guide (2026): polar bears, Arctic wildlife, SnowPark meaning, â‚¬24 adult entry planning anchor, winter clothing strategy, timing, transport from Rovaniemi, and itinerary placement.",
  openGraph: {
  title: "Ranua Arctic SnowPark & Zoo 2026: Polar Bears, Winter Visit, Tickets",
  description:
@@ -41,7 +41,7 @@ function safeImg(src: string) {
 const visuals = [
  {
  title: "Polar bear winter steam",
- body: "−15°C breath + slow pacing = the Arctic as it should look.",
+ body: "âˆ’15Â°C breath + slow pacing = the Arctic as it should look.",
  image: "/images/blog/ranua/ranua-polar-winter.jpg",
  },
  {
@@ -51,12 +51,12 @@ const visuals = [
  },
  {
  title: "Snow paths Ranua",
- body: "3–4h walking is the winter reality. Plan warm-up breaks.",
+ body: "3â€“4h walking is the winter reality. Plan warm-up breaks.",
  image: "/images/blog/ranua/ranua-snow-paths.jpg",
  },
  {
  title: "Wolf tracks winter",
- body: "Sometimes you track first and see later. That’s the point.",
+ body: "Sometimes you track first and see later. Thatâ€™s the point.",
  image: "/images/blog/ranua/ranua-wolf-tracks.jpg",
  },
 ];
@@ -67,7 +67,7 @@ const toc = [
  { id: "snowpark", label: "SnowPark meaning" },
  { id: "animals", label: "Animals (winter edition)" },
  { id: "polar-bears", label: "Polar bears" },
- { id: "euro24", label: "€24 entry breakdown" },
+ { id: "euro24", label: "â‚¬24 entry breakdown" },
  { id: "time", label: "How long you need" },
  { id: "dress", label: "Dress for Ranua" },
  { id: "transport", label: "Rovaniemi ~80km" },
@@ -228,7 +228,7 @@ function Callout({
 function Quote() {
  return (<blockquote className="not-prose my-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
  <p className="text-base font-semibold leading-8 text-slate-900">
- “Cold ruins Ranua faster than distance does. If your boots are wrong, your opinion will be wrong.”
+ â€œCold ruins Ranua faster than distance does. If your boots are wrong, your opinion will be wrong.â€
  </p>
  <p className="mt-2 text-xs text-slate-500">Field-tested truth, unfortunately.</p>
  </blockquote>);
@@ -256,13 +256,13 @@ export default function Page() {
  title="Ranua Arctic SnowPark & Zoo (2026)"
  subtitle="Polar bears in real winter, not behind glass. A recovery-day Lapland plan that actually makes sense."
  imageSrc={heroImg}
- primaryCta={{ href: "/offer-checklist", label: "Checklist →" }}
- secondaryCta={{ href: "/lapland-tours", label: "Lapland tours →" }}
+ primaryCta={{ href: "/offer-checklist", label: "Checklist â†’" }}
+ secondaryCta={{ href: "/lapland-tours", label: "Lapland tours â†’" }}
  />
 
  {/* Editorial canvas */}
  <div className="relative">
- {/* subtle “paper” + vignette */}
+ {/* subtle â€œpaperâ€ + vignette */}
  <div className="pointer-events-none absolute inset-0 -z-10">
  <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50" />
  <div className="absolute inset-0 opacity-[0.055] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -275,12 +275,12 @@ export default function Page() {
  <div className="flex flex-wrap items-center justify-between gap-4">
  <div className="flex flex-wrap items-center gap-2 text-sm">
  <span className="font-semibold text-slate-900">Blog</span>
- <span className="text-slate-300">·</span>
+ <span className="text-slate-300">Â·</span>
  <span className="text-slate-600">
  Last verified:{" "}
  <span className="font-semibold text-slate-900">{lastVerified}</span>
  </span>
- <span className="text-slate-300">·</span>
+ <span className="text-slate-300">Â·</span>
  <span className="text-slate-500">{slug}</span>
  </div>
 
@@ -339,7 +339,7 @@ export default function Page() {
  {/* Meta block */}
  <div className="mt-6 grid gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
  <div className="grid gap-2 sm:grid-cols-2">
- <StatRow k="Planning anchor" v="€24 adult entry" />
+ <StatRow k="Planning anchor" v="â‚¬24 adult entry" />
  <StatRow k="From Rovaniemi" v="~80 km (~1h winter drive)" />
  </div>
  <div className="h-px bg-slate-200" />
@@ -347,20 +347,20 @@ export default function Page() {
  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold">
  Stable layout, facts update-only
  </span>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <span>No keyword sludge. Just planning.</span>
  </div>
  </div>
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
@@ -396,7 +396,7 @@ export default function Page() {
  Quick truth
  </p>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- Ranua is a forest walk with animals, not a “10-minute enclosure loop”.
+ Ranua is a forest walk with animals, not a â€œ10-minute enclosure loopâ€.
  </p>
  </div>
  </div>
@@ -435,7 +435,7 @@ export default function Page() {
  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold">
  {slug}
  </span>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <span>Last verified: {lastVerified}</span>
  </div>
  </div>
@@ -465,7 +465,7 @@ export default function Page() {
  </div>
 
  <p className="text-[16px] leading-8 md:text-[17px]">
- Then you walk past a polar bear enclosure at −15°C, with steam rising from its breath,
+ Then you walk past a polar bear enclosure at âˆ’15Â°C, with steam rising from its breath,
  and you realize something uncomfortable: this is how these animals are supposed to live.
  Not behind glass. Not in shade. In cold, open space.
  </p>
@@ -473,7 +473,7 @@ export default function Page() {
  <div className="not-prose my-12 grid gap-4 md:grid-cols-2">
  <Callout
  eyebrow="Key fact"
- title="Plan for a 3–4h winter walk"
+ title="Plan for a 3â€“4h winter walk"
  body="This is a forest path loop, not a compact city zoo. Warm-up breaks are part of the visit, not a failure."
  />
  <Callout
@@ -484,10 +484,10 @@ export default function Page() {
  >
  <div className="flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </Callout>
@@ -501,7 +501,7 @@ export default function Page() {
  <SectionHeader
  kicker="Overview"
  title="What Ranua actually is"
- lede="Strip away the ‘zoo’ assumptions. In winter this behaves like a forest walk with Arctic wildlife checkpoints."
+ lede="Strip away the â€˜zooâ€™ assumptions. In winter this behaves like a forest walk with Arctic wildlife checkpoints."
  />
 
  <ContentCard>
@@ -514,7 +514,7 @@ export default function Page() {
  <MiniCard
  kicker="It is not"
  title="A compact city zoo you do in an hour"
- body="If you try to speedrun it, you’ll freeze first and then form a bad opinion. Efficient, but wrong."
+ body="If you try to speedrun it, youâ€™ll freeze first and then form a bad opinion. Efficient, but wrong."
  />
  </div>
 
@@ -522,7 +522,7 @@ export default function Page() {
  <div className="text-sm font-semibold text-slate-900">Reality checklist</div>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>Self-paced walking loop through forest paths</li>
- <li>Arctic and northern species focus (not “everything”)</li>
+ <li>Arctic and northern species focus (not â€œeverythingâ€)</li>
  <li>Winter is part of the product, not a backdrop</li>
  </ul>
  </div>
@@ -554,7 +554,7 @@ export default function Page() {
  <li>Some animals rest more in warmth</li>
  <li>Foliage can reduce sightlines</li>
  <li>Crowds rise, vibe gets noisier</li>
- <li>The “Arctic” feel flattens</li>
+ <li>The â€œArcticâ€ feel flattens</li>
  </ul>
  </div>
  </div>
@@ -587,7 +587,7 @@ export default function Page() {
  <MiniCard
  kicker="What it can include"
  title="Seasonal snow elements"
- body="Snow-built features or seasonal extras may exist, but they’re not the core product."
+ body="Snow-built features or seasonal extras may exist, but theyâ€™re not the core product."
  />
  <MiniCard
  kicker="What it is not"
@@ -603,15 +603,15 @@ export default function Page() {
  <SectionHeader
  kicker="Wildlife"
  title="Animals (winter edition)"
- lede="Ranua’s advantage is focus. Northern species in northern conditions."
+ lede="Ranuaâ€™s advantage is focus. Northern species in northern conditions."
  />
 
  <ContentCard>
  <div className="grid gap-4 md:grid-cols-2">
  <MiniCard
- kicker="You’ll usually notice"
+ kicker="Youâ€™ll usually notice"
  title="Arctic foxes, lynx, wolves, wolverines"
- body="Winter tracks help. Sometimes you ‘track’ first and see later. That’s normal, and honestly better."
+ body="Winter tracks help. Sometimes you â€˜trackâ€™ first and see later. Thatâ€™s normal, and honestly better."
  />
  <MiniCard
  kicker="What changes in winter"
@@ -627,7 +627,7 @@ export default function Page() {
  <SectionHeader
  kicker="Headliner"
  title="Polar bears"
- lede="This is the main draw, and it’s not subtle. Winter makes the enclosure feel correct."
+ lede="This is the main draw, and itâ€™s not subtle. Winter makes the enclosure feel correct."
  />
 
  <ContentCard>
@@ -640,12 +640,12 @@ export default function Page() {
  <MiniCard
  kicker="Visual"
  title="Steam breath is the hook"
- body="That −15°C breath detail is the entire ‘Arctic’ vibe in one frame."
+ body="That âˆ’15Â°C breath detail is the entire â€˜Arcticâ€™ vibe in one frame."
  />
  <MiniCard
  kicker="Expectation"
  title="Not behind glass"
- body="The ‘this is how it should look’ moment hits hard if you’ve seen warm-climate zoos."
+ body="The â€˜this is how it should lookâ€™ moment hits hard if youâ€™ve seen warm-climate zoos."
  />
  </div>
 
@@ -668,7 +668,7 @@ export default function Page() {
  <Anchor id="euro24" />
  <SectionHeader
  kicker="Budget"
- title="€24 entry breakdown"
+ title="â‚¬24 entry breakdown"
  lede="Use it as a planning anchor, not a sacred number. Update only when you re-verify."
  />
 
@@ -684,7 +684,7 @@ export default function Page() {
  </ul>
  </div>
  <div className="rounded-2xl border border-slate-200/70 bg-white p-5">
- <div className="text-sm font-semibold text-slate-900">What it doesn’t cover</div>
+ <div className="text-sm font-semibold text-slate-900">What it doesnâ€™t cover</div>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>Transport to Ranua</li>
  <li>Food (sold separately)</li>
@@ -698,7 +698,7 @@ export default function Page() {
  Planning rule
  </div>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- If you’re optimizing your week: Ranua is “high value daylight”, and your “expensive nights” stay for aurora attempts.
+ If youâ€™re optimizing your week: Ranua is â€œhigh value daylightâ€, and your â€œexpensive nightsâ€ stay for aurora attempts.
  </p>
  </div>
  </ContentCard>
@@ -716,18 +716,18 @@ export default function Page() {
  <div className="grid gap-4 md:grid-cols-3">
  <MiniCard
  kicker="Minimum"
- title="2.5–3 hours"
- body="If you walk steadily and don’t linger, you can ‘do it’. You’ll still want warmth."
+ title="2.5â€“3 hours"
+ body="If you walk steadily and donâ€™t linger, you can â€˜do itâ€™. Youâ€™ll still want warmth."
  />
  <MiniCard
  kicker="Comfortable"
- title="3–4 hours"
- body="The correct winter pace with warm-up breaks. This is the ‘good memory’ version."
+ title="3â€“4 hours"
+ body="The correct winter pace with warm-up breaks. This is the â€˜good memoryâ€™ version."
  />
  <MiniCard
  kicker="What fails"
- title="≤ 90 minutes"
- body="Freeze fast, skip half the loop, leave with “it was fine”. That’s not Ranua’s fault."
+ title="â‰¤ 90 minutes"
+ body="Freeze fast, skip half the loop, leave with â€œit was fineâ€. Thatâ€™s not Ranuaâ€™s fault."
  />
  </div>
  </ContentCard>
@@ -738,7 +738,7 @@ export default function Page() {
  <SectionHeader
  kicker="Gear"
  title="Dress for Ranua"
- lede="This isn’t fashion. It’s thermodynamics. Boots decide your review."
+ lede="This isnâ€™t fashion. Itâ€™s thermodynamics. Boots decide your review."
  />
 
  <ContentCard>
@@ -754,7 +754,7 @@ export default function Page() {
  </ul>
  </div>
  <div className="rounded-2xl border border-slate-200/70 bg-white p-5">
- <div className="text-sm font-semibold text-slate-900">Don’t rely on</div>
+ <div className="text-sm font-semibold text-slate-900">Donâ€™t rely on</div>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>Fashion coats</li>
  <li>Thin sneakers</li>
@@ -770,7 +770,7 @@ export default function Page() {
  <SectionHeader
  kicker="Distance"
  title="Rovaniemi ~80km"
- lede="The constraint isn’t the zoo, it’s winter logistics: daylight, road conditions, and fatigue."
+ lede="The constraint isnâ€™t the zoo, itâ€™s winter logistics: daylight, road conditions, and fatigue."
  />
 
  <ContentCard>
@@ -807,12 +807,12 @@ export default function Page() {
  <MiniCard
  kicker="Role"
  title="Low-adrenaline reset"
- body="Your legs still move, but your brain stops ‘tour mode’ for a minute."
+ body="Your legs still move, but your brain stops â€˜tour modeâ€™ for a minute."
  />
  <MiniCard
  kicker="Role"
  title="Budget stabilizer"
- body="€24 entry + self-paced time usually beats a full paid activity day."
+ body="â‚¬24 entry + self-paced time usually beats a full paid activity day."
  />
  </div>
  </ContentCard>
@@ -829,8 +829,8 @@ export default function Page() {
  <ContentCard>
  <div className="grid gap-3">
  {[
- ["Morning", "Depart early from Rovaniemi, arrive mid-morning", "Better light, calmer pace, less ‘late day rush’."],
- ["Midday", "Main zoo loop (polar bear + wolves early)", "Hit the headliners first while you’re warm and focused."],
+ ["Morning", "Depart early from Rovaniemi, arrive mid-morning", "Better light, calmer pace, less â€˜late day rushâ€™."],
+ ["Midday", "Main zoo loop (polar bear + wolves early)", "Hit the headliners first while youâ€™re warm and focused."],
  ["Early afternoon", "Warm lunch break + shorter secondary loops", "Warm-up break is a feature, not a weakness."],
  ["Late afternoon", "Finish and return before darkness fatigue", "Save your night energy for aurora attempts."],
  ].map(([k, t, d]) => (<div key={k} className="rounded-2xl border border-slate-200/70 bg-white p-5">
@@ -849,7 +849,7 @@ export default function Page() {
  <SectionHeader
  kicker="Comparison"
  title="Ranua vs husky / reindeer visits"
- lede="Different goals. If you try to replace one with the other, you’ll be annoyed for no reason."
+ lede="Different goals. If you try to replace one with the other, youâ€™ll be annoyed for no reason."
  />
 
  <ContentCard>
@@ -857,7 +857,7 @@ export default function Page() {
  <MiniCard
  kicker="Husky"
  title="Interactive, high-energy"
- body="Shorter, intense, ‘activity-first’. Often pricier per hour."
+ body="Shorter, intense, â€˜activity-firstâ€™. Often pricier per hour."
  />
  <MiniCard
  kicker="Reindeer"
@@ -867,7 +867,7 @@ export default function Page() {
  <MiniCard
  kicker="Ranua"
  title="Self-paced, ecological context"
- body="A walking day that feels Arctic. More ‘place’ than ‘product’."
+ body="A walking day that feels Arctic. More â€˜placeâ€™ than â€˜productâ€™."
  />
  </div>
  </ContentCard>
@@ -899,15 +899,15 @@ export default function Page() {
  <a className="font-semibold hover:underline underline-offset-4" href="/getting-around-finland">
  Getting around Finland
  </a>{" "}
- <span className="mx-2 text-slate-300">·</span>{" "}
+ <span className="mx-2 text-slate-300">Â·</span>{" "}
  <a className="font-semibold hover:underline underline-offset-4" href="/lapland-tours">
  Lapland tours 
  </a>{" "}
- <span className="mx-2 text-slate-300">·</span>{" "}
+ <span className="mx-2 text-slate-300">Â·</span>{" "}
  <a className="font-semibold hover:underline underline-offset-4" href="/offer-checklist">
  Offer checklist
  </a>{" "}
- <span className="mx-2 text-slate-300">·</span>{" "}
+ <span className="mx-2 text-slate-300">Â·</span>{" "}
  <a className="font-semibold hover:underline underline-offset-4" href="/car-rental-helsinki">
  Car rental Helsinki
  </a>
@@ -922,21 +922,21 @@ export default function Page() {
  {/* Bottom CTA */}
  <Card className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_1px_0_rgba(15,23,42,0.06),0_22px_60px_-30px_rgba(15,23,42,0.2)] md:p-8">
  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
- Want a Lapland week that doesn’t collapse under winter?
+ Want a Lapland week that doesnâ€™t collapse under winter?
  </h3>
  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
- Put Ranua on a recovery day, keep your nights for aurora, and stop pretending cold won’t affect pace.
+ Put Ranua on a recovery day, keep your nights for aurora, and stop pretending cold wonâ€™t affect pace.
  </p>
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
@@ -945,27 +945,27 @@ export default function Page() {
  href="/blog"
  className="font-semibold text-slate-700 hover:text-slate-900 hover:underline underline-offset-4"
  >
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link
  href="/policy"
  className="font-semibold text-slate-700 hover:text-slate-900 hover:underline underline-offset-4"
  >
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link
  href="/get-help"
  className="font-semibold text-slate-700 hover:text-slate-900 hover:underline underline-offset-4"
  >
- Get help →
+ Get help â†’
  </Link>
  </div>
 
  <p className="mt-4 text-xs text-slate-500">
  <span className="font-semibold text-slate-700">Slug:</span> {slug}{" "}
- <span className="mx-2 text-slate-300">·</span>
+ <span className="mx-2 text-slate-300">Â·</span>
  <span className="font-semibold text-slate-700">Last verified:</span> {lastVerified}
  </p>
  </Card>
@@ -996,7 +996,7 @@ export default function Page() {
  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
  Planning anchor
  </p>
- <p className="mt-2 text-sm font-semibold text-slate-900">€24 adult entry</p>
+ <p className="mt-2 text-sm font-semibold text-slate-900">â‚¬24 adult entry</p>
  <p className="mt-1 text-xs leading-6 text-slate-600">
  Use it as your baseline. Update only when you re-verify.
  </p>
@@ -1022,10 +1022,10 @@ export default function Page() {
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success" className="w-full">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </div>
@@ -1039,19 +1039,19 @@ export default function Page() {
  className="block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:bg-white hover:text-slate-900 hover:underline underline-offset-4 transition"
  href="/getting-around-finland"
  >
- Getting around Finland →
+ Getting around Finland â†’
  </Link>
  <Link
  className="block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:bg-white hover:text-slate-900 hover:underline underline-offset-4 transition"
  href="/lapland-tours"
  >
- Lapland tours →
+ Lapland tours â†’
  </Link>
  <Link
  className="block rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:bg-white hover:text-slate-900 hover:underline underline-offset-4 transition"
  href="/offer-checklist"
  >
- Offer checklist →
+ Offer checklist â†’
  </Link>
  </div>
  </Card>

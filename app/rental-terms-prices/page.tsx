@@ -71,7 +71,7 @@ const rows: Row[] = [
  whatToCheck:
  "Mileage caps, how overage is charged, cross-border permissions, restricted areas, and road limitations.",
  whyTripsFail:
- 'A ìcheapî offer can explode if your route is excluded or mileage is capped. Finland is big. Small caps break plans.',
+ 'A ‚Äúcheap‚Äù offer can explode if your route is excluded or mileage is capped. Finland is big. Small caps break plans.',
  copyPasteQuestion:
  "Is my planned route allowed (regions/borders), and is there any mileage cap or restricted road policy for my booking?",
  icon: "map",
@@ -82,7 +82,7 @@ const rows: Row[] = [
  whatToCheck:
  "Fuel policy (full-to-full vs prepaid), return condition, cleaning expectations, and penalties.",
  whyTripsFail:
- 'Small print becomes large money at return. This is where ìeasy dealsî turn into arguments.',
+ 'Small print becomes large money at return. This is where ‚Äúeasy deals‚Äù turn into arguments.',
  copyPasteQuestion:
  "What exact return condition avoids fees (fuel level, cleaning standard), and what triggers cleaning/fuel charges on return?",
  icon: "fuel",
@@ -91,7 +91,7 @@ const rows: Row[] = [
  key: "winter-clauses",
  category: "Winter clauses",
  whatToCheck:
- "Winter equipment (tyres), seasonal restrictions, and what is ìincludedî vs merely ìavailableî at pickup.",
+ "Winter equipment (tyres), seasonal restrictions, and what is ‚Äúincluded‚Äù vs merely ‚Äúavailable‚Äù at pickup.",
  whyTripsFail:
  "Winter compresses buffers and increases the cost of being wrong. The same plan can fail just by season.",
  copyPasteQuestion:
@@ -123,7 +123,7 @@ const checks = [
  key: "late",
  title: "Late arrival: will you still get the vehicle?",
  body:
- "If timing is fragile, you need a written late-arrival procedure. If they wonít confirm it, change the plan.",
+ "If timing is fragile, you need a written late-arrival procedure. If they won‚Äôt confirm it, change the plan.",
  chip: "2",
  },
  {
@@ -137,7 +137,7 @@ const checks = [
 
 function Icon({ kind }: { kind?: Row["icon"] }) {
  // Minimal inline icons to avoid adding deps.
- // Keep neutral and small; the UI should feel ìtechnical but calmî.
+ // Keep neutral and small; the UI should feel ‚Äútechnical but calm‚Äù.
  const base = "grid h-9 w-9 place-items-center rounded-xl border border-slate-200 bg-white";
  const glyph = "text-slate-700 text-sm font-semibold";
 
@@ -152,7 +152,7 @@ function Icon({ kind }: { kind?: Row["icon"] }) {
  };
 
  return (<div className={base} aria-hidden="true">
- <span className={glyph}>{kind? map[kind]: "ï"}</span>
+ <span className={glyph}>{kind? map[kind]: "‚Ä¢"}</span>
  </div>);
 }
 
@@ -161,7 +161,7 @@ export default function RentalTermsPricesPage() {
  <PageHero
  variant="home"
  title="What to compare (without guessing numbers)"
- subtitle="No invented prices. If it isnít stable across suppliers or seasons, you confirm it once, in writing, for your exact booking."
+ subtitle="No invented prices. If it isn‚Äôt stable across suppliers or seasons, you confirm it once, in writing, for your exact booking."
  imageSrc="/images/hero/hero-blog-planning.jpg"
  primaryCta={{ href: "/offer-checklist", label: "Open offer checklist" }}
  secondaryCta={{ href: "/car-rental-helsinki", label: "Car rental: desk rules" }}
@@ -187,7 +187,7 @@ export default function RentalTermsPricesPage() {
  <p className="text-sm md:text-base font-semibold text-slate-900">
  No fake numbers.
  <span className="font-normal text-slate-700">
- {" "}If a detail isnít stable across suppliers or seasons, we donít estimate. You confirm it once, in writing.
+ {" "}If a detail isn‚Äôt stable across suppliers or seasons, we don‚Äôt estimate. You confirm it once, in writing.
  </span>
  </p>
 
@@ -245,7 +245,7 @@ export default function RentalTermsPricesPage() {
  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
  <p className="text-xs font-semibold text-slate-900">Ask the desk:</p>
  <p className="mt-2 text-sm text-slate-800 leading-relaxed">
- ì{r.copyPasteQuestion}î
+ ‚Äú{r.copyPasteQuestion}‚Äù
  </p>
  </div>
  </td>
@@ -261,7 +261,7 @@ export default function RentalTermsPricesPage() {
  Three sanity checks before you pay
  </h3>
  <p className="mt-2 max-w-3xl text-sm text-brand-text/70">
- If one unchecked detail can cascade into a missed pickup, cancelled tour, or broken day, donít ìhopeî. Verify.
+ If one unchecked detail can cascade into a missed pickup, cancelled tour, or broken day, don‚Äôt ‚Äúhope‚Äù. Verify.
  </p>
 
  <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
@@ -279,7 +279,7 @@ export default function RentalTermsPricesPage() {
  </div>
  </div>
 
- {/* Next steps (no ìRoutingî, no ìî) */}
+ {/* Next steps (no ‚ÄúRouting‚Äù, no ‚Äú‚Äù) */}
  <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
  <h3 className="font-semibold text-slate-900">Next steps</h3>
  <p className="mt-2 text-sm text-slate-700">

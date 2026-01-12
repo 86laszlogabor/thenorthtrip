@@ -5,20 +5,20 @@ import CtaButton from "@/components/CtaButton";
 import Link from "next/link";
 
 export const metadata = {
- title: "Yll‰s Tours | Lapland | TheNorthTrip",
+ title: "Yll√§s Tours | Lapland | TheNorthTrip",
  description:
- "Yll‰s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
+ "Yll√§s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
  openGraph: {
- title: "Yll‰s Tours | TheNorthTrip",
+ title: "Yll√§s Tours | TheNorthTrip",
  description:
- "Yll‰s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
+ "Yll√§s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
  images: ["/images/og/og-lapland-yllas.jpg"],
  },
  twitter: {
  card: "summary_large_image",
- title: "Yll‰s Tours | TheNorthTrip",
+ title: "Yll√§s Tours | TheNorthTrip",
  description:
- "Yll‰s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
+ "Yll√§s base decisions: outdoors-heavy planning, distance reality, and the buffers that prevent schedule collapse.",
  images: ["/images/og/og-lapland-yllas.jpg"],
  },
 };
@@ -34,7 +34,7 @@ const points = [
  },
  {
  title: "Outdoor density",
- body: "Great if you want nature. Donít overschedule tour slots.",
+ body: "Great if you want nature. Don‚Äôt overschedule tour slots.",
  },
  {
  title: "Gear included (or not)",
@@ -46,8 +46,8 @@ export default function YllasHubPage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Yll‰s: outdoors-heavy Lapland, if you respect distances."
- subtitle="Big nature feel. The failure mode is pretending travel time doesnít exist."
+ title="Yll√§s: outdoors-heavy Lapland, if you respect distances."
+ subtitle="Big nature feel. The failure mode is pretending travel time doesn‚Äôt exist."
  imageSrc="/images/hero/hero-lapland-yllas.jpg"
  primaryCta={{ href: "/lapland-tours/destinations", label: "All destinations" }}
  secondaryCta={{ href: "/lapland-tours", label: "Back to tours " }}
@@ -55,7 +55,7 @@ export default function YllasHubPage() {
 
  <Section>
  <p className="text-xs font-semibold tracking-wide text-brand-text/60">
- Lapland / Yll‰s
+ Lapland / Yll√§s
  </p>
 
  {/* Facts badges (E-E-A-T polish, matches Rovaniemi pattern) */}
@@ -64,7 +64,7 @@ export default function YllasHubPage() {
  Largest ski area Finland
  </span>
  <span className="rounded-full border border-slate-200 px-3 py-1">
- Pallas-Yll‰s National Park
+ Pallas-Yll√§s National Park
  </span>
  <span className="rounded-full border border-slate-200 px-3 py-1">
  330km north Rovaniemi
@@ -83,7 +83,7 @@ export default function YllasHubPage() {
  <Card className="flex flex-col">
  <h3 className="text-lg font-semibold">Safe booking path</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- 1 anchor activity per day. Add buffers. Avoid ìtwo tours + travelî fantasy days.
+ 1 anchor activity per day. Add buffers. Avoid ‚Äútwo tours + travel‚Äù fantasy days.
  </p>
  <div className="mt-auto pt-5">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -125,7 +125,7 @@ export default function YllasHubPage() {
  <Card>
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Copying a ìRovaniemi scheduleî into Yll‰s. Different geography, different risk.
+ Copying a ‚ÄúRovaniemi schedule‚Äù into Yll√§s. Different geography, different risk.
  </p>
  </Card>
  </div>

@@ -36,7 +36,7 @@ export default function GettingAroundFinlandPage() {
  image: "/images/og/og-helsinki-airport-transfers.jpg",
  title: "Late arrival?",
  description:
- "Last services won’t wait for a delayed flight. Have a transfer plan that survives reality.",
+ "Last services wonâ€™t wait for a delayed flight. Have a transfer plan that survives reality.",
  href: "/helsinki/airport-transfers",
  cta: "Airport transfers ?",
  },
@@ -53,7 +53,7 @@ export default function GettingAroundFinlandPage() {
  image: "/images/og/og-lapland-rovaniemi.jpg",
  title: "Lapland in winter?",
  description:
- "Tours often beat driving in -20°C darkness. Less risk, fewer “we’re stranded” stories.",
+ "Tours often beat driving in -20Â°C darkness. Less risk, fewer â€œweâ€™re strandedâ€ stories.",
  href: "/lapland-tours",
  cta: "Lapland tours checklist ?",
  },
@@ -61,7 +61,7 @@ export default function GettingAroundFinlandPage() {
  image: "/images/og/og-camper-coastal.jpg",
  title: "Camper?",
  description:
- "Summer is easy. Winter is a heating + insulation exam. Don’t book by vibes.",
+ "Summer is easy. Winter is a heating + insulation exam. Donâ€™t book by vibes.",
  href: "/camper-rental-finland",
  cta: "Camper winter reality ?",
  },
@@ -107,7 +107,7 @@ export default function GettingAroundFinlandPage() {
  />))}
  </div>
 
- {/* “Before you pay” + table to break the catalog rhythm */}
+ {/* â€œBefore you payâ€ + table to break the catalog rhythm */}
  <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
  <Card>
  <h3 className="text-lg font-semibold">Before you pay</h3>
@@ -172,7 +172,7 @@ export default function GettingAroundFinlandPage() {
  </div>
 
  <p className="mt-4 text-sm text-brand-text/70">
- If your plan includes a ferry: treat check-in like a hard deadline. Miss it and the schedule doesn’t “adapt”.
+ If your plan includes a ferry: treat check-in like a hard deadline. Miss it and the schedule doesnâ€™t â€œadaptâ€.
  </p>
  </Card>
  </div>

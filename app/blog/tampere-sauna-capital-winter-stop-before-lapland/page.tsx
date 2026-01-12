@@ -10,11 +10,11 @@ import CtaButton from "@/components/CtaButton";
 export const metadata: Metadata = {
  title: "Tampere Sauna Capital 2026: The Smart Winter Stop Before Lapland",
  description:
- "Tampere is Finland’s sauna-reset city: €24–28 train from Helsinki, best public saunas, 1–2 night buffer logic, and a clean northbound flow before Lapland.",
+ "Tampere is Finlandâ€™s sauna-reset city: â‚¬24â€“28 train from Helsinki, best public saunas, 1â€“2 night buffer logic, and a clean northbound flow before Lapland.",
  openGraph: {
  title: "Tampere Sauna Capital 2026: The Smart Winter Stop Before Lapland",
  description:
- "€24–28 train from Helsinki. 1–2 nights max. Sauna reset before Lapland logistics.",
+ "â‚¬24â€“28 train from Helsinki. 1â€“2 nights max. Sauna reset before Lapland logistics.",
  images: ["/images/og/og-tampere-2026.jpg"],
  },
  twitter: {
@@ -41,8 +41,8 @@ const visuals = [
  image: "/images/blog/tampere/tampere-lake-winter.jpg",
  },
  {
- title: "Helsinki → Tampere train",
- body: "€24–28, ~1h40m, zero drama.",
+ title: "Helsinki â†’ Tampere train",
+ body: "â‚¬24â€“28, ~1h40m, zero drama.",
  image: "/images/blog/tampere/tampere-train-snow.jpg",
  },
  {
@@ -55,16 +55,16 @@ const visuals = [
 const toc = [
  { id: "key-facts", label: "Key facts (fast decisions)" },
  { id: "why-tampere", label: "Why Tampere works in winter" },
- { id: "helsinki-tampere", label: "Helsinki → Tampere: train time & cost" },
+ { id: "helsinki-tampere", label: "Helsinki â†’ Tampere: train time & cost" },
  { id: "sauna-culture", label: "Sauna culture: not a gimmick" },
  { id: "top-saunas", label: "Top public saunas (quick list)" },
- { id: "pricing", label: "Sauna pricing anchors (€15–22)" },
- { id: "buffer-logic", label: "Buffer logic: 1–2 nights optimal" },
- { id: "itinerary", label: "Sample itinerary (1–2 nights)" },
+ { id: "pricing", label: "Sauna pricing anchors (â‚¬15â€“22)" },
+ { id: "buffer-logic", label: "Buffer logic: 1â€“2 nights optimal" },
+ { id: "itinerary", label: "Sample itinerary (1â€“2 nights)" },
  { id: "lake-walks", label: "Lake walks & winter pacing" },
  { id: "safety", label: "Ice safety" },
- { id: "vs-other-cities", label: "Vs Turku / Jyväskylä" },
- { id: "tampere-rovaniemi", label: "Tampere → Rovaniemi: night train anchor" },
+ { id: "vs-other-cities", label: "Vs Turku / JyvÃ¤skylÃ¤" },
+ { id: "tampere-rovaniemi", label: "Tampere â†’ Rovaniemi: night train anchor" },
  { id: "sauna-protocol", label: "Sauna + cold plunge protocol" },
  { id: "thenorthtrip-logic", label: "How this fits TheNorthTrip logic" },
  { id: "internal-links", label: "Internal links & next steps" },
@@ -207,7 +207,7 @@ function ImageTile({
 function PullQuote({ children }: { children: ReactNode }) {
  return (<div className="not-prose my-12 rounded-3xl border border-neutral-200 bg-white p-7 shadow-sm">
  <p className="text-[16px] font-semibold leading-8 text-neutral-900">
- “{children}”
+ â€œ{children}â€
  </p>
  </div>);
 }
@@ -216,10 +216,10 @@ export default function Page() {
  return (<div className="min-h-screen bg-white text-neutral-900">
  <PageHero
  title="Tampere: Sauna Reset Before Lapland"
- subtitle="€24–28 train from Helsinki. Perfect 1–2 night buffer. Sauna reset that behaves like infrastructure."
+ subtitle="â‚¬24â€“28 train from Helsinki. Perfect 1â€“2 night buffer. Sauna reset that behaves like infrastructure."
  imageSrc="/images/blog/tampere/hero.jpg"
- primaryCta={{ href: "/getting-around-finland", label: "Transport guide →" }}
- secondaryCta={{ href: "/offer-checklist", label: "Offer checklist →" }}
+ primaryCta={{ href: "/getting-around-finland", label: "Transport guide â†’" }}
+ secondaryCta={{ href: "/offer-checklist", label: "Offer checklist â†’" }}
  />
 
  {/* WHITE editorial canvas (no blue-ish slate wash) */}
@@ -236,12 +236,12 @@ export default function Page() {
  <div className="flex flex-wrap items-center justify-between gap-4">
  <div className="flex flex-wrap items-center gap-2 text-sm">
  <span className="font-semibold text-neutral-900">Blog</span>
- <span className="text-neutral-300">·</span>
+ <span className="text-neutral-300">Â·</span>
  <span className="text-neutral-600">
  Last verified:{" "}
  <span className="font-semibold text-neutral-900">{lastVerified}</span>
  </span>
- <span className="text-neutral-300">·</span>
+ <span className="text-neutral-300">Â·</span>
  <span className="text-neutral-500">{slug}</span>
  </div>
 
@@ -273,7 +273,7 @@ export default function Page() {
  <Pill>Sauna reset</Pill>
  <Pill>Winter pacing</Pill>
  <Pill>Northbound flow</Pill>
- <Pill>1–2 nights</Pill>
+ <Pill>1â€“2 nights</Pill>
  </div>
 
  <h1 className="mt-5 text-2xl font-semibold tracking-tight md:text-4xl">
@@ -282,21 +282,21 @@ export default function Page() {
 
  <div className="mt-5 grid gap-4 rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm">
  <p className="text-[15px] leading-8 text-neutral-700 md:text-[16px]">
- Tampere is not “another stop”. It’s a buffer that behaves like infrastructure:
+ Tampere is not â€œanother stopâ€. Itâ€™s a buffer that behaves like infrastructure:
  warm reset, predictable transit, and a clean northbound handoff.
  </p>
  <p className="text-[15px] leading-8 text-neutral-600 md:text-[16px]">
- The point is not “doing Tampere”. The point is arriving to Lapland with better energy,
+ The point is not â€œdoing Tampereâ€. The point is arriving to Lapland with better energy,
  fewer logistics mistakes, and zero unnecessary winter chaos.
  </p>
 
  <div className="grid gap-3 rounded-2xl border border-neutral-200 bg-white p-4">
  <div className="grid gap-2 sm:grid-cols-2">
  {[
- ["Train (Helsinki → Tampere)", "€24–28"],
+ ["Train (Helsinki â†’ Tampere)", "â‚¬24â€“28"],
  ["Time", "~1h40m"],
- ["Best buffer", "1–2 nights"],
- ["Sauna anchor", "€15–22"],
+ ["Best buffer", "1â€“2 nights"],
+ ["Sauna anchor", "â‚¬15â€“22"],
  ].map(([k, v]) => (<div key={k} className="flex items-baseline justify-between gap-4">
  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500">
  {k}
@@ -308,13 +308,13 @@ export default function Page() {
 
  <div className="flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Transport guide →
+ Transport guide â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
@@ -350,7 +350,7 @@ export default function Page() {
  <span className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-3 py-1 font-semibold">
  {slug}
  </span>
- <span className="text-neutral-300">•</span>
+ <span className="text-neutral-300">â€¢</span>
  <span>Last verified: {lastVerified}</span>
  </div>
  </div>
@@ -374,34 +374,34 @@ export default function Page() {
  <SectionHeader
  kicker="Fast decisions"
  title="Key facts"
- lede="Tampere is the calm middle layer: warm reset + clean continuation north. If you’re building a winter week, this is the easy win."
+ lede="Tampere is the calm middle layer: warm reset + clean continuation north. If youâ€™re building a winter week, this is the easy win."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-2">
  <MiniCard
  kicker="Transport"
- title="€24–28 train, ~1h40m"
+ title="â‚¬24â€“28 train, ~1h40m"
  body="Predictable winter move. Warm, stable, and removes road/parking nonsense from the plan."
  />
  <MiniCard
  kicker="Time"
- title="1–2 nights is optimal"
+ title="1â€“2 nights is optimal"
  body="One night gives you a reset. Two nights gives you adult pacing. More dilutes the trip."
  />
  <MiniCard
  kicker="Budget"
- title="Sauna €15–22 anchor"
- body="Enough to justify the stop without turning it into a ‘luxury day’ that steals from Lapland."
+ title="Sauna â‚¬15â€“22 anchor"
+ body="Enough to justify the stop without turning it into a â€˜luxury dayâ€™ that steals from Lapland."
  />
  <MiniCard
  kicker="Role"
  title="Buffer city, not a destination phase"
- body="Use Tampere to reduce friction and fatigue. That’s the whole point."
+ body="Use Tampere to reduce friction and fatigue. Thatâ€™s the whole point."
  />
  </div>
 
  <PullQuote>
- Tampere isn’t “more travel”. It’s the thing that makes the travel you already planned feel better.
+ Tampere isnâ€™t â€œmore travelâ€. Itâ€™s the thing that makes the travel you already planned feel better.
  </PullQuote>
 
  <Divider />
@@ -415,18 +415,18 @@ export default function Page() {
 
  <div className="not-prose mt-7 grid gap-4">
  <ListCard
- title="Why it’s a good buffer"
+ title="Why itâ€™s a good buffer"
  items={[
  "Compact and easy to navigate in winter conditions.",
  "Sauna culture works year-round (not a tourist prop).",
  "Short winter walks that feel human, not heroic.",
- "Trains keep the plan stable when weather or energy doesn’t.",
+ "Trains keep the plan stable when weather or energy doesnâ€™t.",
  ]}
  />
  <Callout
  eyebrow="Decision rule"
- title="Choose the predictable option when you’re tired."
- body="Winter travel punishes improvisation. The train removes failure modes you don’t need."
+ title="Choose the predictable option when youâ€™re tired."
+ body="Winter travel punishes improvisation. The train removes failure modes you donâ€™t need."
  tone="success"
  />
  </div>
@@ -436,7 +436,7 @@ export default function Page() {
  <Anchor id="helsinki-tampere" />
  <SectionHeader
  kicker="Transport"
- title="Helsinki → Tampere: train time & cost"
+ title="Helsinki â†’ Tampere: train time & cost"
  lede="Trains are the winter default because they stay predictable when roads and mood do not."
  />
 
@@ -445,11 +445,11 @@ export default function Page() {
  <MiniCard
  kicker="Time"
  title="~1h40m"
- body="Typical fast services. Short enough that it doesn’t feel like a travel day."
+ body="Typical fast services. Short enough that it doesnâ€™t feel like a travel day."
  />
  <MiniCard
  kicker="Cost anchor"
- title="€24–28"
+ title="â‚¬24â€“28"
  body="Use as a planning range. If it spikes, book earlier or shift departure time."
  />
  <MiniCard
@@ -460,7 +460,7 @@ export default function Page() {
  </div>
  <Callout
  eyebrow="Reality"
- title="The ‘car vs train’ debate ends when it’s -12°C and dark at 15:00."
+ title="The â€˜car vs trainâ€™ debate ends when itâ€™s -12Â°C and dark at 15:00."
  body="Take the option that keeps your plan stable and your brain quiet."
  tone="neutral"
  />
@@ -472,19 +472,19 @@ export default function Page() {
  <SectionHeader
  kicker="Culture"
  title="Sauna culture: not a gimmick"
- lede="In winter, sauna isn’t ‘an activity’. It’s infrastructure: heat, recovery, and sleep quality."
+ lede="In winter, sauna isnâ€™t â€˜an activityâ€™. Itâ€™s infrastructure: heat, recovery, and sleep quality."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-2">
  <MiniCard
  kicker="Reset"
  title="Sauna = nervous system restart"
- body="Travel day in, heat + calm out. That’s how you stop the week from turning into exhaustion."
+ body="Travel day in, heat + calm out. Thatâ€™s how you stop the week from turning into exhaustion."
  />
  <MiniCard
  kicker="Practical"
  title="Better sleep, better next day"
- body="You don’t need ‘more stuff’. You need recovery so Lapland feels good instead of hard."
+ body="You donâ€™t need â€˜more stuffâ€™. You need recovery so Lapland feels good instead of hard."
  />
  </div>
 
@@ -501,17 +501,17 @@ export default function Page() {
  <MiniCard
  kicker="Modern"
  title="Sommer"
- body="Contemporary public sauna vibe. Good default if you want ‘easy and clean’."
+ body="Contemporary public sauna vibe. Good default if you want â€˜easy and cleanâ€™."
  />
  <MiniCard
  kicker="Classic"
  title="Rajaportti"
- body="Old-school atmosphere. If you want the ‘this is Finland’ feeling, it delivers."
+ body="Old-school atmosphere. If you want the â€˜this is Finlandâ€™ feeling, it delivers."
  />
  <MiniCard
  kicker="Treat"
  title="Armas"
- body="Clean ‘treat yourself’ option. Works well as a second sauna on a 2-night buffer."
+ body="Clean â€˜treat yourselfâ€™ option. Works well as a second sauna on a 2-night buffer."
  />
  </div>
 
@@ -520,14 +520,14 @@ export default function Page() {
  <Anchor id="pricing" />
  <SectionHeader
  kicker="Costs"
- title="Sauna pricing anchors (€15–22)"
+ title="Sauna pricing anchors (â‚¬15â€“22)"
  lede="Planning anchors only. Update when you re-verify."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-3">
- <MiniCard kicker="Sommer" title="~€19" body="Typical modern public sauna anchor." />
- <MiniCard kicker="Rajaportti" title="~€15–20" body="Classic range, varies by option." />
- <MiniCard kicker="Armas" title="~€22" body="Higher end anchor for a ‘treat’ session." />
+ <MiniCard kicker="Sommer" title="~â‚¬19" body="Typical modern public sauna anchor." />
+ <MiniCard kicker="Rajaportti" title="~â‚¬15â€“20" body="Classic range, varies by option." />
+ <MiniCard kicker="Armas" title="~â‚¬22" body="Higher end anchor for a â€˜treatâ€™ session." />
  </div>
 
  <Divider />
@@ -535,7 +535,7 @@ export default function Page() {
  <Anchor id="buffer-logic" />
  <SectionHeader
  kicker="Pacing"
- title="Buffer logic: 1–2 nights optimal"
+ title="Buffer logic: 1â€“2 nights optimal"
  lede="Tampere works best as a controlled pause, not a new destination phase."
  />
 
@@ -558,7 +558,7 @@ export default function Page() {
  <Anchor id="itinerary" />
  <SectionHeader
  kicker="Template"
- title="Sample itinerary (1–2 nights)"
+ title="Sample itinerary (1â€“2 nights)"
  lede="No heroic schedules. Just a plan that keeps your week stable."
  />
 
@@ -587,7 +587,7 @@ export default function Page() {
  <SectionHeader
  kicker="Low pressure"
  title="Lake walks & winter pacing"
- lede="Tampere’s winter value is subtle: short loops, quiet light, and zero pressure to ‘perform’ your trip."
+ lede="Tampereâ€™s winter value is subtle: short loops, quiet light, and zero pressure to â€˜performâ€™ your trip."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-2">
@@ -607,9 +607,9 @@ export default function Page() {
 
  <Anchor id="safety" />
  <SectionHeader
- kicker="Don’t be the story"
+ kicker="Donâ€™t be the story"
  title="Ice safety"
- lede="Winter lakes look calm. They are also indifferent. Don’t freestyle ice adventures without local knowledge."
+ lede="Winter lakes look calm. They are also indifferent. Donâ€™t freestyle ice adventures without local knowledge."
  />
 
  <div className="not-prose mt-7">
@@ -618,7 +618,7 @@ export default function Page() {
  items={[
  "Stay on maintained paths when possible.",
  "Assume conditions change fast.",
- "If you’re unsure, don’t test physics with your body.",
+ "If youâ€™re unsure, donâ€™t test physics with your body.",
  ]}
  />
  </div>
@@ -628,7 +628,7 @@ export default function Page() {
  <Anchor id="vs-other-cities" />
  <SectionHeader
  kicker="Alternatives"
- title="Vs Turku / Jyväskylä"
+ title="Vs Turku / JyvÃ¤skylÃ¤"
  lede="You can buffer elsewhere. Tampere just behaves the most plug-and-play for a Lapland flow."
  />
 
@@ -636,17 +636,17 @@ export default function Page() {
  <MiniCard
  kicker="Turku"
  title="Coastal energy"
- body="Easy to drift into ‘extra days’. Less clean for northbound logic."
+ body="Easy to drift into â€˜extra daysâ€™. Less clean for northbound logic."
  />
  <MiniCard
- kicker="Jyväskylä"
+ kicker="JyvÃ¤skylÃ¤"
  title="Can work"
  body="Less obvious default flow for most itineraries."
  />
  <MiniCard
  kicker="Tampere"
  title="Compact + sauna-first"
- body="Best ‘buffer as infrastructure’ behavior."
+ body="Best â€˜buffer as infrastructureâ€™ behavior."
  />
  </div>
 
@@ -655,14 +655,14 @@ export default function Page() {
  <Anchor id="tampere-rovaniemi" />
  <SectionHeader
  kicker="Northbound"
- title="Tampere → Rovaniemi: night train anchor"
+ title="Tampere â†’ Rovaniemi: night train anchor"
  lede="Strong winter move: sleep through distance, arrive more functional than you deserve."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-2">
  <MiniCard
  kicker="Price anchor"
- title="€60–80 (typical)"
+ title="â‚¬60â€“80 (typical)"
  body="Planning anchor only. Costs vary by cabin/season and booking timing."
  />
  <MiniCard
@@ -678,11 +678,11 @@ export default function Page() {
  <SectionHeader
  kicker="Protocol"
  title="Sauna + cold plunge protocol"
- lede="You don’t need to cosplay toughness. Short cold, calm breathing, hydrate. Repeat."
+ lede="You donâ€™t need to cosplay toughness. Short cold, calm breathing, hydrate. Repeat."
  />
 
  <div className="not-prose mt-7 grid gap-4 md:grid-cols-3">
- <MiniCard kicker="Cycle" title="3 rounds" body="10–15 minutes sauna per round, no ego contests." />
+ <MiniCard kicker="Cycle" title="3 rounds" body="10â€“15 minutes sauna per round, no ego contests." />
  <MiniCard kicker="Cold" title="Quick on purpose" body="Cold plunge or cold air, short, controlled, safe." />
  <MiniCard kicker="Rest" title="Sit, breathe, hydrate" body="The recovery part is the whole point." />
  </div>
@@ -702,7 +702,7 @@ export default function Page() {
  items={[
  "Reduces fatigue before Lapland big-ticket days.",
  "Keeps logistics predictable in winter.",
- "Adds recovery without adding ‘complexity’.",
+ "Adds recovery without adding â€˜complexityâ€™.",
  "Improves sleep and pacing so activities feel worth the money.",
  ]}
  />
@@ -739,11 +739,11 @@ export default function Page() {
  <Card className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
  <p className="text-sm font-semibold text-neutral-900">Winter transport sanity</p>
  <p className="mt-2 text-sm leading-7 text-neutral-600">
- Trains are your friend in winter. Cars are fine, until they aren’t.
+ Trains are your friend in winter. Cars are fine, until they arenâ€™t.
  </p>
  <div className="mt-4">
  <CtaButton href="/getting-around-finland" variant="outline">
- Transport guide →
+ Transport guide â†’
  </CtaButton>
  </div>
  </Card>
@@ -755,7 +755,7 @@ export default function Page() {
  </p>
  <div className="mt-4">
  <CtaButton href="/offer-checklist" variant="primary">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  </div>
  </Card>
@@ -779,10 +779,10 @@ export default function Page() {
 
  <div className="mt-4 space-y-3 text-sm">
  {[
- ["Helsinki → Tampere", "€24–28"],
+ ["Helsinki â†’ Tampere", "â‚¬24â€“28"],
  ["Time", "~1h40m"],
- ["Best buffer", "1–2 nights"],
- ["Sauna anchor", "€15–22"],
+ ["Best buffer", "1â€“2 nights"],
+ ["Sauna anchor", "â‚¬15â€“22"],
  ["Northbound move", "Night train"],
  ].map(([k, v]) => (<div key={k} className="flex items-start justify-between gap-4">
  <div className="text-neutral-600">{k}</div>
@@ -792,10 +792,10 @@ export default function Page() {
 
  <div className="mt-5 grid gap-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline" className="w-full">
- Transport guide →
+ Transport guide â†’
  </CtaButton>
  </div>
 
@@ -828,12 +828,12 @@ export default function Page() {
  Buffer rule
  </div>
  <p className="mt-3 text-sm leading-7 text-neutral-700">
- <strong className="text-neutral-900">1–2 nights Tampere</strong> → clean Lapland arrival.
+ <strong className="text-neutral-900">1â€“2 nights Tampere</strong> â†’ clean Lapland arrival.
  More than that and you start diluting the trip.
  </p>
  <div className="mt-4">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Use the checklist →
+ Use the checklist â†’
  </CtaButton>
  </div>
  </Card>

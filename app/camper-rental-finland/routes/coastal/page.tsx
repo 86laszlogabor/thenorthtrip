@@ -36,12 +36,12 @@ const checks = [
  },
  {
  title: "Weather buffers",
- body: "Wind and rain change the dayís effort. Build slack so the plan stays calm.",
+ body: "Wind and rain change the day‚Äôs effort. Build slack so the plan stays calm.",
  icon: "???",
  },
  {
  title: "Return constraints",
- body: "Return time and cleaning rules are real. Donít schedule them like a quick car drop.",
+ body: "Return time and cleaning rules are real. Don‚Äôt schedule them like a quick car drop.",
  icon: "??",
  },
 ] as const;
@@ -50,25 +50,25 @@ const quickMoves = [
  {
  label: "Back to camper rentals",
  href: "/camper-rental-finland",
- note: "Start here if youíre still choosing season, vehicle, and pickup logic.",
+ note: "Start here if you‚Äôre still choosing season, vehicle, and pickup logic.",
  icon: "??",
  },
  {
  label: "Rental terms checklist",
  href: "/rental-terms-prices",
- note: "Use this when youíre comparing conditions, not marketing claims.",
+ note: "Use this when you‚Äôre comparing conditions, not marketing claims.",
  icon: "??",
  },
  {
  label: "Offer checklist",
  href: "/offer-checklist",
- note: "Best before payment. Stops ìquiet failuresî early.",
+ note: "Best before payment. Stops ‚Äúquiet failures‚Äù early.",
  icon: "?",
  },
  {
  label: "Getting around Finland",
  href: "/getting-around-finland",
- note: "If youíre still unsure whether camper is the right mode for this trip style.",
+ note: "If you‚Äôre still unsure whether camper is the right mode for this trip style.",
  icon: "???",
  },
 ] as const;
@@ -90,7 +90,7 @@ export default function CamperCoastalRoutePage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Coastal route: scenic, but donít turn it into a fragile schedule."
+ title="Coastal route: scenic, but don‚Äôt turn it into a fragile schedule."
  subtitle="Camper trips collapse when you copy a car itinerary. Set distance caps and plan overnights like an adult."
  imageSrc="/images/hero/hero-camper-coastal.jpg"
  primaryCta={{ href: "/camper-rental-finland", label: "Camper rentals" }}
@@ -108,7 +108,7 @@ export default function CamperCoastalRoutePage() {
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
  This route style works when you stop pretending a camper behaves like a car. Keep days short, pick overnights
- early, and donít schedule the return like itís a two-minute handoff.
+ early, and don‚Äôt schedule the return like it‚Äôs a two-minute handoff.
  </p>
 
  <div className="mt-6 flex flex-wrap gap-2">
@@ -135,7 +135,7 @@ export default function CamperCoastalRoutePage() {
  <h3 className="text-lg font-semibold">If anything feels unclear</h3>
  <p className="mt-3 text-sm text-brand-text/70">
  Camper logistics have a talent for turning small rules into expensive problems. Escalate early instead of
- ìhoping itís fineî.
+ ‚Äúhoping it‚Äôs fine‚Äù.
  </p>
  <div className="mt-auto pt-5">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -149,7 +149,7 @@ export default function CamperCoastalRoutePage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Quick routing</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Use these as ìnext stepsî depending on where you are in the decision.
+ Use these as ‚Äúnext steps‚Äù depending on where you are in the decision.
  </p>
 
  <div className="mt-5 grid gap-3">
@@ -177,7 +177,7 @@ export default function CamperCoastalRoutePage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Adding ìone more stopî because it looks close. Camper friction is cumulative, and the cost shows up later:
+ Adding ‚Äúone more stop‚Äù because it looks close. Camper friction is cumulative, and the cost shows up later:
  tired decisions, late arrivals, messy returns.
  </p>
 
@@ -185,7 +185,7 @@ export default function CamperCoastalRoutePage() {
  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
  <div className="text-sm font-semibold text-slate-900">Simple rule</div>
  <p className="mt-2 text-sm text-brand-text/70">
- If the day only works when everything is on-time, itís not a camper day. Reduce scope or add slack.
+ If the day only works when everything is on-time, it‚Äôs not a camper day. Reduce scope or add slack.
  </p>
  </div>
 

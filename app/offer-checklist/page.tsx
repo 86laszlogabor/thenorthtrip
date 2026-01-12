@@ -65,7 +65,7 @@ const checks: Check[] = [
  {
  title: "Rules that matter are in writing",
  why: "Desk culture is procedural; exceptions are rare and unreliable.",
- how: "If itís critical, get confirmation from the enforcing provider, not a reseller summary.",
+ how: "If it‚Äôs critical, get confirmation from the enforcing provider, not a reseller summary.",
  icon: "writing",
  },
  {
@@ -82,14 +82,14 @@ const checks: Check[] = [
  },
  {
  title: "Location and transfers are realistic",
- why: "ìCentralî can be non-walkable in winter or with luggage.",
+ why: "‚ÄúCentral‚Äù can be non-walkable in winter or with luggage.",
  how: "Verify actual distance, last services, and walking time with bags (not optimistic maps).",
  icon: "map",
  },
  {
  title: "Opening dates and seasonal closures are checked",
  why: "Shoulder seasons remove the peak-season safety net.",
- how: "Confirm whatís open, reduced hours, and whether ìsummer timetablesî still apply.",
+ how: "Confirm what‚Äôs open, reduced hours, and whether ‚Äúsummer timetables‚Äù still apply.",
  icon: "season",
  },
  {
@@ -99,7 +99,7 @@ const checks: Check[] = [
  icon: "fallback",
  },
  {
- title: "You know what youíre optimizing for",
+ title: "You know what you‚Äôre optimizing for",
  why: "Speed, budget, flexibility, and reliability trade off against each other.",
  how: "Pick the least fragile chain, not the most ambitious itinerary.",
  icon: "target",
@@ -120,7 +120,7 @@ export default function OfferChecklistPage() {
  <PageHero
  variant="home"
  title="Offer checklist: verify before you pay."
- subtitle="Finland trips donít usually fail loudly. They fail when an assumption meets a desk rule, a last service, or a winter constraint."
+ subtitle="Finland trips don‚Äôt usually fail loudly. They fail when an assumption meets a desk rule, a last service, or a winter constraint."
  imageSrc="/images/hero/hero-offer-checklist.jpg"
  primaryCta={{ href: "/rental-terms-prices", label: "Open rental terms" }}
  secondaryCta={{ href: "/getting-around-finland", label: "Transport decisions" }}
@@ -135,7 +135,7 @@ export default function OfferChecklistPage() {
  </h2>
  <p className="mt-3 text-sm text-brand-text/70 leading-relaxed max-w-3xl">
  Use this as a filter before committing money. If one unchecked detail can cascade into a missed pickup,
- a cancelled day, or a broken chain, donít ìhopeî. Verify.
+ a cancelled day, or a broken chain, don‚Äôt ‚Äúhope‚Äù. Verify.
  </p>
 
  <div className="mt-5 flex flex-col sm:flex-row gap-3">
@@ -151,7 +151,7 @@ export default function OfferChecklistPage() {
  <Card className="p-6 bg-slate-50">
  <h3 className="text-sm font-semibold text-slate-900">Numbers policy</h3>
  <p className="mt-2 text-sm text-brand-text/70 leading-relaxed">
- If a detail isnít stable across suppliers or seasons, we donít ìestimateî.
+ If a detail isn‚Äôt stable across suppliers or seasons, we don‚Äôt ‚Äúestimate‚Äù.
  You confirm it once, in writing, for your exact booking.
  </p>
  <p className="mt-4 text-sm">

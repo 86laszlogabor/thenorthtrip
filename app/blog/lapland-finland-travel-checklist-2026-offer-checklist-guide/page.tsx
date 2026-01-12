@@ -7,18 +7,18 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
- title: "Lapland Finland Travel Checklist 2026: Save €500+ (Offer-Checklist)",
+ title: "Lapland Finland Travel Checklist 2026: Save â‚¬500+ (Offer-Checklist)",
  description:
- "Lapland Finland travel checklist 2026. Save €500+ on tours, rentals, transport and timing mistakes with this decision-first offer-checklist guide.",
+ "Lapland Finland travel checklist 2026. Save â‚¬500+ on tours, rentals, transport and timing mistakes with this decision-first offer-checklist guide.",
  openGraph: {
- title: "Lapland Finland Travel Checklist 2026: Save €500+ (Offer-Checklist)",
+ title: "Lapland Finland Travel Checklist 2026: Save â‚¬500+ (Offer-Checklist)",
  description:
  "A decision-first offer-checklist that prevents expensive Lapland assumptions in 2026.",
  images: ["/images/og/og-lapland-offer-checklist-2026.jpg"],
  },
  twitter: {
  card: "summary_large_image",
- title: "Lapland Finland Travel Checklist 2026: Save €500+ (Offer-Checklist)",
+ title: "Lapland Finland Travel Checklist 2026: Save â‚¬500+ (Offer-Checklist)",
  description:
  "A decision-first offer-checklist that prevents expensive Lapland assumptions in 2026.",
  images: ["/images/og/og-lapland-offer-checklist-2026.jpg"],
@@ -197,38 +197,38 @@ export default function Page() {
  const tourPriceRows = [
  {
  type: "Husky safari",
- range: "€200–€450",
+ range: "â‚¬200â€“â‚¬450",
  verify: "Active trail time, route length, kennel practices",
  },
  {
  type: "Northern Lights chase",
- range: "€120–€220",
+ range: "â‚¬120â€“â‚¬220",
  verify: "Group size, mobility, drive range, cancellation logic",
  },
  {
  type: "Snowmobile safari",
- range: "€180–€350",
+ range: "â‚¬180â€“â‚¬350",
  verify: "Solo vs shared driving, ride time vs briefing time",
  },
  {
  type: "Ice hotel visit",
- range: "€200–€450",
+ range: "â‚¬200â€“â‚¬450",
  verify: "Day visit vs overnight value and included transfers",
  },
  ];
 
  const rentalCostRows = [
- { item: "Car rental (5 days)", range: "€350–€700" },
- { item: "Fuel", range: "€80–€150" },
- { item: "Parking / extras", range: "€40–€80" },
+ { item: "Car rental (5 days)", range: "â‚¬350â€“â‚¬700" },
+ { item: "Fuel", range: "â‚¬80â€“â‚¬150" },
+ { item: "Parking / extras", range: "â‚¬40â€“â‚¬80" },
  ];
 
  const budgetRows = [
- { cat: "Transport (return)", range: "€180–€450" },
- { cat: "Accommodation", range: "€450–€1,050" },
- { cat: "Tours", range: "€650–€1,400" },
- { cat: "Food", range: "€250–€450" },
- { cat: "Extras", range: "€100–€250" },
+ { cat: "Transport (return)", range: "â‚¬180â€“â‚¬450" },
+ { cat: "Accommodation", range: "â‚¬450â€“â‚¬1,050" },
+ { cat: "Tours", range: "â‚¬650â€“â‚¬1,400" },
+ { cat: "Food", range: "â‚¬250â€“â‚¬450" },
+ { cat: "Extras", range: "â‚¬100â€“â‚¬250" },
  ];
 
  return (<div className="bg-white">
@@ -250,7 +250,7 @@ export default function Page() {
  <Section>
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
- <span className="font-medium">Blog</span> ·{" "}
+ <span className="font-medium">Blog</span> Â·{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
  <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
@@ -276,7 +276,7 @@ export default function Page() {
  <div>
  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
  <span className="h-2 w-2 rounded-full bg-emerald-500" />
- Decision filter. Less waste. Fewer “oops” payments.
+ Decision filter. Less waste. Fewer â€œoopsâ€ payments.
  </div>
 
  {/* header image inside page */}
@@ -319,37 +319,37 @@ export default function Page() {
  {/* Intro */}
  <SectionCard>
  <SectionInner>
- <P>Lapland doesn’t usually ruin trips loudly.</P>
+ <P>Lapland doesnâ€™t usually ruin trips loudly.</P>
  <P>
- It doesn’t scam you. It doesn’t shout hidden fees in your face. It just
+ It doesnâ€™t scam you. It doesnâ€™t shout hidden fees in your face. It just
  lets you assume things. And assumptions in Lapland are expensive.
  </P>
  <P>
- I’ve watched sensible travellers overspend <strong>€300–€700</strong>{" "}
- without doing anything “wrong.” They booked tours that overlapped. Rented
+ Iâ€™ve watched sensible travellers overspend <strong>â‚¬300â€“â‚¬700</strong>{" "}
+ without doing anything â€œwrong.â€ They booked tours that overlapped. Rented
  cars they barely used. Missed the night-travel sweet spot. Paid premium
- prices for short, underwhelming experiences because they didn’t know what
- to verify before clicking “confirm.”
+ prices for short, underwhelming experiences because they didnâ€™t know what
+ to verify before clicking â€œconfirm.â€
  </P>
  <P>This guide exists to stop that.</P>
  <P>
- This is not a list of attractions. It’s a <strong>decision filter</strong>:
+ This is not a list of attractions. Itâ€™s a <strong>decision filter</strong>:
  an <strong>offer-checklist</strong> designed for winter travel in Finnish
  Lapland in 2026.
  </P>
- <P>If you run every booking through this checklist, you’ll usually:</P>
+ <P>If you run every booking through this checklist, youâ€™ll usually:</P>
  <Bullets>
  <li>avoid timing mismatches</li>
  <li>cut unnecessary rentals</li>
  <li>book the tour length that actually delivers value</li>
- <li>avoid duplicate transfers and “double logistics”</li>
+ <li>avoid duplicate transfers and â€œdouble logisticsâ€</li>
  <li>
- and realistically save <strong>€500+</strong> on many 5–7 day Lapland
+ and realistically save <strong>â‚¬500+</strong> on many 5â€“7 day Lapland
  trips
  </li>
  </Bullets>
  <Callout title="Rule">
- Use it while booking. Not after. “After” is where money goes to die.
+ Use it while booking. Not after. â€œAfterâ€ is where money goes to die.
  </Callout>
  </SectionInner>
  </SectionCard>
@@ -361,23 +361,23 @@ export default function Page() {
  <H2>The offer-checklist mindset</H2>
  <P>
  Lapland travel is structured. Tours run on daylight, weather windows, and
- distance. When you book things in the wrong order, the system doesn’t
+ distance. When you book things in the wrong order, the system doesnâ€™t
  adapt to you. You adapt by paying more.
  </P>
 
  <Callout title="Mindset flip">
  <div className="space-y-2">
  <div>
- <strong>Not:</strong> “Is this tour cheap?” <strong>But:</strong> “Does
- it fit everything else I’ve already booked?”
+ <strong>Not:</strong> â€œIs this tour cheap?â€ <strong>But:</strong> â€œDoes
+ it fit everything else Iâ€™ve already booked?â€
  </div>
  <div>
- <strong>Not:</strong> “Can I rent a car?” <strong>But:</strong> “Do I
- actually need one for what I’m doing?”
+ <strong>Not:</strong> â€œCan I rent a car?â€ <strong>But:</strong> â€œDo I
+ actually need one for what Iâ€™m doing?â€
  </div>
  <div>
- <strong>Not:</strong> “Is this a good deal?” <strong>But:</strong> “What
- breaks if this is delayed, cancelled, or moved?”
+ <strong>Not:</strong> â€œIs this a good deal?â€ <strong>But:</strong> â€œWhat
+ breaks if this is delayed, cancelled, or moved?â€
  </div>
  </div>
  </Callout>
@@ -388,9 +388,9 @@ export default function Page() {
  <Anchor id="checklist-1" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #1: dates & season (the silent €300 decision)</H2>
+ <H2>Checklist #1: dates & season (the silent â‚¬300 decision)</H2>
  <P>
- Before you look at a single tour, verify <strong>when</strong> you’re going.
+ Before you look at a single tour, verify <strong>when</strong> youâ€™re going.
  </P>
 
  <HR />
@@ -410,7 +410,7 @@ export default function Page() {
  <P><strong>Checklist questions</strong></P>
  <Bullets>
  <li>Am I travelling during Christmas/New Year or school-holiday weeks?</li>
- <li>Do I need deep polar night, or is “snow + aurora chances” enough?</li>
+ <li>Do I need deep polar night, or is â€œsnow + aurora chancesâ€ enough?</li>
  <li>Would early March (more daylight, still winter) be a better trade?</li>
  </Bullets>
  </SectionInner>
@@ -420,7 +420,7 @@ export default function Page() {
  <Anchor id="checklist-2" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #2: base location (Rovaniemi vs “quiet Lapland”)</H2>
+ <H2>Checklist #2: base location (Rovaniemi vs â€œquiet Laplandâ€)</H2>
  <P>
  Your base decides transport costs, tour pricing, and how much time you waste
  moving around.
@@ -434,14 +434,14 @@ export default function Page() {
  <strong>Cons:</strong> higher demand, more tourism density.
  </P>
  <P>
- <strong>Hidden saving:</strong> you often don’t need a car if tours include pickup.
+ <strong>Hidden saving:</strong> you often donâ€™t need a car if tours include pickup.
  </P>
 
  <HR />
 
- <H3>Smaller bases (Levi, Saariselkä, Ivalo)</H3>
+ <H3>Smaller bases (Levi, SaariselkÃ¤, Ivalo)</H3>
  <P>
- <strong>Pros:</strong> quieter, stronger “Arctic silence,” often better dark-sky feel.<br />
+ <strong>Pros:</strong> quieter, stronger â€œArctic silence,â€ often better dark-sky feel.<br />
  <strong>Cons:</strong> fewer operators, transfers can cost more, pickup zones vary.
  </P>
  <P>
@@ -466,22 +466,22 @@ export default function Page() {
  <Anchor id="checklist-3" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #3: Helsinki → Lapland transport (sleep is money)</H2>
+ <H2>Checklist #3: Helsinki â†’ Lapland transport (sleep is money)</H2>
  <P>Transport choice affects costs far beyond the ticket price.</P>
 
  <HR />
 
  <H3>Night travel (often cheapest overall)</H3>
  <P>
- <strong>Typical planning range:</strong> €89–€150+ for sleeper configurations (date-dependent).<br />
- <strong>Common saving:</strong> replacing one accommodation night and reducing “dead day” travel time.
+ <strong>Typical planning range:</strong> â‚¬89â€“â‚¬150+ for sleeper configurations (date-dependent).<br />
+ <strong>Common saving:</strong> replacing one accommodation night and reducing â€œdead dayâ€ travel time.
  </P>
 
  <HR />
 
  <H3>Domestic flight</H3>
  <P>
- <strong>Typical planning range:</strong> €110–€220+ one way (date- and baggage-dependent).<br />
+ <strong>Typical planning range:</strong> â‚¬110â€“â‚¬220+ one way (date- and baggage-dependent).<br />
  <strong>Hidden costs:</strong> baggage fees, airport transfers, lost day parts.
  </P>
 
@@ -503,9 +503,9 @@ export default function Page() {
  <Anchor id="checklist-4" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #4: tours – length matters more than price</H2>
+ <H2>Checklist #4: tours â€“ length matters more than price</H2>
  <P>
- This is where people lose money without realising it: short tours that are priced like “real” experiences.
+ This is where people lose money without realising it: short tours that are priced like â€œrealâ€ experiences.
  </P>
 
  <HR />
@@ -513,7 +513,7 @@ export default function Page() {
  <H3>Short tours vs real experiences</H3>
  <P>
  A low-priced husky product is often a short loop designed for volume. A higher-priced safari usually buys
- trail time, distance, and a less “theme park” feel.
+ trail time, distance, and a less â€œtheme parkâ€ feel.
  </P>
 
  <DataTable
@@ -540,13 +540,13 @@ export default function Page() {
  <Anchor id="checklist-5" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #5: Northern Lights – don’t gamble your main goal</H2>
- <P>Aurora chasing is probabilistic. Planning like it isn’t costs money.</P>
+ <H2>Checklist #5: Northern Lights â€“ donâ€™t gamble your main goal</H2>
+ <P>Aurora chasing is probabilistic. Planning like it isnâ€™t costs money.</P>
 
  <Callout title="Offer-checklist rules">
  <div className="space-y-2">
  <div>Book <strong>two nights</strong> if aurora is a priority.</div>
- <div>Avoid “guaranteed aurora” wording.</div>
+ <div>Avoid â€œguaranteed auroraâ€ wording.</div>
  <div>Prefer smaller groups even if slightly more expensive.</div>
  </div>
  </Callout>
@@ -561,8 +561,8 @@ export default function Page() {
  <Anchor id="checklist-6" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #6: car rental – the most common unnecessary expense</H2>
- <P>Car rental in Lapland isn’t wrong. It’s just often unnecessary.</P>
+ <H2>Checklist #6: car rental â€“ the most common unnecessary expense</H2>
+ <P>Car rental in Lapland isnâ€™t wrong. Itâ€™s just often unnecessary.</P>
 
  <HR />
 
@@ -575,7 +575,7 @@ export default function Page() {
 
  <HR />
 
- <H3>When you probably don’t</H3>
+ <H3>When you probably donâ€™t</H3>
  <Bullets>
  <li>Staying in town</li>
  <li>Doing guided tours daily</li>
@@ -593,7 +593,7 @@ export default function Page() {
  />
 
  <Callout title="Checklist question">
- <strong>Will this car replace tours, or just sit parked?</strong> If it’s the second one, skip it.
+ <strong>Will this car replace tours, or just sit parked?</strong> If itâ€™s the second one, skip it.
  </Callout>
  </SectionInner>
  </SectionCard>
@@ -602,7 +602,7 @@ export default function Page() {
  <Anchor id="checklist-7" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #7: accommodation – nights you don’t need</H2>
+ <H2>Checklist #7: accommodation â€“ nights you donâ€™t need</H2>
  <P>
  Lapland accommodation is priced per night, not per usefulness. Late arrivals and early departures can make
  you pay for nights you barely use.
@@ -616,7 +616,7 @@ export default function Page() {
  </Bullets>
 
  <Callout title="Savings">
- Saving one unused night can mean €150–€300 back.
+ Saving one unused night can mean â‚¬150â€“â‚¬300 back.
  </Callout>
  </SectionInner>
  </SectionCard>
@@ -625,19 +625,19 @@ export default function Page() {
  <Anchor id="checklist-8" />
  <SectionCard>
  <SectionInner>
- <H2>Checklist #8: winter gear – buy, rent, or mix?</H2>
- <P>Buying everything “just in case” is usually waste. Renting everything is often unnecessary.</P>
+ <H2>Checklist #8: winter gear â€“ buy, rent, or mix?</H2>
+ <P>Buying everything â€œjust in caseâ€ is usually waste. Renting everything is often unnecessary.</P>
 
  <HR />
 
  <H3>Smart split</H3>
  <P>
  <strong>Bring:</strong> thermal layers, gloves, hat<br />
- <strong>Rent:</strong> outer suit and boots (if you’re unsure)
+ <strong>Rent:</strong> outer suit and boots (if youâ€™re unsure)
  </P>
 
  <P>
- <strong>Typical rental planning range:</strong> €40–€80/day or €150–€200/week (varies widely by provider).
+ <strong>Typical rental planning range:</strong> â‚¬40â€“â‚¬80/day or â‚¬150â€“â‚¬200/week (varies widely by provider).
  </P>
 
  <Callout title="Checklist question">
@@ -656,7 +656,7 @@ export default function Page() {
  <Numbers>
  <li>Dates + season</li>
  <li>Base location</li>
- <li>Helsinki–Lapland transport</li>
+ <li>Helsinkiâ€“Lapland transport</li>
  <li>Accommodation</li>
  <li>Big tours (husky, aurora, snowmobile)</li>
  <li>Flexible activities</li>
@@ -677,7 +677,7 @@ export default function Page() {
  <P>Before confirming, add everything.</P>
 
  <DataTable
- caption="7-day Lapland trip – realistic per-person planning range"
+ caption="7-day Lapland trip â€“ realistic per-person planning range"
  columns={[
  { key: "cat", label: "Category", width: "w-[260px]" },
  { key: "range", label: "Planning range", width: "w-[220px]" },
@@ -687,7 +687,7 @@ export default function Page() {
  />
 
  <Callout title="Check">
- If your total is far lower, something is missing. If it’s far higher, re-run the checklist and find the leak.
+ If your total is far lower, something is missing. If itâ€™s far higher, re-run the checklist and find the leak.
  </Callout>
  </SectionInner>
  </SectionCard>
@@ -700,7 +700,7 @@ export default function Page() {
 
  <div className="mt-6 space-y-5">
  <div>
- <H3>Can I really save €500 using this checklist?</H3>
+ <H3>Can I really save â‚¬500 using this checklist?</H3>
  <P>Often, yes, by avoiding duplicate nights, unnecessary car rental, and poor-value short tours.</P>
  </div>
 
@@ -716,7 +716,7 @@ export default function Page() {
 
  <div>
  <H3>Is Rovaniemi overpriced?</H3>
- <P>Not inherently. It’s priced for demand. You can still save by tightening logistics.</P>
+ <P>Not inherently. Itâ€™s priced for demand. You can still save by tightening logistics.</P>
  </div>
  </div>
  </SectionInner>
@@ -727,10 +727,10 @@ export default function Page() {
  <SectionCard>
  <SectionInner>
  <H2>Conclusion: this checklist is your profit margin</H2>
- <P>Lapland doesn’t punish mistakes loudly. It just lets them drain your budget.</P>
+ <P>Lapland doesnâ€™t punish mistakes loudly. It just lets them drain your budget.</P>
  <P>
  Run every booking through these questions. Spend less, do more, and feel calmer while doing it. Calm matters
- when it’s -25°C outside and your main goal is standing still under the sky, waiting for green light to appear.
+ when itâ€™s -25Â°C outside and your main goal is standing still under the sky, waiting for green light to appear.
  </P>
 
  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
@@ -741,19 +741,19 @@ export default function Page() {
  <Link href="/helsinki" className="font-semibold hover:underline">
  Helsinki winter gateway
  </Link>{" "}
- •{" "}
+ â€¢{" "}
  <Link href="/getting-around-finland" className="font-semibold hover:underline">
  Getting around Finland
  </Link>{" "}
- •{" "}
+ â€¢{" "}
  <Link href="/car-rental-helsinki" className="font-semibold hover:underline">
  Car rental Helsinki
  </Link>{" "}
- •{" "}
+ â€¢{" "}
  <Link href="/lapland-tours-finland" className="font-semibold hover:underline">
  Lapland tours Finland
  </Link>{" "}
- •{" "}
+ â€¢{" "}
  <Link href="/offer-checklist" className="font-semibold hover:underline">
  Offer checklist
  </Link>
@@ -776,27 +776,27 @@ export default function Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline text-slate-700">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
- Get help →
+ Get help â†’
  </Link>
  </div>
 
@@ -836,14 +836,14 @@ export default function Page() {
  <div className="p-6">
  <p className="text-xs font-medium text-slate-700">Practical rule</p>
  <p className="mt-2 text-sm text-slate-700">
- If you can’t explain what breaks when a tour shifts by 2 hours, you’re not done verifying.
+ If you canâ€™t explain what breaks when a tour shifts by 2 hours, youâ€™re not done verifying.
  </p>
  <div className="mt-4 grid gap-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Use checklist →
+ Use checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success" className="w-full">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </div>
@@ -853,13 +853,13 @@ export default function Page() {
  <h3 className="text-base font-semibold text-slate-900">Fast internal routes</h3>
  <div className="mt-3 grid gap-2 text-sm">
  <Link className="font-semibold text-slate-800 hover:underline" href="/lapland-tours">
- Lapland tours →
+ Lapland tours â†’
  </Link>
  <Link className="font-semibold text-slate-800 hover:underline" href="/getting-around-finland">
- Getting around Finland →
+ Getting around Finland â†’
  </Link>
  <Link className="font-semibold text-slate-800 hover:underline" href="/car-rental-helsinki">
- Car rental Helsinki →
+ Car rental Helsinki â†’
  </Link>
  </div>
  </Card>

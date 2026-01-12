@@ -30,7 +30,7 @@ const decisionRows = [
  why: "Less friction than parking + paperwork",
  },
  {
- plan: "2ñ3 day trips outside Helsinki",
+ plan: "2‚Äì3 day trips outside Helsinki",
  defaultChoice: "Rental (with buffers)",
  why: "Flexibility beats fixed schedules",
  },
@@ -80,7 +80,7 @@ export default function HelsinkiCityMobilityPage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- The common mistake is assuming ìcar = fasterî. In Helsinki, speed often collapses into parking,
+ The common mistake is assuming ‚Äúcar = faster‚Äù. In Helsinki, speed often collapses into parking,
  walking back, and the operational cost of pickup/return. Choose the mode that survives real-world timing.
  </p>
 
@@ -100,7 +100,7 @@ export default function HelsinkiCityMobilityPage() {
  <div>
  <h3 className="text-lg font-semibold">When a rental actually helps</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Use it for control outside the core, not for ìquick hopsî inside it.
+ Use it for control outside the core, not for ‚Äúquick hops‚Äù inside it.
  </p>
  </div>
  </div>
@@ -116,7 +116,7 @@ export default function HelsinkiCityMobilityPage() {
  </li>
  <li className="flex gap-2">
  <span aria-hidden="true">???</span>
- <span>Weather comfort, if your day isnít tight</span>
+ <span>Weather comfort, if your day isn‚Äôt tight</span>
  </li>
  </ul>
  </Card>
@@ -130,7 +130,7 @@ export default function HelsinkiCityMobilityPage() {
  <div>
  <h3 className="text-lg font-semibold">When it backfires</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Parking is not ìa detailî. It becomes the whole trip.
+ Parking is not ‚Äúa detail‚Äù. It becomes the whole trip.
  </p>
  </div>
  </div>
@@ -138,7 +138,7 @@ export default function HelsinkiCityMobilityPage() {
  <ul className="mt-5 space-y-3 text-sm text-brand-text/70">
  <li className="flex gap-2">
  <span aria-hidden="true">???</span>
- <span>City-only days with ìquick hopsî</span>
+ <span>City-only days with ‚Äúquick hops‚Äù</span>
  </li>
  <li className="flex gap-2">
  <span aria-hidden="true">??</span>
@@ -201,11 +201,11 @@ export default function HelsinkiCityMobilityPage() {
  </div>
  </Card>
 
- {/* Next steps (no ìinternal routesî cringe) */}
+ {/* Next steps (no ‚Äúinternal routes‚Äù cringe) */}
  <Card className="flex flex-col p-6 bg-slate-50">
  <h3 className="text-lg font-semibold">Next steps</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- If you do rent, treat it like an operational decision: timing, rules, and where youíll actually park.
+ If you do rent, treat it like an operational decision: timing, rules, and where you‚Äôll actually park.
  </p>
 
  <div className="mt-5 flex flex-col gap-3">

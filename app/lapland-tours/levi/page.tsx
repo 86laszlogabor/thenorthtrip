@@ -38,12 +38,12 @@ const blocks: Block[] = [
  {
  title: "Late nights vs early starts",
  badge: "??",
- body: "Donít stack early mornings after a late-night activity. Your energy level is part of logistics.",
+ body: "Don‚Äôt stack early mornings after a late-night activity. Your energy level is part of logistics.",
  },
  {
  title: "Packaged activities",
  badge: "??",
- body: "Convenient, but verify whatís included: gear, transfers, meeting point, and cancellation rules.",
+ body: "Convenient, but verify what‚Äôs included: gear, transfers, meeting point, and cancellation rules.",
  },
  {
  title: "Budget & friction buffer",
@@ -56,7 +56,7 @@ export default function LeviHubPage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Levi: resort convenience, if you donít overschedule."
+ title="Levi: resort convenience, if you don‚Äôt overschedule."
  subtitle="The failure mode is stacking slots until timing collapses. Build anchors, then add optional layers."
  imageSrc="/images/hero/hero-lapland-levi-ski.jpg"
  primaryCta={{ href: "/lapland-tours/destinations", label: "All destinations" }}
@@ -92,7 +92,7 @@ export default function LeviHubPage() {
  <h3 className="text-lg font-semibold">Safe booking path</h3>
  <p className="mt-3 text-sm text-brand-text/70">
  1 ski anchor day ? 1 tour day ? 1 flexible day. Keep one buffer night.
- If you canít absorb a delay, youíve built a fragile plan.
+ If you can‚Äôt absorb a delay, you‚Äôve built a fragile plan.
  </p>
  <div className="mt-auto pt-5">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -136,7 +136,7 @@ export default function LeviHubPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- ìItís a resort so logistics are easy.î The resort can be easy.
+ ‚ÄúIt‚Äôs a resort so logistics are easy.‚Äù The resort can be easy.
  Your schedule can still be brittle if you stack fixed slots without buffer.
  </p>
  </Card>

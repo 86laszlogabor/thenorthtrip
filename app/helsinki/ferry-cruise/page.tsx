@@ -26,22 +26,22 @@ export const metadata = {
 const checks = [
  {
  title: "Check-in cutoff is the real deadline",
- body: "Treat check-in as the deadline, not the departure time. If you miss check-in, the sailing time doesnít matter.",
+ body: "Treat check-in as the deadline, not the departure time. If you miss check-in, the sailing time doesn‚Äôt matter.",
  icon: "??",
  },
  {
  title: "Vehicle category rules can force rebooking",
- body: "Some tickets assume a vehicle class. If your rental category doesnít match, fees or rebooking can happen at the terminal.",
+ body: "Some tickets assume a vehicle class. If your rental category doesn‚Äôt match, fees or rebooking can happen at the terminal.",
  icon: "??",
  },
  {
  title: "Flexibility matters more than a perfect time",
- body: "If pickup slips, you donít want the ferry ticket to become a punishment. Prefer options that donít cascade into a total loss.",
+ body: "If pickup slips, you don‚Äôt want the ferry ticket to become a punishment. Prefer options that don‚Äôt cascade into a total loss.",
  icon: "??",
  },
  {
  title: "Same-day pickup + ferry is a fragile combo",
- body: "Airport desk queues eat buffer. Donít schedule the ferry on your tightest day.",
+ body: "Airport desk queues eat buffer. Don‚Äôt schedule the ferry on your tightest day.",
  icon: "?????",
  },
  {
@@ -54,7 +54,7 @@ const checks = [
 const decisionRows = [
  {
  scenario: "Same day pickup + ferry",
- betterMove: "Donít make it tight",
+ betterMove: "Don‚Äôt make it tight",
  why: "Queues and delays are normal",
  },
  {
@@ -103,7 +103,7 @@ export default function HelsinkiFerryCruisePage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- The point is not ìperfect timingî. The point is a plan that still works if the desk is slow,
+ The point is not ‚Äúperfect timing‚Äù. The point is a plan that still works if the desk is slow,
  the queue is long, or your arrival shifts.
  </p>
 
@@ -131,7 +131,7 @@ export default function HelsinkiFerryCruisePage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Decision table</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Simple defaults that prevent the usual ìwe were five minutes lateî disaster.
+ Simple defaults that prevent the usual ‚Äúwe were five minutes late‚Äù disaster.
  </p>
 
  <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">

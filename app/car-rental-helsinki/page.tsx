@@ -24,7 +24,7 @@ export const metadata = {
  },
 };
 
-type = {
+type HeroCard = {
  image: string;
  title: string;
  description: string;
@@ -32,18 +32,18 @@ type = {
  ctaHref: string;
 };
 
-function HubTile({ }: {: }) {
+function HubTile({ item }: { item: HeroCard }) {
  return (<Card className="flex flex-col overflow-hidden">
  <div className="h-40 w-full overflow-hidden rounded-xl bg-slate-100">
- <img src={.image} alt="" className="h-full w-full object-cover" loading="lazy" />
+ <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" />
  </div>
 
- <h3 className="mt-4 text-lg font-semibold">{.title}</h3>
- <p className="mt-2 text-sm text-brand-text/70">{.description}</p>
+ <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+ <p className="mt-2 text-sm text-brand-text/70">{item.description}</p>
 
  <div className="mt-auto pt-4">
- <Link href={.ctaHref} className="text-sm font-semibold hover:underline">
- {.ctaLabel}
+ <Link href={item.ctaHref} className="text-sm font-semibold hover:underline">
+ {item.ctaLabel}
  </Link>
  </div>
  </Card>);
@@ -70,7 +70,7 @@ export default function CarRentalHelsinkiPage() {
  { empty: true, label: "Direct brand (Sixt / Europcar / Hertz etc.)" },
  ];
 
- const helsinkiHubs: [] = [
+ const helsinkiHubs: HeroCard[] = [
  {
  image: "/images/og/og-helsinki-airport-transfers.jpg",
  title: "HEL pickup reality",
@@ -389,7 +389,7 @@ export default function CarRentalHelsinkiPage() {
  </p>
 
  <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
- {helsinkiHubs.map(() => (<HubTile key={.title} ={} />))}
+ {helsinkiHubs.map((item) => (<HubTile key={item.title}  item={item} />))}
  </div>
  </Section>
 
@@ -499,5 +499,12 @@ export default function CarRentalHelsinkiPage() {
  </Section>
  </div>);
 }
+
+
+
+
+
+
+
 
 

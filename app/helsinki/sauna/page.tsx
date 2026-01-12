@@ -7,18 +7,18 @@ import Link from "next/link";
 export const metadata = {
  title: "Helsinki Sauna Routing | TheNorthTrip",
  description:
- "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesnít collapse into peak-hour chaos.",
+ "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn‚Äôt collapse into peak-hour chaos.",
  openGraph: {
  title: "Helsinki Sauna Routing | TheNorthTrip",
  description:
- "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesnít collapse into peak-hour chaos.",
+ "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn‚Äôt collapse into peak-hour chaos.",
  images: ["/images/og/og-helsinki-sauna.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Helsinki Sauna Routing | TheNorthTrip",
  description:
- "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesnít collapse into peak-hour chaos.",
+ "Sauna by car sounds simple until parking and timing collide. Decision-first routing so your day doesn‚Äôt collapse into peak-hour chaos.",
  images: ["/images/og/og-helsinki-sauna.jpg"],
  },
 };
@@ -81,7 +81,7 @@ export default function HelsinkiSaunaPage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- Sauna ìhoppingî sounds harmless until you mix it with winter pace, parking roulette, and peak-hour dinner.
+ Sauna ‚Äúhopping‚Äù sounds harmless until you mix it with winter pace, parking roulette, and peak-hour dinner.
  Use a simple routing model and your day stays intact.
  </p>
 

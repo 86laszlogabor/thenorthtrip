@@ -41,7 +41,7 @@ const checks = [
  },
  {
  title: "First-day plan",
- body: "Donít schedule tight sightseeing right after pickup. Day 1 is still ëstartupí.",
+ body: "Don‚Äôt schedule tight sightseeing right after pickup. Day 1 is still ‚Äòstartup‚Äô.",
  icon: "??",
  },
 ] as const;
@@ -107,8 +107,8 @@ export default function CamperStationHelsinkiPage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- Camper trips donít usually fail on day 6. They fail on day 1, when your plan assumes ìquick pickupî and
- reality adds handover friction, rules, and time you didnít budget for.
+ Camper trips don‚Äôt usually fail on day 6. They fail on day 1, when your plan assumes ‚Äúquick pickup‚Äù and
+ reality adds handover friction, rules, and time you didn‚Äôt budget for.
  </p>
 
  <div className="mt-6 flex flex-wrap gap-2">
@@ -134,7 +134,7 @@ export default function CamperStationHelsinkiPage() {
  <Card className="flex flex-col p-6 bg-slate-50">
  <h3 className="text-lg font-semibold">If anything feels unclear</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Donít argue at the desk with zero documentation. Escalate early and get rules in writing.
+ Don‚Äôt argue at the desk with zero documentation. Escalate early and get rules in writing.
  </p>
  <div className="mt-auto pt-5">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -148,7 +148,7 @@ export default function CamperStationHelsinkiPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Next steps</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Pick the next page based on what youíre actually doing next. Radical concept, I know.
+ Pick the next page based on what you‚Äôre actually doing next. Radical concept, I know.
  </p>
 
  <div className="mt-5 grid gap-3">
@@ -185,13 +185,13 @@ export default function CamperStationHelsinkiPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Trying to ìstart exploring immediatelyî. Day 1 is for setup and stability.
+ Trying to ‚Äústart exploring immediately‚Äù. Day 1 is for setup and stability.
  </p>
 
  <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
  <div className="text-sm font-semibold text-slate-900">Simple rule</div>
  <p className="mt-2 text-sm text-brand-text/70">
- If youíre leaving the pickup and you still havenít decided where youíll sleep, the plan is already fragile.
+ If you‚Äôre leaving the pickup and you still haven‚Äôt decided where you‚Äôll sleep, the plan is already fragile.
  </p>
  </div>
 

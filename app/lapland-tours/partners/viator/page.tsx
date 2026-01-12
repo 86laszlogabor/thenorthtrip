@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
  title: "Partner: Viator | TheNorthTrip",
  description:
- "Viator partner guidance for Lapland: how to verify meeting points, cutoffs, and policy constraints so your booking doesn’t collapse on arrival.",
+ "Viator partner guidance for Lapland: how to verify meeting points, cutoffs, and policy constraints so your booking doesnâ€™t collapse on arrival.",
 };
 
 const verify = [
@@ -13,16 +13,16 @@ const verify = [
  "Cutoff time and what counts as no-show",
  "What is included vs optional add-ons",
  "Cancellation/change rules in writing",
- "Transfers and responsibilities (yours vs operator’s)",
+ "Transfers and responsibilities (yours vs operatorâ€™s)",
 ];
 
 const misunderstandings = [
  "Aggregator listings guarantee delivery",
  "Cutoff times are flexible",
- "If you arrive late, they’ll wait",
+ "If you arrive late, theyâ€™ll wait",
  "Policies are negotiable",
- "All ‘similar’ tours have identical constraints",
- "Winter doesn’t change viability",
+ "All â€˜similarâ€™ tours have identical constraints",
+ "Winter doesnâ€™t change viability",
  "You can chain multiple fixed-time bookings safely",
  "Aurora/wildlife is guaranteed",
  "Photos equal inclusions",
@@ -89,13 +89,13 @@ export default function PartnerViatorPage() {
  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
  <h2 className="text-lg font-semibold">Booking discipline</h2>
  <ol className="mt-4 list-decimal pl-5 text-sm text-slate-700 space-y-2">
- <li>Don’t chain multiple fixed start times without buffers.</li>
+ <li>Donâ€™t chain multiple fixed start times without buffers.</li>
  <li>In winter, assume slower movement and earlier fatigue.</li>
  <li>If missing one item breaks the day, simplify the plan.</li>
  <li>Save written confirmations for anything critical.</li>
  </ol>
  <p className="mt-4 text-xs text-slate-500">
- Reminder: weather and natural phenomena aren’t guaranteed.
+ Reminder: weather and natural phenomena arenâ€™t guaranteed.
  </p>
  </div>
  </div>

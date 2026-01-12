@@ -53,32 +53,32 @@ const services: Service[] = [
  note:
  "No promises. Just risk-based pruning and verification prompts.",
  icon: "??",
- mailSubject: "TheNorthTrip ñ Plan Stress-Test",
+ mailSubject: "TheNorthTrip ‚Äì Plan Stress-Test",
  mailBody:
- "Hi TheNorthTrip,\n\nIíd like a Plan Stress-Test.\n\nLinks / itinerary:\n- \n\nConstraints:\n- Dates:\n- Budget range:\n- Winter comfort level:\n- Must-do items:\n\nQuestions / concerns:\n- \n\nThanks,",
+ "Hi TheNorthTrip,\n\nI‚Äôd like a Plan Stress-Test.\n\nLinks / itinerary:\n- \n\nConstraints:\n- Dates:\n- Budget range:\n- Winter comfort level:\n- Must-do items:\n\nQuestions / concerns:\n- \n\nThanks,",
  cta: "Get a stress-test ?",
  },
  {
  title: "Rental Check",
  subtitle:
- "Youíre booking a rental. You want to avoid deposit/card/timing surprises.",
+ "You‚Äôre booking a rental. You want to avoid deposit/card/timing surprises.",
  bullets: [
  "Deposit + card rule risk review (debit/credit, cardholder rules)",
  "Pickup/return timing risks (desk hours, late arrival handling)",
- "Short ìconfirm in writingî script tailored to your booking",
+ "Short ‚Äúconfirm in writing‚Äù script tailored to your booking",
  ],
  note:
  "Desk rules override aggregator summaries. We structure confirmations accordingly.",
  icon: "??",
- mailSubject: "TheNorthTrip ñ Rental & Payment Check",
+ mailSubject: "TheNorthTrip ‚Äì Rental & Payment Check",
  mailBody:
- "Hi TheNorthTrip,\n\nIíd like a Rental & Payment Check.\n\nBooking links (provider + confirmation if available):\n- \n\nPickup details:\n- Location:\n- Date/time:\n- Flight (if applicable):\n\nPayment situation:\n- Debit/credit:\n- Backup card available? (yes/no)\n\nMain worry:\n- \n\nThanks,",
+ "Hi TheNorthTrip,\n\nI‚Äôd like a Rental & Payment Check.\n\nBooking links (provider + confirmation if available):\n- \n\nPickup details:\n- Location:\n- Date/time:\n- Flight (if applicable):\n\nPayment situation:\n- Debit/credit:\n- Backup card available? (yes/no)\n\nMain worry:\n- \n\nThanks,",
  cta: "Check my booking ?",
  },
  {
  title: "Decision Routing",
  subtitle:
- "Youíre unsure which transport chain fits your tolerance and constraints.",
+ "You‚Äôre unsure which transport chain fits your tolerance and constraints.",
  bullets: [
  "Mode tradeoff summary (train/bus/flight/rental) based on your plan",
  "Least-fragile chain recommendation (not maximum activity density)",
@@ -87,9 +87,9 @@ const services: Service[] = [
  note:
  "We optimize for fragility reduction, not maximum activity density.",
  icon: "??",
- mailSubject: "TheNorthTrip ñ Decision Routing Help",
+ mailSubject: "TheNorthTrip ‚Äì Decision Routing Help",
  mailBody:
- "Hi TheNorthTrip,\n\nIíd like help choosing the least-fragile transport chain.\n\nPlan:\n- Start city:\n- End city:\n- Dates:\n- Fixed bookings (if any):\n\nConstraints:\n- Budget:\n- Winter comfort:\n- Must-do items:\n\nWhat Iím deciding between:\n- \n\nThanks,",
+ "Hi TheNorthTrip,\n\nI‚Äôd like help choosing the least-fragile transport chain.\n\nPlan:\n- Start city:\n- End city:\n- Dates:\n- Fixed bookings (if any):\n\nConstraints:\n- Budget:\n- Winter comfort:\n- Must-do items:\n\nWhat I‚Äôm deciding between:\n- \n\nThanks,",
  cta: "Help me choose ?",
  },
 ];
@@ -104,14 +104,14 @@ function ChecklistLine({ children }: { children: React.ReactNode }) {
 }
 
 export default function GetHelpPage() {
- const defaultMail = mailto("TheNorthTrip ñ Help Request",
- "Hi TheNorthTrip,\n\nIíd like a risk-based review before I pay.\n\nLinks / bookings:\n- \n\nConstraints:\n- Dates:\n- Budget:\n- Winter comfort level:\n- Must-do items:\n\nWhat feels fragile:\n- \n\nThanks,");
+ const defaultMail = mailto("TheNorthTrip ‚Äì Help Request",
+ "Hi TheNorthTrip,\n\nI‚Äôd like a risk-based review before I pay.\n\nLinks / bookings:\n- \n\nConstraints:\n- Dates:\n- Budget:\n- Winter comfort level:\n- Must-do items:\n\nWhat feels fragile:\n- \n\nThanks,");
 
  return (<div className="bg-white">
  <PageHero
  variant="home"
  title="Get help: calm, risk-based review before you pay."
- subtitle="We donít promise outcomes. We reduce brittle assumptions: deposits, timing constraints, winter fragility, and desk-level rules."
+ subtitle="We don‚Äôt promise outcomes. We reduce brittle assumptions: deposits, timing constraints, winter fragility, and desk-level rules."
  imageSrc="/images/hero/hero-get-help.jpg"
  primaryCta={{
  href: defaultMail,
@@ -128,8 +128,8 @@ export default function GetHelpPage() {
  What we do here
  </h2>
  <p className="mt-3 max-w-3xl text-sm text-brand-text/70">
- Finland trips donít usually fail loudly. They fail quietly: desk rules, timing gaps, winter buffers,
- and assumptions that donít survive contact with reality. If you want a calm review before you pay,
+ Finland trips don‚Äôt usually fail loudly. They fail quietly: desk rules, timing gaps, winter buffers,
+ and assumptions that don‚Äôt survive contact with reality. If you want a calm review before you pay,
  pick one of the options below.
  </p>
 
@@ -200,12 +200,12 @@ export default function GetHelpPage() {
 
  <Card className="p-6">
  <h3 className="text-lg font-semibold text-slate-900">
- What this is (and isnít)
+ What this is (and isn‚Äôt)
  </h3>
 
  <ul className="mt-3 space-y-2 text-sm text-brand-text/70">
  <ChecklistLine>
- We donít guarantee outcomes (weather, operators, availability).
+ We don‚Äôt guarantee outcomes (weather, operators, availability).
  </ChecklistLine>
  <ChecklistLine>
  We focus on verification and fragility reduction.

@@ -7,18 +7,18 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
- title: "Finn Cities’ Hidden Gems 2026: Winter Routing for Lapland Trips",
+ title: "Finn Citiesâ€™ Hidden Gems 2026: Winter Routing for Lapland Trips",
  description:
  "A decision-first winter routing guide across Finnish cities: Helsinki, Turku, Porvoo, Tampere, Savonlinna, Rovaniemi, Kuopio, Oulu and Lahti. Built for Lapland-ready planning.",
  openGraph: {
- title: "Finn Cities’ Hidden Gems 2026: Winter Routing for Lapland Trips",
+ title: "Finn Citiesâ€™ Hidden Gems 2026: Winter Routing for Lapland Trips",
  description:
  "A decision-first winter routing guide across Finnish cities: Helsinki, Turku, Porvoo, Tampere, Savonlinna, Rovaniemi, Kuopio, Oulu and Lahti. Built for Lapland-ready planning.",
  images: ["/images/og/og-blog.jpg"],
  },
  twitter: {
  card: "summary_large_image",
- title: "Finn Cities’ Hidden Gems 2026: Winter Routing for Lapland Trips",
+ title: "Finn Citiesâ€™ Hidden Gems 2026: Winter Routing for Lapland Trips",
  description:
  "A decision-first winter routing guide across Finnish cities: Helsinki, Turku, Porvoo, Tampere, Savonlinna, Rovaniemi, Kuopio, Oulu and Lahti. Built for Lapland-ready planning.",
  images: ["/images/og/og-blog.jpg"],
@@ -67,20 +67,20 @@ const quickChecks = [
  {
  title: "North comes after timing",
  body:
- "Go north when connections and key bookings are locked. Don’t let “hope” be your transport strategy.",
+ "Go north when connections and key bookings are locked. Donâ€™t let â€œhopeâ€ be your transport strategy.",
  },
 ];
 
 const tableRows: Array<[string, string, string, string, string]> = [
- ["Helsinki", "Planning + connections", "Design, saunas", "Dec–Mar", "€€€"],
- ["Turku", "History without noise", "Castle, river", "Dec–Feb", "€€"],
- ["Porvoo", "Easy day-trip reset", "Old town", "Jan–Feb", "€€"],
- ["Tampere", "Sauna culture ", "Lakes, museums", "Dec–Mar", "€€"],
- ["Savonlinna", "Castle-in-snow mood", "Lake Saimaa", "Jan–Feb", "€€"],
- ["Rovaniemi", "Lapland base", "Aurora, huskies", "Dec–Mar", "€€€"],
- ["Kuopio", "Quiet winter Finland", "Frozen lakes", "Jan–Mar", "€€"],
- ["Oulu", "Northern gateway", "Winter cycling", "Dec–Mar", "€€"],
- ["Lahti", "Winter sports warm-up", "Ski jumps", "Jan–Mar", "€€"],
+ ["Helsinki", "Planning + connections", "Design, saunas", "Decâ€“Mar", "â‚¬â‚¬â‚¬"],
+ ["Turku", "History without noise", "Castle, river", "Decâ€“Feb", "â‚¬â‚¬"],
+ ["Porvoo", "Easy day-trip reset", "Old town", "Janâ€“Feb", "â‚¬â‚¬"],
+ ["Tampere", "Sauna culture ", "Lakes, museums", "Decâ€“Mar", "â‚¬â‚¬"],
+ ["Savonlinna", "Castle-in-snow mood", "Lake Saimaa", "Janâ€“Feb", "â‚¬â‚¬"],
+ ["Rovaniemi", "Lapland base", "Aurora, huskies", "Decâ€“Mar", "â‚¬â‚¬â‚¬"],
+ ["Kuopio", "Quiet winter Finland", "Frozen lakes", "Janâ€“Mar", "â‚¬â‚¬"],
+ ["Oulu", "Northern gateway", "Winter cycling", "Decâ€“Mar", "â‚¬â‚¬"],
+ ["Lahti", "Winter sports warm-up", "Ski jumps", "Janâ€“Mar", "â‚¬â‚¬"],
 ];
 
 type CityBlock = {
@@ -98,26 +98,26 @@ const citySections: CityBlock[] = [
  title: "Helsinki: the planning that keeps your trip stable",
  image: images.helsinki,
  intro:
- "Helsinki isn’t just a quick stop. In winter, it’s where you can lock the fragile parts of the trip before you go north.",
+ "Helsinki isnâ€™t just a quick stop. In winter, itâ€™s where you can lock the fragile parts of the trip before you go north.",
  body: [
- "If you’re doing Lapland, Helsinki is the place to make decisions that prevent knock-on failures: transport timing, tour sequencing, and (if you drive) car rental constraints. It also delivers the most accessible “Finnish winter” experience: saunas, sea air, and easy indoor culture when the weather gets loud.",
+ "If youâ€™re doing Lapland, Helsinki is the place to make decisions that prevent knock-on failures: transport timing, tour sequencing, and (if you drive) car rental constraints. It also delivers the most accessible â€œFinnish winterâ€ experience: saunas, sea air, and easy indoor culture when the weather gets loud.",
  ],
  blocks: [
  {
  label: "TheNorthTrip logic",
  text:
- "Use Helsinki as a soft landing. Lock transport north, then tours, then day trips. If you reverse that order, you’re buying stress.",
+ "Use Helsinki as a soft landing. Lock transport north, then tours, then day trips. If you reverse that order, youâ€™re buying stress.",
  tone: "warning",
  },
  {
  label: "Practical tip",
  text:
- "Do one sauna on a weekday evening. It’s the fastest way to understand winter culture without the tourist performance.",
+ "Do one sauna on a weekday evening. Itâ€™s the fastest way to understand winter culture without the tourist performance.",
  },
  {
  label: "When it works best",
  text:
- "December to March. Cold but manageable. Most days hover around -5 to -10°C.",
+ "December to March. Cold but manageable. Most days hover around -5 to -10Â°C.",
  },
  ],
  },
@@ -153,7 +153,7 @@ const citySections: CityBlock[] = [
  title: "Porvoo: the cleanest winter day trip from Helsinki",
  image: images.porvoo,
  intro:
- "Porvoo is small, simple, and reliable. That’s why it works.",
+ "Porvoo is small, simple, and reliable. Thatâ€™s why it works.",
  body: [
  "Old Town Porvoo stays photogenic in winter, but the real win is the pace: you can do it without wrecking your energy or schedule. Fewer moving parts, fewer problems.",
  ],
@@ -182,7 +182,7 @@ const citySections: CityBlock[] = [
  intro:
  "Tampere is one of the best winter stops for sauna culture and an easy city rhythm.",
  body: [
- "It’s a practical stop: solid museums, lakeside winter atmosphere, and the kind of infrastructure that makes cold weather feel normal instead of annoying.",
+ "Itâ€™s a practical stop: solid museums, lakeside winter atmosphere, and the kind of infrastructure that makes cold weather feel normal instead of annoying.",
  ],
  blocks: [
  {
@@ -209,18 +209,18 @@ const citySections: CityBlock[] = [
  intro:
  "Savonlinna is known for summer opera, but winter gives it space and atmosphere.",
  body: [
- "Olavinlinna Castle beside Lake Saimaa hits differently when the landscape is frozen. This is a “slow stop” if your schedule has room and you want something less obvious than the main southern loop.",
+ "Olavinlinna Castle beside Lake Saimaa hits differently when the landscape is frozen. This is a â€œslow stopâ€ if your schedule has room and you want something less obvious than the main southern loop.",
  ],
  blocks: [
  {
  label: "TheNorthTrip logic",
  text:
- "A scenic stop between southern cities and the north, if your plan isn’t tight.",
+ "A scenic stop between southern cities and the north, if your plan isnâ€™t tight.",
  },
  {
  label: "Practical tip",
  text:
- "Aim for late afternoon light. Winter “blue hour” does a lot of the work for you.",
+ "Aim for late afternoon light. Winter â€œblue hourâ€ does a lot of the work for you.",
  },
  {
  label: "When it works best",
@@ -231,12 +231,12 @@ const citySections: CityBlock[] = [
  },
  {
  id: "rovaniemi",
- title: "Rovaniemi: Lapland starts here (and it’s the easiest base)",
+ title: "Rovaniemi: Lapland starts here (and itâ€™s the easiest base)",
  image: images.rovaniemi,
  intro:
  "Rovaniemi is accessible Lapland: tours, logistics, and a lot of people doing the same thing as you.",
  body: [
- "That’s not automatically bad. It means transport and tour options are better than smaller places. The downside is crowds and light pollution. Your job is to keep the plan simple and avoid stacking tight daylight windows.",
+ "Thatâ€™s not automatically bad. It means transport and tour options are better than smaller places. The downside is crowds and light pollution. Your job is to keep the plan simple and avoid stacking tight daylight windows.",
  ],
  blocks: [
  {
@@ -253,7 +253,7 @@ const citySections: CityBlock[] = [
  {
  label: "When it works best",
  text:
- "December to March. Very cold. Plan for -10 to -30°C as normal, not “rare.”",
+ "December to March. Very cold. Plan for -10 to -30Â°C as normal, not â€œrare.â€",
  },
  ],
  },
@@ -264,18 +264,18 @@ const citySections: CityBlock[] = [
  intro:
  "Kuopio is a strong choice if you want winter scenery and local rhythm without a tourist layer.",
  body: [
- "Frozen lakes, calm streets, and viewpoints that look dramatic in foggy winter light. It’s not a “must see”. It’s a “this is what Finland feels like” stop.",
+ "Frozen lakes, calm streets, and viewpoints that look dramatic in foggy winter light. Itâ€™s not a â€œmust seeâ€. Itâ€™s a â€œthis is what Finland feels likeâ€ stop.",
  ],
  blocks: [
  {
  label: "TheNorthTrip logic",
  text:
- "Pick Kuopio if you want a real winter stop that doesn’t require a full Lapland build-out.",
+ "Pick Kuopio if you want a real winter stop that doesnâ€™t require a full Lapland build-out.",
  },
  {
  label: "Practical tip",
  text:
- "If conditions allow, try skating. It’s one of the most “Finland in winter” activities you can do without a tour.",
+ "If conditions allow, try skating. Itâ€™s one of the most â€œFinland in winterâ€ activities you can do without a tour.",
  },
  {
  label: "When it works best",
@@ -289,9 +289,9 @@ const citySections: CityBlock[] = [
  title: "Oulu: northern gateway with everyday winter competence",
  image: images.oulu,
  intro:
- "Oulu sits between the south and deeper Lapland. It’s built for winter living.",
+ "Oulu sits between the south and deeper Lapland. Itâ€™s built for winter living.",
  body: [
- "Winter cycling here is famous for a reason: infrastructure and habits match the climate. If you want to feel the “north” before going all-in, Oulu is a practical bridge.",
+ "Winter cycling here is famous for a reason: infrastructure and habits match the climate. If you want to feel the â€œnorthâ€ before going all-in, Oulu is a practical bridge.",
  ],
  blocks: [
  {
@@ -318,7 +318,7 @@ const citySections: CityBlock[] = [
  intro:
  "Lahti is sporty, modern, and easy to use as an active winter stop.",
  body: [
- "Great if you want snow, trails and winter energy, but you don’t want to commit to Lapland logistics. It’s also an efficient add-on if your Helsinki days feel too indoor-heavy.",
+ "Great if you want snow, trails and winter energy, but you donâ€™t want to commit to Lapland logistics. Itâ€™s also an efficient add-on if your Helsinki days feel too indoor-heavy.",
  ],
  blocks: [
  {
@@ -346,20 +346,20 @@ const faqs = [
  a: "If your trip relies on flights, trains, or tight tour windows, cities are your stabilizer. They give you connections, buffers, and recovery options when weather shifts.",
  },
  {
- q: "What’s the biggest winter routing mistake?",
+ q: "Whatâ€™s the biggest winter routing mistake?",
  a: "Stacking plans like summer. Winter reduces daylight and increases fatigue. Shorter driving days and fewer base changes win more often than ambitious schedules.",
  },
  {
  q: "How many bases should I plan for one winter trip?",
- a: "Fewer than you think. Two-night bases beat daily movement. The trip feels bigger when it isn’t constantly collapsing into logistics.",
+ a: "Fewer than you think. Two-night bases beat daily movement. The trip feels bigger when it isnâ€™t constantly collapsing into logistics.",
  },
  {
- q: "Where should I start if I’m nervous about planning?",
+ q: "Where should I start if Iâ€™m nervous about planning?",
  a: "Start with Helsinki, lock transport north, then choose one Lapland base. Add side cities only when the core plan is stable.",
  },
  {
  q: "Is Rovaniemi too touristy to be useful?",
- a: "It can be busy, but it’s still a strong base for accessible Lapland logistics. The key is picking tours that go far enough from city light and avoiding schedule stacking.",
+ a: "It can be busy, but itâ€™s still a strong base for accessible Lapland logistics. The key is picking tours that go far enough from city light and avoiding schedule stacking.",
  },
 ];
 
@@ -392,7 +392,7 @@ export default function Page() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Finn Cities’ Hidden Gems 2026: winter routing for Lapland trips."
+ title="Finn Citiesâ€™ Hidden Gems 2026: winter routing for Lapland trips."
  subtitle="Cities first when you need structure. North second when the plan can survive reality."
  imageSrc={images.hero}
  primaryCta={{ href: "/lapland-tours", label: "Lapland tours " }}
@@ -421,7 +421,7 @@ export default function Page() {
  <Section>
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
- <span className="font-medium">Blog</span> ·{" "}
+ <span className="font-medium">Blog</span> Â·{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
 
@@ -445,11 +445,11 @@ export default function Page() {
  <article className="max-w-none">
  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
  <span className="h-2 w-2 rounded-full bg-emerald-500" />
- Practical routing · winter-first decisions
+ Practical routing Â· winter-first decisions
  </div>
 
  <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
- Finn Cities’ Hidden Gems 2026: Winter Routing for Lapland Trips
+ Finn Citiesâ€™ Hidden Gems 2026: Winter Routing for Lapland Trips
  </h1>
 
  <p className="mt-3 max-w-3xl text-base text-slate-700 md:text-lg">
@@ -471,7 +471,7 @@ export default function Page() {
  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
  <div className="absolute bottom-4 left-4 right-4">
  <p className="max-w-2xl text-sm text-white/90">
- Build structure first. Add intensity second. That’s how winter trips survive.
+ Build structure first. Add intensity second. Thatâ€™s how winter trips survive.
  </p>
  </div>
  </div>
@@ -545,7 +545,7 @@ export default function Page() {
  <MicroBlock
  label="Decision filter"
  tone="warning"
- text="If one missed connection would break your trip, don’t wing it. Lock transport first, then tours, then day trips. Reverse that order and winter will collect a fee."
+ text="If one missed connection would break your trip, donâ€™t wing it. Lock transport first, then tours, then day trips. Reverse that order and winter will collect a fee."
  />
  </section>
 
@@ -658,27 +658,27 @@ export default function Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/lapland-tours" variant="primary">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  <CtaButton href="/car-rental-helsinki" variant="outline">
- Car rental Helsinki →
+ Car rental Helsinki â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold text-slate-700 hover:underline">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold text-slate-700 hover:underline">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold text-slate-700 hover:underline">
- Get help →
+ Get help â†’
  </Link>
  </div>
  </Card>
@@ -712,10 +712,10 @@ export default function Page() {
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/lapland-tours" variant="primary" className="w-full">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline" className="w-full">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  </div>
  </Card>
@@ -736,15 +736,15 @@ export default function Page() {
  </p>
  <div className="mt-4 text-sm">
  <Link href="/blog" className="font-semibold text-slate-700 hover:underline">
- Blog index →
+ Blog index â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/getting-around-finland" className="font-semibold text-slate-700 hover:underline">
- Getting around Finland →
+ Getting around Finland â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/lapland-tours" className="font-semibold text-slate-700 hover:underline">
- Lapland tours →
+ Lapland tours â†’
  </Link>
  </div>
  </div>

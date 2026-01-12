@@ -7,18 +7,18 @@ import CtaButton from "@/components/CtaButton";
 export const metadata = {
  title: "Policy | TheNorthTrip",
  description:
- "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we donít promise, and what you must confirm in writing.",
+ "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we don‚Äôt promise, and what you must confirm in writing.",
  openGraph: {
  title: "Policy | TheNorthTrip",
  description:
- "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we donít promise, and what you must confirm in writing.",
+ "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we don‚Äôt promise, and what you must confirm in writing.",
  images: ["/images/og/og-policy.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Policy | TheNorthTrip",
  description:
- "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we donít promise, and what you must confirm in writing.",
+ "Affiliate disclosure, human verification process, and clear boundaries: what we do, what we don‚Äôt promise, and what you must confirm in writing.",
  images: ["/images/og/og-policy.jpg"],
  },
 };
@@ -36,7 +36,7 @@ export default function PolicyPage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Policy: how this site works (and what we donít promise)."
+ title="Policy: how this site works (and what we don‚Äôt promise)."
  subtitle="Affiliate disclosure, human verification process, and realistic boundaries. Decision-first, no guesswork."
  imageSrc="/images/hero/hero-policy.jpg"
  primaryCta={{ href: "/offer-checklist", label: "Open offer checklist" }}
@@ -56,7 +56,7 @@ export default function PolicyPage() {
  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
  <p className="text-sm text-brand-text/80">
  <span className="font-semibold text-slate-900">Human-verified process.</span>{" "}
- Every page goes through a structured review. Itís not ìpublish and hopeî.
+ Every page goes through a structured review. It‚Äôs not ‚Äúpublish and hope‚Äù.
  We check primary sources where possible, we write in stable terms (rules and decision points),
  and we label pages with a <span className="font-semibold">Last verified</span> date after a review cycle.
  </p>
@@ -89,7 +89,7 @@ export default function PolicyPage() {
  This helps fund maintenance, verification cycles, and updates.
  </p>
  <p className="mt-3 text-sm text-brand-text/70">
- Affiliate links do not change the guidance. We donít accept payment to publish claims we canít stand behind.
+ Affiliate links do not change the guidance. We don‚Äôt accept payment to publish claims we can‚Äôt stand behind.
  </p>
  </Card>
 
@@ -148,21 +148,21 @@ export default function PolicyPage() {
 
  <Card className="p-6 border border-slate-200">
  <h3 className="text-lg font-semibold text-slate-900">
- What we donít promise (because itís not under our control)
+ What we don‚Äôt promise (because it‚Äôs not under our control)
  </h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Some outcomes depend on operators, weather, enforcement, and real-time availability. We wonít pretend otherwise.
+ Some outcomes depend on operators, weather, enforcement, and real-time availability. We won‚Äôt pretend otherwise.
  </p>
 
  <ul className="mt-3 space-y-2 text-sm text-brand-text/70">
  <ChecklistLine>
- We donít guarantee auroras, wildlife sightings, or tour outcomes.
+ We don‚Äôt guarantee auroras, wildlife sightings, or tour outcomes.
  </ChecklistLine>
  <ChecklistLine>
- We donít promise exact prices, deposit amounts, or universal acceptance rules across all providers.
+ We don‚Äôt promise exact prices, deposit amounts, or universal acceptance rules across all providers.
  </ChecklistLine>
  <ChecklistLine>
- We donít recommend ìworkaroundsî to override desk procedures.
+ We don‚Äôt recommend ‚Äúworkarounds‚Äù to override desk procedures.
  </ChecklistLine>
  </ul>
 

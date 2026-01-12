@@ -75,11 +75,11 @@ export default function HelsinkiAirportTransfersPage() {
  </p>
 
  <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">
- Decision-first guide (so you donít ìfigure it outî at 01:10)
+ Decision-first guide (so you don‚Äôt ‚Äúfigure it out‚Äù at 01:10)
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- Build buffer. Reduce segments. Verify late-night realities. The safest plan is the one that still works when youíre tired, cold, and delayed.
+ Build buffer. Reduce segments. Verify late-night realities. The safest plan is the one that still works when you‚Äôre tired, cold, and delayed.
  </p>
 
  <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">
@@ -92,7 +92,7 @@ export default function HelsinkiAirportTransfersPage() {
  <div>
  <h3 className="text-lg font-semibold">What to verify before you land</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- This is the boring part. Itís also the part that prevents ìwhy is everything closed?î moments.
+ This is the boring part. It‚Äôs also the part that prevents ‚Äúwhy is everything closed?‚Äù moments.
  </p>
  </div>
  </div>
@@ -101,7 +101,7 @@ export default function HelsinkiAirportTransfersPage() {
  <li className="flex gap-2">
  <span aria-hidden="true">??</span>
  <span>
- Check the last service timing for your exact route (donít assume it ìruns lateî).
+ Check the last service timing for your exact route (don‚Äôt assume it ‚Äúruns late‚Äù).
  </span>
  </li>
  <li className="flex gap-2">
@@ -145,7 +145,7 @@ export default function HelsinkiAirportTransfersPage() {
  <div>
  <h3 className="text-lg font-semibold">Seasonal changes</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Availability swings with season. The ìsafeî plan is the one that still functions after delays.
+ Availability swings with season. The ‚Äúsafe‚Äù plan is the one that still functions after delays.
  </p>
  </div>
  </div>
@@ -193,7 +193,7 @@ export default function HelsinkiAirportTransfersPage() {
 
  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
  <p className="text-sm text-slate-800">
- <span className="font-semibold">Rule of thumb:</span> If your plan relies on the last service, itís fragile. Fix the chain, not your mood.
+ <span className="font-semibold">Rule of thumb:</span> If your plan relies on the last service, it‚Äôs fragile. Fix the chain, not your mood.
  </p>
  </div>
  </Card>
@@ -201,7 +201,7 @@ export default function HelsinkiAirportTransfersPage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Decision table</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Pick by failure risk. You can do ìefficientî later, when youíre not landing late.
+ Pick by failure risk. You can do ‚Äúefficient‚Äù later, when you‚Äôre not landing late.
  </p>
 
  <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
@@ -249,9 +249,9 @@ export default function HelsinkiAirportTransfersPage() {
  <span aria-hidden="true">??</span>
  </div>
  <div>
- <h3 className="text-lg font-semibold">If youíre arriving late</h3>
+ <h3 className="text-lg font-semibold">If you‚Äôre arriving late</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Donít bet your first night on a perfect chain. Choose the option that survives delay variance.
+ Don‚Äôt bet your first night on a perfect chain. Choose the option that survives delay variance.
  </p>
  </div>
  </div>
@@ -269,9 +269,9 @@ export default function HelsinkiAirportTransfersPage() {
  <span aria-hidden="true">??</span>
  </div>
  <div>
- <h3 className="text-lg font-semibold">If youíre renting a car right after landing</h3>
+ <h3 className="text-lg font-semibold">If you‚Äôre renting a car right after landing</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Your risk shifts from ìmissed transferî to desk enforcement. Treat deposit/card acceptance as the failure point.
+ Your risk shifts from ‚Äúmissed transfer‚Äù to desk enforcement. Treat deposit/card acceptance as the failure point.
  </p>
  </div>
  </div>

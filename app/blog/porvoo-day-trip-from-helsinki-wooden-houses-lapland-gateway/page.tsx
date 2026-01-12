@@ -9,18 +9,18 @@ import CtaButton from "@/components/CtaButton";
 export const metadata: Metadata = {
  title: "Porvoo Day Trip from Helsinki: Old Town, Bus, Wooden Houses (2026)",
  description:
- "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinki–Porvoo bus basics (~€8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
+ "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinkiâ€“Porvoo bus basics (~â‚¬8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
  openGraph: {
  title: "Porvoo Day Trip from Helsinki: Old Town, Bus, Wooden Houses (2026)",
  description:
- "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinki–Porvoo bus basics (~€8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
+ "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinkiâ€“Porvoo bus basics (~â‚¬8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
  images: ["/images/og/og-blog.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Porvoo Day Trip from Helsinki: Old Town, Bus, Wooden Houses (2026)",
  description:
- "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinki–Porvoo bus basics (~€8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
+ "Porvoo day trip from Helsinki in 2026: Porvoo Old Town highlights, Helsinkiâ€“Porvoo bus basics (~â‚¬8, ~1 hour), what to do without rushing, and why it works as a pre-Lapland tempo reset.",
  images: ["/images/og/og-blog.jpg"],
  },
 };
@@ -45,19 +45,19 @@ const visuals = [
  image: "/images/blog/porvoo/porvoo-old-town-snow.jpg",
  },
  {
- title: "Helsinki–Porvoo bus",
- body: "€8, 1h, no drama. Correct choice.",
+ title: "Helsinkiâ€“Porvoo bus",
+ body: "â‚¬8, 1h, no drama. Correct choice.",
  image: "/images/blog/porvoo/helsinki-porvoo-bus.jpg",
  },
  {
- title: "Winter café window",
+ title: "Winter cafÃ© window",
  body: "Finnish pacing exported.",
  image: "/images/blog/porvoo/porvoo-cafe-winter.jpg",
  },
 ];
 
 const toc = [
- { id: "bus", label: "Helsinki–Porvoo bus" },
+ { id: "bus", label: "Helsinkiâ€“Porvoo bus" },
  { id: "old-town", label: "Porvoo Old Town" },
  { id: "winter", label: "Winter vs summer" },
  { id: "lapland", label: "Lapland gateway" },
@@ -101,7 +101,7 @@ export default function Page() {
  title="Porvoo Day Trip from Helsinki"
  subtitle="Wooden houses, old town streets, and a quiet tempo reset before the north."
  imageSrc="/images/blog/porvoo/hero.jpg"
- primaryCta={{ href: "/helsinki-to-lapland", label: "Helsinki → Lapland" }}
+ primaryCta={{ href: "/helsinki-to-lapland", label: "Helsinki â†’ Lapland" }}
  secondaryCta={{ href: "/offer-checklist", label: "Checklist" }}
  />
 
@@ -118,7 +118,7 @@ export default function Page() {
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
  <span className="font-medium text-slate-900">Blog</span>{" "}
- <span className="text-slate-300">·</span>{" "}
+ <span className="text-slate-300">Â·</span>{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
 
@@ -136,7 +136,7 @@ export default function Page() {
  className="hover:text-slate-900 hover:underline underline-offset-4"
  href="/helsinki-to-lapland"
  >
- Helsinki → Lapland
+ Helsinki â†’ Lapland
  </Link>
  </nav>
  </div>
@@ -186,14 +186,14 @@ export default function Page() {
  </p>
  <p>
  This guide explains why <strong>Porvoo Old Town</strong> matters, how the{" "}
- <strong>Helsinki–Porvoo bus</strong> actually works, what to do without rushing,
- and why Porvoo is a “Lapland gateway” in mindset only (not in transport).
+ <strong>Helsinkiâ€“Porvoo bus</strong> actually works, what to do without rushing,
+ and why Porvoo is a â€œLapland gatewayâ€ in mindset only (not in transport).
  </p>
 
  <hr />
 
  <h2>Why Porvoo is the perfect Helsinki day trip</h2>
- <p>Porvoo succeeds because it’s:</p>
+ <p>Porvoo succeeds because itâ€™s:</p>
  <ul>
  <li>close</li>
  <li>compact</li>
@@ -201,21 +201,21 @@ export default function Page() {
  </ul>
  <p>
  In about an hour, you go from capital city to preserved old-town streets without
- committing to a hotel move or reworking your itinerary. That’s rare. And that’s
+ committing to a hotel move or reworking your itinerary. Thatâ€™s rare. And thatâ€™s
  why Porvoo keeps winning.
  </p>
 
  <hr />
 
  <Anchor id="bus" />
- <h2>Getting there: Helsinki–Porvoo bus (simple, boring, correct)</h2>
- <p>The simplest route is the <strong>Helsinki–Porvoo bus</strong>.</p>
+ <h2>Getting there: Helsinkiâ€“Porvoo bus (simple, boring, correct)</h2>
+ <p>The simplest route is the <strong>Helsinkiâ€“Porvoo bus</strong>.</p>
  <ul>
  <li>
  <strong>Travel time:</strong> ~1 hour (planning number)
  </li>
  <li>
- <strong>Price anchor:</strong> ~€8 one way (planning number)
+ <strong>Price anchor:</strong> ~â‚¬8 one way (planning number)
  </li>
  <li>
  <strong>Frequency:</strong> regular, year-round (varies by day/time)
@@ -230,17 +230,17 @@ export default function Page() {
  <hr />
 
  <Anchor id="old-town" />
- <h2>Porvoo Old Town: why it’s not a gimmick</h2>
+ <h2>Porvoo Old Town: why itâ€™s not a gimmick</h2>
  <p>
  Porvoo Old Town looks curated because it is preserved, not staged.
  Tourist-friendly, yes. Fake, no.
  </p>
- <p>You’ll find:</p>
+ <p>Youâ€™ll find:</p>
  <ul>
  <li>18th-century wooden houses</li>
  <li>cobblestone streets</li>
  <li>small artisan shops</li>
- <li>cafés that don’t rush you</li>
+ <li>cafÃ©s that donâ€™t rush you</li>
  </ul>
 
  <hr />
@@ -255,19 +255,19 @@ export default function Page() {
 
  <h3>Explore the old town streets</h3>
  <p>
- Don’t follow Google Maps aggressively. Wandering works here. The point is pace,
+ Donâ€™t follow Google Maps aggressively. Wandering works here. The point is pace,
  not efficiency.
  </p>
 
  <h3>Coffee and lunch</h3>
  <p>
- Porvoo cafés understand pacing. Sit, eat, watch the weather shift. That’s
+ Porvoo cafÃ©s understand pacing. Sit, eat, watch the weather shift. Thatâ€™s
  basically the Finnish lifestyle export package.
  </p>
 
  <h3>Small museums (optional)</h3>
  <p>
- Only if weather forces you inside. Porvoo’s best value is outdoors and
+ Only if weather forces you inside. Porvooâ€™s best value is outdoors and
  unhurried.
  </p>
 
@@ -280,18 +280,18 @@ export default function Page() {
  <ul>
  <li>fewer crowds</li>
  <li>snow softens the angles</li>
- <li>cafés feel cozier</li>
+ <li>cafÃ©s feel cozier</li>
  <li>the streets slow down</li>
  </ul>
  <p>
- If you’re already traveling Finland in winter, Porvoo fits naturally. It
- doesn’t demand a new wardrobe or a new mindset. It just settles you.
+ If youâ€™re already traveling Finland in winter, Porvoo fits naturally. It
+ doesnâ€™t demand a new wardrobe or a new mindset. It just settles you.
  </p>
 
  <hr />
 
  <Anchor id="lapland" />
- <h2>Porvoo as a “Lapland gateway” (mentally, not logistically)</h2>
+ <h2>Porvoo as a â€œLapland gatewayâ€ (mentally, not logistically)</h2>
  <p>Porvoo is not a transport to Lapland. Kill that idea immediately.</p>
  <p>What it is:</p>
  <ul>
@@ -300,8 +300,8 @@ export default function Page() {
  <li>a gentle transition from urban Helsinki to northern mindset</li>
  </ul>
  <p>
- Visit Porvoo before Lapland, and you arrive north more patient. That’s not
- fluff. That’s psychology. Lapland punishes rushed schedules. Porvoo quietly
+ Visit Porvoo before Lapland, and you arrive north more patient. Thatâ€™s not
+ fluff. Thatâ€™s psychology. Lapland punishes rushed schedules. Porvoo quietly
  fixes your tempo first.
  </p>
 
@@ -325,21 +325,21 @@ export default function Page() {
  <Anchor id="mistakes" />
  <h2>Common Porvoo mistakes</h2>
  <ul>
- <li>trying to “do everything”</li>
+ <li>trying to â€œdo everythingâ€</li>
  <li>overbooking museums</li>
  <li>rushing lunch</li>
  <li>visiting only shops</li>
  <li>treating it like a checklist</li>
  </ul>
- <p>Porvoo rewards slowness. That’s the entire point.</p>
+ <p>Porvoo rewards slowness. Thatâ€™s the entire point.</p>
 
  <hr />
 
  <Anchor id="tips" />
  <h2>Practical tips</h2>
  <ul>
- <li>Wear good shoes. Cobblestones exist, and they don’t apologize.</li>
- <li>Check bus return times loosely. Don’t rely on vibes.</li>
+ <li>Wear good shoes. Cobblestones exist, and they donâ€™t apologize.</li>
+ <li>Check bus return times loosely. Donâ€™t rely on vibes.</li>
  <li>Bring a camera, not a plan.</li>
  <li>Eat earlier on busy days.</li>
  </ul>
@@ -350,10 +350,10 @@ export default function Page() {
  <h2>Final word on Porvoo</h2>
  <p>Porvoo does not change your life. It adjusts your tempo.</p>
  <p>
- As a day trip from Helsinki, it’s nearly perfect. As a pre-Lapland stop, it’s
+ As a day trip from Helsinki, itâ€™s nearly perfect. As a pre-Lapland stop, itâ€™s
  underrated.
  </p>
- <p>Wood, river, silence, time. Sometimes that’s all you need before going north.</p>
+ <p>Wood, river, silence, time. Sometimes thatâ€™s all you need before going north.</p>
 
  <div className="not-prose mt-10 rounded-2xl border border-slate-200/70 bg-slate-50/70 p-5">
  <p className="text-sm text-slate-700">
@@ -361,21 +361,21 @@ export default function Page() {
  <a className="font-semibold hover:underline underline-offset-4" href="/helsinki">
  Helsinki winter gateway
  </a>{" "}
- •{" "}
+ â€¢{" "}
  <a
  className="font-semibold hover:underline underline-offset-4"
  href="/getting-around-finland"
  >
  Getting around Finland
  </a>{" "}
- •{" "}
+ â€¢{" "}
  <a
  className="font-semibold hover:underline underline-offset-4"
  href="/lapland-tours-finland"
  >
  Lapland tours Finland
  </a>{" "}
- •{" "}
+ â€¢{" "}
  <a
  className="font-semibold hover:underline underline-offset-4"
  href="/offer-checklist"
@@ -394,7 +394,7 @@ export default function Page() {
  {/* Bottom CTA */}
  <Card className="mt-8 p-6 md:p-8">
  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
- Want a Helsinki week that doesn’t turn into rushed logistics?
+ Want a Helsinki week that doesnâ€™t turn into rushed logistics?
  </h3>
  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-700">
  Use Porvoo as a tempo reset, then funnel the rest of your planning through the checklist before you book.
@@ -402,27 +402,27 @@ export default function Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours-finland" variant="outline">
- Tours →
+ Tours â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="outline">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Get help →
+ Get help â†’
  </Link>
  </div>
 
@@ -462,10 +462,10 @@ export default function Page() {
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success" className="w-full">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </div>
@@ -478,13 +478,13 @@ export default function Page() {
  </p>
  <div className="mt-3 space-y-2 text-sm text-slate-700">
  <Link className="block font-semibold hover:underline underline-offset-4" href="/helsinki-to-lapland">
- Helsinki → Lapland →
+ Helsinki â†’ Lapland â†’
  </Link>
  <Link className="block font-semibold hover:underline underline-offset-4" href="/getting-around-finland">
- Getting around Finland →
+ Getting around Finland â†’
  </Link>
  <Link className="block font-semibold hover:underline underline-offset-4" href="/lapland-tours-finland">
- Lapland tours →
+ Lapland tours â†’
  </Link>
  </div>
 

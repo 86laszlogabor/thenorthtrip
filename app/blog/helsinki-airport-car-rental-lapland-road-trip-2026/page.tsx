@@ -65,14 +65,14 @@ const toc = [
 const pacingRows = [
  {
  day: "Day 1",
- leg: "Helsinki (HEL/Vantaa area) → Oulu area",
- winterTime: "~6–7h (conditions-dependent)",
+ leg: "Helsinki (HEL/Vantaa area) â†’ Oulu area",
+ winterTime: "~6â€“7h (conditions-dependent)",
  logic: "Long but manageable if started early. Aim to arrive before deep darkness.",
  },
  {
  day: "Day 2",
- leg: "Oulu area → Rovaniemi",
- winterTime: "~3–4h",
+ leg: "Oulu area â†’ Rovaniemi",
+ winterTime: "~3â€“4h",
  logic: "Shorter day. You arrive with energy to do something useful (or just recover).",
  },
 ];
@@ -86,7 +86,7 @@ const fuelRows = [
  {
  label: "Simple rule",
  value:
- "Don’t run the tank low on long gaps. Refill earlier than you would in the south.",
+ "Donâ€™t run the tank low on long gaps. Refill earlier than you would in the south.",
  },
  {
  label: "Buffer mindset",
@@ -124,7 +124,7 @@ function MicroCallout({
 export default function Page() {
  return (<div className="bg-white">
  <PageHero
- title="Helsinki Airport Car Rental → Lapland"
+ title="Helsinki Airport Car Rental â†’ Lapland"
  subtitle="What it really takes to drive north in winter."
  imageSrc="/images/og/og-helsinki-airport-car-rental-lapland-2026.jpg"
  primaryCta={{ href: "/offer-checklist", label: "Open offer checklist" }}
@@ -152,7 +152,7 @@ export default function Page() {
  <Section>
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
- <span className="font-medium">Blog</span> ·{" "}
+ <span className="font-medium">Blog</span> Â·{" "}
  <span className="text-slate-500">Last verified: {lastVerified}</span>
  </div>
  <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
@@ -231,7 +231,7 @@ export default function Page() {
  <MicroCallout
  tone="warning"
  label="Decision filter"
- text="If your itinerary needs hero days to work, it’s not an itinerary. It’s a future apology."
+ text="If your itinerary needs hero days to work, itâ€™s not an itinerary. Itâ€™s a future apology."
  />
  </section>
 
@@ -253,14 +253,14 @@ export default function Page() {
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  Winter tyres are mandatory when conditions require. Rental cars must comply. The real question is not
- “if”, it’s whether you inspect what you received before you commit to a long northbound leg.
+ â€œifâ€, itâ€™s whether you inspect what you received before you commit to a long northbound leg.
  </p>
 
  <div className="mt-5 grid gap-4 md:grid-cols-2">
  <Card className="p-6">
  <h3 className="text-base font-semibold text-slate-900">Pickup checklist</h3>
  <ul className="mt-3 space-y-2 text-sm text-slate-700">
- <li>Confirm you have winter tyres fitted (don’t assume from the listing).</li>
+ <li>Confirm you have winter tyres fitted (donâ€™t assume from the listing).</li>
  <li>Check tread looks healthy and consistent across tyres.</li>
  <li>Verify lights, washer fluid, and basic visibility tools.</li>
  <li>Ask what to do if conditions worsen (support number + process).</li>
@@ -279,11 +279,11 @@ export default function Page() {
  <section>
  <Anchor id="pacing" />
  <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
- Route pacing (don’t be heroic)
+ Route pacing (donâ€™t be heroic)
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  Helsinki to Rovaniemi is long. Break it into realistic segments and avoid night marathons in winter
- darkness. Your “average speed” fantasy does not survive real conditions.
+ darkness. Your â€œaverage speedâ€ fantasy does not survive real conditions.
  </p>
 
  <MicroCallout
@@ -329,7 +329,7 @@ export default function Page() {
  <Card className="p-6">
  <h3 className="text-base font-semibold text-slate-900">Fatigue rule</h3>
  <p className="mt-2 text-sm text-slate-700">
- If you need “one more big push” to reach your plan, your plan is already broken.
+ If you need â€œone more big pushâ€ to reach your plan, your plan is already broken.
  </p>
  </Card>
  </div>
@@ -342,7 +342,7 @@ export default function Page() {
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
  Long distances add up. Build fuel buffers for detours, idling, and cold starts. In the north, the main
- win is avoiding stress, not squeezing the last euro out of “perfect timing”.
+ win is avoiding stress, not squeezing the last euro out of â€œperfect timingâ€.
  </p>
 
  <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -375,19 +375,19 @@ export default function Page() {
 
  <div className="mt-5 grid gap-4 md:grid-cols-2">
  <Card className="p-6">
- <h3 className="text-base font-semibold text-slate-900">Self-drive is best if…</h3>
+ <h3 className="text-base font-semibold text-slate-900">Self-drive is best ifâ€¦</h3>
  <ul className="mt-3 space-y-2 text-sm text-slate-700">
  <li>You want detours and flexibility (aurora attempts, quieter stops).</li>
  <li>You can handle winter pacing and buffers.</li>
- <li>You prefer control over being “optimized for tourists”.</li>
+ <li>You prefer control over being â€œoptimized for touristsâ€.</li>
  </ul>
  </Card>
  <Card className="p-6">
- <h3 className="text-base font-semibold text-slate-900">Tours are best if…</h3>
+ <h3 className="text-base font-semibold text-slate-900">Tours are best ifâ€¦</h3>
  <ul className="mt-3 space-y-2 text-sm text-slate-700">
  <li>You want predictable start times and zero driving stress.</li>
- <li>You’re short on days and want concentrated experiences.</li>
- <li>You don’t want “vehicle + weather” to be part of the trip.</li>
+ <li>Youâ€™re short on days and want concentrated experiences.</li>
+ <li>You donâ€™t want â€œvehicle + weatherâ€ to be part of the trip.</li>
  </ul>
  </Card>
  </div>
@@ -401,10 +401,10 @@ export default function Page() {
 
  <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
  <ul className="space-y-3 text-sm text-slate-700">
- <li>Planning one huge driving day because “Google says it’s fine”</li>
+ <li>Planning one huge driving day because â€œGoogle says itâ€™s fineâ€</li>
  <li>Arriving late and driving in darkness by default</li>
  <li>Assuming fuel/food stops are always convenient on long stretches</li>
- <li>Stacking a long drive and a “must-do” activity on the same day</li>
+ <li>Stacking a long drive and a â€œmust-doâ€ activity on the same day</li>
  <li>Not checking the basics at pickup (tyres, lights, visibility)</li>
  </ul>
  </div>
@@ -412,7 +412,7 @@ export default function Page() {
  <MicroCallout
  tone="warning"
  label="Hard truth"
- text="If your plan depends on perfect conditions, it’s not planning. It’s gambling with winter."
+ text="If your plan depends on perfect conditions, itâ€™s not planning. Itâ€™s gambling with winter."
  />
  </section>
 
@@ -422,8 +422,8 @@ export default function Page() {
  Conclusion
  </h2>
  <p className="mt-3 max-w-3xl text-slate-700">
- Driving to Lapland isn’t about saving money at all costs. It’s about buying freedom with effort. Do it
- right and the trip feels calm and personal. Do it casually and you’ll spend money fixing avoidable
+ Driving to Lapland isnâ€™t about saving money at all costs. Itâ€™s about buying freedom with effort. Do it
+ right and the trip feels calm and personal. Do it casually and youâ€™ll spend money fixing avoidable
  problems.
  </p>
 
@@ -432,11 +432,11 @@ export default function Page() {
  <Link href="/getting-around-finland" className="font-semibold hover:underline">
  Getting around Finland
  </Link>{" "}
- ·{" "}
+ Â·{" "}
  <Link href="/lapland-tours" className="font-semibold hover:underline">
  Lapland tours
  </Link>{" "}
- ·{" "}
+ Â·{" "}
  <Link href="/offer-checklist" className="font-semibold hover:underline">
  Offer checklist
  </Link>
@@ -459,27 +459,27 @@ export default function Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/car-rental-helsinki" variant="outline">
- Car rental Helsinki →
+ Car rental Helsinki â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline text-slate-700">
- Policy →
+ Policy â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
- Get help →
+ Get help â†’
  </Link>
  </div>
 
@@ -514,7 +514,7 @@ export default function Page() {
  <div className="p-6">
  <p className="text-xs font-medium text-slate-700">Reality check</p>
  <p className="mt-2 text-sm text-slate-700">
- If your route requires hero driving days, it’s not a plan. It’s a future apology.
+ If your route requires hero driving days, itâ€™s not a plan. Itâ€™s a future apology.
  </p>
  <div className="mt-4">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -527,14 +527,14 @@ export default function Page() {
  <Card className="p-6">
  <p className="text-xs font-medium text-slate-600">Booking flow</p>
  <p className="mt-2 text-sm text-slate-700">
- Start with rules, then compare offers. Reverse that and you’ll pay for “surprises”.
+ Start with rules, then compare offers. Reverse that and youâ€™ll pay for â€œsurprisesâ€.
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/car-rental-helsinki" variant="outline" className="w-full">
- Car rental Helsinki →
+ Car rental Helsinki â†’
  </CtaButton>
  </div>
  </Card>

@@ -119,11 +119,11 @@ export default function Page() {
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
  <span className="font-medium"></span>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <span className="text-slate-500">
  Slug: <span className="font-mono text-xs">{slug}</span>
  </span>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <span className="text-slate-500">
  Last verified:{" "}
  <span className="font-medium text-slate-700">{lastVerified}</span>
@@ -155,11 +155,11 @@ export default function Page() {
  <a className="underline hover:text-slate-900" href="#pricing">
  pricing
  </a>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a className="underline hover:text-slate-900" href="#itinerary">
  7-day plan
  </a>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a className="underline hover:text-slate-900" href="#booking">
  booking rules
  </a>
@@ -167,7 +167,7 @@ export default function Page() {
  </div>
 
  <p className="mt-4 text-sm text-slate-700 leading-relaxed">
- Lapland looks simple on social media. In reality, it’s one of the least forgiving
+ Lapland looks simple on social media. In reality, itâ€™s one of the least forgiving
  winter destinations to plan badly: distances are real, daylight is limited, and
  tours run on strict timing. This page is built to reduce regret, not to sell
  fantasies.
@@ -193,10 +193,10 @@ export default function Page() {
 
  <div className="mt-5 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Helsinki → Lapland logistics →
+ Helsinki â†’ Lapland logistics â†’
  </CtaButton>
  </div>
  </Card>
@@ -251,14 +251,14 @@ export default function Page() {
  </div>
 
  <div className="rounded-2xl border border-slate-200 bg-white p-5">
- <div className="text-sm font-semibold text-slate-900">Levi / Kittilä</div>
+ <div className="text-sm font-semibold text-slate-900">Levi / KittilÃ¤</div>
  <p className="mt-2 text-sm text-slate-700">
- Resort comfort, strong winter sports, polished operations. Less “wild”, more efficient.
+ Resort comfort, strong winter sports, polished operations. Less â€œwildâ€, more efficient.
  </p>
  </div>
 
  <div className="rounded-2xl border border-slate-200 bg-white p-5">
- <div className="text-sm font-semibold text-slate-900">Saariselkä / Ivalo</div>
+ <div className="text-sm font-semibold text-slate-900">SaariselkÃ¤ / Ivalo</div>
  <p className="mt-2 text-sm text-slate-700">
  Quieter, darker skies, stronger aurora atmosphere. Fewer services, higher transport complexity.
  </p>
@@ -274,7 +274,7 @@ export default function Page() {
  >
  <p>
  These are <strong>publicly listed</strong> example prices from operators and destination sites.
- They are not “typical ranges”. If you change them, update <strong>Last verified</strong>.
+ They are not â€œtypical rangesâ€. If you change them, update <strong>Last verified</strong>.
  </p>
 
  <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
@@ -292,7 +292,7 @@ export default function Page() {
  Husky (short ride / intro)
  </td>
  <td className="px-4 py-3 text-slate-700">
- €60 (Santa’s Husky Rides, adult) • €102–€157 (3 km husky safari, 1 hour, adult)
+ â‚¬60 (Santaâ€™s Husky Rides, adult) â€¢ â‚¬102â€“â‚¬157 (3 km husky safari, 1 hour, adult)
  </td>
  <td className="px-4 py-3 text-slate-700">
  Ride distance/time, 1 sled vs shared, transfers, included thermal gear
@@ -304,7 +304,7 @@ export default function Page() {
  Aurora (group hunt)
  </td>
  <td className="px-4 py-3 text-slate-700">
- From €139 (Aurora hunting group tour)
+ From â‚¬139 (Aurora hunting group tour)
  </td>
  <td className="px-4 py-3 text-slate-700">
  Duration, mobility, refund/guarantee rules, pickup area
@@ -316,10 +316,10 @@ export default function Page() {
  Aurora (multi-night package)
  </td>
  <td className="px-4 py-3 text-slate-700">
- From €350/adult (4-night aurora hunter package)
+ From â‚¬350/adult (4-night aurora hunter package)
  </td>
  <td className="px-4 py-3 text-slate-700">
- Number of nights, pickup scope, what “adapted to conditions” really means
+ Number of nights, pickup scope, what â€œadapted to conditionsâ€ really means
  </td>
  </tr>
 
@@ -328,7 +328,7 @@ export default function Page() {
  Snowmobile (Levi examples)
  </td>
  <td className="px-4 py-3 text-slate-700">
- €115/adult (shared) • €147 (solo driver) • from €125–€140 (2–3h) • from €282 (6h safari)
+ â‚¬115/adult (shared) â€¢ â‚¬147 (solo driver) â€¢ from â‚¬125â€“â‚¬140 (2â€“3h) â€¢ from â‚¬282 (6h safari)
  </td>
  <td className="px-4 py-3 text-slate-700">
  Shared vs solo pricing, duration, included gear, liability/damage policies
@@ -340,7 +340,7 @@ export default function Page() {
  Ice / Snow hotel visit (Rovaniemi example)
  </td>
  <td className="px-4 py-3 text-slate-700">
- From €195 (Visit Arctic Snow Hotel)
+ From â‚¬195 (Visit Arctic Snow Hotel)
  </td>
  <td className="px-4 py-3 text-slate-700">
  Transfer distance, guided tour vs entry only, dinner/overnight add-ons
@@ -353,8 +353,8 @@ export default function Page() {
  <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
  <div className="text-sm font-semibold text-slate-900">Important</div>
  <p className="mt-2 text-sm text-slate-700 leading-relaxed">
- If a listing hides ride time, pickup radius, or “shared/solo” pricing, it’s not mysterious.
- It’s incomplete. Skip or verify before booking.
+ If a listing hides ride time, pickup radius, or â€œshared/soloâ€ pricing, itâ€™s not mysterious.
+ Itâ€™s incomplete. Skip or verify before booking.
  </p>
  </div>
 
@@ -371,7 +371,7 @@ export default function Page() {
  ["Day 2", "Husky safari", "Signature experience. Do it early in the week while energy is high."],
  ["Day 3", "Sauna + slow day", "Recovery day. This keeps the rest of the week enjoyable."],
  ["Day 4", "Snowmobile safari", "High energy. Plan nothing heavy afterward."],
- ["Day 5", "Aurora chase", "First serious attempt. Don’t bet everything on one night."],
+ ["Day 5", "Aurora chase", "First serious attempt. Donâ€™t bet everything on one night."],
  ["Day 6", "Ice hotel / culture", "Low-stress, visually strong day. Great for pacing."],
  ["Day 7", "Buffer & departure", "Reschedule, retry aurora, or rest. Winter always uses buffers."],
  ].map(([d, t, s]) => (<div key={d} className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -387,20 +387,20 @@ export default function Page() {
  <ul className="list-disc pl-5 space-y-2">
  <li>No one guarantees aurora. They guarantee effort (and sometimes refunds with conditions).</li>
  <li>Small groups beat big buses when weather turns annoying.</li>
- <li>Arrival day is not a tour day. Don’t schedule yourself into failure.</li>
+ <li>Arrival day is not a tour day. Donâ€™t schedule yourself into failure.</li>
  <li>Plan two aurora chances minimum. One night = gambling.</li>
  <li>Snowmobile pricing often depends on shared vs solo driving. Read it before paying.</li>
  </ul>
 
  <div className="mt-4 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  </div>
 
@@ -417,51 +417,51 @@ export default function Page() {
  </p>
  <ul className="list-disc pl-5 space-y-2">
  <li>
- Santa’s Husky Rides (adult €60, seasonal pricing notes):{" "}
+ Santaâ€™s Husky Rides (adult â‚¬60, seasonal pricing notes):{" "}
  <a className="underline hover:text-slate-900" href="https://bearhillhusky.com/winter-tours/husky-rides-at-santa-claus-village/" target="_blank" rel="noreferrer">
  bearhillhusky.com
  </a>
  </li>
  <li>
- 3 km Husky Safari pricing (€102 shared / €157 solo):{" "}
+ 3 km Husky Safari pricing (â‚¬102 shared / â‚¬157 solo):{" "}
  <a className="underline hover:text-slate-900" href="https://wildnordic.fi/3-km-husky-safari/" target="_blank" rel="noreferrer">
  wildnordic.fi
  </a>
  </li>
  <li>
- Aurora group tour (from €139):{" "}
+ Aurora group tour (from â‚¬139):{" "}
  <a className="underline hover:text-slate-900" href="https://staylapland.com/product/aurora-hunting-group-tour-guaranteed-view/" target="_blank" rel="noreferrer">
  staylapland.com
  </a>
  </li>
  <li>
- Aurora multi-night package (from €350/adult):{" "}
+ Aurora multi-night package (from â‚¬350/adult):{" "}
  <a className="underline hover:text-slate-900" href="https://wildaboutlapland.com/aurora-hunter-package-rovaniemi/" target="_blank" rel="noreferrer">
  wildaboutlapland.com
  </a>
  </li>
  <li>
- Levi snowmobile example (€115 shared / €147 solo):{" "}
+ Levi snowmobile example (â‚¬115 shared / â‚¬147 solo):{" "}
  <a className="underline hover:text-slate-900" href="https://www.levi.fi/en/activities/fast-and-easy-snowmobile-safari/" target="_blank" rel="noreferrer">
  levi.fi
  </a>
  </li>
  <li>
- Levi snowmobile ranges (2–3h from €125–€140; longer €180+):{" "}
+ Levi snowmobile ranges (2â€“3h from â‚¬125â€“â‚¬140; longer â‚¬180+):{" "}
  <a className="underline hover:text-slate-900" href="https://www.levi-tours.com/snowmobile" target="_blank" rel="noreferrer">
  levi-tours.com
  </a>
  </li>
  <li>
- 6-hour snowmobile safari (from €282):{" "}
+ 6-hour snowmobile safari (from â‚¬282):{" "}
  <a className="underline hover:text-slate-900" href="https://snowmobilepark.com/product/6-hour-snowmobile-safari-in-levi/" target="_blank" rel="noreferrer">
  snowmobilepark.com
  </a>
  </li>
  <li>
- Arctic Snow Hotel visit (from €195):{" "}
+ Arctic Snow Hotel visit (from â‚¬195):{" "}
  <a className="underline hover:text-slate-900" href="https://www.visitrovaniemi.fi/activity-product/husky-farm-visit-and-2-hour-self-ride-safari/" target="_blank" rel="noreferrer">
- visitrovaniemi.fi (listing snippet includes Arctic Snow Hotel “from €195”)
+ visitrovaniemi.fi (listing snippet includes Arctic Snow Hotel â€œfrom â‚¬195â€)
  </a>
  </li>
  </ul>
@@ -492,13 +492,13 @@ export default function Page() {
  </p>
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="outline">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
@@ -536,11 +536,11 @@ export default function Page() {
  <div className="p-6">
  <p className="text-xs font-medium text-slate-700">Quick rule</p>
  <p className="mt-2 text-sm text-slate-700">
- If a listing hides ride time or “shared vs solo” pricing, it’s incomplete. Verify or skip.
+ If a listing hides ride time or â€œshared vs soloâ€ pricing, itâ€™s incomplete. Verify or skip.
  </p>
  <div className="mt-4">
  <CtaButton href="/offer-checklist" variant="success" className="w-full">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  </div>
  </div>

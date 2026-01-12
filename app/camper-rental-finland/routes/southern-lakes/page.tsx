@@ -7,18 +7,18 @@ import Link from "next/link";
 export const metadata = {
  title: "Southern Lakes Camper Route | Finland | TheNorthTrip",
  description:
- "Southern lakes routing: calm pace, overnight certainty, and how to avoid ìweíll figure it outî failures.",
+ "Southern lakes routing: calm pace, overnight certainty, and how to avoid ‚Äúwe‚Äôll figure it out‚Äù failures.",
  openGraph: {
  title: "Southern Lakes Camper Route | TheNorthTrip",
  description:
- "Southern lakes routing: calm pace, overnight certainty, and how to avoid ìweíll figure it outî failures.",
+ "Southern lakes routing: calm pace, overnight certainty, and how to avoid ‚Äúwe‚Äôll figure it out‚Äù failures.",
  images: ["/images/og/og-camper-southern-lakes.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Southern Lakes Camper Route | TheNorthTrip",
  description:
- "Southern lakes routing: calm pace, overnight certainty, and how to avoid ìweíll figure it outî failures.",
+ "Southern lakes routing: calm pace, overnight certainty, and how to avoid ‚Äúwe‚Äôll figure it out‚Äù failures.",
  images: ["/images/og/og-camper-southern-lakes.jpg"],
  },
 };
@@ -26,7 +26,7 @@ export const metadata = {
 const checks = [
  {
  title: "Low-speed plan",
- body: "This route works when days are short and you stop early. Donít turn it into a distance contest.",
+ body: "This route works when days are short and you stop early. Don‚Äôt turn it into a distance contest.",
  icon: "??",
  },
  {
@@ -36,12 +36,12 @@ const checks = [
  },
  {
  title: "Food + water reality",
- body: "Stock basics. Rural convenience is not constant, and your ìquick stopî can become a detour.",
+ body: "Stock basics. Rural convenience is not constant, and your ‚Äúquick stop‚Äù can become a detour.",
  icon: "??",
  },
  {
  title: "Return constraints",
- body: "Donít schedule return like a quick car drop. Camper end-game has rules and takes time.",
+ body: "Don‚Äôt schedule return like a quick car drop. Camper end-game has rules and takes time.",
  icon: "??",
  },
 ] as const;
@@ -90,7 +90,7 @@ export default function CamperSouthernLakesRoutePage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Southern lakes: calm routing, if you stop pretending you can ëwing ití."
+ title="Southern lakes: calm routing, if you stop pretending you can ‚Äòwing it‚Äô."
  subtitle="This is the slow-win route. Short days, early stops, and certainty over spontaneity."
  imageSrc="/images/hero/hero-camper-lakes.jpg"
  primaryCta={{ href: "/camper-rental-finland", label: "Camper rentals" }}
@@ -108,7 +108,7 @@ export default function CamperSouthernLakesRoutePage() {
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
  This region rewards calm pacing. The trip usually breaks when you turn a peaceful route into a checklist race:
- late arrivals, last-minute overnights, and ìweíll sort it outî decisions made while tired.
+ late arrivals, last-minute overnights, and ‚Äúwe‚Äôll sort it out‚Äù decisions made while tired.
  </p>
 
  <div className="mt-6 flex flex-wrap gap-2">
@@ -148,7 +148,7 @@ export default function CamperSouthernLakesRoutePage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Next steps</h3>
  <p className="mt-2 text-sm text-brand-text/70">
- Pick what matches your situation. These are here to reduce backtracking and ìoopsî moments.
+ Pick what matches your situation. These are here to reduce backtracking and ‚Äúoops‚Äù moments.
  </p>
 
  <div className="mt-5 grid gap-3">
@@ -191,7 +191,7 @@ export default function CamperSouthernLakesRoutePage() {
  <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
  <div className="text-sm font-semibold text-slate-900">Simple rule</div>
  <p className="mt-2 text-sm text-brand-text/70">
- If youíre arriving late and you still donít know where youíll sleep, the plan is already fragile. Fix that first.
+ If you‚Äôre arriving late and you still don‚Äôt know where you‚Äôll sleep, the plan is already fragile. Fix that first.
  </p>
  </div>
 

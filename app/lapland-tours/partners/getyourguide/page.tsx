@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const verify = [
  "Meeting point and cutoff time",
- "What counts as ‘included’ vs optional add-ons",
+ "What counts as â€˜includedâ€™ vs optional add-ons",
  "Cancellation/change rules and no-show definition",
- "Transfers: whether they exist and what you’re responsible for",
+ "Transfers: whether they exist and what youâ€™re responsible for",
  "Weather dependency and cancellation handling",
 ];
 
@@ -67,7 +67,7 @@ export default function PartnerGetYourGuidePage() {
  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
  <h2 className="text-lg font-semibold">Verify these items</h2>
  <p className="mt-2 text-sm text-slate-600">
- If any of these are unclear, you’re not “being careful”. You’re buying uncertainty.
+ If any of these are unclear, youâ€™re not â€œbeing carefulâ€. Youâ€™re buying uncertainty.
  </p>
 
  <ul className="mt-4 list-disc pl-5 text-sm text-slate-700 space-y-2">
@@ -105,7 +105,7 @@ export default function PartnerGetYourGuidePage() {
 
  <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-3">
  <p className="text-xs text-slate-600">
- Reminder: outcomes aren’t guaranteed (weather, aurora, wildlife). Your job is to verify procedures and
+ Reminder: outcomes arenâ€™t guaranteed (weather, aurora, wildlife). Your job is to verify procedures and
  build fallbacks.
  </p>
  </div>

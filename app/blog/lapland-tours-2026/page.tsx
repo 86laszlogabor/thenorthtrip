@@ -8,9 +8,9 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
- title: "Lapland Tours 2026: Husky €220–480, Aurora €130–240, Rovaniemi vs Levi",
+ title: "Lapland Tours 2026: Husky â‚¬220â€“480, Aurora â‚¬130â€“240, Rovaniemi vs Levi",
  description:
- "Lapland tours 2026, decision-first: husky safaris (€220–480), aurora hunts (€130–240), ice hotel reality checks, Rovaniemi vs Levi comparison, and 3-day itineraries starting from Helsinki.",
+ "Lapland tours 2026, decision-first: husky safaris (â‚¬220â€“480), aurora hunts (â‚¬130â€“240), ice hotel reality checks, Rovaniemi vs Levi comparison, and 3-day itineraries starting from Helsinki.",
  openGraph: { images: ["/images/og/og-blog.jpg"] },
 };
 
@@ -19,7 +19,7 @@ const lastVerified = "2026-01-04";
 const visuals = [
  {
  title: "Husky safari, the headline experience",
- body: "Ride time, group size, transfers and gear are what you’re actually paying for.",
+ body: "Ride time, group size, transfers and gear are what youâ€™re actually paying for.",
  image: "/images/blog/lapland-tours-2026/husky.jpg",
  alt: "Lapland husky safari in winter: sled ride experience and tour logistics (2026)",
  },
@@ -131,15 +131,15 @@ export default function LaplandTours2026Page() {
  name: "Is Lapland worth it for only 3 days?",
  acceptedAnswer: {
  "@type": "Answer",
- text: "Yes, if you plan tightly and accept you can’t do everything. Three days is enough for one base, one headline tour, and two aurora attempts.",
+ text: "Yes, if you plan tightly and accept you canâ€™t do everything. Three days is enough for one base, one headline tour, and two aurora attempts.",
  },
  },
  {
  "@type": "Question",
- name: "What’s the smartest way to do Lapland tours from Helsinki?",
+ name: "Whatâ€™s the smartest way to do Lapland tours from Helsinki?",
  acceptedAnswer: {
  "@type": "Answer",
- text: "Fly or take the night train to Rovaniemi for efficiency. For Levi, fly to Kittilä and transfer to the resort area.",
+ text: "Fly or take the night train to Rovaniemi for efficiency. For Levi, fly to KittilÃ¤ and transfer to the resort area.",
  },
  },
  {
@@ -175,7 +175,7 @@ export default function LaplandTours2026Page() {
 
  <PageHero
  title="Lapland Tours 2026"
- subtitle="Husky safaris, aurora hunts, ice hotels, and the logistics that decide whether it’s magical or miserable."
+ subtitle="Husky safaris, aurora hunts, ice hotels, and the logistics that decide whether itâ€™s magical or miserable."
  imageSrc="/images/blog/lapland-tours-2026/hero.jpg"
  />
 
@@ -185,7 +185,7 @@ export default function LaplandTours2026Page() {
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
  <span className="font-medium">Blog</span>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <span className="text-slate-500">
  Last verified: <span className="font-medium">{lastVerified}</span>
  </span>
@@ -219,11 +219,11 @@ export default function LaplandTours2026Page() {
  <a className="underline hover:text-slate-900" href="#budget">
  prices
  </a>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a className="underline hover:text-slate-900" href="#bases">
  base choice
  </a>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a className="underline hover:text-slate-900" href="#itineraries">
  itineraries
  </a>
@@ -233,17 +233,17 @@ export default function LaplandTours2026Page() {
  <div className="mt-5 grid gap-3 sm:grid-cols-3">
  <Kpi
  label="Husky safari"
- value="€220–480"
+ value="â‚¬220â€“480"
  hint="Value = ride time + transfers"
  />
  <Kpi
  label="Aurora hunt"
- value="€130–240"
+ value="â‚¬130â€“240"
  hint="Mobility + group size matter"
  />
  <Kpi
  label="Ice hotel (overnight)"
- value="€350–550"
+ value="â‚¬350â€“550"
  hint="Story > sleep quality"
  />
  </div>
@@ -252,7 +252,7 @@ export default function LaplandTours2026Page() {
  <Callout
  tone="success"
  title="The one decision that changes everything"
- body="Pick one base (Rovaniemi or Levi). Then build tours around transfers and darkness. Most ‘Lapland chaos’ is self-inflicted via fragile logistics."
+ body="Pick one base (Rovaniemi or Levi). Then build tours around transfers and darkness. Most â€˜Lapland chaosâ€™ is self-inflicted via fragile logistics."
  />
  </div>
  </Card>
@@ -303,23 +303,23 @@ export default function LaplandTours2026Page() {
  title="Why Lapland in 2026 hits different for Hungarian travelers"
  >
  <p>
- Bloody freezing but pure magic! If you’re Hungarian and you’ve ever stared at a sad
- grey January sky thinking “this can’t be all there is,” Lapland is the rude,
+ Bloody freezing but pure magic! If youâ€™re Hungarian and youâ€™ve ever stared at a sad
+ grey January sky thinking â€œthis canâ€™t be all there is,â€ Lapland is the rude,
  dazzling answer.
  </p>
  <p>
- Hungarians tend to travel with a mix of optimism and “we’ll figure it out.” Lapland
- punishes that vibe. Not hostile, just indifferent. Miss a transfer and there isn’t
- a convenient Plan B on every corner. That’s why this guide is about decisions.
+ Hungarians tend to travel with a mix of optimism and â€œweâ€™ll figure it out.â€ Lapland
+ punishes that vibe. Not hostile, just indifferent. Miss a transfer and there isnâ€™t
+ a convenient Plan B on every corner. Thatâ€™s why this guide is about decisions.
  </p>
  </SectionCard>
 
- <SectionCard id="buying" kicker="What you pay for" title="What you’re actually buying with a Lapland tour">
+ <SectionCard id="buying" kicker="What you pay for" title="What youâ€™re actually buying with a Lapland tour">
  <ul className="list-disc pl-5 space-y-2">
- <li>Time efficiency (no improvising in -20°C with numb fingers).</li>
+ <li>Time efficiency (no improvising in -20Â°C with numb fingers).</li>
  <li>Local transport solutions (the hidden boss fighte fight in Lapland).</li>
  <li>Better aurora odds (not guaranteed, but less tragic).</li>
- <li>Safety and gear sanity (because “I have a warm jacket” is a classic lie).</li>
+ <li>Safety and gear sanity (because â€œI have a warm jacketâ€ is a classic lie).</li>
  </ul>
  </SectionCard>
 
@@ -327,7 +327,7 @@ export default function LaplandTours2026Page() {
  <p>
  The first time I went north, I underestimated nature, overestimated my clothing,
  and made plans based on vibes. Within 90 seconds my face felt like it had been slapped
- by a frozen fish. Then the guide pointed up and said, very casually, “There.”
+ by a frozen fish. Then the guide pointed up and said, very casually, â€œThere.â€
  </p>
  <p>
  At first it was faint, like someone spilled green ink. Then it stretched, pulsed,
@@ -339,19 +339,19 @@ export default function LaplandTours2026Page() {
  />
  </SectionCard>
 
- <SectionCard id="from-helsinki" kicker="Logistics" title="Lapland tours from Helsinki: routes that don’t wreck your trip">
+ <SectionCard id="from-helsinki" kicker="Logistics" title="Lapland tours from Helsinki: routes that donâ€™t wreck your trip">
  <div className="grid gap-4 md:grid-cols-3">
  {[
  {
  t: "Option 1: Fly to Rovaniemi",
- items: ["Fastest and usually easiest", "Best for short trips (3–4 days)"],
+ items: ["Fastest and usually easiest", "Best for short trips (3â€“4 days)"],
  },
  {
  t: "Option 2: Night train to Rovaniemi",
  items: ["Overnight, practical, satisfying", "Book sleeper cabins early"],
  },
  {
- t: "Option 3: Fly to Kittilä (for Levi)",
+ t: "Option 3: Fly to KittilÃ¤ (for Levi)",
  items: ["Best for ski + resort base", "Flight + transfer chain matters"],
  },
  ].map((x) => (<div key={x.t} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -376,7 +376,7 @@ export default function LaplandTours2026Page() {
  <tbody>
  {[
  ["Best for", "First-timers, mixed activities", "Ski + resort comfort"],
- ["Getting there", "Flights + night trains", "Fly to Kittilä + transfer"],
+ ["Getting there", "Flights + night trains", "Fly to KittilÃ¤ + transfer"],
  ["Tour variety", "Wider variety", "Strong, more resort-focused"],
  ["Aurora access", "Excellent with guides", "Excellent dark areas nearby"],
  ["Budget feel", "More range", "Often higher spend"],
@@ -392,7 +392,7 @@ export default function LaplandTours2026Page() {
 
  <SectionCard id="budget" kicker="Decision data" title="Tour costs in Lapland: pricing without fairy tales">
  <p>
- Use this to sanity-check listings before you click “book”.
+ Use this to sanity-check listings before you click â€œbookâ€.
  </p>
 
  <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
@@ -406,10 +406,10 @@ export default function LaplandTours2026Page() {
  </thead>
  <tbody>
  {[
- ["Husky safari", "€220–480", "Actual ride time, group size, transfers, gear included"],
- ["Aurora hunt", "€130–240", "Mobility, group size, duration, photo support"],
- ["Ice hotel day visit", "€40–120", "Inclusions, timing, extras"],
- ["Ice hotel overnight", "€350–550", "Warm facilities, sleeping bag rating, comfort expectations"],
+ ["Husky safari", "â‚¬220â€“480", "Actual ride time, group size, transfers, gear included"],
+ ["Aurora hunt", "â‚¬130â€“240", "Mobility, group size, duration, photo support"],
+ ["Ice hotel day visit", "â‚¬40â€“120", "Inclusions, timing, extras"],
+ ["Ice hotel overnight", "â‚¬350â€“550", "Warm facilities, sleeping bag rating, comfort expectations"],
  ].map(([t, p, k]) => (<tr key={t} className="border-b last:border-b-0">
  <td className="px-4 py-3 font-medium text-slate-900">{t}</td>
  <td className="px-4 py-3 text-slate-700">{p}</td>
@@ -422,7 +422,7 @@ export default function LaplandTours2026Page() {
  <Callout
  tone="warning"
  title="Quick rule"
- body="If a tour listing hides ride time or transfer details, it’s not ‘mysterious’. It’s just lazy."
+ body="If a tour listing hides ride time or transfer details, itâ€™s not â€˜mysteriousâ€™. Itâ€™s just lazy."
  />
  </SectionCard>
 
@@ -446,7 +446,7 @@ export default function LaplandTours2026Page() {
  <Card className="p-5">
  <div className="text-sm font-semibold text-slate-900">Itinerary B: Levi comfort + tours</div>
  <p className="mt-2 text-sm text-slate-700">
- Fly to Kittilä, commit to one base, layer tours around transfers, and don’t schedule yourself into exhaustion.
+ Fly to KittilÃ¤, commit to one base, layer tours around transfers, and donâ€™t schedule yourself into exhaustion.
  </p>
  </Card>
 
@@ -463,7 +463,7 @@ export default function LaplandTours2026Page() {
  <ol className="list-decimal pl-5 space-y-2">
  <li>Underpacking gloves and socks (wet gloves = misery).</li>
  <li>Booking tours without reading transfer details.</li>
- <li>Assuming city lights don’t matter (they do).</li>
+ <li>Assuming city lights donâ€™t matter (they do).</li>
  <li>Over-scheduling Day 1 (fatigue + cold = bad decisions).</li>
  <li>Choosing the cheapest tour and expecting premium experience.</li>
  </ol>
@@ -478,7 +478,7 @@ export default function LaplandTours2026Page() {
  },
  {
  q: "Smartest way from Helsinki?",
- a: "Fly/night train to Rovaniemi. For Levi: fly to Kittilä + keep transfers clean.",
+ a: "Fly/night train to Rovaniemi. For Levi: fly to KittilÃ¤ + keep transfers clean.",
  },
  {
  q: "Rovaniemi or Levi for first-timers?",
@@ -500,19 +500,19 @@ export default function LaplandTours2026Page() {
  <li>Choose one base (Rovaniemi or Levi) unless you love transfer roulette.</li>
  <li>Book one premium headline tour (husky) + one aurora strategy night.</li>
  <li>Keep one flexible evening for weather-based decisions.</li>
- <li>Pack like you’re going to war against wind.</li>
+ <li>Pack like youâ€™re going to war against wind.</li>
  <li>Respect recovery time (sauna is medicine).</li>
  </ul>
 
  <div className="mt-4 flex flex-wrap gap-3">
  <CtaButton href="/lapland-tours" variant="primary">
- Open Lapland tours →
+ Open Lapland tours â†’
  </CtaButton>
  <CtaButton href="/offer-checklist" variant="outline">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  </div>
 
@@ -525,7 +525,7 @@ export default function LaplandTours2026Page() {
  <Card className="p-6">
  <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
  <Link href="/blog" className="font-semibold hover:underline text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
  <div className="flex flex-wrap gap-3 text-sm text-slate-700">
  <Link href="/policy" className="hover:underline">
@@ -545,7 +545,7 @@ export default function LaplandTours2026Page() {
  <h2 className="text-base font-semibold text-slate-900">On this page</h2>
  <div className="mt-3 grid gap-2 text-sm text-slate-700">
  <a className="hover:underline" href="#why">Why 2026 hits different</a>
- <a className="hover:underline" href="#buying">What you’re buying</a>
+ <a className="hover:underline" href="#buying">What youâ€™re buying</a>
  <a className="hover:underline" href="#story">Personal story</a>
  <a className="hover:underline" href="#from-helsinki">From Helsinki: routes</a>
  <a className="hover:underline" href="#bases">Rovaniemi vs Levi</a>
@@ -571,11 +571,11 @@ export default function LaplandTours2026Page() {
  <div className="p-6">
  <p className="text-xs font-medium text-slate-700">Quick rule</p>
  <p className="mt-2 text-sm text-slate-700">
- If a listing hides ride time or transfer details, it’s not “mysterious”. It’s just lazy.
+ If a listing hides ride time or transfer details, itâ€™s not â€œmysteriousâ€. Itâ€™s just lazy.
  </p>
  <div className="mt-4">
  <CtaButton href="/offer-checklist" variant="success" className="w-full">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  </div>
  </div>

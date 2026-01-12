@@ -7,18 +7,18 @@ import Link from "next/link";
 export const metadata = {
  title: "Helsinki to Lapland by Camper | Route Planning | TheNorthTrip",
  description:
- "HelsinkiñLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
+ "Helsinki‚ÄìLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
  openGraph: {
  title: "Helsinki to Lapland by Camper | TheNorthTrip",
  description:
- "HelsinkiñLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
+ "Helsinki‚ÄìLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
  images: ["/images/og/og-camper-helsinki-lapland.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Helsinki to Lapland by Camper | TheNorthTrip",
  description:
- "HelsinkiñLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
+ "Helsinki‚ÄìLapland camper route: distance reality, winter buffers, and how to keep the plan recoverable.",
  images: ["/images/og/og-camper-helsinki-lapland.jpg"],
  },
 };
@@ -26,7 +26,7 @@ export const metadata = {
 const checks = [
  {
  title: "Distance reality",
- body: "Itís a long route. Build days that survive fatigue, winter pace, and small delays stacking up.",
+ body: "It‚Äôs a long route. Build days that survive fatigue, winter pace, and small delays stacking up.",
  icon: "??",
  },
  {
@@ -36,7 +36,7 @@ const checks = [
  },
  {
  title: "Overnight certainty",
- body: "Decide overnights early. Late improvisation is where campers turn ìscenicî into chaos.",
+ body: "Decide overnights early. Late improvisation is where campers turn ‚Äúscenic‚Äù into chaos.",
  icon: "??",
  },
  {
@@ -50,7 +50,7 @@ const nextSteps = [
  {
  label: "Helsinki pickup station",
  href: "/camper-rental-finland/stations/helsinki",
- note: "Confirm pickup logistics and timing so day one doesnít start with friction.",
+ note: "Confirm pickup logistics and timing so day one doesn‚Äôt start with friction.",
  icon: "??",
  },
  {
@@ -68,7 +68,7 @@ const nextSteps = [
  {
  label: "Camper rentals",
  href: "/camper-rental-finland",
- note: "If youíre still choosing season/vehicle class, start here.",
+ note: "If you‚Äôre still choosing season/vehicle class, start here.",
  icon: "??",
  },
 ] as const;
@@ -90,7 +90,7 @@ export default function CamperHelsinkiLaplandRoutePage() {
  return (<div className="bg-white">
  <PageHero
  variant="home"
- title="Helsinki ? Lapland by camper: donít plan it like a car trip."
+ title="Helsinki ? Lapland by camper: don‚Äôt plan it like a car trip."
  subtitle="You win by making the plan recoverable: distance caps, winter buffers, and guaranteed overnights."
  imageSrc="/images/hero/hero-camper-lapland.jpg"
  primaryCta={{ href: "/camper-rental-finland", label: "Camper rentals" }}
@@ -99,7 +99,7 @@ export default function CamperHelsinkiLaplandRoutePage() {
 
  <Section>
  <p className="text-xs font-semibold tracking-wide text-brand-text/60">
- Camper / Routes / HelsinkiñLapland
+ Camper / Routes / Helsinki‚ÄìLapland
  </p>
 
  <h2 className="mt-3 text-2xl md:text-4xl font-semibold tracking-tight">
@@ -107,7 +107,7 @@ export default function CamperHelsinkiLaplandRoutePage() {
  </h2>
 
  <p className="mt-4 max-w-3xl text-sm md:text-base text-brand-text/75">
- The classic failure is pushing ìone more day northî with no slack. A camper route stays enjoyable when
+ The classic failure is pushing ‚Äúone more day north‚Äù with no slack. A camper route stays enjoyable when
  the plan still works after fatigue, weather, and small timing slips.
  </p>
 
@@ -134,7 +134,7 @@ export default function CamperHelsinkiLaplandRoutePage() {
  <Card className="flex flex-col p-6 bg-slate-50">
  <h3 className="text-lg font-semibold">If winter is the plan</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Confirm winter-ready equipment in writing. ìShould be fineî is not a policy, and itís not a plan.
+ Confirm winter-ready equipment in writing. ‚ÄúShould be fine‚Äù is not a policy, and it‚Äôs not a plan.
  </p>
  <div className="mt-auto pt-5">
  <CtaButton href="/get-help" variant="success" className="w-full">
@@ -179,8 +179,8 @@ export default function CamperHelsinkiLaplandRoutePage() {
  <Card className="p-6">
  <h3 className="text-lg font-semibold">Common trap</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Trying to ìpush one more day northî with no slack. Winter doesnít care about your ambition, and a camper
- wonít rescue a schedule built on optimism.
+ Trying to ‚Äúpush one more day north‚Äù with no slack. Winter doesn‚Äôt care about your ambition, and a camper
+ won‚Äôt rescue a schedule built on optimism.
  </p>
 
  <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">

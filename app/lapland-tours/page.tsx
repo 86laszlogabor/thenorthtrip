@@ -73,17 +73,17 @@ export default function LaplandToursPage() {
  },
  {
  slug: "saariselka",
- name: "Saariselk‰",
+ name: "Saariselk√§",
  og: "/images/og/og-lapland-saariselka.jpg",
  blurb:
  "Quieter, more aurora-focused. Less city noise, more dark sky. Great if you hate crowds.",
  },
  {
  slug: "yllas",
- name: "Yll‰s",
+ name: "Yll√§s",
  og: "/images/og/og-lapland-yllas.jpg",
  blurb:
- "Big outdoor feel. Longer routes, wide-area winter terrain, less ìtour busî feeling.",
+ "Big outdoor feel. Longer routes, wide-area winter terrain, less ‚Äútour bus‚Äù feeling.",
  },
  {
  slug: "inari",
@@ -105,7 +105,7 @@ export default function LaplandToursPage() {
  acceptedAnswer: {
  "@type": "Answer",
  text:
- "No. No operator can guarantee a sighting. ìAurora Chaseî tours usually offer better odds because vans hunt for clear skies over a wide radius instead of waiting at a fixed camp. Use an aurora forecast app, but cloud cover is the final decider.",
+ "No. No operator can guarantee a sighting. ‚ÄúAurora Chase‚Äù tours usually offer better odds because vans hunt for clear skies over a wide radius instead of waiting at a fixed camp. Use an aurora forecast app, but cloud cover is the final decider.",
  },
  },
  {
@@ -114,7 +114,7 @@ export default function LaplandToursPage() {
  acceptedAnswer: {
  "@type": "Answer",
  text:
- "-20∞C to -35∞C is common. Many tours provide a thermal overall, but you still need your own merino wool or synthetic base layers. Avoid cotton: it traps moisture and makes you freeze the moment you stop moving.",
+ "-20¬∞C to -35¬∞C is common. Many tours provide a thermal overall, but you still need your own merino wool or synthetic base layers. Avoid cotton: it traps moisture and makes you freeze the moment you stop moving.",
  },
  },
  {
@@ -123,7 +123,7 @@ export default function LaplandToursPage() {
  acceptedAnswer: {
  "@type": "Answer",
  text:
- "Rovaniemi is best for logistics, Santa Claus Village, and the widest selection of short tours. Levi has a modern ski-resort vibe with more resort-style restaurants and activities. For fewer crowds, Saariselk‰ or Inari feels quieter and more Arctic.",
+ "Rovaniemi is best for logistics, Santa Claus Village, and the widest selection of short tours. Levi has a modern ski-resort vibe with more resort-style restaurants and activities. For fewer crowds, Saariselk√§ or Inari feels quieter and more Arctic.",
  },
  },
  {
@@ -132,7 +132,7 @@ export default function LaplandToursPage() {
  acceptedAnswer: {
  "@type": "Answer",
  text:
- "For peak DecemberñJanuary dates, book 2ñ3 months in advance. Morning and midday slots sell out first because theyíre the only times with natural light (or ìblue hourî twilight) during the Polar Night season.",
+ "For peak December‚ÄìJanuary dates, book 2‚Äì3 months in advance. Morning and midday slots sell out first because they‚Äôre the only times with natural light (or ‚Äúblue hour‚Äù twilight) during the Polar Night season.",
  },
  },
  ],
@@ -151,27 +151,27 @@ export default function LaplandToursPage() {
  {/* QUICK REALITY CHECKS */}
  <section className="mx-auto max-w-6xl px-4 py-10">
  <h2 className="text-lg md:text-xl font-semibold tracking-tight text-slate-900">
- Winter reality (so you donít book by photo)
+ Winter reality (so you don‚Äôt book by photo)
  </h2>
  <p className="mt-2 max-w-3xl text-sm text-slate-600">
- Lapland trips fail in two ways: people overpay, or they freeze because they assumed ìwarm clothesî is a plan.
+ Lapland trips fail in two ways: people overpay, or they freeze because they assumed ‚Äúwarm clothes‚Äù is a plan.
  This page is the boring part that keeps the fun part fun.
  </p>
 
  <div className="mt-6 grid gap-4 md:grid-cols-3">
  <ImageCard
  title="Daylight: Kaamos is real"
- body="In December you can get 0ñ2 hours of usable light. Afternoon tours are basically headlamp adventures. Donít choose by Instagram colours."
+ body="In December you can get 0‚Äì2 hours of usable light. Afternoon tours are basically headlamp adventures. Don‚Äôt choose by Instagram colours."
  imageSrc="/images/hero/hero-lapland-levi-ski.jpg"
  />
  <ImageCard
  title="Meeting point & transfer trap"
- body="Rovaniemi center ? Santa Claus Village is ~8 km. People think itís walkable. It isnít. Confirm pickup or plan a bus/taxi."
+ body="Rovaniemi center ? Santa Claus Village is ~8 km. People think it‚Äôs walkable. It isn‚Äôt. Confirm pickup or plan a bus/taxi."
  imageSrc="/images/hero/hero-lapland-saariselka.jpg"
  />
  <ImageCard
  title="Gear included (or not)"
- body="Thermal overall helps, but base layers decide everything. Avoid cotton. Merino or synthetics, or youíll sweat then freeze."
+ body="Thermal overall helps, but base layers decide everything. Avoid cotton. Merino or synthetics, or you‚Äôll sweat then freeze."
  imageSrc="/images/hero/hero-lapland-yllas.jpg"
  />
  </div>
@@ -187,7 +187,7 @@ export default function LaplandToursPage() {
 
  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
  <p className="text-sm text-brand-text/80">
- Quick local signal: if youíre self-driving to a meeting point, read this before you pretend animals are a myth:{" "}
+ Quick local signal: if you‚Äôre self-driving to a meeting point, read this before you pretend animals are a myth:{" "}
  <Link href="/rental-terms-prices#reindeer-collision" className="font-semibold hover:underline">
  What to do if you meet a reindeer on the road ?
  </Link>
@@ -213,8 +213,8 @@ export default function LaplandToursPage() {
  <Card>
  <h3 className="text-lg font-semibold">The stuff people ignore (then regret)</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Meeting point is ìsomewhereî, pickup is ìmaybeî, gear is ìprovidedî but only the outer layer.
- Then your tour starts in the dark, ends in the dark, and youíre cold for 6 hours.
+ Meeting point is ‚Äúsomewhere‚Äù, pickup is ‚Äúmaybe‚Äù, gear is ‚Äúprovided‚Äù but only the outer layer.
+ Then your tour starts in the dark, ends in the dark, and you‚Äôre cold for 6 hours.
  </p>
  </Card>
 
@@ -222,14 +222,14 @@ export default function LaplandToursPage() {
  <h3 className="text-lg font-semibold">The 10-second sanity check</h3>
  <p className="mt-3 text-sm text-brand-text/70">
  Where exactly do I stand? What time window? What gear do I get (boots included or not)?
- What language? What happens if weather cancels? If you canít answer these fast, pause.
+ What language? What happens if weather cancels? If you can‚Äôt answer these fast, pause.
  </p>
  </Card>
  </div>
 
  <p className="mt-8 text-sm text-brand-text/70 max-w-3xl">
- Real example: <strong>Jan í26</strong>, Saariselk‰. A friend forgot proper base layers because the listing sounded reassuring.
- It was <strong>-25∞C</strong>. Outer gear helped, but cotton underneath turned the tour into survival mode. Gear list isnít optional.
+ Real example: <strong>Jan ‚Äô26</strong>, Saariselk√§. A friend forgot proper base layers because the listing sounded reassuring.
+ It was <strong>-25¬∞C</strong>. Outer gear helped, but cotton underneath turned the tour into survival mode. Gear list isn‚Äôt optional.
  </p>
  </Section>
 
@@ -281,7 +281,7 @@ export default function LaplandToursPage() {
  Is the Northern Lights (Aurora Borealis) guaranteed?
  </h3>
  <p className="mt-3 text-sm text-brand-text/70">
- No. No operator can guarantee a sighting. ìAurora Chaseî tours usually offer better odds because vans hunt for clear skies
+ No. No operator can guarantee a sighting. ‚ÄúAurora Chase‚Äù tours usually offer better odds because vans hunt for clear skies
  over a wide radius instead of waiting at a fixed camp. Forecast apps help, but cloud cover is the final decider.
  </p>
  </Card>
@@ -289,7 +289,7 @@ export default function LaplandToursPage() {
  <Card>
  <h3 className="text-lg font-semibold">How cold is Lapland in January?</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- -20∞C to -35∞C is common. Many tours provide a thermal overall, but your own merino wool or synthetic base layers are mandatory.
+ -20¬∞C to -35¬∞C is common. Many tours provide a thermal overall, but your own merino wool or synthetic base layers are mandatory.
  Avoid cotton: it traps moisture and makes you freeze the moment you stop moving.
  </p>
  </Card>
@@ -299,15 +299,15 @@ export default function LaplandToursPage() {
  <p className="mt-3 text-sm text-brand-text/70">
  Rovaniemi is best for logistics, Santa Claus Village, and the widest selection of short tours.
  Levi is a modern ski-resort vibe with more resort-style restaurants and activities.
- For fewer crowds, Saariselk‰ or Inari feels quieter and more Arctic.
+ For fewer crowds, Saariselk√§ or Inari feels quieter and more Arctic.
  </p>
  </Card>
 
  <Card>
  <h3 className="text-lg font-semibold">When should I book a husky safari?</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- For peak DecemberñJanuary dates, book 2ñ3 months in advance.
- Morning and midday slots sell out first because theyíre the only times with natural light (or ìblue hourî twilight)
+ For peak December‚ÄìJanuary dates, book 2‚Äì3 months in advance.
+ Morning and midday slots sell out first because they‚Äôre the only times with natural light (or ‚Äúblue hour‚Äù twilight)
  during the Polar Night season.
  </p>
  </Card>

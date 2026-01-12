@@ -4,18 +4,18 @@ import BlogClient from "./BlogClient";
 export const metadata = {
  title: "Blog | TheNorthTrip",
  description:
- "Practical Finland travel guides: what breaks, what to verify, and how to choose options that don’t collapse in winter.",
+ "Practical Finland travel guides: what breaks, what to verify, and how to choose options that donâ€™t collapse in winter.",
  openGraph: {
  title: "Blog | TheNorthTrip",
  description:
- "Practical Finland travel guides: what breaks, what to verify, and how to choose options that don’t collapse in winter.",
+ "Practical Finland travel guides: what breaks, what to verify, and how to choose options that donâ€™t collapse in winter.",
  images: ["/images/og/og-blog.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Blog | TheNorthTrip",
  description:
- "Practical Finland travel guides: what breaks, what to verify, and how to choose options that don’t collapse in winter.",
+ "Practical Finland travel guides: what breaks, what to verify, and how to choose options that donâ€™t collapse in winter.",
  images: ["/images/og/og-blog.jpg"],
  },
 };

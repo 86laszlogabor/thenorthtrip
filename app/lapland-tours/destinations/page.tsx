@@ -24,7 +24,7 @@ export const metadata = {
  },
 };
 
-type = {
+type DestinationCard = {
  href: string;
  title: string;
  image: string;
@@ -41,41 +41,41 @@ function MiniTag({ icon, label }: { icon: React.ReactNode; label: string }) {
  </span>);
 }
 
-function HubTile({ }: {: }) {
+function HubTile({ item }: { item: DestinationCard }) {
  return (<Card className="flex flex-col overflow-hidden">
  <div className="h-40 w-full overflow-hidden rounded-xl bg-slate-100">
- <img src={.image} alt="" className="h-full w-full object-cover" loading="lazy" />
+ <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" />
  </div>
 
  <div className="mt-4 flex items-start justify-between gap-3">
- <h3 className="text-lg font-semibold">{.title}</h3>
+ <h3 className="text-lg font-semibold">{item.title}</h3>
  <span className="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-semibold text-brand-text/60">
  
  </span>
  </div>
 
- <p className="mt-2 text-sm text-brand-text/70">{.blurb}</p>
+ <p className="mt-2 text-sm text-brand-text/70">{item.blurb}</p>
 
- {.tags?.length? (<div className="mt-4 flex flex-wrap gap-2">
- {.tags.map((t) => (<MiniTag key={t.label} icon={t.icon} label={t.label} />))}
+ {item.tags?.length? (<div className="mt-4 flex flex-wrap gap-2">
+ {item.tags.map((t) => (<MiniTag key={t.label} icon={t.icon} label={t.label} />))}
  </div>): null}
 
  <div className="mt-5">
  <p className="text-xs font-semibold tracking-wide text-brand-text/60">Best for</p>
  <ul className="mt-2 list-disc pl-5 text-sm text-brand-text/70 space-y-1">
- {.bestFor.map((x) => (<li key={x}>{x}</li>))}
+ {item.bestFor.map((x) => (<li key={x}>{x}</li>))}
  </ul>
  </div>
 
  <div className="mt-4">
  <p className="text-xs font-semibold tracking-wide text-brand-text/60">Watch out</p>
  <ul className="mt-2 list-disc pl-5 text-sm text-brand-text/70 space-y-1">
- {.watchOut.map((x) => (<li key={x}>{x}</li>))}
+ {item.watchOut.map((x) => (<li key={x}>{x}</li>))}
  </ul>
  </div>
 
  <div className="mt-auto pt-6">
- <Link href={.href} className="inline-flex items-center gap-2 text-sm font-semibold hover:underline">
+ <Link href={item.href} className="inline-flex items-center gap-2 text-sm font-semibold hover:underline">
  Open page <ArrowRight className="h-4 w-4" />
  </Link>
  </div>
@@ -83,7 +83,7 @@ function HubTile({ }: {: }) {
 }
 
 export default function LaplandDestinationsPage() {
- const Bases: [] = [
+ const Bases: DestinationCard[] = [
  {
  href: "/lapland-tours/rovaniemi",
  title: "Rovaniemi",
@@ -174,7 +174,7 @@ export default function LaplandDestinationsPage() {
  </p>
 
  <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
- {Bases.map(() => (<HubTile key={.href} ={} />))}
+ {Bases.map((item) => (<HubTile key={item.href}  item={item} />))}
  </div>
 
  <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
@@ -210,6 +210,13 @@ export default function LaplandDestinationsPage() {
  </Section>
  </div>);
 }
+
+
+
+
+
+
+
 
 
 

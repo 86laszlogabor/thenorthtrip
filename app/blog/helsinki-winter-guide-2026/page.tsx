@@ -10,7 +10,7 @@ import CtaButton from "@/components/CtaButton";
 export const metadata: Metadata = {
  title: "Helsinki Winter Guide 2026: Sauna, Suomenlinna, Lapland Connections",
  description:
- "Helsinki winter 2026, decision-first: a 3–4 day itinerary, Suomenlinna year-round ferry, sauna logic, realistic Lapland connections, a budget table (€185–300/day), and common winter mistakes.",
+ "Helsinki winter 2026, decision-first: a 3â€“4 day itinerary, Suomenlinna year-round ferry, sauna logic, realistic Lapland connections, a budget table (â‚¬185â€“300/day), and common winter mistakes.",
  openGraph: {
  title: "Helsinki Winter Guide 2026: Sauna, Suomenlinna, Lapland Connections",
  description:
@@ -160,12 +160,12 @@ export default function HelsinkiWinterGuide2026Page() {
  name: "Can you see aurora in Helsinki?",
  acceptedAnswer: {
  "@type": "Answer",
- text: "Rarely. It’s possible during strong solar activity and clear skies, but it’s not reliable compared to Lapland.",
+ text: "Rarely. Itâ€™s possible during strong solar activity and clear skies, but itâ€™s not reliable compared to Lapland.",
  },
  },
  {
  "@type": "Question",
- name: "Is the SantaPark day trip worth €180?",
+ name: "Is the SantaPark day trip worth â‚¬180?",
  acceptedAnswer: {
  "@type": "Answer",
  text: "For families with younger kids and zero flexibility, it can be worth it. For adults chasing aurora or value, usually not.",
@@ -192,7 +192,7 @@ export default function HelsinkiWinterGuide2026Page() {
  name: "Should I book Helsinki to Lapland tours in advance?",
  acceptedAnswer: {
  "@type": "Answer",
- text: "Yes for peak winter. January–February often sells out earlier, especially family-focused packages.",
+ text: "Yes for peak winter. Januaryâ€“February often sells out earlier, especially family-focused packages.",
  },
  },
  ],
@@ -212,7 +212,7 @@ export default function HelsinkiWinterGuide2026Page() {
 
  <PageHero
  title="Helsinki Travel Guide 2026"
- subtitle="A winter base that actually works: sauna logic, Suomenlinna, and Lapland connections that don’t collapse the moment weather shows up."
+ subtitle="A winter base that actually works: sauna logic, Suomenlinna, and Lapland connections that donâ€™t collapse the moment weather shows up."
  imageSrc="/images/blog/helsinki-winter-guide-2026/hero.jpg"
  />
 
@@ -222,7 +222,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="text-sm text-slate-600">
  <span className="font-medium">Blog</span>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <span className="text-slate-500">
  Last verified:{" "}
  <span className="font-medium text-slate-700">{lastVerified}</span>
@@ -255,7 +255,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="grid gap-3 sm:grid-cols-3">
  <MiniKpi
  label="Helsinki daily budget"
- value="€185–300"
+ value="â‚¬185â€“300"
  hint="Realistic mid-range winter spend"
  />
  <MiniKpi
@@ -339,10 +339,10 @@ export default function HelsinkiWinterGuide2026Page() {
  <p className="mt-3 text-sm leading-relaxed text-slate-700">
  This guide exists because a lot of travelers get Helsinki wrong. They either treat it
  as a boring stopover before Lapland, or they assume they must fly north immediately to
- see anything “real.” Both ideas leave money and experiences on the table.
+ see anything â€œreal.â€ Both ideas leave money and experiences on the table.
  </p>
  <p className="mt-3 text-sm leading-relaxed text-slate-700">
- Helsinki is not Lapland, but it’s also not a dead zone between airport and Arctic Circle.
+ Helsinki is not Lapland, but itâ€™s also not a dead zone between airport and Arctic Circle.
  In 2026, it works best as a winter base: culture, saunas, ferries, food, and clean logistics,
  then carefully chosen connections north.
  </p>
@@ -356,7 +356,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <SectionTitle
  eyebrow="Decision"
  title="Why Helsinki in Winter 2026 Is Worth Your Time"
- body="No, Santa doesn’t live here and aurora in the city is rare. Helsinki earns its place by being controllable: warm logistics, good food, and stable routes north."
+ body="No, Santa doesnâ€™t live here and aurora in the city is rare. Helsinki earns its place by being controllable: warm logistics, good food, and stable routes north."
  />
 
  <div className="grid gap-4 md:grid-cols-3">
@@ -415,7 +415,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="mt-4">
  <Callout
  title="Takeaway"
- body="Helsinki rewards people who don’t force Lapland immediately. Let the city do its job first: warm you up, simplify logistics, reduce mistakes."
+ body="Helsinki rewards people who donâ€™t force Lapland immediately. Let the city do its job first: warm you up, simplify logistics, reduce mistakes."
  />
  </div>
  </div>
@@ -429,7 +429,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="space-y-5">
  <SectionTitle
  eyebrow="Plan"
- title="Helsinki Winter Itinerary (3–4 Days)"
+ title="Helsinki Winter Itinerary (3â€“4 Days)"
  body="Not a fantasy schedule. A winter-proof baseline with buffers you can actually keep."
  />
 
@@ -458,7 +458,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <strong>Airport train:</strong> ~30 min
  </div>
  <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
- <strong>Taxi:</strong> €40–50
+ <strong>Taxi:</strong> â‚¬40â€“50
  </div>
  <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
  Early dinner, early sleep
@@ -508,13 +508,13 @@ export default function HelsinkiWinterGuide2026Page() {
  <SectionTitle
  eyebrow="Northbound"
  title="Helsinki to Lapland Tours: What Actually Exists in 2026"
- body="No same-day ‘breakfast in Helsinki, dinner under aurora’ fantasy without effort. Here are the real formats."
+ body="No same-day â€˜breakfast in Helsinki, dinner under auroraâ€™ fantasy without effort. Here are the real formats."
  />
 
  <div className="grid gap-4 md:grid-cols-3">
  <InfoCard
  title="Flight-based packages"
- body="Day trips or 1–2 nights. Fastest. Still needs winter buffers."
+ body="Day trips or 1â€“2 nights. Fastest. Still needs winter buffers."
  />
  <InfoCard
  title="Curated multi-day trips"
@@ -531,10 +531,10 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="flex flex-wrap items-start justify-between gap-3">
  <div>
  <div className="text-base font-semibold text-slate-900">
- SantaPark day trip: what €180 really buys
+ SantaPark day trip: what â‚¬180 really buys
  </div>
  <p className="mt-1 text-sm leading-relaxed text-slate-700">
- It exists. It’s expensive. It’s not automatically “worth it.”
+ It exists. Itâ€™s expensive. Itâ€™s not automatically â€œworth it.â€
  </p>
  </div>
  <div className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
@@ -544,7 +544,7 @@ export default function HelsinkiWinterGuide2026Page() {
 
  <div className="mt-4 grid gap-2 sm:grid-cols-2">
  {[
- "Morning flight Helsinki → Rovaniemi",
+ "Morning flight Helsinki â†’ Rovaniemi",
  "Transfer to SantaPark",
  "Entry ticket",
  "Limited time on site",
@@ -598,7 +598,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <Callout
  tone="warning"
  title="Winter rule (that saves money)"
- body="If you can’t explain your transfer chain in one sentence, it’s fragile."
+ body="If you canâ€™t explain your transfer chain in one sentence, itâ€™s fragile."
  />
 
  <div className="grid gap-4 md:grid-cols-3">
@@ -629,13 +629,13 @@ export default function HelsinkiWinterGuide2026Page() {
  </thead>
  <tbody>
  {[
- ["Hotel", "€120–180 (3*)", "€180–260 (winter premium)"],
- ["Food", "€35–60", "€40–70"],
- ["Local transport", "€10–20", "€15–30"],
- ["Activities", "€20–40", "€60–120"],
- ["Suomenlinna ferry", "€8 RT", "—"],
- ["Public sauna", "€15–25", "€20–35"],
- ["Total (typical)", "€185–300", "€295–480"],
+ ["Hotel", "â‚¬120â€“180 (3*)", "â‚¬180â€“260 (winter premium)"],
+ ["Food", "â‚¬35â€“60", "â‚¬40â€“70"],
+ ["Local transport", "â‚¬10â€“20", "â‚¬15â€“30"],
+ ["Activities", "â‚¬20â€“40", "â‚¬60â€“120"],
+ ["Suomenlinna ferry", "â‚¬8 RT", "â€”"],
+ ["Public sauna", "â‚¬15â€“25", "â‚¬20â€“35"],
+ ["Total (typical)", "â‚¬185â€“300", "â‚¬295â€“480"],
  ].map(([c, h, r]) => (<tr key={c} className="border-b last:border-b-0">
  <td className="px-4 py-3 font-medium text-slate-900">{c}</td>
  <td className="px-4 py-3 text-slate-700">{h}</td>
@@ -647,7 +647,7 @@ export default function HelsinkiWinterGuide2026Page() {
 
  <Callout
  title="Why this matters"
- body="Starting in Helsinki often makes sense: spend less while acclimating, then go north with a plan that won’t collapse over one delayed connection."
+ body="Starting in Helsinki often makes sense: spend less while acclimating, then go north with a plan that wonâ€™t collapse over one delayed connection."
  />
  </div>
 
@@ -675,7 +675,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <SectionTitle
  eyebrow="Culture"
  title="Sauna culture: the winter reset button"
- body="Saunas are not an attraction. They’re infrastructure."
+ body="Saunas are not an attraction. Theyâ€™re infrastructure."
  />
 
  <Card className="p-6">
@@ -689,7 +689,7 @@ export default function HelsinkiWinterGuide2026Page() {
  </div>
  <div>
  <CtaButton href="/car-rental-helsinki" variant="outline">
- Helsinki car rental day trips →
+ Helsinki car rental day trips â†’
  </CtaButton>
  </div>
  </div>
@@ -721,7 +721,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <SectionTitle
  eyebrow="Avoid pain"
  title="Common mistakes travelers still make"
- body="These don’t look dramatic on a planning spreadsheet. They get expensive fast in real winter."
+ body="These donâ€™t look dramatic on a planning spreadsheet. They get expensive fast in real winter."
  />
 
  <div className="grid gap-3 sm:grid-cols-2">
@@ -729,7 +729,7 @@ export default function HelsinkiWinterGuide2026Page() {
  "Treating Helsinki as a waiting room",
  "Booking aurora plans without buffers",
  "Overpaying for taxis",
- "Skipping saunas because “it’s not my thing”",
+ "Skipping saunas because â€œitâ€™s not my thingâ€",
  "Packing fashion instead of insulation",
  ].map((t) => (<div
  key={t}
@@ -740,7 +740,7 @@ export default function HelsinkiWinterGuide2026Page() {
  </div>
 
  <p className="text-sm text-slate-700">
- In winter, the snow doesn’t wait if you’re late.
+ In winter, the snow doesnâ€™t wait if youâ€™re late.
  </p>
  </div>
 
@@ -755,8 +755,8 @@ export default function HelsinkiWinterGuide2026Page() {
  />
 
  <div className="grid gap-4 md:grid-cols-2">
- <InfoCard title="Days 1–3: Helsinki" body="City, Suomenlinna, saunas, winter rhythm, buffer time." />
- <InfoCard title="Days 4–6: Lapland" body="Travel north (flight/train/tour), activities, aurora attempts." />
+ <InfoCard title="Days 1â€“3: Helsinki" body="City, Suomenlinna, saunas, winter rhythm, buffer time." />
+ <InfoCard title="Days 4â€“6: Lapland" body="Travel north (flight/train/tour), activities, aurora attempts." />
  </div>
  </div>
 
@@ -777,7 +777,7 @@ export default function HelsinkiWinterGuide2026Page() {
  a: "Rarely. Possible during strong solar activity and clear skies, but not reliable compared to Lapland.",
  },
  {
- q: "Is the SantaPark day trip worth €180?",
+ q: "Is the SantaPark day trip worth â‚¬180?",
  a: "For families, often yes. For adults chasing aurora or value, usually no.",
  },
  {
@@ -789,8 +789,8 @@ export default function HelsinkiWinterGuide2026Page() {
  a: "Yes, including the Suomenlinna ferry year-round.",
  },
  {
- q: "Should I book Helsinki → Lapland tours in advance?",
- a: "In peak winter, yes. January–February often sells out earlier.",
+ q: "Should I book Helsinki â†’ Lapland tours in advance?",
+ a: "In peak winter, yes. Januaryâ€“February often sells out earlier.",
  },
  ].map((item) => (<Card key={item.q} className="p-5">
  <div className="text-sm font-semibold text-slate-900">{item.q}</div>
@@ -806,7 +806,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <SectionTitle
  eyebrow="Verdict"
  title="Final thought"
- body="Helsinki isn’t the compromise. It’s the part of the trip that stops you from bleeding time and money."
+ body="Helsinki isnâ€™t the compromise. Itâ€™s the part of the trip that stops you from bleeding time and money."
  />
 
  <Card className="p-6">
@@ -832,7 +832,7 @@ export default function HelsinkiWinterGuide2026Page() {
  {/* Bottom CTA */}
  <Card className="p-6 md:p-8">
  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
- Want to book smarter instead of “hope harder”?
+ Want to book smarter instead of â€œhope harderâ€?
  </h3>
  <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-700">
  Use the checklist, align transport with start times, and keep winter buffers. Finland rewards realism.
@@ -840,13 +840,13 @@ export default function HelsinkiWinterGuide2026Page() {
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/getting-around-finland" variant="outline">
- Getting around Finland →
+ Getting around Finland â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
 
@@ -864,7 +864,7 @@ export default function HelsinkiWinterGuide2026Page() {
  <div className="mt-3 grid gap-2 text-sm text-slate-700">
  <a className="hover:underline" href="#why">Why Helsinki in winter</a>
  <a className="hover:underline" href="#story">Sauna story</a>
- <a className="hover:underline" href="#itinerary">3–4 day itinerary</a>
+ <a className="hover:underline" href="#itinerary">3â€“4 day itinerary</a>
  <a className="hover:underline" href="#tours">Helsinki to Lapland tours</a>
  <a className="hover:underline" href="#santapark">SantaPark day trip</a>
  <a className="hover:underline" href="#aurora">Aurora reality check</a>
@@ -886,12 +886,12 @@ export default function HelsinkiWinterGuide2026Page() {
  </div>
 
  <p className="mt-3 text-sm leading-relaxed text-slate-700">
- If you can’t explain your transfer chain in one sentence, it’s fragile.
+ If you canâ€™t explain your transfer chain in one sentence, itâ€™s fragile.
  </p>
 
  <div className="mt-4 grid gap-2 text-xs text-slate-600">
  <div className="rounded-xl border border-slate-200 bg-white p-3">
- Helsinki → Lapland:{" "}
+ Helsinki â†’ Lapland:{" "}
  <span className="font-semibold text-slate-800">
  flight + buffer + backup
  </span>
@@ -906,7 +906,7 @@ export default function HelsinkiWinterGuide2026Page() {
 
  <div className="mt-5">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  </div>
  </Card>
@@ -919,11 +919,11 @@ export default function HelsinkiWinterGuide2026Page() {
  Lapland tours 
  </div>
  <p className="mt-2 text-sm leading-relaxed text-slate-700">
- If Helsinki is your base, this is the clean “what to do north” decision layer.
+ If Helsinki is your base, this is the clean â€œwhat to do northâ€ decision layer.
  </p>
  <div className="mt-4">
  <CtaButton href="/lapland-tours" variant="outline" className="w-full">
- Explore Lapland tours →
+ Explore Lapland tours â†’
  </CtaButton>
  </div>
  </Card>

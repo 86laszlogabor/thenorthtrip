@@ -18,18 +18,18 @@ import {
 export const metadata: Metadata = {
  title: "Inari Tours | Lapland | TheNorthTrip",
  description:
- "Inari base decisions: S·mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
+ "Inari base decisions: S√°mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
  openGraph: {
  title: "Inari Tours | TheNorthTrip",
  description:
- "Inari base decisions: S·mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
+ "Inari base decisions: S√°mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
  images: ["/images/og/og-lapland-inari.jpg"],
  },
  twitter: {
  card: "summary_large_image",
  title: "Inari Tours | TheNorthTrip",
  description:
- "Inari base decisions: S·mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
+ "Inari base decisions: S√°mi culture access, quieter routing, and the buffers that keep remote logistics from breaking.",
  images: ["/images/og/og-lapland-inari.jpg"],
  },
 };
@@ -44,7 +44,7 @@ const points: Point[] = [
  {
  title: "Culture access is real (plan it as an anchor)",
  body:
- "Inari is one of the strongest bases for S·mi culture access. Treat it like an anchor day, not an add-on youíll squeeze in ìif thereís timeî.",
+ "Inari is one of the strongest bases for S√°mi culture access. Treat it like an anchor day, not an add-on you‚Äôll squeeze in ‚Äúif there‚Äôs time‚Äù.",
  icon: <BookOpen className="h-5 w-5" aria-hidden="true" />,
  },
  {
@@ -56,7 +56,7 @@ const points: Point[] = [
  {
  title: "Transport is a decision, not a detail",
  body:
- "Before you book anything, decide how youíll move between points (and what youíll do if one link fails). Donít assume it behaves like a city day.",
+ "Before you book anything, decide how you‚Äôll move between points (and what you‚Äôll do if one link fails). Don‚Äôt assume it behaves like a city day.",
  icon: <Bus className="h-5 w-5" aria-hidden="true" />,
  },
  {
@@ -75,7 +75,7 @@ const checks = [
  },
  {
  title: "Assume friction in every transfer",
- body: "Walking, waiting, gear, check-in rules. If a plan only works with perfect timing, itís already broken.",
+ body: "Walking, waiting, gear, check-in rules. If a plan only works with perfect timing, it‚Äôs already broken.",
  icon: <Clock className="h-5 w-5" aria-hidden="true" />,
  },
  {
@@ -101,7 +101,7 @@ export default function InariHubPage() {
  Lapland / Inari
  </p>
 
- {/* Human-verified promise (without ìAI wordsî) */}
+ {/* Human-verified promise (without ‚ÄúAI words‚Äù) */}
  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
  <div className="flex items-start gap-3">
  <ShieldCheck className="mt-0.5 h-5 w-5 text-brand-text/80" aria-hidden="true" />
@@ -145,7 +145,7 @@ export default function InariHubPage() {
  <h3 className="text-lg font-semibold">Safe booking path</h3>
  <p className="mt-3 text-sm text-brand-text/70">
  1 anchor activity ? 1 flexible day ? 1 buffer night.
- Thatís the version of Inari that stays recoverable.
+ That‚Äôs the version of Inari that stays recoverable.
  </p>
  </div>
  </div>

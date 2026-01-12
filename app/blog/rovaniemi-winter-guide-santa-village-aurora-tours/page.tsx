@@ -8,13 +8,13 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
- title: "Santa Claus Village Snow Reality 2026: What’s Free, What Costs Money, When to Go",
+ title: "Santa Claus Village Snow Reality 2026: Whatâ€™s Free, What Costs Money, When to Go",
  description:
- "Santa Claus Village in snow (2026): free entry, Santa meeting (free) vs photo (€30–50), snow slides (€10), best time after 18:00 for lights, March melt reality, and bus basics (8 km, €4–7 RT).",
+ "Santa Claus Village in snow (2026): free entry, Santa meeting (free) vs photo (â‚¬30â€“50), snow slides (â‚¬10), best time after 18:00 for lights, March melt reality, and bus basics (8 km, â‚¬4â€“7 RT).",
  openGraph: {
  title: "Santa Claus Village Snow Reality 2026",
  description:
- "A practical, human guide: what’s free, what’s paid, best snow timing, crowd hacks, and why it’s better after dark.",
+ "A practical, human guide: whatâ€™s free, whatâ€™s paid, best snow timing, crowd hacks, and why itâ€™s better after dark.",
  images: ["/images/og/og-santa-village-snow-2026.jpg"],
  },
  twitter: {
@@ -30,7 +30,7 @@ const lastVerified = "2026-01-04";
 const visuals = [
  {
  title: "Arctic Circle line in fresh snow",
- body: "Quick stop, surprisingly memorable. Snow makes it feel “real.”",
+ body: "Quick stop, surprisingly memorable. Snow makes it feel â€œreal.â€",
  image: "/images/blog/santa-village-snow-2026/arctic-circle-snow.jpg",
  alt: "Arctic Circle line at Santa Claus Village framed by snow (2026)",
  },
@@ -55,16 +55,16 @@ const visuals = [
 ];
 
 const toc = [
- { id: "what-it-is", label: "What it is (and isn’t)" },
- { id: "free-vs-paid", label: "What’s free vs paid" },
+ { id: "what-it-is", label: "What it is (and isnâ€™t)" },
+ { id: "free-vs-paid", label: "Whatâ€™s free vs paid" },
  { id: "snow-timing", label: "Snow timing: best months" },
  { id: "santa-photo", label: "Santa meeting vs photo" },
  { id: "arctic-circle", label: "Arctic Circle line" },
  { id: "crowd-hacks", label: "Crowd hacks" },
  { id: "getting-there", label: "Getting there (bus)" },
- { id: "after-dark", label: "After dark: why it’s better" },
+ { id: "after-dark", label: "After dark: why itâ€™s better" },
  { id: "march-melt", label: "Late March melt" },
- { id: "aurora", label: "Aurora: possible, but…" },
+ { id: "aurora", label: "Aurora: possible, butâ€¦" },
  { id: "mini-plan", label: "Half-day plan" },
  { id: "mistakes", label: "Common mistakes" },
  { id: "faq", label: "FAQ" },
@@ -186,9 +186,9 @@ export default function Page() {
  <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
  <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
  <span className="font-semibold text-slate-900">Blog</span>
- <span className="text-slate-300">·</span>
+ <span className="text-slate-300">Â·</span>
  <span className="text-slate-500">Last verified: {lastVerified}</span>
- <span className="hidden text-slate-300 sm:inline">·</span>
+ <span className="hidden text-slate-300 sm:inline">Â·</span>
  <span className="hidden sm:inline-flex">
  <InfoPill>Free entry, paid photo, snow timing</InfoPill>
  </span>
@@ -246,11 +246,11 @@ export default function Page() {
  <div className="border-b border-slate-200/70 px-6 py-6 md:px-10">
  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
  <div className="space-y-2">
- <Kicker>Editor’s note</Kicker>
+ <Kicker>Editorâ€™s note</Kicker>
  <p className="max-w-3xl text-sm leading-7 text-slate-700">
- People arrive expecting “Christmas movie magic.” What they get first is cold, darkness, and logistics.
+ People arrive expecting â€œChristmas movie magic.â€ What they get first is cold, darkness, and logistics.
  The magic shows up when you use the place correctly: treat it as a short, high-impact visit with clear choices
- (what’s free, what’s paid, and when the lighting is actually good).
+ (whatâ€™s free, whatâ€™s paid, and when the lighting is actually good).
  </p>
  <div className="text-xs text-slate-500">
  Jump to:{" "}
@@ -260,14 +260,14 @@ export default function Page() {
  >
  free vs paid
  </a>{" "}
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a
  className="font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900"
  href="#after-dark"
  >
  after dark
  </a>{" "}
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <a
  className="font-semibold text-slate-800 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-900"
  href="#march-melt"
@@ -280,7 +280,7 @@ export default function Page() {
  <div className="grid w-full gap-3 sm:w-[320px]">
  <Stat label="Entry" value="Free" note="Open year-round" />
  <div className="grid gap-3 sm:grid-cols-2">
- <Stat label="Santa photo" value="€30–50" note="Meeting is free" />
+ <Stat label="Santa photo" value="â‚¬30â€“50" note="Meeting is free" />
  <Stat label="Best look" value="After 18:00" note="Lights + snow" />
  </div>
  </div>
@@ -303,31 +303,31 @@ export default function Page() {
  "
  >
  <Anchor id="what-it-is" />
- <h2>What it is (and what it isn’t)</h2>
+ <h2>What it is (and what it isnâ€™t)</h2>
  <p>
- Santa Claus Village is not a gated theme park. It’s more like a small holiday village you walk through:
- lights, snow, shops, short activities, and photo moments. That’s why it works, and also why it disappoints
- people who try to force it into a full-day “master plan.”
+ Santa Claus Village is not a gated theme park. Itâ€™s more like a small holiday village you walk through:
+ lights, snow, shops, short activities, and photo moments. Thatâ€™s why it works, and also why it disappoints
+ people who try to force it into a full-day â€œmaster plan.â€
  </p>
  <ul>
  <li>
  <strong>It is:</strong> an easy winter stop with strong visuals and a few optional paid extras.
  </li>
  <li>
- <strong>It is not:</strong> guaranteed aurora, unlimited “free magic,” or a full-day itinerary by itself.
+ <strong>It is not:</strong> guaranteed aurora, unlimited â€œfree magic,â€ or a full-day itinerary by itself.
  </li>
  </ul>
 
  <Callout
  tone="success"
  title="The simple rule"
- body="Plan it as a half-day visit. If you treat it like a full day, you’ll pay for time you don’t actually need."
+ body="Plan it as a half-day visit. If you treat it like a full day, youâ€™ll pay for time you donâ€™t actually need."
  />
 
  <SoftDivider />
 
  <Anchor id="free-vs-paid" />
- <h2>What’s free vs paid (the part people get wrong)</h2>
+ <h2>Whatâ€™s free vs paid (the part people get wrong)</h2>
  <p>
  The best surprise: <strong>entry is free</strong>, and the village is <strong>open year-round</strong>.
  You can walk, take your own photos, cross the Arctic Circle line, and enjoy the atmosphere without spending much.
@@ -338,7 +338,7 @@ export default function Page() {
  <p className="text-sm font-semibold text-slate-900">Free basics</p>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>
- Entry: <strong>€0</strong> (open year-round)
+ Entry: <strong>â‚¬0</strong> (open year-round)
  </li>
  <li>Walk-through + lights + atmosphere</li>
  <li>Arctic Circle line crossing (the moment is free)</li>
@@ -350,10 +350,10 @@ export default function Page() {
  <p className="text-sm font-semibold text-slate-900">Typical paid extras</p>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>
- Santa photo: <strong>€30–50</strong> (meeting is free)
+ Santa photo: <strong>â‚¬30â€“50</strong> (meeting is free)
  </li>
  <li>
- Snow slides / “temp slide”: <strong>€10 per person</strong>
+ Snow slides / â€œtemp slideâ€: <strong>â‚¬10 per person</strong>
  </li>
  <li>Souvenirs and certificates: optional add-ons</li>
  </ul>
@@ -362,54 +362,54 @@ export default function Page() {
 
  <Callout
  tone="warning"
- title="Avoid the ‘surprise checkout’ moment"
- body="Decide ahead of time if you want the official Santa photo. If you decide on the spot, it’s easier to overspend."
+ title="Avoid the â€˜surprise checkoutâ€™ moment"
+ body="Decide ahead of time if you want the official Santa photo. If you decide on the spot, itâ€™s easier to overspend."
  />
 
  <SoftDivider />
 
  <Anchor id="snow-timing" />
- <h2>Snow timing: when it’s best (and when it gets tricky)</h2>
+ <h2>Snow timing: when itâ€™s best (and when it gets tricky)</h2>
  <p>
  Santa Village looks its best with stable snow. But snow is not a subscription service.
  Think in seasons, not vibes.
  </p>
 
- <h3>November–December: strong winter visuals</h3>
+ <h3>Novemberâ€“December: strong winter visuals</h3>
  <p>
  Daylight is limited. Around late November, sunrise can be around <strong>10:00</strong> and sunset around{" "}
- <strong>15:00</strong>. That means your “best photo window” is short, and the village shifts into evening mode fast.
+ <strong>15:00</strong>. That means your â€œbest photo windowâ€ is short, and the village shifts into evening mode fast.
  </p>
 
  <h3>Late March: melt + slippery surfaces</h3>
  <p>
- Late March can bring thawing and slick walkways. Bring traction (shoe spikes) if you don’t enjoy
+ Late March can bring thawing and slick walkways. Bring traction (shoe spikes) if you donâ€™t enjoy
  ice-skating in normal shoes.
  </p>
 
  <SoftDivider />
 
  <Anchor id="santa-photo" />
- <h2>Santa meeting vs photo: what you’re actually paying for</h2>
+ <h2>Santa meeting vs photo: what youâ€™re actually paying for</h2>
  <p>
  The Santa House visit is simple: <strong>meeting Santa is free</strong>. The photo is the paid part.
- If you want the printed/official photo, budget for it. If you don’t, enjoy the moment and move on.
+ If you want the printed/official photo, budget for it. If you donâ€™t, enjoy the moment and move on.
  </p>
  <ul>
  <li>
  <strong>Meeting:</strong> free
  </li>
  <li>
- <strong>Photo:</strong> typically <strong>€30–50</strong>
+ <strong>Photo:</strong> typically <strong>â‚¬30â€“50</strong>
  </li>
  </ul>
 
  <SoftDivider />
 
  <Anchor id="arctic-circle" />
- <h2>Arctic Circle line: why it’s worth 5 minutes</h2>
+ <h2>Arctic Circle line: why itâ€™s worth 5 minutes</h2>
  <p>
- Rationally, it’s a line. Emotionally, it’s a marker: “you’re here.” Snow makes it feel more genuine.
+ Rationally, itâ€™s a line. Emotionally, itâ€™s a marker: â€œyouâ€™re here.â€ Snow makes it feel more genuine.
  Certificates/souvenirs are optional. The crossing itself is the point.
  </p>
 
@@ -425,7 +425,7 @@ export default function Page() {
  <li>
  <strong>Return after dark</strong> for lights (it looks better after 18:00).
  </li>
- <li>Don’t force a full-day schedule. Half-day is the sweet spot.</li>
+ <li>Donâ€™t force a full-day schedule. Half-day is the sweet spot.</li>
  <li>
  Split strategy: <strong>morning calm</strong> + <strong>evening lights</strong>, with something else in between.
  </li>
@@ -434,35 +434,35 @@ export default function Page() {
  <SoftDivider />
 
  <Anchor id="getting-there" />
- <h2>Getting there: 8 km from Rovaniemi, bus €4–7 round trip</h2>
+ <h2>Getting there: 8 km from Rovaniemi, bus â‚¬4â€“7 round trip</h2>
  <p>
  The village is about <strong>8 km</strong> from central Rovaniemi. The simplest solution is the bus,
- with a planning anchor of <strong>€4–7</strong> for a round trip (varies by ticket/type).
+ with a planning anchor of <strong>â‚¬4â€“7</strong> for a round trip (varies by ticket/type).
  </p>
- <p>The main mistake is improvising the return. You don’t need a spreadsheet, but you do need a rough plan.</p>
+ <p>The main mistake is improvising the return. You donâ€™t need a spreadsheet, but you do need a rough plan.</p>
 
  <SoftDivider />
 
  <Anchor id="after-dark" />
  <h2>After dark: why it looks better after 18:00</h2>
  <p>
- In daylight, it’s “nice.” After dark, it’s the version people remember. Lights reflect in snow,
+ In daylight, itâ€™s â€œnice.â€ After dark, itâ€™s the version people remember. Lights reflect in snow,
  the village feels quieter, and photos look dramatically better.
  </p>
 
  <SoftDivider />
 
  <Anchor id="march-melt" />
- <h2>Late March melt: the “slippery reality” section</h2>
+ <h2>Late March melt: the â€œslippery realityâ€ section</h2>
  <p>
- Late March can be beautiful, but thaw means slick surfaces. If you’re visiting in that window,
- bring traction or accept that you’ll walk slower. Fighting it is how ankles get upgraded to “souvenir.”
+ Late March can be beautiful, but thaw means slick surfaces. If youâ€™re visiting in that window,
+ bring traction or accept that youâ€™ll walk slower. Fighting it is how ankles get upgraded to â€œsouvenir.â€
  </p>
 
  <SoftDivider />
 
  <Anchor id="aurora" />
- <h2>Aurora: possible, but don’t build the day around it</h2>
+ <h2>Aurora: possible, but donâ€™t build the day around it</h2>
  <p>
  Aurora can be visible around Rovaniemi, but city lights reduce your odds. If aurora is a priority,
  a mobile tour that escapes light pollution usually performs better than standing under streetlights and hoping.
@@ -493,7 +493,7 @@ export default function Page() {
  <SectionHeader
  kicker="Avoidable chaos"
  title="Common mistakes"
- lede="Same place, same traps. If you dodge these, the whole visit feels ‘clean’ instead of expensive and rushed."
+ lede="Same place, same traps. If you dodge these, the whole visit feels â€˜cleanâ€™ instead of expensive and rushed."
  />
 
  <ListCard
@@ -501,7 +501,7 @@ export default function Page() {
  items={[
  "Assuming everything is free (entry is free, key extras are not).",
  "Scheduling it as a full day and then running out of meaningful content.",
- "Skipping the after-dark version (it’s simply better after 18:00).",
+ "Skipping the after-dark version (itâ€™s simply better after 18:00).",
  "Late March without traction and then being surprised by ice.",
  "Building your plan around aurora inside town lights.",
  ]}
@@ -518,7 +518,7 @@ export default function Page() {
 
  <div className="not-prose grid gap-4">
  <FaqItem q="Is entry really free?" a="Yes. Entry is free and the village is open year-round." />
- <FaqItem q="Is meeting Santa free?" a="Yes. The meeting is free. The official photo is typically €30–50." />
+ <FaqItem q="Is meeting Santa free?" a="Yes. The meeting is free. The official photo is typically â‚¬30â€“50." />
  <FaqItem q="What time is best?" a="After dark, especially after 18:00, when lights and snow do the heavy lifting." />
  <FaqItem q="Is late March still worth it?" a="It can be, but expect thaw and slippery surfaces. Bring traction." />
  </div>
@@ -540,11 +540,11 @@ export default function Page() {
  <a className="font-semibold hover:underline underline-offset-4" href="/rovaniemi">
  Rovaniemi winter guide
  </a>{" "}
- <span className="mx-2 text-slate-300">·</span>{" "}
+ <span className="mx-2 text-slate-300">Â·</span>{" "}
  <a className="font-semibold hover:underline underline-offset-4" href="/lapland-tours">
  Lapland tours 
  </a>{" "}
- <span className="mx-2 text-slate-300">·</span>{" "}
+ <span className="mx-2 text-slate-300">Â·</span>{" "}
  <a className="font-semibold hover:underline underline-offset-4" href="/offer-checklist">
  Offer checklist
  </a>
@@ -559,31 +559,31 @@ export default function Page() {
  {/* Bottom CTA */}
  <Card className="mt-8 p-6 md:p-8 shadow-[0_1px_0_rgba(15,23,42,0.06),0_25px_60px_-55px_rgba(15,23,42,0.35)]">
  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
- Want to book smarter (and avoid paying for vague “tour duration”)?
+ Want to book smarter (and avoid paying for vague â€œtour durationâ€)?
  </h3>
  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-700">
- Use the checklist. Verify what’s free, what’s paid, and what you’re actually buying (timing, transfers, real activity time).
+ Use the checklist. Verify whatâ€™s free, whatâ€™s paid, and what youâ€™re actually buying (timing, transfers, real activity time).
  </p>
 
  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/offer-checklist" variant="primary">
- Open offer checklist →
+ Open offer checklist â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="outline">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
 
  <div className="mt-6 text-sm">
  <Link href="/blog" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="mx-2 text-slate-300">•</span>
+ <span className="mx-2 text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold hover:underline underline-offset-4 text-slate-700">
- Policy →
+ Policy â†’
  </Link>
  </div>
  </Card>
@@ -635,7 +635,7 @@ export default function Page() {
  </div>
  <div className="p-6">
  <CtaButton href="/offer-checklist" variant="primary" className="w-full">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  </div>
  </Card>
@@ -648,10 +648,10 @@ export default function Page() {
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/rovaniemi" variant="success" className="w-full">
- Rovaniemi guide →
+ Rovaniemi guide â†’
  </CtaButton>
  <CtaButton href="/lapland-tours" variant="outline" className="w-full">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
  </Card>

@@ -37,7 +37,7 @@ const lastVerified = "2026-01-04";
 const visuals = [
  {
  title: "Aurora over snowfield",
- body: "Leave city lights behind. That’s what “real odds” looks like.",
+ body: "Leave city lights behind. Thatâ€™s what â€œreal oddsâ€ looks like.",
  image: "/images/blog/rovaniemi/rovaniemi-aurora.jpg",
  },
  {
@@ -88,7 +88,7 @@ const rovVsHelRows = [
  "High",
  "High in peak winter",
  "Strong (when skies cooperate)",
- "Best base for “real Lapland”",
+ "Best base for â€œreal Laplandâ€",
  ],
  ["Helsinki", "Low", "Moderate", "Very low", "Great winter base, but not aurora-centric"],
 ];
@@ -238,11 +238,11 @@ function EditorialMeta() {
  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700">
  Blog
  </span>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <span className="text-xs text-slate-600">
  <span className="font-semibold text-slate-900">Last verified:</span> {lastVerified}
  </span>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <span className="text-xs text-slate-600">
  <span className="font-semibold text-slate-900">Slug:</span> {slug}
  </span>
@@ -301,8 +301,8 @@ export default function Page() {
  title="Rovaniemi Unveiled"
  subtitle="A decision-first winter guide for travellers who want real Lapland, not staged fantasy."
  imageSrc="/images/og/og-rovaniemi-2026.jpg"
- primaryCta={{ href: "/lapland-tours", label: "Lapland tours →" }}
- secondaryCta={{ href: "/offer-checklist", label: "Checklist →" }}
+ primaryCta={{ href: "/lapland-tours", label: "Lapland tours â†’" }}
+ secondaryCta={{ href: "/offer-checklist", label: "Checklist â†’" }}
  />
 
  {/* Magazine background */}
@@ -321,7 +321,7 @@ export default function Page() {
  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
  Guide
  </span>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <span className="text-slate-500">Rovaniemi / Lapland</span>
  </div>
 
@@ -400,32 +400,32 @@ export default function Page() {
  <SectionHeader
  eyebrow="Overview"
  title="Introduction: why Rovaniemi gets under your skin"
- deck="What it is, what it isn’t, and how to do it right."
+ deck="What it is, what it isnâ€™t, and how to do it right."
  />
 
  <p className="first-letter:float-left first-letter:mr-3 first-letter:mt-2 first-letter:text-5xl first-letter:font-semibold first-letter:leading-none first-letter:text-slate-900">
  Rovaniemi is one of those places people think they already understand before they arrive. Santa Claus. Cold.
- Snow. Tick the box. Then you land and realise it’s not a theme-park city at all. It’s a working Arctic town
+ Snow. Tick the box. Then you land and realise itâ€™s not a theme-park city at all. Itâ€™s a working Arctic town
  where school mornings still happen at temperatures that would shut down most of Europe, where sauna is a weekly
  necessity not a luxury, and where nature does not care about your itinerary.
  </p>
  <p>
  On a good night, you step outside into silence so clean it feels staged, your boots biting into snow that
  squeaks under pressure, and the sky decides to do something unreal: green ribbons, slow pulses, sometimes a
- whole canopy of movement. No announcement. No warning. Just the Northern Lights doing what they’ve always done.
+ whole canopy of movement. No announcement. No warning. Just the Northern Lights doing what theyâ€™ve always done.
  </p>
  <p>
- The short answer to “Is Rovaniemi worth it?” is yes. The longer answer is: only if you do it right. This guide
- is for people who want winter experiences that feel earned. Husky safaris that don’t feel like a conveyor belt.
- Aurora hunts that actually leave the city lights behind. Saunas where nobody is selling you anything. We’ll
- weave in <strong>Rovaniemi Thenortrip experiences</strong> as practical hooks, but we’ll also talk honestly
- about crowds, weather, costs, and what nobody tells you until you’re already there.
+ The short answer to â€œIs Rovaniemi worth it?â€ is yes. The longer answer is: only if you do it right. This guide
+ is for people who want winter experiences that feel earned. Husky safaris that donâ€™t feel like a conveyor belt.
+ Aurora hunts that actually leave the city lights behind. Saunas where nobody is selling you anything. Weâ€™ll
+ weave in <strong>Rovaniemi Thenortrip experiences</strong> as practical hooks, but weâ€™ll also talk honestly
+ about crowds, weather, costs, and what nobody tells you until youâ€™re already there.
  </p>
 
  <MicroCallout
  tone="warning"
  label=" rule"
- text="Rovaniemi base → day trips → aurora attempts. Don’t relocate daily. You’ll lose time and pay for transfers instead of experiences."
+ text="Rovaniemi base â†’ day trips â†’ aurora attempts. Donâ€™t relocate daily. Youâ€™ll lose time and pay for transfers instead of experiences."
  />
 
  <Anchor id="vibe" />
@@ -436,12 +436,12 @@ export default function Page() {
  />
 
  <p>
- Rovaniemi sits at the Arctic Circle and, in many ways, behaves like a modern frontier city. Don’t come
- expecting “cute medieval streets.” Much of the town was rebuilt after World War II, so the vibe is practical,
+ Rovaniemi sits at the Arctic Circle and, in many ways, behaves like a modern frontier city. Donâ€™t come
+ expecting â€œcute medieval streets.â€ Much of the town was rebuilt after World War II, so the vibe is practical,
  modern, and quietly proud of surviving harsh conditions.
  </p>
  <p>
- The city spreads out, and the wilderness begins almost immediately. Rivers, forests, open snowfields. You’re
+ The city spreads out, and the wilderness begins almost immediately. Rivers, forests, open snowfields. Youâ€™re
  rarely more than a short walk or bus ride from the kind of quiet that makes you check your phone less. For
  travellers used to constant noise and late-night bustle, Rovaniemi can feel almost unsettling at first. Then
  you adjust. You sleep better. You stop rushing. This becomes part of the experience whether you planned for it
@@ -459,10 +459,10 @@ export default function Page() {
  <div className="grid gap-4 md:grid-cols-2">
  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
- December–February
+ Decemberâ€“February
  </div>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- <strong>December–February:</strong> peak winter atmosphere, deepest darkness, biggest crowds and highest
+ <strong>Decemberâ€“February:</strong> peak winter atmosphere, deepest darkness, biggest crowds and highest
  prices.
  </p>
  </div>
@@ -486,7 +486,7 @@ export default function Page() {
  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">April</div>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- <strong>April:</strong> bright and crisp in early weeks, but the season shifts fast. Know what you’re
+ <strong>April:</strong> bright and crisp in early weeks, but the season shifts fast. Know what youâ€™re
  buying.
  </p>
  </div>
@@ -497,12 +497,12 @@ export default function Page() {
  <SectionHeader
  eyebrow="Experience design"
  title="Top Thenortrip-style Lapland adventures from Rovaniemi"
- deck="Depth beats volume. One excellent day beats three rushed “bucket list” stops."
+ deck="Depth beats volume. One excellent day beats three rushed â€œbucket listâ€ stops."
  />
 
  <p>
  This is where most trips succeed or fail. Rovaniemi offers a huge menu of tours, and not all are worth your
- time or money. The goal is depth, not volume. One excellent day beats three rushed “bucket list” stops.
+ time or money. The goal is depth, not volume. One excellent day beats three rushed â€œbucket listâ€ stops.
  </p>
 
  <Anchor id="husky" />
@@ -517,7 +517,7 @@ export default function Page() {
  </p>
  <p>
  <strong>Decision rule:</strong> choose operators that explain kennel standards clearly (dog care, rest
- cycles, group sizes) and set expectations honestly. If the pitch is “guaranteed magic,” be suspicious.
+ cycles, group sizes) and set expectations honestly. If the pitch is â€œguaranteed magic,â€ be suspicious.
  </p>
  <p>
  <strong>Thenortrip hook:</strong> multi-hour husky safaris with ethical, smaller-scale operators where the
@@ -534,11 +534,11 @@ export default function Page() {
  <div className="mt-2 space-y-4 text-sm leading-7 text-slate-700">
  <p>
  The aurora does not care about your hotel balcony. Real Northern Lights tours leave the city lights behind,
- often driving far enough to improve sky clarity and cloud odds. Sometimes the best move is simply “wait
- here, the window opens later.” Good guides act like weather people, not hype men.
+ often driving far enough to improve sky clarity and cloud odds. Sometimes the best move is simply â€œwait
+ here, the window opens later.â€ Good guides act like weather people, not hype men.
  </p>
  <p>
- <strong>Northern Lights Rovaniemi tip:</strong> avoid “guaranteed aurora” claims. No one can guarantee it.
+ <strong>Northern Lights Rovaniemi tip:</strong> avoid â€œguaranteed auroraâ€ claims. No one can guarantee it.
  What good operators can do is maximise your odds: flexible routing, local conditions, and clear
  expectations.
  </p>
@@ -556,12 +556,12 @@ export default function Page() {
  </div>
  <div className="mt-2 space-y-4 text-sm leading-7 text-slate-700">
  <p>
- Snowmobiles are noisy, yes. They’re also one of the fastest ways to reach true Arctic emptiness. The best
+ Snowmobiles are noisy, yes. Theyâ€™re also one of the fastest ways to reach true Arctic emptiness. The best
  packages combine speed with stillness: a ride to a remote spot, then ice fishing or a fire break where the
  point is quiet, not adrenaline.
  </p>
  <p>
- <strong>Decision rule:</strong> if the operator doesn’t talk about safety briefing, route length, and what
+ <strong>Decision rule:</strong> if the operator doesnâ€™t talk about safety briefing, route length, and what
  happens in bad weather, move on.
  </p>
  </div>
@@ -575,7 +575,7 @@ export default function Page() {
  <div className="mt-2 space-y-4 text-sm leading-7 text-slate-700">
  <p>
  Sleeping in an ice hotel sounds unhinged until you try it. Thermal sleeping bags, deep silence, and the
- kind of memory you don’t have to exaggerate later. The smart version is bundled with sauna access and a
+ kind of memory you donâ€™t have to exaggerate later. The smart version is bundled with sauna access and a
  proper hot meal. That part is non-negotiable.
  </p>
  </div>
@@ -588,23 +588,23 @@ export default function Page() {
  deck="Not everything. Just what actually holds up."
  />
 
- <p>Here’s the honest list. Not everything. Just what actually holds up.</p>
+ <p>Hereâ€™s the honest list. Not everything. Just what actually holds up.</p>
  <ol>
  <li>
- <strong>Santa Claus Village (Arctic Circle):</strong> Yes, it’s touristy. Go early or late to avoid the
+ <strong>Santa Claus Village (Arctic Circle):</strong> Yes, itâ€™s touristy. Go early or late to avoid the
  peak-day crush. Treat it as a cultural curiosity, not the whole trip.
  </li>
  <li>
- <strong>Arktikum Museum &amp; Science Centre:</strong> context matters. This gives it. A strong “first day”
+ <strong>Arktikum Museum &amp; Science Centre:</strong> context matters. This gives it. A strong â€œfirst dayâ€
  choice when your brain needs to sync with the North.
  </li>
  <li>
- <strong>Ounasvaara (hill &amp; trails):</strong> the best local “get above the city” option. Great for short
+ <strong>Ounasvaara (hill &amp; trails):</strong> the best local â€œget above the cityâ€ option. Great for short
  hikes, views, and winter trail time without complex logistics.
  </li>
  <li>
  <strong>Riverside winter walks:</strong> sometimes possible depending on ice conditions and local guidance.
- Don’t freestyle onto ice.
+ Donâ€™t freestyle onto ice.
  </li>
  <li>
  <strong>Local sauna culture:</strong> hotel saunas are fine, but the real value is a riverside setup if you
@@ -616,16 +616,16 @@ export default function Page() {
  </li>
  <li>
  <strong>Snowshoe trails:</strong> quiet, relatively affordable, and criminally underrated compared to
- “big-ticket” tours.
+ â€œbig-ticketâ€ tours.
  </li>
  <li>
- <strong>Winter cycling paths:</strong> yes, it’s a thing. Studded tyres and normal Finnish confidence.
+ <strong>Winter cycling paths:</strong> yes, itâ€™s a thing. Studded tyres and normal Finnish confidence.
  </li>
  <li>
  <strong>Short nature trails near town:</strong> perfect for reset walks between tour days.
  </li>
  <li>
- <strong>Simple local cafés:</strong> not an “attraction,” but it’s where the place feels real.
+ <strong>Simple local cafÃ©s:</strong> not an â€œattraction,â€ but itâ€™s where the place feels real.
  </li>
  </ol>
 
@@ -637,8 +637,8 @@ export default function Page() {
  />
 
  <p>
- Finnish food is better than its reputation. In Rovaniemi it’s seasonal and straightforward. Reindeer dishes,
- salmon soup, rye bread that actually tastes like something. You don’t come here for experimental gastronomy.
+ Finnish food is better than its reputation. In Rovaniemi itâ€™s seasonal and straightforward. Reindeer dishes,
+ salmon soup, rye bread that actually tastes like something. You donâ€™t come here for experimental gastronomy.
  You come for warm meals that make sense in winter.
  </p>
  <p>
@@ -647,7 +647,7 @@ export default function Page() {
  first time. Weirdly addictive after.
  </p>
  <p>
- One cultural tip that saves you social confusion: Finns don’t hover. Silence is not awkward by default. It’s
+ One cultural tip that saves you social confusion: Finns donâ€™t hover. Silence is not awkward by default. Itâ€™s
  often a sign of respect and calm.
  </p>
 
@@ -669,7 +669,7 @@ export default function Page() {
  A slower, more relaxed alternative is the overnight train from Helsinki to Lapland.
  </p>
  <p>
- Alternative: the overnight train from Helsinki to Lapland. It’s slower, but it’s comfortable and can be a
+ Alternative: the overnight train from Helsinki to Lapland. Itâ€™s slower, but itâ€™s comfortable and can be a
  genuinely good start to the trip if you prefer a calmer transition.
  </p>
  </div>
@@ -691,8 +691,8 @@ export default function Page() {
  </div>
  <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
  <li>Layer properly. Wool beats fashion.</li>
- <li>Protect hands and feet like it’s your job. If they fail, your day fails.</li>
- <li>Consider renting winter gear if you don’t own proper insulated boots and outer layers.</li>
+ <li>Protect hands and feet like itâ€™s your job. If they fail, your day fails.</li>
+ <li>Consider renting winter gear if you donâ€™t own proper insulated boots and outer layers.</li>
  <li>Build buffer time. Weather will veto at least one plan.</li>
  </ul>
  </ContentCard>
@@ -700,7 +700,7 @@ export default function Page() {
  <div className="mt-10">
  <SectionHeader eyebrow="Planning bands" title="Budget overview (planning bands)" />
  <p className="mt-4 text-sm leading-7 text-slate-700">
- Prices swing hard based on season, availability, and how “curated” your choices are. Use this as a planning
+ Prices swing hard based on season, availability, and how â€œcuratedâ€ your choices are. Use this as a planning
  band, not a promise.
  </p>
 
@@ -719,11 +719,11 @@ export default function Page() {
  <SectionHeader
  eyebrow="Planning"
  title="Day trips &amp; Lapland itineraries from Rovaniemi"
- deck="Rovaniemi works best as a base. Don’t relocate daily."
+ deck="Rovaniemi works best as a base. Donâ€™t relocate daily."
  />
 
  <p>
- Rovaniemi works best as a base. You don’t need to relocate every night to “do Lapland.” You need a solid base,
+ Rovaniemi works best as a base. You donâ€™t need to relocate every night to â€œdo Lapland.â€ You need a solid base,
  then smart day trips.
  </p>
  <ul>
@@ -740,7 +740,7 @@ export default function Page() {
  <strong>4 days (minimum):</strong> 1 culture/settle day, 1 husky or snowmobile day, 2 aurora attempts.
  </li>
  <li>
- <strong>5–7 days (ideal):</strong> add a second major tour + a slow day (sauna, trails, café time).
+ <strong>5â€“7 days (ideal):</strong> add a second major tour + a slow day (sauna, trails, cafÃ© time).
  </li>
  <li>
  <strong>8+ days (deep winter):</strong> add a second base (Levi/Inari direction) only if you want more
@@ -798,7 +798,7 @@ export default function Page() {
  Do you need a guide for aurora?
  </div>
  <p className="mt-2">
- You can self-drive if you’re confident in winter conditions, but guides add value through routing and
+ You can self-drive if youâ€™re confident in winter conditions, but guides add value through routing and
  micro-weather decisions. If aurora is a main goal, a good guide can reduce wasted nights.
  </p>
  </div>
@@ -818,7 +818,7 @@ export default function Page() {
  Is it family-friendly?
  </div>
  <p className="mt-2">
- Very. Just don’t treat children’s winter clothing as “optional upgrades.” In Lapland, clothing is safety.
+ Very. Just donâ€™t treat childrenâ€™s winter clothing as â€œoptional upgrades.â€ In Lapland, clothing is safety.
  </p>
  </div>
 
@@ -827,7 +827,7 @@ export default function Page() {
  Do tours sell out?
  </div>
  <p className="mt-2">
- In peak season, yes. If your dates are fixed and your “must-do” list is specific (huskies, snowmobiles),
+ In peak season, yes. If your dates are fixed and your â€œmust-doâ€ list is specific (huskies, snowmobiles),
  book early.
  </p>
  </div>
@@ -838,11 +838,11 @@ export default function Page() {
  <SectionHeader
  eyebrow="Wrap"
  title="Conclusion: why Rovaniemi stays with you"
- deck="It’s not a theme park. It’s a real Arctic town that rewards patience."
+ deck="Itâ€™s not a theme park. Itâ€™s a real Arctic town that rewards patience."
  />
 
  <p>
- Rovaniemi doesn’t try to impress you. It just exists, confidently, in a place where survival shaped culture.
+ Rovaniemi doesnâ€™t try to impress you. It just exists, confidently, in a place where survival shaped culture.
  You may arrive for aurora and huskies. You usually leave thinking differently about silence, cold, and time.
  </p>
  <p>
@@ -855,9 +855,9 @@ export default function Page() {
  <div>
  <p className="text-sm leading-7 text-slate-700">
  <strong className="text-slate-900">Internal links:</strong>{" "}
- <a href="/blog/lapland-tours-2026">Lapland Tours 2026</a> ·{" "}
- <a href="/blog/helsinki-winter-guide-2026">Helsinki Winter Guide 2026</a> ·{" "}
- <a href="/blog/finn-cities-hidden-gems">Finn Cities’ Hidden Gems</a>
+ <a href="/blog/lapland-tours-2026">Lapland Tours 2026</a> Â·{" "}
+ <a href="/blog/helsinki-winter-guide-2026">Helsinki Winter Guide 2026</a> Â·{" "}
+ <a href="/blog/finn-cities-hidden-gems">Finn Citiesâ€™ Hidden Gems</a>
  </p>
  <p className="mt-2 text-sm text-slate-600">
  <strong className="text-slate-900">Last verified:</strong> {lastVerified}
@@ -870,10 +870,10 @@ export default function Page() {
  <div className="md:justify-self-end">
  <div className="flex flex-col gap-2">
  <CtaButton href="/lapland-tours" variant="primary">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/offer-checklist" variant="outline">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  </div>
  </div>
@@ -895,34 +895,34 @@ export default function Page() {
  Want a Rovaniemi plan that survives winter reality?
  </h3>
  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-700">
- Book structure first (base + day trips), then add “magic”. The aurora doesn’t care about your optimism.
+ Book structure first (base + day trips), then add â€œmagicâ€. The aurora doesnâ€™t care about your optimism.
  </p>
  </div>
 
  <div className="flex flex-col gap-3 sm:flex-row">
  <CtaButton href="/lapland-tours" variant="primary">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  <CtaButton href="/offer-checklist" variant="outline">
- Offer checklist →
+ Offer checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </div>
 
  <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
  <Link href="/blog" className="font-semibold text-slate-700 hover:underline underline-offset-4">
- Back to Blog →
+ Back to Blog â†’
  </Link>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <Link href="/policy" className="font-semibold text-slate-700 hover:underline underline-offset-4">
- Policy →
+ Policy â†’
  </Link>
- <span className="text-slate-300">•</span>
+ <span className="text-slate-300">â€¢</span>
  <Link href="/get-help" className="font-semibold text-slate-700 hover:underline underline-offset-4">
- Get help →
+ Get help â†’
  </Link>
 
  <span className="ml-auto text-xs text-slate-500">
@@ -946,7 +946,7 @@ export default function Page() {
  <span className="font-medium group-hover:underline group-hover:underline-offset-4">
  {t.label}
  </span>
- <span className="text-slate-300">→</span>
+ <span className="text-slate-300">â†’</span>
  </a>))}
  </div>
  </Card>
@@ -968,19 +968,19 @@ export default function Page() {
  rule
  </div>
  <div className="mt-2 text-base font-semibold text-white">
- Base → day trips → aurora attempts
+ Base â†’ day trips â†’ aurora attempts
  </div>
  </div>
  </div>
  <div className="p-6">
  <SidebarTitle>Planning rule</SidebarTitle>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- Don’t relocate daily. You’ll burn time on transfers and arrive tired for the only thing you actually
+ Donâ€™t relocate daily. Youâ€™ll burn time on transfers and arrive tired for the only thing you actually
  came for: winter nights.
  </p>
  <div className="mt-4">
  <CtaButton href="/lapland-tours" variant="primary" className="w-full">
- Lapland tours →
+ Lapland tours â†’
  </CtaButton>
  </div>
  </div>
@@ -990,15 +990,15 @@ export default function Page() {
  <Card className="p-6">
  <SidebarTitle>Booking flow</SidebarTitle>
  <p className="mt-2 text-sm leading-7 text-slate-700">
- Decide the base first, then choose 1–2 major tours, then schedule aurora attempts. Reverse it and you’ll
- pay for “surprises”.
+ Decide the base first, then choose 1â€“2 major tours, then schedule aurora attempts. Reverse it and youâ€™ll
+ pay for â€œsurprisesâ€.
  </p>
  <div className="mt-4 space-y-2">
  <CtaButton href="/offer-checklist" variant="outline" className="w-full">
- Checklist →
+ Checklist â†’
  </CtaButton>
  <CtaButton href="/get-help" variant="success" className="w-full">
- Get help →
+ Get help â†’
  </CtaButton>
  </div>
  </Card>

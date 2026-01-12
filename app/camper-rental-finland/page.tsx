@@ -29,7 +29,7 @@ export default function CamperRentalFinlandPage() {
  image: "/images/og/og-camper-southern-lakes.jpg",
  title: "Marketplace (compare fleets fast)",
  description:
- "Fast comparison across bigger fleets. Good if you need flexible dates and lots of inventory.\n\nDonít skip: Winter Pack details (heater type, insulated tanks), mileage caps, deductible size, and what ìwinterizationî actually includes.",
+ "Fast comparison across bigger fleets. Good if you need flexible dates and lots of inventory.\n\nDon‚Äôt skip: Winter Pack details (heater type, insulated tanks), mileage caps, deductible size, and what ‚Äúwinterization‚Äù actually includes.",
  ctaLabel: "Check availability ?",
  ctaHref: "/camper-rental-finland",
  },
@@ -37,7 +37,7 @@ export default function CamperRentalFinlandPage() {
  image: "/images/og/og-camper-station-helsinki.jpg",
  title: "Local fleet (best handover + local support)",
  description:
- "Best when you want someone to actually explain the heating and systems before you drive north.\n\nDonít skip: heater model (Webasto/Truma), water system insulation, road restrictions, deposit terms. Winter departures can sell out early.",
+ "Best when you want someone to actually explain the heating and systems before you drive north.\n\nDon‚Äôt skip: heater model (Webasto/Truma), water system insulation, road restrictions, deposit terms. Winter departures can sell out early.",
  ctaLabel: "See options ?",
  ctaHref: "/camper-rental-finland",
  },
@@ -45,7 +45,7 @@ export default function CamperRentalFinlandPage() {
  image: "/images/og/og-camper-helsinki-lapland.jpg",
  title: "Peer-to-peer (unique rigs, sometimes better value)",
  description:
- "Great for ìowner-lovedî campers that feel more like a home than a rental.\n\nDonít skip: breakdown support, who helps if the pump/fuse fails, and cancellation rules. Better for experienced renters who can troubleshoot basics.",
+ "Great for ‚Äúowner-loved‚Äù campers that feel more like a home than a rental.\n\nDon‚Äôt skip: breakdown support, who helps if the pump/fuse fails, and cancellation rules. Better for experienced renters who can troubleshoot basics.",
  ctaLabel: "Browse rigs ?",
  ctaHref: "/camper-rental-finland",
  },
@@ -81,7 +81,7 @@ export default function CamperRentalFinlandPage() {
  cta: "Explore route ?",
  },
  {
- title: "HelsinkiñLapland",
+ title: "Helsinki‚ÄìLapland",
  href: "/camper-rental-finland/routes/helsinki-lapland",
  image: "/images/og/og-camper-helsinki-lapland.jpg",
  text: "For committed road-trip travellers who respect winter constraints (darkness, distance, buffers).",
@@ -113,12 +113,12 @@ export default function CamperRentalFinlandPage() {
  </p>
 
  <h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
- Donít wake up in an icebox.
+ Don‚Äôt wake up in an icebox.
  </h2>
 
  <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-3xl">
  Winter camping is heating + insulation + support. Pick your booking path first, then match
- your station and route to the season youíre travelling in.
+ your station and route to the season you‚Äôre travelling in.
  </p>
 
  <div className="mt-8">
@@ -168,10 +168,10 @@ export default function CamperRentalFinlandPage() {
 
  <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
  <Card className="flex flex-col">
- <h3 className="text-lg font-semibold">The -20∞C sanity check (ask before you pay)</h3>
+ <h3 className="text-lg font-semibold">The -20¬∞C sanity check (ask before you pay)</h3>
 
  <p className="mt-3 text-sm text-brand-text/70">
- If the listing canít answer these clearly, youíre looking at a summer van with winter marketing.
+ If the listing can‚Äôt answer these clearly, you‚Äôre looking at a summer van with winter marketing.
  </p>
 
  <ul className="mt-4 space-y-2 text-sm text-brand-text/70 list-disc pl-5">
@@ -179,7 +179,7 @@ export default function CamperRentalFinlandPage() {
  <strong>Secondary heater:</strong> Webasto / Truma (what exactly?)
  </li>
  <li>
- <strong>Insulated water system:</strong> tanks + pipes (not just ìwinter readyî)
+ <strong>Insulated water system:</strong> tanks + pipes (not just ‚Äúwinter ready‚Äù)
  </li>
  <li>
  <strong>Off-grid heating:</strong> how long can you run heating without hookups?
@@ -190,14 +190,14 @@ export default function CamperRentalFinlandPage() {
  </ul>
 
  <p className="mt-4 text-sm text-brand-text/70">
- Before you pay: winter package details, mileage limits, deposit rules, and whatís actually included in insurance.
+ Before you pay: winter package details, mileage limits, deposit rules, and what‚Äôs actually included in insurance.
  </p>
  </Card>
 
  <Card className="flex flex-col">
  <h3 className="text-lg font-semibold">Terms that trip people up</h3>
  <p className="mt-3 text-sm text-brand-text/70">
- Most ìsurprisesî are just terms you didnít read. Hereís the short checklist that catches the expensive ones.
+ Most ‚Äúsurprises‚Äù are just terms you didn‚Äôt read. Here‚Äôs the short checklist that catches the expensive ones.
  </p>
  <div className="mt-auto pt-4">
  <Link href="/rental-terms-prices" className="text-sm font-semibold hover:underline">

@@ -24,8 +24,8 @@ export const metadata = {
 };
 
 const tourTypes = [
- { title: "Aurora hunt", body: "Verify pickup window + duration. Don’t bet your last night on one slot." },
- { title: "Husky safari", body: "Confirm what’s included (gear, transfers) and the real time commitment." },
+ { title: "Aurora hunt", body: "Verify pickup window + duration. Donâ€™t bet your last night on one slot." },
+ { title: "Husky safari", body: "Confirm whatâ€™s included (gear, transfers) and the real time commitment." },
  { title: "Snowmobile", body: "Check requirements and what happens if weather shifts or a session is cancelled." },
  { title: "Santa Village add-on", body: "Easy to overschedule. Pair with one key activity, not three." },
 ];
@@ -34,7 +34,7 @@ const traps = [
  "Meeting point ambiguity (hotel pickup vs central point)",
  "Missing gear assumptions (boots/thermals)",
  "Stacking tours back-to-back without buffer",
- "Confusing ‘included transfers’ vs optional add-ons",
+ "Confusing â€˜included transfersâ€™ vs optional add-ons",
 ];
 
 export default function RovaniemiHubPage() {
