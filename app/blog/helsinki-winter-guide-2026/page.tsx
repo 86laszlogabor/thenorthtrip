@@ -1,601 +1,936 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
-  title: "Helsinki Travel Guide 2026: Winter Base + Connections to Lapland",
-  description:
-    "A decision-first Helsinki winter guide for 2026: realistic Lapland connections, Suomenlinna in winter, sauna logic, transfer choices, budgets, common mistakes, and sample itineraries.",
-  openGraph: {
-    images: ["/images/og/og-blog.jpg"],
-  },
+ title: "Helsinki Winter Guide 2026: Sauna, Suomenlinna, Lapland Connections",
+ description:
+ "Helsinki winter 2026, decision-first: a 3–4 day itinerary, Suomenlinna year-round ferry, sauna logic, realistic Lapland connections, a budget table (€185–300/day), and common winter mistakes.",
+ openGraph: {
+ title: "Helsinki Winter Guide 2026: Sauna, Suomenlinna, Lapland Connections",
+ description:
+ "A modern Helsinki winter base guide for 2026: itinerary, sauna logic, ferry day trips, and Lapland connections that hold up when weather turns.",
+ images: ["/images/og/og-blog.jpg"],
+ },
 };
 
-const lastVerified = "2025-12-31";
+const lastVerified = "2026-01-04";
 
 const visuals = [
-  {
-    title: "Suomenlinna ferry, winter version",
-    body: "Year-round ferry. Ice, stone, quiet. Go early and dress like you mean it.",
-    image: "/images/blog/helsinki-winter-guide-2026/suomenlinna.jpg",
-  },
-  {
-    title: "Sauna logic",
-    body: "One iconic sauna for the experience, one local sauna for your sanity.",
-    image: "/images/blog/helsinki-winter-guide-2026/sauna.jpg",
-  },
-  {
-    title: "Connections north",
-    body: "Flights, night trains, tours. Timetables beat vibes every time.",
-    image: "/images/blog/helsinki-winter-guide-2026/connections.jpg",
-  },
-  {
-    title: "Winter city mood",
-    body: "Helsinki after snowfall is unnervingly quiet in the best possible way.",
-    image: "/images/blog/helsinki-winter-guide-2026/helsinki-snow.jpg",
-  },
+ {
+ title: "Suomenlinna ferry, winter version",
+ body: "Year-round ferry. Ice, stone, quiet. Go early and dress like you mean it.",
+ image: "/images/blog/helsinki-winter-guide-2026/suomenlinna.jpg",
+ alt: "Suomenlinna winter ferry crossing from Helsinki harbour (2026 guide)",
+ },
+ {
+ title: "Sauna logic",
+ body: "One iconic sauna for the experience, one local sauna for your sanity.",
+ image: "/images/blog/helsinki-winter-guide-2026/sauna.jpg",
+ alt: "Helsinki sauna culture in winter: warm reset after cold city walking",
+ },
+ {
+ title: "Connections north",
+ body: "Flights, night trains, tours. Timetables beat vibes every time.",
+ image: "/images/blog/helsinki-winter-guide-2026/connections.jpg",
+ alt: "Helsinki to Lapland connections: flights, night train, transfers (winter planning)",
+ },
+ {
+ title: "Winter city mood",
+ body: "After snowfall Helsinki gets strangely quiet, in the best possible way.",
+ image: "/images/blog/helsinki-winter-guide-2026/helsinki-snow.jpg",
+ alt: "Helsinki in snowfall: calm streets, winter light, walkable city vibe",
+ },
 ];
 
 function Anchor({ id }: { id: string }) {
-  return <span id={id} className="scroll-mt-24" />;
+ return <span id={id} className="scroll-mt-28" />;
+}
+
+function SectionTitle({
+ eyebrow,
+ title,
+ body,
+}: {
+ eyebrow?: string;
+ title: string;
+ body?: string;
+}) {
+ return (<div className="not-prose">
+ {eyebrow? (<div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+ {eyebrow}
+ </div>): null}
+ <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
+ {title}
+ </h2>
+ {body? (<p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-700">
+ {body}
+ </p>): null}
+ </div>);
+}
+
+function MiniKpi({
+ label,
+ value,
+ hint,
+}: {
+ label: string;
+ value: string;
+ hint?: string;
+}) {
+ return (<div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+ <div className="text-xs font-medium text-slate-600">{label}</div>
+ <div className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
+ {value}
+ </div>
+ {hint? <div className="mt-1 text-xs text-slate-600">{hint}</div>: null}
+ </div>);
+}
+
+function InfoCard({
+ title,
+ body,
+ icon,
+}: {
+ title: string;
+ body: string;
+ icon?: React.ReactNode;
+}) {
+ return (<div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+ <div className="flex items-start gap-3">
+ {icon? (<div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-200">
+ {icon}
+ </div>): null}
+ <div>
+ <div className="text-sm font-semibold text-slate-900">{title}</div>
+ <p className="mt-1 text-sm leading-relaxed text-slate-700">{body}</p>
+ </div>
+ </div>
+ </div>);
+}
+
+function Callout({
+ title,
+ body,
+ tone = "neutral",
+}: {
+ title: string;
+ body: string;
+ tone?: "neutral" | "success" | "warning";
+}) {
+ const styles =
+ tone === "success"? "border-emerald-200 bg-emerald-50": tone === "warning"? "border-amber-200 bg-amber-50": "border-slate-200 bg-slate-50";
+
+ return (<div className={`not-prose rounded-2xl border p-5 ${styles}`}>
+ <div className="text-sm font-semibold text-slate-900">{title}</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">{body}</p>
+ </div>);
+}
+
+function SoftDivider() {
+ return (<div className="not-prose my-10 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" />);
 }
 
 export default function HelsinkiWinterGuide2026Page() {
-  return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <PageHero
-        title="Helsinki Travel Guide 2026"
-        subtitle="Winter base, sauna logic, Suomenlinna, and how to connect north without wrecking your itinerary."
-        imageSrc="/images/blog/helsinki-winter-guide-2026/hero.jpg"
-      />
+ const articleJsonLd = {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ headline: "Helsinki Winter Guide 2026: Sauna, Suomenlinna, Lapland Connections",
+ datePublished: "2026-01-04",
+ dateModified: "2026-01-04",
+ author: { "@type": "Organization", name: "TheNorthTrip" },
+ publisher: { "@type": "Organization", name: "TheNorthTrip" },
+ mainEntityOfPage: {
+ "@type": "WebPage",
+ "@id": "https://thenorthtrip.com/blog/helsinki-winter-guide-2026",
+ },
+ };
 
-      <div className="relative">
-        {/* subtle background texture */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
-          <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:20px_20px]" />
-        </div>
+ const faqJsonLd = {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: [
+ {
+ "@type": "Question",
+ name: "Can you see aurora in Helsinki?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Rarely. It’s possible during strong solar activity and clear skies, but it’s not reliable compared to Lapland.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Is the SantaPark day trip worth €180?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "For families with younger kids and zero flexibility, it can be worth it. For adults chasing aurora or value, usually not.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Is winter Helsinki walkable?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Yes. Sidewalks are maintained and gritted; the city centre is compact and winter-walkable with proper layers.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Do ferries run in winter?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Yes. The Suomenlinna ferry runs year-round.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Should I book Helsinki to Lapland tours in advance?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Yes for peak winter. January–February often sells out earlier, especially family-focused packages.",
+ },
+ },
+ ],
+ };
 
-        <section className="mx-auto max-w-6xl px-4 py-10">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-slate-600">
-              <span className="font-medium">Blog</span> ·{" "}
-              <span className="text-slate-500">Last verified: {lastVerified}</span>
-            </div>
-            <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
-              <Link className="hover:text-slate-900" href="/blog">
-                Back to Blog
-              </Link>
-              <Link className="hover:text-slate-900" href="/offer-checklist">
-                Offer checklist
-              </Link>
-              <Link className="hover:text-slate-900" href="/getting-around-finland">
-                Getting around Finland
-              </Link>
-            </nav>
-          </div>
-        </section>
+ return (<main className="min-h-screen bg-slate-50 text-slate-900">
+ <Script
+ id="ld-article"
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+ />
+ <Script
+ id="ld-faq"
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+ />
 
-        <Section>
-          <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
-            {/* MAIN */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Decision-first winter base. Less chaos, fewer mistakes.
-              </div>
+ <PageHero
+ title="Helsinki Travel Guide 2026"
+ subtitle="A winter base that actually works: sauna logic, Suomenlinna, and Lapland connections that don’t collapse the moment weather shows up."
+ imageSrc="/images/blog/helsinki-winter-guide-2026/hero.jpg"
+ />
 
-              {/* Featured image */}
-              <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/images/blog/helsinki-winter-guide-2026/feature.jpg"
-                    alt="Helsinki winter harbour and city mood"
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 720px, 100vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
-                </div>
-              </div>
+ <Section>
+ <div className="mx-auto max-w-6xl px-4 py-8">
+ {/* top meta row */}
+ <div className="flex flex-wrap items-center justify-between gap-3">
+ <div className="text-sm text-slate-600">
+ <span className="font-medium">Blog</span>
+ <span className="mx-2 text-slate-300">•</span>
+ <span className="text-slate-500">
+ Last verified:{" "}
+ <span className="font-medium text-slate-700">{lastVerified}</span>
+ </span>
+ </div>
 
-              {/* Visual cards */}
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {visuals.map((c) => (
-                  <Card key={c.title} className="overflow-hidden p-0">
-                    <div className="relative aspect-[16/10] bg-slate-100">
-                      <Image
-                        src={c.image}
-                        alt={c.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 520px, 100vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
-                    </div>
-                    <div className="p-6">
-                      <h2 className="text-base font-semibold text-slate-900">{c.title}</h2>
-                      <p className="mt-2 text-sm text-slate-700">{c.body}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+ <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
+ <Link className="hover:text-slate-900" href="/blog">
+ Back to Blog
+ </Link>
+ <Link className="hover:text-slate-900" href="/offer-checklist">
+ Offer checklist
+ </Link>
+ <Link className="hover:text-slate-900" href="/getting-around-finland">
+ Getting around Finland
+ </Link>
+ </nav>
+ </div>
 
-              {/* YOUR ARTICLE CONTENT (UNCHANGED) */}
-              <article className="prose prose-slate max-w-none pt-10 prose-headings:tracking-tight prose-a:text-slate-900">
-                <Anchor id="top" />
-                <h1>Helsinki Travel Guide 2026: Day Trips to Lapland + Thenortrip Connections</h1>
+ <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
+ {/* MAIN */}
+ <div className="space-y-10">
+ {/* intro badge + KPIs */}
+ <div className="space-y-4">
+ <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 shadow-sm">
+ <span className="h-2 w-2 rounded-full bg-emerald-500" />
+ Decision-first winter planning: fewer mistakes, more control.
+ </div>
 
-                <p>
-                  Helsinki in winter does not ease you in gently. It drops you straight into wind,
-                  sideways snow, and a level of Nordic calm that feels almost rude when your eyelashes
-                  are freezing together. People walk faster. Trams still run. Nobody apologizes for the
-                  weather.
-                </p>
+ <div className="grid gap-3 sm:grid-cols-3">
+ <MiniKpi
+ label="Helsinki daily budget"
+ value="€185–300"
+ hint="Realistic mid-range winter spend"
+ />
+ <MiniKpi
+ label="Suomenlinna ferry"
+ value="Year-round"
+ hint="~15 minutes each way"
+ />
+ <MiniKpi
+ label="Northbound options"
+ value="Flight / Train / Tour"
+ hint="Choose resilience, not vibes"
+ />
+ </div>
 
-                <p>
-                  This guide exists because a lot of travelers get Helsinki wrong. They either treat it
-                  as a boring stopover before Lapland, or they assume they must fly north immediately to
-                  see anything “real.” Both ideas are lazy, and both leave money and experiences on the
-                  table.
-                </p>
+ <Callout
+ tone="success"
+ title="The core idea"
+ body="Use Helsinki as a controlled winter base (food, saunas, ferries, buffer time), then go north only when your transfer chain is resilient."
+ />
+ </div>
 
-                <p>
-                  Helsinki is not Lapland. It is also not a dead zone between airport and Arctic Circle.
-                  In 2026, Helsinki works best as a winter base: culture, saunas, ferries, food, clean
-                  logistics, and carefully chosen connections north. If you understand how Helsinki to
-                  Lapland tours actually work, you can build a smarter itinerary than most people who rush
-                  straight to Rovaniemi.
-                </p>
+ {/* feature image */}
+ <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+ <div className="relative aspect-[16/9] w-full">
+ <Image
+ src="/images/blog/helsinki-winter-guide-2026/feature.jpg"
+ alt="Helsinki winter harbour: calm city base before Lapland connections (2026)"
+ fill
+ className="object-cover"
+ sizes="(min-width: 1024px) 720px, 100vw"
+ priority
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent" />
+ </div>
+ <div className="p-5">
+ <div className="text-sm font-semibold text-slate-900">
+ Helsinki first, Lapland second
+ </div>
+ <p className="mt-1 text-sm leading-relaxed text-slate-700">
+ Base yourself in the city, learn the winter rhythm, then move north with a plan that survives delays.
+ </p>
+ </div>
+ </div>
 
-                <p>
-                  And yes, you can combine Suomenlinna ferry rides, saunas, and even Aurora-focused trips
-                  in the same plan. You just have to stop trusting Instagram captions and start trusting
-                  timetables.
-                </p>
+ {/* visual grid */}
+ <div className="grid gap-4 md:grid-cols-2">
+ {visuals.map((c) => (<Card key={c.title} className="overflow-hidden p-0">
+ <div className="relative aspect-[16/10] bg-slate-100">
+ <Image
+ src={c.image}
+ alt={c.alt}
+ fill
+ className="object-cover"
+ sizes="(min-width: 768px) 520px, 100vw"
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
+ </div>
+ <div className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">{c.title}</h3>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">{c.body}</p>
+ </div>
+ </Card>))}
+ </div>
 
-                <Anchor id="why" />
-                <h2>Why Helsinki in Winter 2026 Is Worth Your Time</h2>
-                <p>
-                  Let’s get the obvious out of the way. You will not see reindeer casually strolling down
-                  Esplanadi. Santa does not live in Helsinki. Aurora sightings inside the city are rare and
-                  weather-dependent.
-                </p>
+ {/* CONTENT: Modern blocks instead of prose soup */}
+ <div className="space-y-10">
+ <Anchor id="top" />
+ <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+ <div className="max-w-3xl">
+ <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+ Overview
+ </div>
+ <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+ Helsinki Travel Guide 2026: Winter Base + Connections to Lapland
+ </h1>
+ <p className="mt-3 text-sm leading-relaxed text-slate-700">
+ Helsinki in winter does not ease you in gently. It drops you straight into wind,
+ sideways snow, and a level of Nordic calm that feels almost rude when your eyelashes
+ are freezing together. Trams still run. Nobody apologizes for the weather.
+ </p>
+ <p className="mt-3 text-sm leading-relaxed text-slate-700">
+ This guide exists because a lot of travelers get Helsinki wrong. They either treat it
+ as a boring stopover before Lapland, or they assume they must fly north immediately to
+ see anything “real.” Both ideas leave money and experiences on the table.
+ </p>
+ <p className="mt-3 text-sm leading-relaxed text-slate-700">
+ Helsinki is not Lapland, but it’s also not a dead zone between airport and Arctic Circle.
+ In 2026, it works best as a winter base: culture, saunas, ferries, food, and clean logistics,
+ then carefully chosen connections north.
+ </p>
+ </div>
+ </div>
 
-                <p>So why stay?</p>
-                <ul>
-                  <li>
-                    <strong>Control</strong> – Reliable transport, predictable pricing, and backup plans
-                    when weather explodes.
-                  </li>
-                  <li>
-                    <strong>Contrast</strong> – Baltic Sea ferries, UNESCO fortresses, urban saunas, modern
-                    Nordic food.
-                  </li>
-                  <li>
-                    <strong>Connections</strong> – The cleanest routes north, including curated Helsinki to
-                    Lapland tours that skip beginner mistakes.
-                  </li>
-                </ul>
+ <SoftDivider />
 
-                <p>
-                  In 2026, Finland’s winter travel is more regulated, more booked out, and more expensive
-                  than five years ago. Helsinki gives you breathing room before you commit to the Arctic.
-                </p>
+ <Anchor id="why" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Decision"
+ title="Why Helsinki in Winter 2026 Is Worth Your Time"
+ body="No, Santa doesn’t live here and aurora in the city is rare. Helsinki earns its place by being controllable: warm logistics, good food, and stable routes north."
+ />
 
-                <Anchor id="story" />
-                <h2>A Short, Painful Personal Story (With a Sauna Ending)</h2>
-                <p>
-                  Last January, I got stuck in a Helsinki blizzard that laughed at every weather app.
-                  Trams delayed. Ferries paused. Snow horizontal.
-                </p>
-                <p>Tourist response pattern:</p>
-                <ul>
-                  <li>Panic.</li>
-                  <li>Overpay for a taxi.</li>
-                  <li>Hide in a mall.</li>
-                </ul>
-                <p>
-                  What actually saved the day was a hidden neighborhood sauna tucked behind what looked
-                  like an unremarkable residential block. No queues. No influencers. Just locals, steam,
-                  and silence. I walked out two hours later with warm bones and a completely different
-                  opinion of winter Helsinki.
-                </p>
-                <p>
-                  That moment taught me something important. Helsinki rewards people who stop trying to
-                  force Lapland immediately and instead let the city work first.
-                </p>
+ <div className="grid gap-4 md:grid-cols-3">
+ <InfoCard
+ title="Control"
+ body="Reliable transport, predictable pricing, and backup plans when weather turns."
+ />
+ <InfoCard
+ title="Contrast"
+ body="Baltic Sea ferries, UNESCO fortress vibes, urban saunas, modern Nordic food."
+ />
+ <InfoCard
+ title="Connections"
+ body="Clean routes north, including curated options that avoid beginner mistakes."
+ />
+ </div>
+ </div>
 
-                <Anchor id="itinerary" />
-                <h2>Helsinki Winter Itinerary: 3–4 Days That Actually Make Sense</h2>
+ <SoftDivider />
 
-                <h3>Day 1: Arrival, Orientation, and Snowproof Walking</h3>
-                <p>
-                  Arrive at Helsinki Airport and do not overthink transport. Airport transfers in 2026 are
-                  boring in the best way.
-                </p>
-                <p>Options from the airport:</p>
-                <ul>
-                  <li>Train to city center: ~30 minutes</li>
-                  <li>Fixed-price taxi: €40–50</li>
-                  <li>Hotel shuttle: only if bundled</li>
-                </ul>
-                <p>
-                  Drop bags, layer properly, and walk. Winter Helsinki is compact. The streets are heated
-                  in parts. The sidewalks are gritted. This is not survival mode.
-                </p>
-                <p>Evening: early dinner, light walk, sleep. Jet lag and snow are a bad mix.</p>
+ <Anchor id="story" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Reality"
+ title="A Short, Painful Personal Story (With a Sauna Ending)"
+ body="When Helsinki decides to snow sideways, the city still works, but only if you stop improvising."
+ />
 
-                <h3>Day 2: Suomenlinna Ferry + Urban Winter Culture</h3>
-                <p>Suomenlinna is not optional, even in winter. Especially in winter.</p>
-                <p>
-                  The Suomenlinna ferry runs year-round, cuts through ice, and takes about 15 minutes.
-                  Snow transforms the fortress into something cinematic and quiet.
-                </p>
-                <p>Why winter works better:</p>
-                <ul>
-                  <li>Fewer tour groups</li>
-                  <li>No cruise crowds</li>
-                  <li>Clear Baltic air</li>
-                </ul>
-                <p>
-                  Yes, people ask about “Suomenlinna ferry + aurora tours.” Let’s be precise. You are not
-                  booking an aurora safari from Suomenlinna. You are pairing iconic winter transport with
-                  night excursions elsewhere.
-                </p>
-                <p>Afternoon back in the city. Museum, coffee, bookstore. Evening sauna.</p>
+ <Card className="p-6">
+ <div className="grid gap-4 md:grid-cols-[1.2fr_1fr]">
+ <div>
+ <div className="text-sm font-semibold text-slate-900">The setup</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">
+ Last January, I got stuck in a Helsinki blizzard that laughed at every weather app.
+ Trams delayed. Ferries paused. Snow horizontal.
+ </p>
 
-                <h3>Day 3: Saunas, Markets, and Cold Exposure Therapy (Voluntary)</h3>
-                <p>Helsinki saunas are not all Instagram boxes. Some are, and they charge accordingly.</p>
-                <p>Good winter sauna logic:</p>
-                <ul>
-                  <li>One architect-designed sauna for the experience</li>
-                  <li>One local or community sauna for the soul</li>
-                </ul>
-                <p>
-                  Outdoor ice swimming is optional. Peer pressure is strong. Resist or embrace accordingly.
-                </p>
-                <p>
-                  Evening: prep for northbound travel or a late-night city walk. Helsinki after snowfall is
-                  unnervingly quiet.
-                </p>
+ <div className="mt-4 text-sm font-semibold text-slate-900">Tourist response pattern</div>
+ <div className="mt-2 grid gap-2 sm:grid-cols-3 md:grid-cols-1">
+ {["Panic", "Overpay for a taxi", "Hide in a mall"].map((t) => (<div
+ key={t}
+ className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+ >
+ {t}
+ </div>))}
+ </div>
+ </div>
 
-                <h3>Day 4: Decision Day – Stay South or Go North</h3>
-                <p>This is where most itineraries fall apart. You have three realistic choices:</p>
-                <ul>
-                  <li>Stay in Helsinki and deepen the city experience</li>
-                  <li>Fly north independently</li>
-                  <li>Book a structured Helsinki to Lapland tour</li>
-                </ul>
-                <p>Option three exists because many people do not want to micromanage Arctic logistics.</p>
+ <div className="rounded-2xl border border-slate-200 bg-white p-5">
+ <div className="text-sm font-semibold text-slate-900">What saved the day</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">
+ A neighborhood sauna behind an unremarkable residential block. No queues. No influencers.
+ Just locals, steam, and silence. Two hours later: warm bones and a better plan.
+ </p>
 
-                <Anchor id="tours" />
-                <h2>Helsinki to Lapland Tours: What Actually Exists in 2026</h2>
-                <p>
-                  Let’s kill the fantasy first. There is no casual same-day hop where you have breakfast
-                  in Helsinki and dinner under aurora without effort.
-                </p>
-                <p>What does exist:</p>
-                <ul>
-                  <li>Flight-based day or overnight packages</li>
-                  <li>Curated multi-day northbound itineraries</li>
-                  <li>Seasonal Santa-focused trips for families</li>
-                </ul>
-                <p>
-                  The keyword “Helsinki to Lapland tours” covers very different products. Read the fine
-                  print or you will be disappointed.
-                </p>
+ <div className="mt-4">
+ <Callout
+ title="Takeaway"
+ body="Helsinki rewards people who don’t force Lapland immediately. Let the city do its job first: warm you up, simplify logistics, reduce mistakes."
+ />
+ </div>
+ </div>
+ </div>
+ </Card>
+ </div>
 
-                <Anchor id="santapark" />
-                <h2>SantaPark Day Trip: What €180 Really Buys You</h2>
-                <p>Yes, the SantaPark day trip exists. Yes, it is around €180. No, it is not magical for everyone.</p>
-                <p>This type of tour usually includes:</p>
-                <ul>
-                  <li>Morning flight Helsinki → Rovaniemi</li>
-                  <li>Transfer to SantaPark</li>
-                  <li>Entry ticket</li>
-                  <li>Limited time on site</li>
-                  <li>Evening return flight</li>
-                </ul>
-                <p>Who this works for:</p>
-                <ul>
-                  <li>Families with younger kids</li>
-                  <li>Travelers with zero flexibility</li>
-                  <li>People who want Santa without planning</li>
-                </ul>
-                <p>Who should skip it:</p>
-                <ul>
-                  <li>Aurora hunters</li>
-                  <li>Budget travelers</li>
-                  <li>Anyone who hates schedules</li>
-                </ul>
-                <p>It is efficient. It is expensive. It is emotionally effective for children. That is the honest summary.</p>
+ <SoftDivider />
 
-                <Anchor id="aurora" />
-                <h2>Aurora Reality Check: Helsinki vs Lapland</h2>
-                <ul>
-                  <li>Helsinki aurora sightings: rare, weather-dependent, usually weak</li>
-                  <li>Lapland aurora probability: significantly higher, especially above the Arctic Circle</li>
-                </ul>
-                <p>
-                  When people search for “Suomenlinna ferry + aurora tours,” what they want is symbolism
-                  plus certainty. You get symbolism in Helsinki. You get certainty in Lapland.
-                </p>
-                <p>The smart move is to enjoy Helsinki for what it is, then travel north with realistic expectations.</p>
+ <Anchor id="itinerary" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Plan"
+ title="Helsinki Winter Itinerary (3–4 Days)"
+ body="Not a fantasy schedule. A winter-proof baseline with buffers you can actually keep."
+ />
 
-                <Anchor id="compare" />
-                <h2>Getting North: Flights, Trains, and Tours Compared</h2>
-                <h3>Flights</h3>
-                <ul>
-                  <li>Fastest</li>
-                  <li>Most weather-resilient</li>
-                  <li>Highest carbon guilt</li>
-                </ul>
-                <h3>Night Trains</h3>
-                <ul>
-                  <li>Scenic</li>
-                  <li>Comfortable</li>
-                  <li>Limited schedules</li>
-                </ul>
-                <h3>Packaged Tours</h3>
-                <ul>
-                  <li>Predictable</li>
-                  <li>Guided</li>
-                  <li>Less flexible</li>
-                </ul>
-                <p>For first-time winter visitors, tours reduce friction. For return visitors, independent travel wins.</p>
+ <Card className="p-6 md:p-7">
+ <div className="flex flex-wrap items-center justify-between gap-3">
+ <div>
+ <div className="text-base font-semibold text-slate-900">
+ 3-day winter plan (fast + realistic)
+ </div>
+ <p className="mt-1 text-sm leading-relaxed text-slate-700">
+ A clean baseline you can extend without breaking the schedule.
+ </p>
+ </div>
+ <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+ <span className="h-2 w-2 rounded-full bg-slate-400" />
+ Built for buffers
+ </div>
+ </div>
 
-                <Anchor id="budget" />
-                <h2>Budget Comparison: Helsinki Base vs Rovaniemi Base</h2>
-                <div className="not-prose mt-4 overflow-x-auto rounded-2xl border border-slate-200">
-                  <table className="w-full text-sm">
-                    <thead className="bg-slate-50 text-left">
-                      <tr className="border-b">
-                        <th className="px-4 py-3">Category</th>
-                        <th className="px-4 py-3">Helsinki (per day)</th>
-                        <th className="px-4 py-3">Rovaniemi (per day)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        ["Hotel", "€120–180", "€180–260"],
-                        ["Food", "€35–60", "€40–70"],
-                        ["Transport", "€10–20", "€15–30"],
-                        ["Activities", "€20–40", "€60–120"],
-                        ["Total", "€185–300", "€295–480"],
-                      ].map(([c, h, r]) => (
-                        <tr key={c} className="border-b last:border-b-0">
-                          <td className="px-4 py-3 font-medium">{c}</td>
-                          <td className="px-4 py-3 text-slate-700">{h}</td>
-                          <td className="px-4 py-3 text-slate-700">{r}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+ <div className="mt-5 grid gap-3 md:grid-cols-3">
+ <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+ <div className="text-xs font-medium text-slate-600">Day 1</div>
+ <div className="mt-1 text-sm font-semibold text-slate-900">Arrival + walkable centre</div>
+ <div className="mt-3 grid gap-2 text-sm text-slate-700">
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ <strong>Airport train:</strong> ~30 min
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ <strong>Taxi:</strong> €40–50
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ Early dinner, early sleep
+ </div>
+ </div>
+ </div>
 
-                <p>This is why starting in Helsinki makes sense. You burn fewer euros while acclimating to winter.</p>
+ <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+ <div className="text-xs font-medium text-slate-600">Day 2</div>
+ <div className="mt-1 text-sm font-semibold text-slate-900">Suomenlinna + sauna</div>
+ <div className="mt-3 grid gap-2 text-sm text-slate-700">
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ <strong>Ferry:</strong> ~15 min each way
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ Fortress winter quiet
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ One iconic sauna
+ </div>
+ </div>
+ </div>
 
-                <Anchor id="airport" />
-                <h2>Airport Transfers in Helsinki: Don’t Overcomplicate This</h2>
-                <ul>
-                  <li>Trains are frequent and warm</li>
-                  <li>Taxis are regulated</li>
-                  <li>Ride-sharing exists but adds no advantage</li>
-                </ul>
-                <p>Book nothing fancy unless your hotel bundles it.</p>
+ <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+ <div className="text-xs font-medium text-slate-600">Day 3</div>
+ <div className="mt-1 text-sm font-semibold text-slate-900">Decision day (south vs north)</div>
+ <div className="mt-3 grid gap-2 text-sm text-slate-700">
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ Stay and deepen Helsinki
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ Fly north independently
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+ Or pick a structured tour
+ </div>
+ </div>
+ </div>
+ </div>
+ </Card>
+ </div>
 
-                <Anchor id="sauna" />
-                <h2>Sauna Culture: The Winter Survival Tool Nobody Explains Properly</h2>
-                <p>Saunas are not attractions. They are infrastructure.</p>
-                <p>In winter:</p>
-                <ul>
-                  <li>They reset your body temperature</li>
-                  <li>They fix jet lag better than caffeine</li>
-                  <li>They make cold feel intentional</li>
-                </ul>
-                <p>The best sauna is the one you go to twice.</p>
+ <SoftDivider />
 
-                <Anchor id="when" />
-                <h2>When to Visit Helsinki in Winter 2026</h2>
-                <ul>
-                  <li>December: Festive, dark, busy, expensive</li>
-                  <li>January: Cold, quiet, beautiful, cheaper</li>
-                  <li>February: Best balance of snow and daylight</li>
-                  <li>March: Longer days, softer winter, fewer auroras</li>
-                </ul>
-                <p>For Lapland connections, January–February is peak logic.</p>
+ <Anchor id="tours" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Northbound"
+ title="Helsinki to Lapland Tours: What Actually Exists in 2026"
+ body="No same-day ‘breakfast in Helsinki, dinner under aurora’ fantasy without effort. Here are the real formats."
+ />
 
-                <Anchor id="mistakes" />
-                <h2>Common Mistakes Travelers Still Make</h2>
-                <ul>
-                  <li>Treating Helsinki as a waiting room</li>
-                  <li>Booking aurora tours without weather buffers</li>
-                  <li>Overpaying for taxis</li>
-                  <li>Skipping saunas because “it’s not my thing”</li>
-                  <li>Packing fashion instead of insulation</li>
-                </ul>
-                <p>Winter does not forgive optimism.</p>
+ <div className="grid gap-4 md:grid-cols-3">
+ <InfoCard
+ title="Flight-based packages"
+ body="Day trips or 1–2 nights. Fastest. Still needs winter buffers."
+ />
+ <InfoCard
+ title="Curated multi-day trips"
+ body="Structured routing, transfers included, less decision fatigue."
+ />
+ <InfoCard
+ title="Santa-focused trips"
+ body="Family-heavy packages with fixed timing. Convenient, not subtle."
+ />
+ </div>
 
-                <Anchor id="split" />
-                <h2>Sample 6-Day Helsinki + Lapland Split Itinerary</h2>
-                <ul>
-                  <li>Days 1–3: Helsinki city, Suomenlinna ferry, saunas</li>
-                  <li>Day 4: Travel north via flight or tour</li>
-                  <li>Days 5–6: Lapland activities, aurora attempts</li>
-                </ul>
-                <p>Simple. Balanced. No panic.</p>
+ <Anchor id="santapark" />
+ <Card className="p-6">
+ <div className="flex flex-wrap items-start justify-between gap-3">
+ <div>
+ <div className="text-base font-semibold text-slate-900">
+ SantaPark day trip: what €180 really buys
+ </div>
+ <p className="mt-1 text-sm leading-relaxed text-slate-700">
+ It exists. It’s expensive. It’s not automatically “worth it.”
+ </p>
+ </div>
+ <div className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+ Best for families with tight schedules
+ </div>
+ </div>
 
-                <Anchor id="faqs" />
-                <h2>FAQs</h2>
-                <ul>
-                  <li>
-                    <strong>Can you see aurora in Helsinki?</strong> Rarely. Possible during strong solar activity and clear
-                    skies, but not reliable.
-                  </li>
-                  <li>
-                    <strong>Is the SantaPark day trip worth €180?</strong> For families, yes. For adults chasing aurora, no.
-                  </li>
-                  <li>
-                    <strong>Is winter Helsinki walkable?</strong> Yes. Better maintained than many European cities.
-                  </li>
-                  <li>
-                    <strong>Do ferries run in winter?</strong> Yes. Including Suomenlinna year-round.
-                  </li>
-                  <li>
-                    <strong>Should I book Helsinki to Lapland tours in advance?</strong> In 2026, yes. Especially January–February.
-                  </li>
-                </ul>
+ <div className="mt-4 grid gap-2 sm:grid-cols-2">
+ {[
+ "Morning flight Helsinki → Rovaniemi",
+ "Transfer to SantaPark",
+ "Entry ticket",
+ "Limited time on site",
+ "Evening return flight",
+ ].map((t) => (<div
+ key={t}
+ className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+ >
+ {t}
+ </div>))}
+ </div>
 
-                <Anchor id="final" />
-                <h2>Final Thought: Helsinki Is Not a Compromise</h2>
-                <p>
-                  Helsinki is not the thing you endure before Lapland. It is the place that teaches you
-                  how to survive Finland in winter without losing money or dignity.
-                </p>
-                <p>
-                  If Lapland is the climax, Helsinki is the calibration. Skip it, and the north feels
-                  harsher than it needs to be.
-                </p>
-                <p>
-                  Stay, steam, ferry, plan. Then go north properly. That is how winter Finland works when you stop fighting it.
-                </p>
+ <p className="mt-4 text-sm text-slate-700">
+ Cross-sell: <Link className="underline" href="/lapland-tours">Lapland tours </Link>
+ </p>
+ </Card>
+ </div>
 
-                <div className="not-prose mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <h3 className="text-base font-semibold">Routing</h3>
-                  <p className="mt-2 text-sm text-slate-700">
-                    Use Helsinki for controlled logistics, then go north only when your chain is resilient.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    <Link className="underline hover:text-slate-900" href="/getting-around-finland">
-                      Getting around Finland
-                    </Link>
-                    <Link className="underline hover:text-slate-900" href="/offer-checklist">
-                      Offer checklist
-                    </Link>
-                    <Link className="underline hover:text-slate-900" href="/lapland-tours">
-                      Lapland tours hub
-                    </Link>
-                  </div>
-                </div>
-              </article>
+ <SoftDivider />
 
-              {/* Bottom CTA */}
-              <div className="mt-8">
-                <Card className="p-6 md:p-8">
-                  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
-                    Want to book smarter instead of “hope harder”?
-                  </h3>
-                  <p className="mt-2 max-w-3xl text-sm text-slate-700">
-                    Use the checklist, align transport with start times, and keep winter buffers. Finland rewards realism.
-                  </p>
+ <Anchor id="aurora" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Reality check"
+ title="Aurora: Helsinki vs Lapland"
+ body="If aurora is the goal, Helsinki is a bonus, not a plan."
+ />
 
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <CtaButton href="/offer-checklist" variant="primary">
-                      Open offer checklist →
-                    </CtaButton>
-                    <CtaButton href="/getting-around-finland" variant="outline">
-                      Getting around Finland →
-                    </CtaButton>
-                    <CtaButton href="/lapland-tours" variant="outline">
-                      Lapland tours →
-                    </CtaButton>
-                  </div>
+ <div className="grid gap-4 md:grid-cols-2">
+ <InfoCard
+ title="Helsinki"
+ body="Rare sightings, usually weak, heavily weather-dependent. Treat it as luck."
+ />
+ <InfoCard
+ title="Lapland"
+ body="Significantly higher odds above the Arctic Circle. Still not guaranteed, but much less tragic."
+ />
+ </div>
+ </div>
 
-                  <div className="mt-6 text-sm">
-                    <Link href="/blog" className="font-semibold hover:underline text-slate-700">
-                      Back to Blog →
-                    </Link>
-                    <span className="mx-2 text-slate-300">•</span>
-                    <Link href="/policy" className="font-semibold hover:underline text-slate-700">
-                      Policy →
-                    </Link>
-                    <span className="mx-2 text-slate-300">•</span>
-                    <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
-                      Get help →
-                    </Link>
-                  </div>
+ <SoftDivider />
 
-                  <p className="mt-6 text-xs text-slate-500">
-                    <strong>Last verified:</strong> {lastVerified}
-                  </p>
-                </Card>
-              </div>
-            </div>
+ <Anchor id="compare" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Compare"
+ title="Getting North: Flights vs Night Trains vs Packaged Tours"
+ body="Pick the option you can explain simply, and back it up with buffer time."
+ />
 
-            {/* SIDEBAR */}
-            <aside className="lg:sticky lg:top-24 h-fit space-y-4">
-              <Card className="p-6">
-                <h2 className="text-base font-semibold text-slate-900">On this page</h2>
-                <div className="mt-3 grid gap-2 text-sm text-slate-700">
-                  <a className="hover:underline" href="#why">
-                    Why Helsinki in winter
-                  </a>
-                  <a className="hover:underline" href="#story">
-                    Sauna story
-                  </a>
-                  <a className="hover:underline" href="#itinerary">
-                    3–4 day itinerary
-                  </a>
-                  <a className="hover:underline" href="#tours">
-                    Helsinki to Lapland tours
-                  </a>
-                  <a className="hover:underline" href="#santapark">
-                    SantaPark day trip
-                  </a>
-                  <a className="hover:underline" href="#aurora">
-                    Aurora reality check
-                  </a>
-                  <a className="hover:underline" href="#compare">
-                    Flights vs trains vs tours
-                  </a>
-                  <a className="hover:underline" href="#budget">
-                    Budget table
-                  </a>
-                  <a className="hover:underline" href="#mistakes">
-                    Common mistakes
-                  </a>
-                  <a className="hover:underline" href="#faqs">
-                    FAQs
-                  </a>
-                  <a className="hover:underline" href="#final">
-                    Final thought
-                  </a>
-                </div>
-              </Card>
+ <Callout
+ tone="warning"
+ title="Winter rule (that saves money)"
+ body="If you can’t explain your transfer chain in one sentence, it’s fragile."
+ />
 
-              <Card className="overflow-hidden p-0">
-                <div className="relative aspect-[16/10] bg-slate-100">
-                  <Image
-                    src="/images/blog/helsinki-winter-guide-2026/sidebar.jpg"
-                    alt="Helsinki winter calm: harbour + tram + snow"
-                    fill
-                    className="object-cover"
-                    sizes="360px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-medium text-slate-700">Quick rule</p>
-                  <p className="mt-2 text-sm text-slate-700">
-                    If you can’t explain your transfer chain in one sentence, it’s fragile.
-                  </p>
-                  <div className="mt-4">
-                    <CtaButton href="/get-help" variant="success" className="w-full">
-                      Get help →
-                    </CtaButton>
-                  </div>
-                </div>
-              </Card>
-            </aside>
-          </div>
-        </Section>
-      </div>
-    </main>
-  );
+ <div className="grid gap-4 md:grid-cols-3">
+ <InfoCard title="Flights" body="Fastest, often most resilient. Still: weather + connection risk." />
+ <InfoCard title="Night trains" body="Practical and oddly satisfying. Limited schedules, book sleepers early." />
+ <InfoCard title="Packaged tours" body="Predictable and guided. Less flexible, but lower decision fatigue." />
+ </div>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="budget" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Budget"
+ title="Budget Comparison: Helsinki base vs Rovaniemi base"
+ body="Decision data, not vibes. Use this to sanity-check your plan before you book."
+ />
+
+ <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+ <table className="w-full text-sm">
+ <thead className="bg-slate-50 text-left">
+ <tr className="border-b">
+ <th className="px-4 py-3">Category</th>
+ <th className="px-4 py-3">Helsinki (per day)</th>
+ <th className="px-4 py-3">Rovaniemi (per day)</th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ ["Hotel", "€120–180 (3*)", "€180–260 (winter premium)"],
+ ["Food", "€35–60", "€40–70"],
+ ["Local transport", "€10–20", "€15–30"],
+ ["Activities", "€20–40", "€60–120"],
+ ["Suomenlinna ferry", "€8 RT", "—"],
+ ["Public sauna", "€15–25", "€20–35"],
+ ["Total (typical)", "€185–300", "€295–480"],
+ ].map(([c, h, r]) => (<tr key={c} className="border-b last:border-b-0">
+ <td className="px-4 py-3 font-medium text-slate-900">{c}</td>
+ <td className="px-4 py-3 text-slate-700">{h}</td>
+ <td className="px-4 py-3 text-slate-700">{r}</td>
+ </tr>))}
+ </tbody>
+ </table>
+ </div>
+
+ <Callout
+ title="Why this matters"
+ body="Starting in Helsinki often makes sense: spend less while acclimating, then go north with a plan that won’t collapse over one delayed connection."
+ />
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="airport" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Logistics"
+ title="Airport transfers in Helsinki"
+ body="Simple wins. Overthinking loses."
+ />
+
+ <div className="grid gap-4 md:grid-cols-3">
+ <InfoCard title="Train" body="Frequent, warm, and boring in the best way." />
+ <InfoCard title="Taxi" body="Regulated. Pay what you expect, not what a scammer dreams of." />
+ <InfoCard title="Ride-sharing" body="Exists, rarely adds real advantage in winter." />
+ </div>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="sauna" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Culture"
+ title="Sauna culture: the winter reset button"
+ body="Saunas are not an attraction. They’re infrastructure."
+ />
+
+ <Card className="p-6">
+ <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+ <div className="max-w-2xl">
+ <div className="text-sm font-semibold text-slate-900">Rule of thumb</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">
+ Do one iconic sauna for the story, then do one local sauna for your sanity.
+ The second one is usually the better experience.
+ </p>
+ </div>
+ <div>
+ <CtaButton href="/car-rental-helsinki" variant="outline">
+ Helsinki car rental day trips →
+ </CtaButton>
+ </div>
+ </div>
+ </Card>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="when" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Timing"
+ title="When to visit Helsinki in winter 2026"
+ body="Pick your month based on daylight, crowds, and how much cold you can tolerate without becoming a statue."
+ />
+
+ <div className="grid gap-4 md:grid-cols-2">
+ <InfoCard title="December" body="Festive, dark, busy, expensive." />
+ <InfoCard title="January" body="Cold, quiet, beautiful, cheaper." />
+ <InfoCard title="February" body="Best balance of snow and daylight." />
+ <InfoCard title="March" body="Longer days, softer winter, fewer auroras." />
+ </div>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="mistakes" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Avoid pain"
+ title="Common mistakes travelers still make"
+ body="These don’t look dramatic on a planning spreadsheet. They get expensive fast in real winter."
+ />
+
+ <div className="grid gap-3 sm:grid-cols-2">
+ {[
+ "Treating Helsinki as a waiting room",
+ "Booking aurora plans without buffers",
+ "Overpaying for taxis",
+ "Skipping saunas because “it’s not my thing”",
+ "Packing fashion instead of insulation",
+ ].map((t) => (<div
+ key={t}
+ className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm"
+ >
+ {t}
+ </div>))}
+ </div>
+
+ <p className="text-sm text-slate-700">
+ In winter, the snow doesn’t wait if you’re late.
+ </p>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="split" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Template"
+ title="Sample 6-day Helsinki + Lapland split itinerary"
+ body="A simple structure: Helsinki first for stability, then Lapland for the headline experiences."
+ />
+
+ <div className="grid gap-4 md:grid-cols-2">
+ <InfoCard title="Days 1–3: Helsinki" body="City, Suomenlinna, saunas, winter rhythm, buffer time." />
+ <InfoCard title="Days 4–6: Lapland" body="Travel north (flight/train/tour), activities, aurora attempts." />
+ </div>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="faqs" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="FAQ"
+ title="FAQs"
+ body="Short answers, no pretending."
+ />
+
+ <div className="grid gap-3">
+ {[
+ {
+ q: "Can you see aurora in Helsinki?",
+ a: "Rarely. Possible during strong solar activity and clear skies, but not reliable compared to Lapland.",
+ },
+ {
+ q: "Is the SantaPark day trip worth €180?",
+ a: "For families, often yes. For adults chasing aurora or value, usually no.",
+ },
+ {
+ q: "Is winter Helsinki walkable?",
+ a: "Yes. Better maintained than many European cities if you dress properly.",
+ },
+ {
+ q: "Do ferries run in winter?",
+ a: "Yes, including the Suomenlinna ferry year-round.",
+ },
+ {
+ q: "Should I book Helsinki → Lapland tours in advance?",
+ a: "In peak winter, yes. January–February often sells out earlier.",
+ },
+ ].map((item) => (<Card key={item.q} className="p-5">
+ <div className="text-sm font-semibold text-slate-900">{item.q}</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">{item.a}</p>
+ </Card>))}
+ </div>
+ </div>
+
+ <SoftDivider />
+
+ <Anchor id="final" />
+ <div className="space-y-5">
+ <SectionTitle
+ eyebrow="Verdict"
+ title="Final thought"
+ body="Helsinki isn’t the compromise. It’s the part of the trip that stops you from bleeding time and money."
+ />
+
+ <Card className="p-6">
+ <div className="text-sm font-semibold text-slate-900">Routing</div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">
+ Use Helsinki for controlled logistics, then go north only when your chain is resilient.
+ </p>
+
+ <div className="mt-4 flex flex-wrap gap-3 text-sm">
+ <Link className="underline hover:text-slate-900" href="/getting-around-finland">
+ Getting around Finland
+ </Link>
+ <Link className="underline hover:text-slate-900" href="/offer-checklist">
+ Offer checklist
+ </Link>
+ <Link className="underline hover:text-slate-900" href="/lapland-tours">
+ Lapland tours 
+ </Link>
+ </div>
+ </Card>
+ </div>
+
+ {/* Bottom CTA */}
+ <Card className="p-6 md:p-8">
+ <h3 className="text-xl font-semibold tracking-tight text-slate-900">
+ Want to book smarter instead of “hope harder”?
+ </h3>
+ <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-700">
+ Use the checklist, align transport with start times, and keep winter buffers. Finland rewards realism.
+ </p>
+
+ <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+ <CtaButton href="/offer-checklist" variant="primary">
+ Open offer checklist →
+ </CtaButton>
+ <CtaButton href="/getting-around-finland" variant="outline">
+ Getting around Finland →
+ </CtaButton>
+ <CtaButton href="/lapland-tours" variant="outline">
+ Lapland tours →
+ </CtaButton>
+ </div>
+
+ <p className="mt-6 text-xs text-slate-500">
+ <strong>Last verified:</strong> {lastVerified}
+ </p>
+ </Card>
+ </div>
+ </div>
+
+ {/* SIDEBAR */}
+ <aside className="lg:sticky lg:top-24 h-fit space-y-4">
+ <Card className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">On this page</h2>
+ <div className="mt-3 grid gap-2 text-sm text-slate-700">
+ <a className="hover:underline" href="#why">Why Helsinki in winter</a>
+ <a className="hover:underline" href="#story">Sauna story</a>
+ <a className="hover:underline" href="#itinerary">3–4 day itinerary</a>
+ <a className="hover:underline" href="#tours">Helsinki to Lapland tours</a>
+ <a className="hover:underline" href="#santapark">SantaPark day trip</a>
+ <a className="hover:underline" href="#aurora">Aurora reality check</a>
+ <a className="hover:underline" href="#compare">Flights vs trains vs tours</a>
+ <a className="hover:underline" href="#budget">Budget table</a>
+ <a className="hover:underline" href="#airport">Airport transfers</a>
+ <a className="hover:underline" href="#sauna">Sauna culture</a>
+ <a className="hover:underline" href="#when">When to visit</a>
+ <a className="hover:underline" href="#mistakes">Common mistakes</a>
+ <a className="hover:underline" href="#faqs">FAQs</a>
+ <a className="hover:underline" href="#final">Final thought</a>
+ </div>
+ </Card>
+
+ <Card className="p-6">
+ <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700">
+ <span className="h-2 w-2 rounded-full bg-emerald-500" />
+ Quick rule
+ </div>
+
+ <p className="mt-3 text-sm leading-relaxed text-slate-700">
+ If you can’t explain your transfer chain in one sentence, it’s fragile.
+ </p>
+
+ <div className="mt-4 grid gap-2 text-xs text-slate-600">
+ <div className="rounded-xl border border-slate-200 bg-white p-3">
+ Helsinki → Lapland:{" "}
+ <span className="font-semibold text-slate-800">
+ flight + buffer + backup
+ </span>
+ </div>
+ <div className="rounded-xl border border-slate-200 bg-white p-3">
+ Winter planning:{" "}
+ <span className="font-semibold text-slate-800">
+ timetables beat vibes
+ </span>
+ </div>
+ </div>
+
+ <div className="mt-5">
+ <CtaButton href="/offer-checklist" variant="primary" className="w-full">
+ Open offer checklist →
+ </CtaButton>
+ </div>
+ </Card>
+
+ <Card className="p-6">
+ <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+ Next
+ </div>
+ <div className="mt-2 text-sm font-semibold text-slate-900">
+ Lapland tours 
+ </div>
+ <p className="mt-2 text-sm leading-relaxed text-slate-700">
+ If Helsinki is your base, this is the clean “what to do north” decision layer.
+ </p>
+ <div className="mt-4">
+ <CtaButton href="/lapland-tours" variant="outline" className="w-full">
+ Explore Lapland tours →
+ </CtaButton>
+ </div>
+ </Card>
+ </aside>
+ </div>
+ </div>
+ </Section>
+ </main>);
 }
+

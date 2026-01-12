@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
@@ -7,556 +6,512 @@ import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
-  title: "Finland Winter Road Trip 2026: Camper + Lapland Itinerary",
-  description:
-    "A decision-first winter camper road trip guide for Finland in 2026: Helsinki pick-up, Lapland routing, snow driving, realistic costs, and Thenortrip-style tour integration.",
-  openGraph: {
-    title: "Finland Winter Road Trip 2026: Camper + Lapland Itinerary",
-    description:
-      "Winter camper reality, Helsinki→Rovaniemi loop logic, snow chain basics, and how to combine a camper base with high-impact Lapland tours.",
-    images: ["/images/og/og-finland-winter-camper-2026.jpg"],
-  },
+ title: "Camper Rental Finland Winter 2026: Helsinki–Lapland Self-Drive Guide",
+ description:
+ "Winter campervan Finland 2026, explained properly: Helsinki pick-up reality, winter systems, pricing drivers, a 10-day Lapland route logic, and decision-first planning that survives real conditions.",
+ openGraph: {
+ title: "Camper Rental Finland Winter 2026: Helsinki–Lapland Self-Drive Guide",
+ description:
+ "Helsinki pick-up reality, winter systems, pricing drivers, and calm route logic for Lapland self-drive in winter.",
+ images: ["/images/og/og-camper-winter.jpg"],
+ },
+ twitter: {
+ card: "summary_large_image",
+ title: "Camper Rental Finland Winter 2026: Helsinki–Lapland Self-Drive Guide",
+ description:
+ "Helsinki pick-up reality, winter systems, pricing drivers, and calm route logic for Lapland self-drive in winter.",
+ images: ["/images/og/og-camper-winter.jpg"],
+ },
 };
 
 const lastVerified = "2026-01-04";
 
-const quickCards = [
-  {
-    title: "Route logic",
-    body: "Short driving days. Two-night bases. Buffers. No hero drives.",
-    image: "/images/blog/camper/route-logic.jpg",
-  },
-  {
-    title: "Camper reality",
-    body: "Heating, condensation, overnight strategy, and not blocking snow clearance.",
-    image: "/images/blog/camper/camper-reality.jpg",
-  },
-  {
-    title: "Lapland depth",
-    body: "Use guided tours for peak experiences. Keep the rest flexible.",
-    image: "/images/blog/camper/lapland-depth.jpg",
-  },
-  {
-    title: "Winter driving",
-    body: "Physics wins. Slow down, increase distance, stay conservative in darkness.",
-    image: "/images/blog/camper/winter-driving.jpg",
-  },
+const quickChecks = [
+ {
+ title: "Winter-ready is a system",
+ body: "Heating + insulation + tyres + a power plan. One weak link becomes the whole trip.",
+ },
+ {
+ title: "Short driving days win",
+ body: "Winter multiplies fatigue. Build calm routes, not hero drives.",
+ },
+ {
+ title: "Start with a test day",
+ body: "Pickup day should be a systems check, not a 6-hour sprint north.",
+ },
+ {
+ title: "Water systems need a plan",
+ body: "Decide early how dependent you want to be on onboard water when temperatures drop.",
+ },
+];
+
+const winterReady = [
+ "Reliable heating that protects living space and systems",
+ "Proper winter tyres (confirm what you’re getting, not just “winter-ready” wording)",
+ "Insulation + thermal covers (cab + windows matter)",
+ "Basic winter equipment (visibility, snow tools, emergency basics)",
+ "A realistic power plan (hookups vs off-grid, and what drains the battery fastest)",
+];
+
+const priceRows = [
+ {
+ item: "What drives the price",
+ value: "Season timing, vehicle size, winter package level, and availability",
+ },
+ {
+ item: "What often costs extra",
+ value: "Insurance upgrades, bedding/linen, power hookup access, one-way fees, cleaning",
+ },
+ {
+ item: "Low-stress tactic",
+ value: "Book the vehicle early if dates are fixed, then stay flexible on route details",
+ },
+];
+
+const itinerary = [
+ {
+ day: "1",
+ base: "Helsinki area",
+ note: "Pickup + systems test. Short first leg. Fix issues while options exist.",
+ },
+ {
+ day: "2",
+ base: "Transit north",
+ note: "Keep it modest. Treat this as a travel day, not a sightseeing marathon.",
+ },
+ {
+ day: "3–4",
+ base: "Rovaniemi",
+ note: "Two-night base. Build buffers. Avoid stacking tight time windows.",
+ },
+ {
+ day: "5–6",
+ base: "Levi / Ylläs area",
+ note: "Another two-night base. Match activities to daylight + energy.",
+ },
+ {
+ day: "7–8",
+ base: "Inari / Saariselkä",
+ note: "Remote feel, fewer fallbacks. Plan slack and confirm meeting points.",
+ },
+ {
+ day: "9",
+ base: "Return leg",
+ note: "Avoid last-day hero drives. Keep the return boring and reliable.",
+ },
+ {
+ day: "10",
+ base: "Helsinki area",
+ note: "Return + cleanup buffer. Handback with margin, not panic.",
+ },
+];
+
+const faqs = [
+ {
+ q: "Do you need 4x4 for winter camper travel?",
+ a: "Not strictly on main routes, but it can add margin in bad conditions. Most failures come from speed, fatigue, and timing, not drivetrain.",
+ },
+ {
+ q: "Is winter camper travel actually comfortable?",
+ a: "Yes, if heating and your power plan are real. No, if you discover system limits at -15°C and call it “bad luck.”",
+ },
+ {
+ q: "Can you wild-camp in winter like in summer?",
+ a: "Freedom exists, but it’s narrower. Think legality, access, snow clearance, and not blocking anyone’s day. Prefer stops that stay viable when weather shifts.",
+ },
+ {
+ q: "What’s the #1 mistake on pickup day?",
+ a: "Driving too far immediately. Use day one to test heating, power, and how the vehicle behaves. Fixing problems near Helsinki is easier than in the north.",
+ },
+ {
+ q: "What’s the simplest way to reduce risk?",
+ a: "Two-night bases + short driving days + one deliberate buffer day. Winter rewards calm planning.",
+ },
 ];
 
 function Anchor({ id }: { id: string }) {
-  return <span id={id} className="scroll-mt-24" />;
+ return <span id={id} className="scroll-mt-24" />;
+}
+
+function InfoRow({
+ label,
+ value,
+}: {
+ label: string;
+ value: string;
+}) {
+ return (<div className="flex items-start justify-between gap-4 text-sm">
+ <span className="text-slate-600">{label}</span>
+ <span className="text-slate-900 font-medium text-right">{value}</span>
+ </div>);
+}
+
+function Callout({
+ title,
+ body,
+}: {
+ title: string;
+ body: string;
+}) {
+ return (<div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+ <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+ <p className="mt-2 text-sm text-slate-700">{body}</p>
+ </div>);
 }
 
 export default function Page() {
-  return (
-    <div className="bg-white">
-      <PageHero
-        title="Finland Road Trip 2026: Camper Rental + Lapland Thenortrip Itinerary"
-        subtitle="Winter camper freedom without chaos. Realistic planning for cold, darkness, and decisions that hold up."
-        imageSrc="/images/og/og-finland-winter-camper-2026.jpg"
-      />
+ return (<div className="bg-white">
+ <PageHero
+ variant="home"
+ title="Winter campervan Finland 2026: Lapland self-drive, done properly."
+ subtitle="A practical guide to winter systems, pricing drivers, and a calm route logic that survives real conditions."
+ imageSrc="/images/og/og-camper-winter.jpg"
+ primaryCta={{ href: "/camper-rental-finland", label: "Camper rental in Finland" }}
+ secondaryCta={{ href: "/offer-checklist", label: "Open offer checklist" }}
+ />
 
-      {/* subtle background texture + optional decor */}
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
-          <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:20px_20px]" />
-          <div className="absolute right-0 top-16 hidden h-[560px] w-[520px] opacity-[0.18] lg:block">
-            <Image
-              src="/images/decor/finland-map-watercolor.png"
-              alt=""
-              fill
-              className="object-contain"
-              sizes="520px"
-            />
-          </div>
-        </div>
+ <div className="relative">
+ {/* background texture (no extra assets) */}
+ <div className="pointer-events-none absolute inset-0 -z-10">
+ <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+ <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:20px_20px]" />
+ <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-50/70 to-transparent" />
+ </div>
 
-        {/* top bar */}
-        <Section>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-slate-600">
-              <span className="font-medium">Blog</span> ·{" "}
-              <span className="text-slate-500">Last verified: {lastVerified}</span>
-            </div>
-            <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
-              <Link className="hover:text-slate-900" href="/blog">
-                Back to Blog
-              </Link>
-              <Link className="hover:text-slate-900" href="/camper-rental-finland">
-                Camper rental Finland
-              </Link>
-              <Link className="hover:text-slate-900" href="/lapland-tours">
-                Lapland tours
-              </Link>
-            </nav>
-          </div>
-        </Section>
+ <Section>
+ <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+ {/* MAIN */}
+ <article className="max-w-none">
+ <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
+ <span className="h-2 w-2 rounded-full bg-emerald-500" />
+ Practical guide · winter-first planning
+ </div>
 
-        <Section>
-          <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
-            {/* MAIN */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Winter road trip + camper + Lapland routing
-              </div>
+ <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+ Winter camper rental Finland 2026: Lapland self-drive guide
+ </h1>
 
-              {/* in-article feature image (doesn’t replace your content, just supports it) */}
-              <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/images/blog/camper/finland-winter-roadtrip-hero.jpg"
-                    alt="Finland winter road trip camper in snowy Lapland"
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 720px, 100vw"
-                    priority={false}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-                </div>
-              </div>
+ <p className="mt-3 max-w-3xl text-base text-slate-700 md:text-lg">
+ Winter camper travel in Finland can be incredible, but only when the “boring” parts are handled:
+ heat, power, tyres, and buffers. Plan like summer and winter turns your schedule into repairs and
+ missed experiences.
+ </p>
 
-              {/* quick cards */}
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {quickCards.map((c) => (
-                  <Card key={c.title} className="overflow-hidden p-0">
-                    <div className="relative aspect-[16/10] bg-slate-100">
-                      <Image
-                        src={c.image}
-                        alt={c.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 520px, 100vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent" />
-                    </div>
-                    <div className="p-6">
-                      <h2 className="text-base font-semibold text-slate-900">{c.title}</h2>
-                      <p className="mt-2 text-sm text-slate-700">{c.body}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+ <div className="mt-8 grid gap-4 md:grid-cols-2">
+ {quickChecks.map((c) => (<Card key={c.title} className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">{c.title}</h2>
+ <p className="mt-2 text-sm text-slate-700">{c.body}</p>
+ </Card>))}
+ </div>
 
-              {/* YOUR ARTICLE CONTENT (UNCHANGED) */}
-              <article className="prose prose-slate max-w-none px-0 py-10 prose-headings:tracking-tight prose-a:text-slate-900">
-                <p className="text-sm text-slate-600">
-                  <strong>Target keywords:</strong> Finland road trip 2026, winter camper rental Finland, Helsinki camper pick-up,
-                  Lapland camper itinerary, snow chain tips Finland, Thenortrip Lapland tours
-                </p>
+ <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+ <h2 className="text-lg font-semibold text-slate-900">In this guide</h2>
+ <div className="mt-4 grid gap-2 text-sm text-slate-700 md:grid-cols-2">
+ <Link className="hover:underline" href="#who">Who this is for</Link>
+ <Link className="hover:underline" href="#winter-ready">What “winter-ready” means</Link>
+ <Link className="hover:underline" href="#price">Price reality</Link>
+ <Link className="hover:underline" href="#pickup">Helsinki pick-up reality</Link>
+ <Link className="hover:underline" href="#4x4">Do you need 4x4?</Link>
+ <Link className="hover:underline" href="#systems">Water, power, freezing</Link>
+ <Link className="hover:underline" href="#sleep">Where you sleep in winter</Link>
+ <Link className="hover:underline" href="#route">10-day route logic</Link>
+ <Link className="hover:underline" href="#faq">FAQ</Link>
+ </div>
+ </div>
 
-                <hr />
+ <div className="mt-10 space-y-12">
+ <section>
+ <Anchor id="who" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Who this is for</h2>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ This is for travellers who want independence and can plan responsibly: short days, verification,
+ and buffers. If your plan is “we’ll figure it out,” winter will decide the details for you.
+ </p>
+ </section>
 
-                <Anchor id="why" />
-                <h2>Why a winter camper road trip in Finland is not insane (just misunderstood)</h2>
-                <p>
-                  Winter. Camper. Finland. Most people hear that and immediately picture a slow-motion disaster involving ice,
-                  darkness, and regret. And sure, if you plan it like a summer road trip with cute expectations, you’ll earn that
-                  disaster.
-                </p>
-                <p>
-                  But Finland is also one of the most winter-capable countries in Europe. Not because winter is “easy,” but
-                  because roads are maintained, drivers expect ice and behave like adults, and infrastructure is built for snow
-                  and darkness. What fails trips is not Finland. It’s travellers arriving with the wrong mental model.
-                </p>
+ <section>
+ <Anchor id="winter-ready" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+ What “winter-ready” actually means
+ </h2>
 
-                <h3>What a camper gives you in winter</h3>
-                <ul>
-                  <li>Location freedom without packing/unpacking every night</li>
-                  <li>Aurora flexibility without chasing hotel availability</li>
-                  <li>Cost control once you’re north</li>
-                  <li>Time efficiency between destinations</li>
-                  <li>A front-row seat to landscapes trains and planes politely ignore</li>
-                </ul>
+ <div className="mt-4 grid gap-4 md:grid-cols-2">
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">Minimum winter-ready checklist</h3>
+ <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+ {winterReady.map((x) => (<li key={x}>{x}</li>))}
+ </ul>
+ </Card>
 
-                <h3>What it does not give you</h3>
-                <ul>
-                  <li>Luxury</li>
-                  <li>Speed</li>
-                  <li>Forgiveness for bad decisions</li>
-                </ul>
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">Reality check</h3>
+ <p className="mt-2 text-sm text-slate-700">
+ Comfort in winter is mostly about consistency: heat that holds overnight, power that doesn’t
+ collapse, and tyres that match the roads you’re actually driving.
+ </p>
+ <div className="mt-4 space-y-2">
+ <InfoRow label="Risk reducer" value="Power hookups + short days" />
+ <InfoRow label="Common failure" value="Weak power plan + long drives" />
+ <InfoRow label="Best habit" value="Verify, then drive" />
+ </div>
+ </Card>
+ </div>
+ </section>
 
-                <hr />
+ <section>
+ <Anchor id="price" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Price reality</h2>
 
-                <Anchor id="costs" />
-                <h2>Camper rental Finland winter: what “€120/day” really means</h2>
-                <p>
-                  You’ll see winter-capable campers marketed around “€X per day.” Sometimes that’s accurate for specific dates
-                  and vehicle classes. What matters is what’s included and what quietly costs extra.
-                </p>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ In winter, comparing offers by day-rate alone is how people get surprised. Compare what’s included,
+ what’s optional, and what “winter-ready” actually means in writing.
+ </p>
 
-                <h3>What “winter-ready” should include</h3>
-                <ul>
-                  <li>Insulation that’s actually designed for cold</li>
-                  <li>A heating system you can run safely and consistently</li>
-                  <li>Winter tyres (and clarity on studded vs friction, depending on the vehicle and season)</li>
-                  <li>Basic kitchen setup that won’t hate you at -15°C</li>
-                  <li>Clear instructions for water systems in freezing conditions</li>
-                </ul>
+ <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+ <table className="w-full text-sm">
+ <thead className="text-left">
+ <tr className="border-b bg-slate-50">
+ <th className="px-4 py-3 font-semibold text-slate-900">Planning item</th>
+ <th className="px-4 py-3 font-semibold text-slate-900">What to expect</th>
+ </tr>
+ </thead>
+ <tbody>
+ {priceRows.map((r) => (<tr key={r.item} className="border-b last:border-b-0">
+ <td className="px-4 py-3 font-medium text-slate-900">{r.item}</td>
+ <td className="px-4 py-3 text-slate-700">{r.value}</td>
+ </tr>))}
+ </tbody>
+ </table>
+ </div>
 
-                <h3>What often costs extra</h3>
-                <ul>
-                  <li>Bedding packages</li>
-                  <li>Insurance excess reduction</li>
-                  <li>Cleaning fees if you return it like a crime scene</li>
-                  <li>One-way drop fees</li>
-                  <li>Power hookups / winter camping access</li>
-                </ul>
+ <div className="mt-6 grid gap-4 md:grid-cols-2">
+ <Callout
+ title="Decision rule"
+ body="If the provider is vague about winter suitability, assume you’ll be the one paying for the consequences."
+ />
+ <Callout
+ title="Low-stress planning"
+ body="Lock the vehicle early if dates are fixed. Keep the route flexible until weather and daylight feel real on the ground."
+ />
+ </div>
+ </section>
 
-                <p>
-                  <strong>Planning rule:</strong> build a realistic “rolling cost” band for your trip (rental + fuel + overnight
-                  strategy), then decide where you want to spend extra: usually on one or two high-impact Lapland tours.
-                </p>
+ <section>
+ <Anchor id="pickup" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Helsinki pick-up reality</h2>
 
-                <hr />
+ <p className="mt-3 max-w-3xl text-slate-700">
+ “Helsinki pick-up” often means the wider Helsinki area, not downtown. Treat day one as a systems test:
+ run heating properly, confirm power setup, learn controls, then drive a short first leg.
+ </p>
 
-                <Anchor id="camper-vs-flights" />
-                <h2>Camper vs flights: the uncomfortable math</h2>
-                <p>
-                  If you’re doing this for the right reasons, the camper is a tool: mobility + accommodation + aurora
-                  flexibility. Flights + hotels can be simpler, but less elastic. Here’s the decision table you actually need:
-                </p>
+ <div className="mt-5 grid gap-4 md:grid-cols-2">
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">Day-one checklist</h3>
+ <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+ <li>Run heating for a real stretch, not two minutes.</li>
+ <li>Confirm power hookup requirements and what’s included.</li>
+ <li>Check tyres + visibility basics (scraper/brush/etc.).</li>
+ <li>Learn controls while you’re still near help.</li>
+ </ul>
+ </Card>
 
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Category</th>
-                      <th>Camper road trip (7 days)</th>
-                      <th>Flights + hotels (7 days)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Accommodation cost</td>
-                      <td>Built-in (with tradeoffs)</td>
-                      <td>Often the main cost driver</td>
-                    </tr>
-                    <tr>
-                      <td>Aurora mobility</td>
-                      <td>Excellent (you move with conditions)</td>
-                      <td>Depends on where you stay</td>
-                    </tr>
-                    <tr>
-                      <td>Stress source</td>
-                      <td>Driving + cold systems</td>
-                      <td>Transfers + fixed schedules</td>
-                    </tr>
-                    <tr>
-                      <td>Flexibility value</td>
-                      <td>Very high</td>
-                      <td>Limited</td>
-                    </tr>
-                  </tbody>
-                </table>
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">Day-one rule</h3>
+ <p className="mt-2 text-sm text-slate-700">
+ Find problems near Helsinki, not 300 km north. A calm test day beats a stressful “we’ll be fine”
+ sprint every time.
+ </p>
+ <div className="mt-4 flex flex-wrap gap-2 text-xs">
+ <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-700">Heat test</span>
+ <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-700">Power</span>
+ <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-700">Tyres</span>
+ <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-700">Controls</span>
+ </div>
+ </Card>
+ </div>
+ </section>
 
-                <p>
-                  This is why the Thenortrip + camper combo works. You don’t pay hotels, tours, and transfers all at once. You
-                  pay once for mobility, then selectively for peak experiences.
-                </p>
+ <section>
+ <Anchor id="4x4" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Do you need 4x4?</h2>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ Not strictly for main routes, but it adds margin in bad conditions. Most real failures come from speed,
+ fatigue, and timing. Calm planning is still the best upgrade.
+ </p>
+ </section>
 
-                <hr />
+ <section>
+ <Anchor id="systems" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Water, power, and freezing</h2>
 
-                <Anchor id="reality" />
-                <h2>Winter camper reality check (read this before you romanticise)</h2>
-                <h3>The good</h3>
-                <ul>
-                  <li>Silence that feels illegal</li>
-                  <li>Waking up in forests, frozen lakes, Arctic light</li>
-                  <li>Aurora chances without relocating your entire life</li>
-                  <li>Sauna stops that reset your brain</li>
-                  <li>No packing, no checkout times, no rushing</li>
-                </ul>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ Decide up front how dependent you want to be on onboard plumbing. Power access reduces stress massively.
+ If you rely on water systems, you also rely on temperatures staying friendly. They won’t.
+ </p>
 
-                <h3>The annoying</h3>
-                <ul>
-                  <li>Dressing and undressing constantly</li>
-                  <li>Managing moisture and condensation</li>
-                  <li>Planning where you can safely park overnight</li>
-                  <li>Slower driving days than Google Maps promises</li>
-                  <li>At least one moment of “why did we do this?”</li>
-                </ul>
+ <Callout
+ title="Practical rule"
+ body="If you’re unsure: prioritize warmth + power access over ‘perfect freedom parking’. Comfort keeps the trip alive."
+ />
+ </section>
 
-                <p>
-                  If that list sounds acceptable, continue. If it sounds like punishment, flights are a wonderful invention.
-                </p>
+ <section>
+ <Anchor id="sleep" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Where you sleep in winter</h2>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ Winter overnighting is about legality, access, and not blocking snow clearance. Pick stops that stay
+ viable when weather changes. Safety beats aesthetics.
+ </p>
+ </section>
 
-                <hr />
+ <section>
+ <Anchor id="route" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">10-day winter-friendly route logic</h2>
 
-                <Anchor id="chains" />
-                <h2>Snow chain tips (this is not optional reading)</h2>
-                <p>
-                  Finland is winter-capable, but your vehicle still lives under the laws of physics. Snow chains are not always
-                  required, but understanding them is useful when conditions get ugly.
-                </p>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ Short driving days. Two-night bases. Weather buffers. No hero drives.
+ </p>
 
-                <h3>When you actually need them</h3>
-                <ul>
-                  <li>Icy inclines</li>
-                  <li>Remote roads after heavy snowfall</li>
-                  <li>Compacted-ice parking areas</li>
-                  <li>Campsites with slick entry/exit zones</li>
-                </ul>
+ <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+ <table className="w-full text-sm">
+ <thead className="text-left">
+ <tr className="border-b bg-slate-50">
+ <th className="px-4 py-3 font-semibold text-slate-900">Day</th>
+ <th className="px-4 py-3 font-semibold text-slate-900">Base</th>
+ <th className="px-4 py-3 font-semibold text-slate-900">Route logic</th>
+ </tr>
+ </thead>
+ <tbody>
+ {itinerary.map((r) => (<tr key={r.day} className="border-b last:border-b-0">
+ <td className="px-4 py-3 font-semibold text-slate-900">{r.day}</td>
+ <td className="px-4 py-3 font-medium text-slate-900">{r.base}</td>
+ <td className="px-4 py-3 text-slate-700">{r.note}</td>
+ </tr>))}
+ </tbody>
+ </table>
+ </div>
 
-                <h3>Rules that matter</h3>
-                <ul>
-                  <li>Practice installing them before you need them</li>
-                  <li>Chains go on drive wheels</li>
-                  <li>Don’t drive fast with chains</li>
-                  <li>Remove them when you’re back on cleared roads</li>
-                </ul>
+ <div className="mt-6 grid gap-4 md:grid-cols-2">
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">The buffer rule</h3>
+ <p className="mt-2 text-sm text-slate-700">
+ Add at least one deliberate flex day so weather doesn’t delete your best experience.
+ </p>
+ </Card>
+ <Card className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">The fatigue rule</h3>
+ <p className="mt-2 text-sm text-slate-700">
+ Winter drains you faster than you expect. Keep days shorter than your ego wants.
+ </p>
+ </Card>
+ </div>
 
-                <p>
-                  <strong>Pro tip:</strong> carry thick gloves or a kneeling pad. Installing chains kneeling on ice is a
-                  personality test you didn’t ask for.
-                </p>
+ <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+ <h3 className="text-base font-semibold text-slate-900">Related planning pages</h3>
+ <p className="mt-2 text-sm text-slate-700">
+ If you’re pairing camper travel with tours, keep sequencing clean. Lock the fragile parts first.
+ </p>
+ <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+ <CtaButton href="/camper-rental-finland" variant="primary">
+ Camper rental overview →
+ </CtaButton>
+ <CtaButton href="/lapland-tours" variant="outline">
+ Lapland tours →
+ </CtaButton>
+ <CtaButton href="/offer-checklist" variant="outline">
+ Offer checklist →
+ </CtaButton>
+ </div>
+ </div>
+ </section>
 
-                <hr />
+ <section>
+ <Anchor id="faq" />
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">FAQ</h2>
+ <div className="mt-5 grid gap-4">
+ {faqs.map((f) => (<Card key={f.q} className="p-6">
+ <h3 className="text-base font-semibold text-slate-900">{f.q}</h3>
+ <p className="mt-2 text-sm text-slate-700">{f.a}</p>
+ </Card>))}
+ </div>
+ </section>
 
-                <Anchor id="logic" />
-                <h2>Lapland road trip logic: how to think, not just where to go</h2>
-                <p>
-                  A winter route should be built around daylight, fuel spacing, and recovery days. This is not a race north.
-                  It’s a loop that tightens as you go.
-                </p>
+ <section>
+ <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Conclusion</h2>
+ <p className="mt-3 max-w-3xl text-slate-700">
+ Winter camper travel isn’t about toughness. It’s about preparation. Do it right and Lapland feels quiet,
+ vast, and personal. Do it casually and you’ll spend money fixing avoidable problems.
+ </p>
 
-                <h3>Build your plan around</h3>
-                <ul>
-                  <li>Shorter driving windows (daylight matters)</li>
-                  <li>Overnight options (open winter sites are fewer)</li>
-                  <li>Aurora “attempt nights” (more than one)</li>
-                  <li>Buffer time for weather vetoes</li>
-                </ul>
+ <div className="mt-6 text-sm text-slate-700">
+ <strong>Internal links:</strong>{" "}
+ <Link href="/camper-rental-finland" className="font-semibold hover:underline">
+ Camper rental Finland
+ </Link>{" "}
+ ·{" "}
+ <Link href="/offer-checklist" className="font-semibold hover:underline">
+ Offer checklist
+ </Link>{" "}
+ ·{" "}
+ <Link href="/getting-around-finland" className="font-semibold hover:underline">
+ Getting around Finland
+ </Link>
+ </div>
 
-                <hr />
+ <p className="mt-4 text-xs text-slate-500">
+ <strong>Last verified:</strong> {lastVerified}
+ </p>
+ </section>
+ </div>
+ </article>
 
-                <Anchor id="itinerary" />
-                <h2>7-day Helsinki → Rovaniemi winter camper loop (tested logic)</h2>
+ {/* SIDEBAR */}
+ <aside className="h-fit space-y-4 lg:sticky lg:top-24">
+ <Card className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">At a glance</h2>
+ <div className="mt-3 space-y-2 text-sm text-slate-700">
+ <p><span className="font-semibold">Best for:</span> independent travellers who plan</p>
+ <p><span className="font-semibold">Avoid if:</span> you hate buffers and cold logistics</p>
+ <p><span className="font-semibold">Planning style:</span> two-night bases + short days</p>
+ <p><span className="font-semibold">Last verified:</span> {lastVerified}</p>
+ </div>
+ </Card>
 
-                <h3>Day 1: Helsinki → Lahti / Jyväskylä area</h3>
-                <ul>
-                  <li>Pick up camper near Helsinki</li>
-                  <li>Grocery run (do not skip)</li>
-                  <li>Short drive north, early night</li>
-                  <li>Goal: learn your camper systems while you still have options</li>
-                </ul>
+ <Card className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">Start here if booking</h2>
+ <p className="mt-2 text-sm text-slate-700">
+ Use these pages to avoid the classic “everything looked fine online” moment.
+ </p>
+ <div className="mt-4 space-y-2">
+ <CtaButton href="/camper-rental-finland" variant="primary" className="w-full">
+ Camper rental overview →
+ </CtaButton>
+ <CtaButton href="/offer-checklist" variant="outline" className="w-full">
+ Offer checklist →
+ </CtaButton>
+ </div>
+ </Card>
 
-                <h3>Day 2: Jyväskylä → Oulu region</h3>
-                <ul>
-                  <li>Longer driving day, early start</li>
-                  <li>Warm meal stops, not “cold snack heroism”</li>
-                  <li>Overnight near Oulu for services and stability</li>
-                </ul>
-
-                <h3>Day 3: Oulu → Rovaniemi</h3>
-                <ul>
-                  <li>Arrive Lapland without exhausting yourself</li>
-                  <li>Restock supplies</li>
-                  <li>Choose a dark-sky-friendly overnight spot (when practical)</li>
-                </ul>
-
-                <h3>Day 4: Rovaniemi base day (Thenortrip focus)</h3>
-                <ul>
-                  <li>Park the camper</li>
-                  <li>Do one high-impact guided tour: huskies or aurora hunt</li>
-                  <li>Let professionals handle the complex part for a day</li>
-                </ul>
-
-                <h3>Day 5: Rovaniemi → Levi / Muonio direction</h3>
-                <ul>
-                  <li>Short scenic drive</li>
-                  <li>Less city, more wilderness</li>
-                  <li>Evening: sauna. Mandatory. Non-negotiable.</li>
-                </ul>
-
-                <h3>Day 6: Levi area exploration or slow return</h3>
-                <p>
-                  Choose based on conditions, not vibes. If skies look promising, stay. If weather turns, begin the return in
-                  stages.
-                </p>
-
-                <h3>Day 7: Return south in stages</h3>
-                <p>
-                  Don’t attempt Levi → Helsinki in one winter day unless you enjoy punishment. Break it sensibly, return the
-                  camper clean-ish, then sleep in a real bed like a hero.
-                </p>
-
-                <hr />
-
-                <Anchor id="savings" />
-                <h2>Where the Thenortrip + camper combo actually saves money</h2>
-                <p>
-                  This is the key: you use the camper for transport + accommodation + aurora flexibility. You use Thenortrip-style
-                  tours for the peak experiences where guides genuinely add value:
-                </p>
-                <ul>
-                  <li>Huskies</li>
-                  <li>Snowmobiles</li>
-                  <li>Ice hotel nights</li>
-                  <li>Structured aurora hunts</li>
-                </ul>
-                <p>
-                  You’re not paying hotels <em>and</em> tours <em>and</em> transfers on the same day. You’re paying once for
-                  mobility, then selectively for depth.
-                </p>
-
-                <hr />
-
-                <Anchor id="overnight" />
-                <h2>Parking and overnighting in winter: rules that keep you out of trouble</h2>
-                <ul>
-                  <li>Overnighting is not “anything goes.” Respect signage and private property.</li>
-                  <li>Winter means fewer open campsites, so verify where you can use services.</li>
-                  <li>Never block snow clearance routes. Ever. That’s how you create enemies.</li>
-                  <li>Prioritise safe, legal stops over “perfect photos.”</li>
-                </ul>
-
-                <hr />
-
-                <Anchor id="driving" />
-                <h2>Driving tips that keep you sane (and alive)</h2>
-                <ul>
-                  <li>Drive slower than your ego wants.</li>
-                  <li>Increase following distance dramatically.</li>
-                  <li>Brake gently. Use engine braking when possible.</li>
-                  <li>Accept shorter driving days. You’re not proving anything.</li>
-                  <li>Darkness is normal. Trust your lights and stay conservative.</li>
-                </ul>
-
-                <hr />
-
-                <Anchor id="fit" />
-                <h2>Is this trip right for you?</h2>
-                <h3>Say yes if</h3>
-                <ul>
-                  <li>You value freedom over luxury</li>
-                  <li>You’re comfortable with planning and cold</li>
-                  <li>You want Lapland without hotel hopping</li>
-                  <li>You prefer quiet to crowds</li>
-                </ul>
-
-                <h3>Say no if</h3>
-                <ul>
-                  <li>You hate driving</li>
-                  <li>You need constant warmth and convenience</li>
-                  <li>You want minute-by-minute scheduling</li>
-                  <li>You panic when plans change</li>
-                </ul>
-
-                <hr />
-
-                <Anchor id="final" />
-                <h2>Final thoughts: winter camper trips reward calm, not bravery</h2>
-                <p>
-                  A Finland winter road trip is not about conquering nature. It’s about moving through it without being a
-                  nuisance. The camper gives autonomy. Lapland gives perspective. Thenortrip-style tours give depth without
-                  complexity.
-                </p>
-                <p>
-                  Cold hands. Clear head. Northern sky. That’s the deal.
-                </p>
-
-                <hr />
-
-                <p className="text-sm text-slate-600">
-                  <strong>Internal links:</strong>{" "}
-                  <a href="/blog/lapland-tours-2026">Lapland Tours 2026</a> ·{" "}
-                  <a href="/blog/rovaniemi-unveiled-lapland-winter-guide-2026">Rovaniemi Winter Guide 2026</a> ·{" "}
-                  <a href="/blog/helsinki-winter-guide-2026">Helsinki Winter Guide 2026</a>
-                </p>
-                <p className="text-sm text-slate-600">
-                  <strong>Last verified:</strong> 2026-01-04
-                </p>
-              </article>
-
-              {/* Bottom CTA (separate from your article content) */}
-              <Card className="p-6 md:p-8">
-                <h3 className="text-xl font-semibold tracking-tight text-slate-900">
-                  Want to book the key parts without overthinking?
-                </h3>
-                <p className="mt-2 max-w-3xl text-sm text-slate-700">
-                  Use the practical pages and add tours only where they genuinely increase quality and reduce friction.
-                </p>
-
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <CtaButton href="/camper-rental-finland" variant="primary">
-                    Camper rental Finland →
-                  </CtaButton>
-                  <CtaButton href="/lapland-tours" variant="outline">
-                    Lapland tours →
-                  </CtaButton>
-                  <CtaButton href="/getting-around-finland" variant="outline">
-                    Getting around Finland →
-                  </CtaButton>
-                </div>
-
-                <div className="mt-6 text-sm">
-                  <Link href="/blog" className="font-semibold hover:underline text-slate-700">
-                    Back to Blog →
-                  </Link>
-                  <span className="mx-2 text-slate-300">•</span>
-                  <Link href="/policy" className="font-semibold hover:underline text-slate-700">
-                    Policy →
-                  </Link>
-                  <span className="mx-2 text-slate-300">•</span>
-                  <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
-                    Get help →
-                  </Link>
-                </div>
-
-                <p className="mt-6 text-xs text-slate-500">
-                  <strong>Last verified:</strong> {lastVerified}
-                </p>
-              </Card>
-            </div>
-
-            {/* SIDEBAR */}
-            <aside className="lg:sticky lg:top-24 h-fit space-y-4">
-              <Card className="p-6">
-                <h2 className="text-base font-semibold text-slate-900">On this page</h2>
-                <div className="mt-3 grid gap-2 text-sm text-slate-700">
-                  <a className="hover:underline" href="#why">Why this works</a>
-                  <a className="hover:underline" href="#costs">Costs</a>
-                  <a className="hover:underline" href="#camper-vs-flights">Camper vs flights</a>
-                  <a className="hover:underline" href="#reality">Reality check</a>
-                  <a className="hover:underline" href="#chains">Snow chains</a>
-                  <a className="hover:underline" href="#logic">Route logic</a>
-                  <a className="hover:underline" href="#itinerary">7-day loop</a>
-                  <a className="hover:underline" href="#savings">Where it saves</a>
-                  <a className="hover:underline" href="#overnight">Overnight rules</a>
-                  <a className="hover:underline" href="#driving">Driving tips</a>
-                  <a className="hover:underline" href="#fit">Is it for you?</a>
-                  <a className="hover:underline" href="#final">Final thoughts</a>
-                </div>
-              </Card>
-
-              <Card className="overflow-hidden p-0">
-                <div className="relative aspect-[16/10] bg-slate-100">
-                  <Image
-                    src="/images/blog/camper/sidebar-night-aurora.jpg"
-                    alt="Camper under a northern sky"
-                    fill
-                    className="object-cover"
-                    sizes="360px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent" />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-medium text-slate-700">Credibility note</p>
-                  <p className="mt-2 text-sm text-slate-700">
-                    Winter trips fail from bad assumptions, not “bad luck.” If a detail can change, verify it before paying.
-                  </p>
-                  <div className="mt-4">
-                    <CtaButton href="/get-help" variant="success" className="w-full">
-                      Get Help
-                    </CtaButton>
-                  </div>
-                </div>
-              </Card>
-            </aside>
-          </div>
-        </Section>
-      </div>
-    </div>
-  );
+ <Card className="p-6">
+ <p className="text-xs font-medium text-slate-600">Credibility note</p>
+ <p className="mt-2 text-sm text-slate-700">
+ If a detail can change, treat it as a decision point and verify before paying.
+ </p>
+ <div className="mt-4 text-sm">
+ <Link href="/policy" className="font-semibold text-slate-700 hover:underline">
+ Policy →
+ </Link>
+ <span className="mx-2 text-slate-300">•</span>
+ <Link href="/get-help" className="font-semibold text-slate-700 hover:underline">
+ Get help →
+ </Link>
+ </div>
+ </Card>
+ </aside>
+ </div>
+ </Section>
+ </div>
+ </div>);
 }
+

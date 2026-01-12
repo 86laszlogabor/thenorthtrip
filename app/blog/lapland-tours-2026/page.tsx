@@ -1,682 +1,589 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 
 export const metadata: Metadata = {
-  title: "Lapland Tours 2026: Husky Safaris, Aurora Hunts & Ice Hotels",
-  description:
-    "A practical, decision-first Lapland guide for 2026: Helsinki connections, Rovaniemi vs Levi, husky safaris, aurora strategy, ice hotel reality checks, budgets, itineraries, and common mistakes.",
-  openGraph: { images: ["/images/og/og-blog.jpg"] },
+ title: "Lapland Tours 2026: Husky €220–480, Aurora €130–240, Rovaniemi vs Levi",
+ description:
+ "Lapland tours 2026, decision-first: husky safaris (€220–480), aurora hunts (€130–240), ice hotel reality checks, Rovaniemi vs Levi comparison, and 3-day itineraries starting from Helsinki.",
+ openGraph: { images: ["/images/og/og-blog.jpg"] },
 };
 
-const lastVerified = "2025-12-31";
+const lastVerified = "2026-01-04";
 
 const visuals = [
-  {
-    title: "Husky safari, the headline experience",
-    body: "Ride time, group size, transfers and gear are what you’re actually paying for.",
-    image: "/images/blog/lapland-tours-2026/husky.jpg",
-  },
-  {
-    title: "Aurora hunt strategy",
-    body: "More nights + mobility + darkness. Apps alone are not a plan.",
-    image: "/images/blog/lapland-tours-2026/aurora.jpg",
-  },
-  {
-    title: "Ice hotel reality check",
-    body: "Beautiful, temporary, mildly uncomfortable. Worth it for the story, not the sleep.",
-    image: "/images/blog/lapland-tours-2026/ice-hotel.jpg",
-  },
-  {
-    title: "Rovaniemi vs Levi decision",
-    body: "Variety and convenience vs resort comfort and ski energy. Pick a base like an adult.",
-    image: "/images/blog/lapland-tours-2026/rovaniemi-levi.jpg",
-  },
+ {
+ title: "Husky safari, the headline experience",
+ body: "Ride time, group size, transfers and gear are what you’re actually paying for.",
+ image: "/images/blog/lapland-tours-2026/husky.jpg",
+ alt: "Lapland husky safari in winter: sled ride experience and tour logistics (2026)",
+ },
+ {
+ title: "Aurora hunt strategy",
+ body: "More nights + mobility + darkness. Apps alone are not a plan.",
+ image: "/images/blog/lapland-tours-2026/aurora.jpg",
+ alt: "Northern Lights aurora hunt in Lapland: dark sky and guided chasing strategy (2026)",
+ },
+ {
+ title: "Ice hotel reality check",
+ body: "Beautiful, temporary, mildly uncomfortable. Worth it for the story, not the sleep.",
+ image: "/images/blog/lapland-tours-2026/ice-hotel.jpg",
+ alt: "Lapland ice hotel experience: frozen rooms and photo-worthy interiors (2026)",
+ },
+ {
+ title: "Rovaniemi vs Levi decision",
+ body: "Variety and convenience vs resort comfort and ski energy. Pick a base like an adult.",
+ image: "/images/blog/lapland-tours-2026/rovaniemi-levi.jpg",
+ alt: "Rovaniemi vs Levi comparison for Lapland tours: base choice and winter vibe (2026)",
+ },
 ];
 
 function Anchor({ id }: { id: string }) {
-  return <span id={id} className="scroll-mt-24" />;
+ return <span id={id} className="scroll-mt-28" />;
+}
+
+function Kpi({
+ label,
+ value,
+ hint,
+}: {
+ label: string;
+ value: string;
+ hint?: string;
+}) {
+ return (<div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+ <div className="text-xs font-medium text-slate-600">{label}</div>
+ <div className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
+ {value}
+ </div>
+ {hint? <div className="mt-1 text-xs text-slate-600">{hint}</div>: null}
+ </div>);
+}
+
+function Callout({
+ title,
+ body,
+ tone = "neutral",
+}: {
+ title: string;
+ body: string;
+ tone?: "neutral" | "success" | "warning";
+}) {
+ const styles =
+ tone === "success"? "border-emerald-200 bg-emerald-50": tone === "warning"? "border-amber-200 bg-amber-50": "border-slate-200 bg-slate-50";
+
+ return (<div className={`rounded-2xl border p-5 ${styles}`}>
+ <div className="text-sm font-semibold text-slate-900">{title}</div>
+ <p className="mt-2 text-sm text-slate-700 leading-relaxed">{body}</p>
+ </div>);
+}
+
+function SectionCard({
+ id,
+ kicker,
+ title,
+ children,
+}: {
+ id: string;
+ kicker?: string;
+ title: string;
+ children: React.ReactNode;
+}) {
+ return (<Card className="p-6 md:p-8">
+ <Anchor id={id} />
+ {kicker? (<div className="text-xs font-medium text-slate-600">{kicker}</div>): null}
+ <h2 className="mt-1 text-xl font-semibold tracking-tight text-slate-900">
+ {title}
+ </h2>
+ <div className="mt-4 space-y-4 text-sm text-slate-700 leading-relaxed">
+ {children}
+ </div>
+ </Card>);
 }
 
 export default function LaplandTours2026Page() {
-  return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <PageHero
-        title="Lapland Tours 2026"
-        subtitle="Husky safaris, aurora hunts, ice hotels, and the logistics that decide whether it’s magical or miserable."
-        imageSrc="/images/blog/lapland-tours-2026/hero.jpg"
-      />
+ const articleJsonLd = {
+ "@context": "https://schema.org",
+ "@type": "Article",
+ headline:
+ "Lapland Tours 2026: Husky Safaris, Aurora Hunts & Ice Hotel Reality Checks",
+ datePublished: "2026-01-04",
+ dateModified: "2026-01-04",
+ author: { "@type": "Organization", name: "TheNorthTrip" },
+ publisher: { "@type": "Organization", name: "TheNorthTrip" },
+ mainEntityOfPage: {
+ "@type": "WebPage",
+ "@id": "https://thenorthtrip.com/blog/lapland-tours-2026",
+ },
+ };
 
-      <div className="relative">
-        {/* subtle background texture */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
-          <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(#0f172a_1px,transparent_1px)] [background-size:20px_20px]" />
-        </div>
+ const faqJsonLd = {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ mainEntity: [
+ {
+ "@type": "Question",
+ name: "Is Lapland worth it for only 3 days?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Yes, if you plan tightly and accept you can’t do everything. Three days is enough for one base, one headline tour, and two aurora attempts.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "What’s the smartest way to do Lapland tours from Helsinki?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Fly or take the night train to Rovaniemi for efficiency. For Levi, fly to Kittilä and transfer to the resort area.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Rovaniemi or Levi for first-timers?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Rovaniemi for variety and convenience. Levi for resort comfort and ski energy. Pick one base unless you enjoy transfer roulette.",
+ },
+ },
+ {
+ "@type": "Question",
+ name: "Is an ice hotel overnight stay worth it?",
+ acceptedAnswer: {
+ "@type": "Answer",
+ text: "Worth it for the story and photos, not for comfort. Many people do a day visit or dinner, then sleep somewhere warm.",
+ },
+ },
+ ],
+ };
 
-        <section className="mx-auto max-w-6xl px-4 py-10">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-slate-600">
-              <span className="font-medium">Blog</span> ·{" "}
-              <span className="text-slate-500">Last verified: {lastVerified}</span>
-            </div>
-            <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
-              <Link className="hover:text-slate-900" href="/blog">
-                Back to Blog
-              </Link>
-              <Link className="hover:text-slate-900" href="/lapland-tours">
-                Lapland tours hub
-              </Link>
-              <Link className="hover:text-slate-900" href="/offer-checklist">
-                Offer checklist
-              </Link>
-            </nav>
-          </div>
-        </section>
+ return (<main className="min-h-screen bg-slate-50 text-slate-900">
+ <Script
+ id="ld-article"
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+ />
+ <Script
+ id="ld-faq"
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+ />
 
-        <Section>
-          <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
-            {/* MAIN */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Winter logic first. Magic second.
-              </div>
+ <PageHero
+ title="Lapland Tours 2026"
+ subtitle="Husky safaris, aurora hunts, ice hotels, and the logistics that decide whether it’s magical or miserable."
+ imageSrc="/images/blog/lapland-tours-2026/hero.jpg"
+ />
 
-              {/* Featured image */}
-              <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/images/blog/lapland-tours-2026/feature.jpg"
-                    alt="Lapland winter landscape and tour mood"
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 720px, 100vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
-                </div>
-              </div>
+ <Section>
+ <div className="mx-auto max-w-6xl px-4 py-8">
+ {/* top meta row */}
+ <div className="flex flex-wrap items-center justify-between gap-3">
+ <div className="text-sm text-slate-600">
+ <span className="font-medium">Blog</span>
+ <span className="mx-2 text-slate-300">•</span>
+ <span className="text-slate-500">
+ Last verified: <span className="font-medium">{lastVerified}</span>
+ </span>
+ </div>
 
-              {/* Visual cards */}
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                {visuals.map((c) => (
-                  <Card key={c.title} className="overflow-hidden p-0">
-                    <div className="relative aspect-[16/10] bg-slate-100">
-                      <Image
-                        src={c.image}
-                        alt={c.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 520px, 100vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
-                    </div>
-                    <div className="p-6">
-                      <h2 className="text-base font-semibold text-slate-900">{c.title}</h2>
-                      <p className="mt-2 text-sm text-slate-700">{c.body}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+ <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700">
+ <Link className="hover:text-slate-900" href="/blog">
+ Back to Blog
+ </Link>
+ <Link className="hover:text-slate-900" href="/lapland-tours">
+ Lapland tours 
+ </Link>
+ <Link className="hover:text-slate-900" href="/offer-checklist">
+ Offer checklist
+ </Link>
+ </nav>
+ </div>
 
-              {/* YOUR ARTICLE CONTENT (UNCHANGED) */}
-              <article className="prose prose-slate max-w-none pt-10 prose-headings:tracking-tight prose-a:text-slate-900">
-                <Anchor id="top" />
-                <h1>
-                  Lapland Tours 2026: Ultimate Thenortrip Husky Safaris, Aurora Hunts &amp; Ice
-                  Hotel Guide
-                </h1>
+ <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_360px]">
+ {/* MAIN */}
+ <div className="space-y-6">
+ {/* decision header */}
+ <Card className="p-6 md:p-8">
+ <div className="flex flex-wrap items-center justify-between gap-3">
+ <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+ <span className="h-2 w-2 rounded-full bg-emerald-500" />
+ Winter logic first. Magic second.
+ </div>
+ <div className="text-xs text-slate-500">
+ Jump to:{" "}
+ <a className="underline hover:text-slate-900" href="#budget">
+ prices
+ </a>
+ <span className="mx-2 text-slate-300">•</span>
+ <a className="underline hover:text-slate-900" href="#bases">
+ base choice
+ </a>
+ <span className="mx-2 text-slate-300">•</span>
+ <a className="underline hover:text-slate-900" href="#itineraries">
+ itineraries
+ </a>
+ </div>
+ </div>
 
-                <p>
-                  Bloody freezing but pure magic! If you’re Hungarian and you’ve ever stared at a sad
-                  grey January sky thinking “this can’t be all there is,” Lapland is the rude,
-                  dazzling answer. It’s quiet in a way Budapest never is, the snow squeaks under your
-                  boots like it’s judging you, and the night sky occasionally decides to show off
-                  with green fire.
-                </p>
+ <div className="mt-5 grid gap-3 sm:grid-cols-3">
+ <Kpi
+ label="Husky safari"
+ value="€220–480"
+ hint="Value = ride time + transfers"
+ />
+ <Kpi
+ label="Aurora hunt"
+ value="€130–240"
+ hint="Mobility + group size matter"
+ />
+ <Kpi
+ label="Ice hotel (overnight)"
+ value="€350–550"
+ hint="Story > sleep quality"
+ />
+ </div>
 
-                <p>
-                  This guide is built for Hungarian travelers planning Lapland tours in 2026,
-                  especially if you’re starting from Helsinki and you want the real stuff:
-                  Thenortrip-style husky safaris, Northern Lights hunts, and ice hotel experiences,
-                  with practical decisions that save your trip from death-by-logistics.
-                </p>
+ <div className="mt-4">
+ <Callout
+ tone="success"
+ title="The one decision that changes everything"
+ body="Pick one base (Rovaniemi or Levi). Then build tours around transfers and darkness. Most ‘Lapland chaos’ is self-inflicted via fragile logistics."
+ />
+ </div>
+ </Card>
 
-                <Anchor id="why" />
-                <h2>Why Lapland in 2026 hits different for Hungarian travelers</h2>
-                <p>
-                  Hungarians tend to travel with a mix of optimism and “we’ll figure it out.” Lapland
-                  punishes that vibe. It’s not hostile, it’s just… indifferent. Miss a transfer and
-                  there isn’t a cute little Plan B café on every corner. That’s why the “ultimate
-                  guide” isn’t about poetic snowflakes. It’s about decisions.
-                </p>
+ {/* featured */}
+ <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+ <div className="relative aspect-[16/9] w-full">
+ <Image
+ src="/images/blog/lapland-tours-2026/feature.jpg"
+ alt="Lapland winter landscape and tour mood (2026)"
+ fill
+ className="object-cover"
+ sizes="(min-width: 1024px) 720px, 100vw"
+ priority
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent" />
+ </div>
+ </div>
 
-                <Anchor id="buying" />
-                <h2>What you’re actually buying with a Lapland tour</h2>
-                <p>A properly planned tour buys you:</p>
-                <ul>
-                  <li>Time efficiency (you’re not improvising in -20°C with numb fingers).</li>
-                  <li>Local transport solutions (which are the main hidden boss fight in Lapland).</li>
-                  <li>
-                    Better odds of seeing the Aurora (not guaranteed, but guided hunts make your
-                    chances less tragic).
-                  </li>
-                  <li>
-                    Safety and gear sanity (because “I have a warm jacket” is the funniest lie
-                    people tell themselves).
-                  </li>
-                </ul>
+ {/* visuals */}
+ <div className="grid gap-4 md:grid-cols-2">
+ {visuals.map((c) => (<Card key={c.title} className="overflow-hidden p-0">
+ <div className="relative aspect-[16/10] bg-slate-100">
+ <Image
+ src={c.image}
+ alt={c.alt}
+ fill
+ className="object-cover"
+ sizes="(min-width: 768px) 520px, 100vw"
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
+ </div>
+ <div className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">
+ {c.title}
+ </h2>
+ <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+ {c.body}
+ </p>
+ </div>
+ </Card>))}
+ </div>
 
-                <Anchor id="story" />
-                <h2>Personal story: my first Aurora night (and the moment Lapland humbled me)</h2>
-                <p>
-                  The first time I went north, I did what humans always do: I underestimated nature,
-                  overestimated my clothing, and made grand plans based on vibes.
-                </p>
-                <p>
-                  I remember stepping outside late at night, thinking I’d “just take a quick look” at
-                  the sky. Within 90 seconds my face felt like it had been slapped by a frozen fish.
-                  Then the guide pointed up and said, very casually, “There.”
-                </p>
-                <p>
-                  At first it was faint, like someone spilled a little green ink. Then it stretched,
-                  pulsed, and moved like something alive. The whole group went silent. Not “Instagram
-                  silent.” Real silent.
-                </p>
-                <p>
-                  That’s the Lapland trap: it’s brutal, but it gives you these moments that feel like
-                  the universe is personally flexing on you. Bloody freezing but pure magic is not
-                  marketing copy. It’s a weather report and a spiritual review.
-                </p>
+ {/* CONTENT as modern section cards */}
+ <SectionCard
+ id="why"
+ kicker="Context"
+ title="Why Lapland in 2026 hits different for Hungarian travelers"
+ >
+ <p>
+ Bloody freezing but pure magic! If you’re Hungarian and you’ve ever stared at a sad
+ grey January sky thinking “this can’t be all there is,” Lapland is the rude,
+ dazzling answer.
+ </p>
+ <p>
+ Hungarians tend to travel with a mix of optimism and “we’ll figure it out.” Lapland
+ punishes that vibe. Not hostile, just indifferent. Miss a transfer and there isn’t
+ a convenient Plan B on every corner. That’s why this guide is about decisions.
+ </p>
+ </SectionCard>
 
-                <Anchor id="from-helsinki" />
-                <h2>Lapland tours from Helsinki: how to get there without wrecking your trip</h2>
-                <p>
-                  Let’s say you’re in Helsinki (or flying into Helsinki-Vantaa). You’ve got three
-                  realistic paths.
-                </p>
+ <SectionCard id="buying" kicker="What you pay for" title="What you’re actually buying with a Lapland tour">
+ <ul className="list-disc pl-5 space-y-2">
+ <li>Time efficiency (no improvising in -20°C with numb fingers).</li>
+ <li>Local transport solutions (the hidden boss fighte fight in Lapland).</li>
+ <li>Better aurora odds (not guaranteed, but less tragic).</li>
+ <li>Safety and gear sanity (because “I have a warm jacket” is a classic lie).</li>
+ </ul>
+ </SectionCard>
 
-                <h3>Option 1: Fly to Rovaniemi (fastest, usually easiest)</h3>
-                <ul>
-                  <li>Time: about 1h15 flight, plus airport transfers</li>
-                  <li>Best for: short trips (3–4 days), people who value comfort and time</li>
-                </ul>
+ <SectionCard id="story" kicker="Human proof" title="Personal story: my first Aurora night">
+ <p>
+ The first time I went north, I underestimated nature, overestimated my clothing,
+ and made plans based on vibes. Within 90 seconds my face felt like it had been slapped
+ by a frozen fish. Then the guide pointed up and said, very casually, “There.”
+ </p>
+ <p>
+ At first it was faint, like someone spilled green ink. Then it stretched, pulsed,
+ and moved like something alive. The whole group went silent. Real silent.
+ </p>
+ <Callout
+ title="Takeaway"
+ body="Lapland is generous to people who plan like adults: buffers, transfers, darkness. Optimism can stay, but it needs backup."
+ />
+ </SectionCard>
 
-                <h3>Option 2: Night train to Rovaniemi (the “Finnish practical romance” option)</h3>
-                <ul>
-                  <li>Time: typically overnight</li>
-                  <li>Best for: budget-conscious travelers, anyone who likes waking up “already there”</li>
-                </ul>
-                <p>
-                  Pro tip: book sleeper cabins early if you want to feel like a functioning adult.
-                </p>
+ <SectionCard id="from-helsinki" kicker="Logistics" title="Lapland tours from Helsinki: routes that don’t wreck your trip">
+ <div className="grid gap-4 md:grid-cols-3">
+ {[
+ {
+ t: "Option 1: Fly to Rovaniemi",
+ items: ["Fastest and usually easiest", "Best for short trips (3–4 days)"],
+ },
+ {
+ t: "Option 2: Night train to Rovaniemi",
+ items: ["Overnight, practical, satisfying", "Book sleeper cabins early"],
+ },
+ {
+ t: "Option 3: Fly to Kittilä (for Levi)",
+ items: ["Best for ski + resort base", "Flight + transfer chain matters"],
+ },
+ ].map((x) => (<div key={x.t} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+ <div className="text-sm font-semibold text-slate-900">{x.t}</div>
+ <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-slate-700">
+ {x.items.map((i) => (<li key={i}>{i}</li>))}
+ </ul>
+ </div>))}
+ </div>
+ </SectionCard>
 
-                <h3>Option 3: Fly to Kittilä (for Levi and nearby areas)</h3>
-                <ul>
-                  <li>Time: flight + transfers</li>
-                  <li>Best for: Levi-focused trips (ski + tours + comfy resort base)</li>
-                </ul>
+ <SectionCard id="bases" kicker="Base choice" title="Rovaniemi vs Levi: which base is better in 2026?">
+ <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+ <table className="w-full text-sm">
+ <thead className="bg-slate-50 text-left">
+ <tr className="border-b">
+ <th className="px-4 py-3">Category</th>
+ <th className="px-4 py-3">Rovaniemi</th>
+ <th className="px-4 py-3">Levi</th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ ["Best for", "First-timers, mixed activities", "Ski + resort comfort"],
+ ["Getting there", "Flights + night trains", "Fly to Kittilä + transfer"],
+ ["Tour variety", "Wider variety", "Strong, more resort-focused"],
+ ["Aurora access", "Excellent with guides", "Excellent dark areas nearby"],
+ ["Budget feel", "More range", "Often higher spend"],
+ ].map(([c, r, l]) => (<tr key={c} className="border-b last:border-b-0">
+ <td className="px-4 py-3 font-medium text-slate-900">{c}</td>
+ <td className="px-4 py-3 text-slate-700">{r}</td>
+ <td className="px-4 py-3 text-slate-700">{l}</td>
+ </tr>))}
+ </tbody>
+ </table>
+ </div>
+ </SectionCard>
 
-                <p>
-                  If your goal is maximum experiences with minimal chaos, the winning combo for most
-                  people is: Helsinki → (fly or night train) → Rovaniemi. Then a few days later:
-                  Rovaniemi → Levi (or choose one base and commit).
-                </p>
+ <SectionCard id="budget" kicker="Decision data" title="Tour costs in Lapland: pricing without fairy tales">
+ <p>
+ Use this to sanity-check listings before you click “book”.
+ </p>
 
-                <Anchor id="bases" />
-                <h2>Rovaniemi vs Levi: which base is better in 2026?</h2>
-                <p>
-                  You can do Lapland in many ways, but for first-timers the base you choose changes
-                  everything: vibe, logistics, tour style, and cost.
-                </p>
+ <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+ <table className="w-full text-sm">
+ <thead className="bg-slate-50 text-left">
+ <tr className="border-b">
+ <th className="px-4 py-3">Tour type</th>
+ <th className="px-4 py-3">Typical 2026 winter price</th>
+ <th className="px-4 py-3">What to check</th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ ["Husky safari", "€220–480", "Actual ride time, group size, transfers, gear included"],
+ ["Aurora hunt", "€130–240", "Mobility, group size, duration, photo support"],
+ ["Ice hotel day visit", "€40–120", "Inclusions, timing, extras"],
+ ["Ice hotel overnight", "€350–550", "Warm facilities, sleeping bag rating, comfort expectations"],
+ ].map(([t, p, k]) => (<tr key={t} className="border-b last:border-b-0">
+ <td className="px-4 py-3 font-medium text-slate-900">{t}</td>
+ <td className="px-4 py-3 text-slate-700">{p}</td>
+ <td className="px-4 py-3 text-slate-700">{k}</td>
+ </tr>))}
+ </tbody>
+ </table>
+ </div>
 
-                <h3>Quick personality test</h3>
-                <ul>
-                  <li>
-                    <strong>Rovaniemi:</strong> best for “I want variety, accessibility, classic
-                    Lapland highlights, and efficient tour options.”
-                  </li>
-                  <li>
-                    <strong>Levi:</strong> best for “I want resort comfort, skiing energy, and a
-                    polished ‘winter holiday’ base with tours layered on top.”
-                  </li>
-                </ul>
+ <Callout
+ tone="warning"
+ title="Quick rule"
+ body="If a tour listing hides ride time or transfer details, it’s not ‘mysterious’. It’s just lazy."
+ />
+ </SectionCard>
 
-                <h3>Comparison table: Rovaniemi vs Levi (for Hungarian travelers)</h3>
-                <div className="not-prose mt-4 overflow-x-auto rounded-2xl border border-slate-200">
-                  <table className="w-full text-sm">
-                    <thead className="bg-slate-50 text-left">
-                      <tr className="border-b">
-                        <th className="px-4 py-3">Category</th>
-                        <th className="px-4 py-3">Rovaniemi</th>
-                        <th className="px-4 py-3">Levi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        ["Best for", "First-timers, mixed activities, Santa + tours", "Ski + resort vibes + tours"],
-                        ["Getting there from Helsinki", "Direct flights + night trains", "Fly to Kittilä + transfer"],
-                        ["Tour variety", "Very wide (husky, reindeer, Aurora, Santa, day trips)", "Strong (husky + Aurora + snow sports), slightly more resort-focused"],
-                        ["Aurora hunting", "Great access, guides often drive to clear skies", "Also excellent, good dark areas nearby"],
-                        ["Crowd levels", "Can be busy (especially peak season)", "Busy in ski season, but feels more “contained”"],
-                        ["Budget feel", "More range (budget to premium)", "Often slightly higher overall spend"],
-                        ["“City” conveniences", "More shops/services", "More village/resort convenience"],
-                      ].map(([c, r, l]) => (
-                        <tr key={c} className="border-b last:border-b-0">
-                          <td className="px-4 py-3 font-medium">{c}</td>
-                          <td className="px-4 py-3 text-slate-700">{r}</td>
-                          <td className="px-4 py-3 text-slate-700">{l}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+ <SectionCard id="itineraries" kicker="Plans" title="3-day Lapland itinerary ideas for 2026">
+ <div className="grid gap-4">
+ <Card className="p-5">
+ <div className="text-sm font-semibold text-slate-900">Itinerary A: Rovaniemi classic</div>
+ <div className="mt-3 grid gap-3 md:grid-cols-3">
+ {[
+ { d: "Day 1", t: "Arrive + warm-up", s: "Fly/train, check-in, one aurora attempt" },
+ { d: "Day 2", t: "Husky headline", s: "Prioritize ride time, recovery + sauna" },
+ { d: "Day 3", t: "Ice hotel + last night", s: "Visit/dinner, flexible final evening" },
+ ].map((x) => (<div key={x.d} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+ <div className="text-xs font-medium text-slate-600">{x.d}</div>
+ <div className="mt-1 text-sm font-semibold text-slate-900">{x.t}</div>
+ <div className="mt-2 text-sm text-slate-700">{x.s}</div>
+ </div>))}
+ </div>
+ </Card>
 
-                <p>
-                  If you’re optimizing a 3-day Lapland itinerary, Rovaniemi is usually the easiest
-                  launchpad. If you want ski + tours, Levi is the smoother home base.
-                </p>
+ <Card className="p-5">
+ <div className="text-sm font-semibold text-slate-900">Itinerary B: Levi comfort + tours</div>
+ <p className="mt-2 text-sm text-slate-700">
+ Fly to Kittilä, commit to one base, layer tours around transfers, and don’t schedule yourself into exhaustion.
+ </p>
+ </Card>
 
-                <Anchor id="aurora" />
-                <h2>Northern Lights Finland 2026: what to expect (and what not to believe)</h2>
-                <p>
-                  Let’s be clear: nobody can promise the Aurora. Anyone who does is selling you hope
-                  in a hoodie.
-                </p>
+ <Card className="p-5">
+ <div className="text-sm font-semibold text-slate-900">Itinerary C: Aurora maximizer</div>
+ <p className="mt-2 text-sm text-slate-700">
+ Two serious chasing nights + one flexible night. Ice hotel becomes celebration or emotional damage control.
+ </p>
+ </Card>
+ </div>
+ </SectionCard>
 
-                <h3>What actually increases your chances</h3>
-                <ul>
-                  <li>More nights (3 nights beats 1 night, every time)</li>
-                  <li>Mobility (guided Aurora hunts that drive to clearer skies)</li>
-                  <li>Darkness (getting away from lights, even modest town glow)</li>
-                  <li>Flexible timing (not being locked into one rigid “8:00 pm showtime”)</li>
-                </ul>
+ <SectionCard id="mistakes" kicker="Avoid pain" title="Planning mistakes Hungarians commonly make">
+ <ol className="list-decimal pl-5 space-y-2">
+ <li>Underpacking gloves and socks (wet gloves = misery).</li>
+ <li>Booking tours without reading transfer details.</li>
+ <li>Assuming city lights don’t matter (they do).</li>
+ <li>Over-scheduling Day 1 (fatigue + cold = bad decisions).</li>
+ <li>Choosing the cheapest tour and expecting premium experience.</li>
+ </ol>
+ </SectionCard>
 
-                <h3>What doesn’t help as much as people think</h3>
-                <ul>
-                  <li>Obsessively refreshing apps every 4 minutes</li>
-                  <li>Standing outside your hotel in town lighting, praying loudly</li>
-                  <li>Booking one single Aurora tour and acting betrayed if the universe says no</li>
-                </ul>
+ <SectionCard id="faq" kicker="FAQ" title="Lapland tours 2026: quick answers">
+ <div className="grid gap-3">
+ {[
+ {
+ q: "Is Lapland worth it for only 3 days?",
+ a: "Yes, if you plan tightly. One base + one headline tour + two aurora attempts is realistic.",
+ },
+ {
+ q: "Smartest way from Helsinki?",
+ a: "Fly/night train to Rovaniemi. For Levi: fly to Kittilä + keep transfers clean.",
+ },
+ {
+ q: "Rovaniemi or Levi for first-timers?",
+ a: "Rovaniemi for variety. Levi for resort comfort and ski energy.",
+ },
+ {
+ q: "Ice hotel overnight worth it?",
+ a: "Story and photos: yes. Comfort: no.",
+ },
+ ].map((item) => (<Card key={item.q} className="p-5">
+ <div className="text-sm font-semibold text-slate-900">{item.q}</div>
+ <p className="mt-2 text-sm text-slate-700">{item.a}</p>
+ </Card>))}
+ </div>
+ </SectionCard>
 
-                <p>
-                  For Northern Lights Finland 2026, your best strategy is: book at least one guided
-                  hunt, keep one “free night” for last-minute chasing if conditions look promising,
-                  stay in a place with easy dark-sky access (or a guide who handles it).
-                </p>
+ <SectionCard id="checklist" kicker="Finish strong" title="Final checklist: magical, not stressful">
+ <ul className="list-disc pl-5 space-y-2">
+ <li>Choose one base (Rovaniemi or Levi) unless you love transfer roulette.</li>
+ <li>Book one premium headline tour (husky) + one aurora strategy night.</li>
+ <li>Keep one flexible evening for weather-based decisions.</li>
+ <li>Pack like you’re going to war against wind.</li>
+ <li>Respect recovery time (sauna is medicine).</li>
+ </ul>
 
-                <Anchor id="husky" />
-                <h2>Thenortrip husky safaris: what they feel like, and what you’re paying for</h2>
-                <p>
-                  A husky safari is not just “dogs pulling sled.” It’s adrenaline and joy, plus the
-                  smell of fur and snow, plus the moment you realize the dogs are having the time of
-                  their lives and you’re basically the luggage.
-                </p>
+ <div className="mt-4 flex flex-wrap gap-3">
+ <CtaButton href="/lapland-tours" variant="primary">
+ Open Lapland tours →
+ </CtaButton>
+ <CtaButton href="/offer-checklist" variant="outline">
+ Offer checklist →
+ </CtaButton>
+ <CtaButton href="/getting-around-finland" variant="outline">
+ Getting around Finland →
+ </CtaButton>
+ </div>
 
-                <h3>What happens on a typical husky safari</h3>
-                <p>Most operators follow a pattern:</p>
-                <ul>
-                  <li>Arrival + gear check (thermal suits often included)</li>
-                  <li>Safety briefing (steering, braking, falling without becoming a meme)</li>
-                  <li>Meet the dogs (loud. very loud. pure enthusiasm.)</li>
-                  <li>Ride time (the core experience)</li>
-                  <li>Warm drink + photos + dog cuddles</li>
-                  <li>Transfer back</li>
-                </ul>
+ <div className="mt-4 text-xs text-slate-500">
+ <strong>Last verified:</strong> {lastVerified}
+ </div>
+ </SectionCard>
 
-                <h3>Thenortrip husky safari prices: realistic expectations in 2026</h3>
-                <p>
-                  You asked for €250–400 tour costs, so here’s the honest framing: many premium or
-                  longer husky experiences (especially with transfers, longer driving time, smaller
-                  groups, and “photo-friendly” setups) can land in the €250–400 range per person.
-                </p>
-                <p>
-                  Shorter or more basic husky rides may be below that, but the tradeoff is often less
-                  ride time, bigger groups, and a more “factory schedule” feel.
-                </p>
+ {/* Bottom utility links */}
+ <Card className="p-6">
+ <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
+ <Link href="/blog" className="font-semibold hover:underline text-slate-700">
+ Back to Blog →
+ </Link>
+ <div className="flex flex-wrap gap-3 text-sm text-slate-700">
+ <Link href="/policy" className="hover:underline">
+ Policy
+ </Link>
+ <Link href="/get-help" className="hover:underline">
+ Get help
+ </Link>
+ </div>
+ </div>
+ </Card>
+ </div>
 
-                <h3>How to pick the right husky tour (without overpaying)</h3>
-                <p>Look for:</p>
-                <ul>
-                  <li>Actual ride distance/time (not just “experience duration”)</li>
-                  <li>Group size</li>
-                  <li>Transfers included (huge factor from Rovaniemi/Levi)</li>
-                  <li>Gear included (thermal suit, boots, gloves)</li>
-                  <li>Two-person sled sharing rules (driver swaps, weight considerations)</li>
-                </ul>
-                <p>Avoid:</p>
-                <ul>
-                  <li>Listings that hide ride time</li>
-                  <li>“Unlimited” language that means nothing</li>
-                  <li>Tours that feel like a conveyor belt unless you truly don’t care</li>
-                </ul>
+ {/* SIDEBAR */}
+ <aside className="lg:sticky lg:top-24 h-fit space-y-4">
+ <Card className="p-6">
+ <h2 className="text-base font-semibold text-slate-900">On this page</h2>
+ <div className="mt-3 grid gap-2 text-sm text-slate-700">
+ <a className="hover:underline" href="#why">Why 2026 hits different</a>
+ <a className="hover:underline" href="#buying">What you’re buying</a>
+ <a className="hover:underline" href="#story">Personal story</a>
+ <a className="hover:underline" href="#from-helsinki">From Helsinki: routes</a>
+ <a className="hover:underline" href="#bases">Rovaniemi vs Levi</a>
+ <a className="hover:underline" href="#budget">Budget reality</a>
+ <a className="hover:underline" href="#itineraries">3-day itineraries</a>
+ <a className="hover:underline" href="#mistakes">Mistakes</a>
+ <a className="hover:underline" href="#faq">FAQ</a>
+ <a className="hover:underline" href="#checklist">Final checklist</a>
+ </div>
+ </Card>
 
-                <Anchor id="ice-hotel" />
-                <h2>Ice hotel guide: what it is, what it isn’t</h2>
-                <p>
-                  An ice hotel is the most Finnish thing ever: someone builds a gorgeous frozen
-                  masterpiece… and then it melts. A monument to temporary beauty and mild suffering.
-                </p>
-
-                <h3>What you can do at an ice hotel</h3>
-                <ul>
-                  <li>Day visits (walkthrough + photos)</li>
-                  <li>Ice bar drink (yes, it’s cold, that’s the point)</li>
-                  <li>Dinner experiences (often surprisingly good)</li>
-                  <li>Overnight stays (for people who enjoy bragging rights)</li>
-                </ul>
-
-                <h3>The overnight reality check</h3>
-                <p>
-                  Sleeping in an ice room is not “comfy.” It’s an experience. You’ll typically get a
-                  thermal sleeping bag rated for serious cold, instructions on layering, access to
-                  warm facilities (often), and the right to tell everyone forever that you did it.
-                </p>
-                <p>
-                  If you’re traveling as a couple, this can be either romantic or the fastest way to
-                  discover you hate each other’s breathing sounds in a frozen room.
-                </p>
-
-                <Anchor id="budget" />
-                <h2>Tour costs in Lapland: budgeting like an adult (sadly required)</h2>
-                <p>
-                  For a lot of Hungarian travelers, Lapland pricing can feel like a prank. It’s not a
-                  prank. It’s just Finland doing Finland things.
-                </p>
-
-                <h3>Typical tour spend (your €250–400 bracket)</h3>
-                <p>
-                  If you’re targeting €250–400 per major activity, you’re basically aiming at longer
-                  husky safaris, premium Aurora hunts with transfers and small groups, and combination
-                  experiences (e.g., husky + Aurora, or ice hotel dinner packages).
-                </p>
-
-                <h3>A realistic 3-day activity budget</h3>
-                <p>
-                  If you do 2 major tours + 1 smaller experience: 2 × €250–400 = €500–800, plus extras
-                  (transfers, meals, gear upgrades, photos). You’re quickly in the €650–1,000 per
-                  person territory for activities alone.
-                </p>
-
-                <Anchor id="itineraries" />
-                <h2>3-day Lapland itinerary ideas for 2026</h2>
-
-                <h3>Itinerary A: Rovaniemi classic (best first trip)</h3>
-                <h4>Day 1: Arrival + winter warm-up + gentle Aurora attempt</h4>
-                <ul>
-                  <li>Arrive from Helsinki (fly or night train)</li>
-                  <li>Check-in, gear up, quick town orientation</li>
-                  <li>Early dinner (don’t underestimate hunger in cold)</li>
-                  <li>Aurora hunt (guided or self-planned dark-sky spot)</li>
-                </ul>
-                <p>
-                  Why this works: you’re not exhausting yourself on arrival day, but you’re still
-                  taking a shot at the lights.
-                </p>
-
-                <h4>Day 2: Thenortrip husky safari day (the headline experience)</h4>
-                <ul>
-                  <li>Morning: Husky safari (aim for longer ride time if you’re paying premium)</li>
-                  <li>Afternoon: recovery, sauna, slow walk, hot food</li>
-                  <li>Evening: optional second Aurora chance (short hunt, or DIY if skies look good)</li>
-                </ul>
-                <p>Survival tip: the cold hits harder when you’re tired. Respect naps like they’re sacred.</p>
-
-                <h4>Day 3: Ice hotel + final night sky chance</h4>
-                <ul>
-                  <li>Visit an ice hotel (day visit + ice bar, or dinner)</li>
-                  <li>Souvenir time, last-minute shopping (if you care)</li>
-                  <li>Final Aurora attempt (either free night or quick guided chase)</li>
-                </ul>
-
-                <h3>Itinerary B: Levi comfort + tours (ski vibes, clean logistics)</h3>
-                <h4>Day 1: Arrive + settle + village night</h4>
-                <ul>
-                  <li>Fly into Kittilä + transfer to Levi</li>
-                  <li>Walk the village, rent gear if needed</li>
-                  <li>Evening: first Aurora hunt or a chill dark-sky attempt nearby</li>
-                </ul>
-                <h4>Day 2: Husky + downhill or snow sports</h4>
-                <ul>
-                  <li>Morning: Husky safari</li>
-                  <li>Afternoon: skiing, snowmobiling, or just existing near a fireplace</li>
-                  <li>Evening: second Aurora attempt if conditions look promising</li>
-                </ul>
-                <h4>Day 3: Ice hotel or snow village style experience</h4>
-                <ul>
-                  <li>Day trip to an ice/snow structure experience (depending on availability)</li>
-                  <li>Dinner + last night walk</li>
-                </ul>
-
-                <h3>Itinerary C: “Aurora maximizer” (for people obsessed with the sky)</h3>
-                <h4>Day 1: Arrival + immediate dark-sky strategy</h4>
-                <ul>
-                  <li>Get in early if you can</li>
-                  <li>Book a serious Aurora chase that’s willing to drive far</li>
-                  <li>Stay flexible with dinner timing</li>
-                </ul>
-                <h4>Day 2: Midday calm + evening hunt again</h4>
-                <ul>
-                  <li>Daytime: light activity (short husky, reindeer, or snowshoe)</li>
-                  <li>Evening: second guided hunt, ideally with photography support</li>
-                </ul>
-                <h4>Day 3: One last try + ice hotel as consolation prize</h4>
-                <ul>
-                  <li>If Aurora happened: ice hotel for celebration</li>
-                  <li>If Aurora didn’t happen: ice hotel to heal emotionally</li>
-                </ul>
-
-                <Anchor id="mistakes" />
-                <h2>Planning mistakes Hungarians commonly make (so you don’t)</h2>
-                <ol>
-                  <li>Underpacking gloves and socks. You need backups. Wet gloves are misery.</li>
-                  <li>
-                    Booking tours without checking transfer details. “Starts at 9:00” means nothing if
-                    it starts 45 minutes away and you don’t have a car.
-                  </li>
-                  <li>Assuming “city lights don’t matter”. They matter. Darkness matters.</li>
-                  <li>Over-scheduling Day 1. Travel fatigue + cold = bad decisions.</li>
-                  <li>Choosing the cheapest tour and expecting premium experience.</li>
-                </ol>
-
-                <Anchor id="faq" />
-                <h2>FAQ: Lapland tours 2026 (Hungarian traveler edition)</h2>
-                <ol>
-                  <li>
-                    <strong>Is Lapland worth it for only 3 days?</strong> Yes, if you plan tightly and
-                    accept you can’t do everything.
-                  </li>
-                  <li>
-                    <strong>What’s the smartest way to do Lapland tours from Helsinki?</strong> Fly or
-                    night train to Rovaniemi for efficiency, or fly to Kittilä for Levi.
-                  </li>
-                  <li>
-                    <strong>Will I definitely see the Northern Lights in Finland 2026?</strong> No.
-                    Improve odds with more nights + guided hunts.
-                  </li>
-                  <li>
-                    <strong>How cold is “bloody freezing”?</strong> Cold enough that your phone battery
-                    will panic. Dress properly and it becomes fun instead of tragic.
-                  </li>
-                  <li>
-                    <strong>Are husky safaris ethical?</strong> Many operators are responsible, but
-                    standards vary. Look for welfare transparency.
-                  </li>
-                  <li>
-                    <strong>Thenortrip husky safari prices: why €250–400?</strong> Arctic logistics are
-                    expensive. Longer rides + small groups + gear + transfers add up.
-                  </li>
-                  <li>
-                    <strong>Rovaniemi or Levi for first-timers?</strong> Rovaniemi for variety and
-                    logistics. Levi for resort comfort and ski energy.
-                  </li>
-                  <li>
-                    <strong>Is an ice hotel overnight stay worth it?</strong> Worth it for the story,
-                    not for comfort.
-                  </li>
-                  <li>
-                    <strong>Do I need to rent a car?</strong> Not strictly, if tours include transfers.
-                    Winter driving is not the place to discover fear of sliding.
-                  </li>
-                  <li>
-                    <strong>What should I book first?</strong> Flights/train + accommodation, then the
-                    “must-do” tour (usually husky).
-                  </li>
-                </ol>
-
-                <Anchor id="checklist" />
-                <h2>Final checklist: how to make Lapland feel magical instead of stressful</h2>
-                <ul>
-                  <li>Choose one base (Rovaniemi or Levi) unless you’re confident with transfers</li>
-                  <li>Book one premium headline tour (husky) and one Aurora strategy night</li>
-                  <li>Keep one flexible evening for weather-based decisions</li>
-                  <li>Pack like you’re going to war against wind</li>
-                  <li>Respect recovery time (sauna is not optional, it’s medicine)</li>
-                </ul>
-
-                <p>
-                  Lapland rewards preparation. Then it tries to freeze your face off anyway, because
-                  it has standards.
-                </p>
-
-                <div className="not-prose mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <h3 className="text-base font-semibold">Routing</h3>
-                  <p className="mt-2 text-sm text-slate-700">
-                    Go from the conversion hub, then expand into destinations and partners.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    <Link className="underline hover:text-slate-900" href="/lapland-tours">
-                      Lapland tours hub
-                    </Link>
-                    <Link className="underline hover:text-slate-900" href="/getting-around-finland">
-                      Getting around Finland
-                    </Link>
-                    <Link className="underline hover:text-slate-900" href="/offer-checklist">
-                      Offer checklist
-                    </Link>
-                  </div>
-                </div>
-              </article>
-
-              {/* Bottom CTA */}
-              <div className="mt-8">
-                <Card className="p-6 md:p-8">
-                  <h3 className="text-xl font-semibold tracking-tight text-slate-900">
-                    Want Lapland magic without Lapland chaos?
-                  </h3>
-                  <p className="mt-2 max-w-3xl text-sm text-slate-700">
-                    Pick one base, book one premium headline tour, keep one flexible night, and stop trusting wishful thinking.
-                  </p>
-
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <CtaButton href="/lapland-tours" variant="primary">
-                      Open Lapland tours hub →
-                    </CtaButton>
-                    <CtaButton href="/offer-checklist" variant="outline">
-                      Offer checklist →
-                    </CtaButton>
-                    <CtaButton href="/getting-around-finland" variant="outline">
-                      Getting around Finland →
-                    </CtaButton>
-                  </div>
-
-                  <div className="mt-6 text-sm">
-                    <Link href="/blog" className="font-semibold hover:underline text-slate-700">
-                      Back to Blog →
-                    </Link>
-                    <span className="mx-2 text-slate-300">•</span>
-                    <Link href="/policy" className="font-semibold hover:underline text-slate-700">
-                      Policy →
-                    </Link>
-                    <span className="mx-2 text-slate-300">•</span>
-                    <Link href="/get-help" className="font-semibold hover:underline text-slate-700">
-                      Get help →
-                    </Link>
-                  </div>
-
-                  <p className="mt-6 text-xs text-slate-500">
-                    <strong>Last verified:</strong> {lastVerified}
-                  </p>
-                </Card>
-              </div>
-            </div>
-
-            {/* SIDEBAR */}
-            <aside className="lg:sticky lg:top-24 h-fit space-y-4">
-              <Card className="p-6">
-                <h2 className="text-base font-semibold text-slate-900">On this page</h2>
-                <div className="mt-3 grid gap-2 text-sm text-slate-700">
-                  <a className="hover:underline" href="#why">
-                    Why 2026 hits different
-                  </a>
-                  <a className="hover:underline" href="#buying">
-                    What you’re buying
-                  </a>
-                  <a className="hover:underline" href="#from-helsinki">
-                    From Helsinki: routes
-                  </a>
-                  <a className="hover:underline" href="#bases">
-                    Rovaniemi vs Levi
-                  </a>
-                  <a className="hover:underline" href="#aurora">
-                    Aurora strategy
-                  </a>
-                  <a className="hover:underline" href="#husky">
-                    Husky safaris
-                  </a>
-                  <a className="hover:underline" href="#ice-hotel">
-                    Ice hotel
-                  </a>
-                  <a className="hover:underline" href="#budget">
-                    Budget reality
-                  </a>
-                  <a className="hover:underline" href="#itineraries">
-                    3-day itineraries
-                  </a>
-                  <a className="hover:underline" href="#mistakes">
-                    Mistakes
-                  </a>
-                  <a className="hover:underline" href="#faq">
-                    FAQ
-                  </a>
-                  <a className="hover:underline" href="#checklist">
-                    Final checklist
-                  </a>
-                </div>
-              </Card>
-
-              <Card className="overflow-hidden p-0">
-                <div className="relative aspect-[16/10] bg-slate-100">
-                  <Image
-                    src="/images/blog/lapland-tours-2026/sidebar.jpg"
-                    alt="Lapland winter: cabin lights, snow, and dark sky"
-                    fill
-                    className="object-cover"
-                    sizes="360px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-medium text-slate-700">Quick rule</p>
-                  <p className="mt-2 text-sm text-slate-700">
-                    If a tour listing hides ride time or transfer details, it’s not “mysterious”. It’s just lazy.
-                  </p>
-                  <div className="mt-4">
-                    <CtaButton href="/offer-checklist" variant="success" className="w-full">
-                      Open offer checklist →
-                    </CtaButton>
-                  </div>
-                </div>
-              </Card>
-            </aside>
-          </div>
-        </Section>
-      </div>
-    </main>
-  );
+ <Card className="overflow-hidden p-0">
+ <div className="relative aspect-[16/10] bg-slate-100">
+ <Image
+ src="/images/blog/lapland-tours-2026/sidebar.jpg"
+ alt="Lapland winter: cabin lights, snow, and dark sky (2026)"
+ fill
+ className="object-cover"
+ sizes="360px"
+ />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/0 to-transparent" />
+ </div>
+ <div className="p-6">
+ <p className="text-xs font-medium text-slate-700">Quick rule</p>
+ <p className="mt-2 text-sm text-slate-700">
+ If a listing hides ride time or transfer details, it’s not “mysterious”. It’s just lazy.
+ </p>
+ <div className="mt-4">
+ <CtaButton href="/offer-checklist" variant="success" className="w-full">
+ Open offer checklist →
+ </CtaButton>
+ </div>
+ </div>
+ </Card>
+ </aside>
+ </div>
+ </div>
+ </Section>
+ </main>);
 }
+
