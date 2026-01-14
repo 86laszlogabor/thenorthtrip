@@ -1,510 +1,583 @@
-﻿import PageHero from "@/components/PageHero";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CtaButton from "@/components/CtaButton";
 import PartnerStrip, { type PartnerSlot } from "@/components/PartnerStrip";
 
-export const metadata = {
- title: "Car Rental Helsinki | TheNorthTrip",
- description:
- "Helsinki car rental without the expensive surprises: HEL pickup reality, debit/credit holds, desk hours, winter tyres, and what to check before paying.",
- openGraph: {
- title: "Car Rental Helsinki | TheNorthTrip",
- description:
- "Helsinki car rental without the expensive surprises: HEL pickup reality, debit/credit holds, desk hours, winter tyres, and what to check before paying.",
- images: ["/images/og/og-helsinki-city-mobility.jpg"],
- },
- twitter: {
- card: "summary_large_image",
- title: "Car Rental Helsinki | TheNorthTrip",
- description:
- "Helsinki car rental without the expensive surprises: HEL pickup reality, debit/credit holds, desk hours, winter tyres, and what to check before paying.",
- images: ["/images/og/og-helsinki-city-mobility.jpg"],
- },
+export const metadata: Metadata = {
+  title: "Car Rental Helsinki | TheNorthTrip",
+  description:
+    "Car rental in Helsinki without the desk friction: deposits, card rules, winter tyres, Helsinki-Vantaa Airport pickup basics, and what to verify before you pay.",
+  openGraph: {
+    title: "Car Rental Helsinki | TheNorthTrip",
+    description:
+      "Car rental in Helsinki without the desk friction: deposits, card rules, winter tyres, Helsinki-Vantaa Airport pickup basics, and what to verify before you pay.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Car Rental Helsinki | TheNorthTrip",
+    description:
+      "Car rental in Helsinki without the desk friction: deposits, card rules, winter tyres, Helsinki-Vantaa Airport pickup basics, and what to verify before you pay.",
+    images: ["/images/og/og-helsinki-city-mobility.jpg"],
+  },
 };
 
-type HeroCard = {
- image: string;
- title: string;
- description: string;
- ctaLabel: string;
- ctaHref: string;
-};
-
-function HubTile({ item }: { item: HeroCard }) {
- return (<Card className="flex flex-col overflow-hidden">
- <div className="h-40 w-full overflow-hidden rounded-xl bg-slate-100">
- <img src={item.image} alt="" className="h-full w-full object-cover" loading="lazy" />
- </div>
-
- <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
- <p className="mt-2 text-sm text-brand-text/70">{item.description}</p>
-
- <div className="mt-auto pt-4">
- <Link href={item.ctaHref} className="text-sm font-semibold hover:underline">
- {item.ctaLabel}
- </Link>
- </div>
- </Card>);
+function Badge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-slate-300/70 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-900 backdrop-blur">
+      {children}
+    </span>
+  );
 }
+
+function TrustBox() {
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-slate-300/70 bg-slate-100/70 p-5 backdrop-blur md:p-6">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(15,23,42,0.08),transparent_60%)]" />
+      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="relative flex flex-col gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge>Verified: Jan 14, 2026</Badge>
+            <span className="text-xs text-brand-text/75">
+              Checked against Traficom + Finavia guidance and supplier pages. Policies fluctuate—always reconfirm in
+              writing.
+            </span>
+          </div>
+
+          <Link href="/rental-terms-prices" className="text-xs font-semibold text-slate-900 hover:underline">
+            Open the rental terms checklist →
+          </Link>
+        </div>
+
+        <div className="rounded-2xl border border-slate-300/70 bg-white/60 p-4 backdrop-blur">
+          <p className="text-xs text-brand-text/75 leading-relaxed">
+            Some links on this page may be affiliate links. If you book through them, we may earn a commission at no
+            extra cost to you.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type Accent = "orange" | "blue" | "amber" | "slate";
+
+function QuickStartCard({
+  title,
+  description,
+  meta,
+  href,
+  ctaLabel,
+  imageSrc,
+  accent = "slate",
+}: {
+  title: string;
+  description: string;
+  meta?: string;
+  href: string;
+  ctaLabel: string;
+  imageSrc?: string;
+  accent?: Accent;
+}) {
+  const accentStyles: Record<
+    Accent,
+    { bar: string; badgeText: string; badgeBg: string; badgeBorder: string; overlay: string }
+  > = {
+    orange: {
+      bar: "from-orange-500/70 via-orange-500/20 to-transparent",
+      badgeText: "text-orange-900",
+      badgeBg: "bg-orange-50/80",
+      badgeBorder: "border-orange-200/70",
+      overlay: "bg-gradient-to-t from-slate-950/45 via-slate-950/15 to-transparent",
+    },
+    blue: {
+      bar: "from-sky-500/70 via-sky-500/20 to-transparent",
+      badgeText: "text-sky-900",
+      badgeBg: "bg-sky-50/80",
+      badgeBorder: "border-sky-200/70",
+      overlay: "bg-gradient-to-t from-slate-950/45 via-slate-950/15 to-transparent",
+    },
+    amber: {
+      bar: "from-amber-500/70 via-amber-500/20 to-transparent",
+      badgeText: "text-amber-900",
+      badgeBg: "bg-amber-50/80",
+      badgeBorder: "border-amber-200/70",
+      overlay: "bg-gradient-to-t from-slate-950/45 via-slate-950/15 to-transparent",
+    },
+    slate: {
+      bar: "from-slate-700/60 via-slate-700/20 to-transparent",
+      badgeText: "text-slate-900",
+      badgeBg: "bg-slate-50/80",
+      badgeBorder: "border-slate-300/70",
+      overlay: "bg-gradient-to-t from-slate-950/45 via-slate-950/15 to-transparent",
+    },
+  };
+
+  const a = accentStyles[accent];
+
+  return (
+    <Card className="group flex flex-col overflow-hidden border-slate-300/70 bg-slate-50/70 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-slate-400/60 hover:shadow-lg">
+      {/* top accent bar (actual color) */}
+      <div className={`h-1 w-full bg-gradient-to-r ${a.bar}`} />
+
+      {/* thumbnail */}
+      <div className="relative h-20 w-full overflow-hidden bg-slate-200">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        ) : null}
+
+        {/* vignette */}
+        <div className={`pointer-events-none absolute inset-0 ${a.overlay}`} />
+
+        {/* subtle line accent at top of image */}
+        <div className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${a.bar}`} />
+      </div>
+
+      <div className="p-5">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+          {meta ? (
+            <span
+              className={[
+                "rounded-full border px-2.5 py-1 text-[11px] font-semibold",
+                a.badgeText,
+                a.badgeBg,
+                a.badgeBorder,
+              ].join(" ")}
+            >
+              {meta}
+            </span>
+          ) : null}
+        </div>
+
+        <p className="mt-2 text-sm text-brand-text/80 leading-relaxed">{description}</p>
+
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <Link href={href} className="text-sm font-semibold hover:underline">
+            {ctaLabel} →
+          </Link>
+          <span className="text-[11px] font-semibold text-slate-600">Open →</span>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
+function VerifyTile({
+  step,
+  title,
+  children,
+}: {
+  step: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Card className="flex flex-col border-slate-300/70 bg-slate-50/70 backdrop-blur">
+      <div className="flex items-start gap-3">
+        <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-slate-300/70 bg-white/70 text-xs font-bold text-slate-900">
+          {step}
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+          <div className="mt-2 space-y-2 text-sm text-brand-text/80 leading-relaxed">{children}</div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
+function Callout({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-slate-300/70 bg-slate-100/70 p-5 backdrop-blur md:p-6">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.10),transparent_55%)]" />
+      <div className="relative">
+        <p className="text-sm font-semibold text-slate-900">{title}</p>
+        <div className="mt-2 space-y-2 text-sm text-brand-text/80 leading-relaxed">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function AccordionItem({ q, children }: { q: string; children: React.ReactNode }) {
+  return (
+    <details className="group rounded-2xl border border-slate-300/70 bg-slate-50/70 p-5 backdrop-blur">
+      <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+        <span className="text-sm font-semibold text-slate-900">{q}</span>
+        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-slate-300/70 bg-white/70 text-slate-900">
+          <span className="group-open:hidden">+</span>
+          <span className="hidden group-open:inline">−</span>
+        </span>
+      </summary>
+      <div className="mt-4 space-y-3 text-sm text-brand-text/80 leading-relaxed">{children}</div>
+    </details>
+  );
+}
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can I rent with a debit card in Helsinki?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "It’s supplier-specific. Many require a credit card for the security deposit. If debit is accepted, the hold and extra requirements can differ by supplier and car category. Email the desk before you pay and ask for the exact hold amount and release timing after return.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are studded tyres mandatory in Finland?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Not always. Winter tyre rules depend on season and conditions. Studded tyres are common but not mandatory in every situation. Confirm what your rental includes (studded vs non-studded) and confirm it’s included in the price rather than sold as an add-on.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I need an International Driving Permit (IDP) in Finland?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "EU/EEA licences are typically accepted without an IDP. Non-EU drivers often need an International Driving Permit together with their national licence. Check your supplier’s terms before booking.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What should I do if I hit an animal on the road?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Call 112 and follow official instructions. Do not move the animal. Take photos of the scene and vehicle damage. Insurance outcomes depend on your deductible and exclusions, so check your terms for animal collisions and undercarriage coverage.",
+      },
+    },
+  ],
+};
 
 export default function CarRentalHelsinkiPage() {
- const partners: [PartnerSlot, PartnerSlot, PartnerSlot] = [
- {
- name: "DiscoverCars",
- kind: "aggregator",
- blurb:
- "Fast comparison. Still: the supplier’s desk rules win (card type + deposit + desk hours). Verify before you pay.",
- href: "PASTE_DISCOVERCARS_AFFILIATE_LINK",
- ctaLabel: "Compare options",
- },
- {
- name: "Auto Europe",
- kind: "aggregator",
- blurb:
- "A strong second check on availability and terms. Still confirm pickup rules in writing if anything is unclear.",
- href: "PASTE_AUTOEUROPE_AFFILIATE_LINK",
- ctaLabel: "Check Auto Europe",
- },
- { empty: true, label: "Direct brand (Sixt / Europcar / Hertz etc.)" },
- ];
+  const discoverCarsLink = "https://www.discovercars.com?a_aid=86laszlogabor";
+  const autoEuropeLink = "https://www.autoeurope.com/"; // replace later
 
- const helsinkiHubs: HeroCard[] = [
- {
- image: "/images/og/og-helsinki-airport-transfers.jpg",
- title: "HEL pickup reality",
- description:
- "Airport desks behave differently than city desks. Desk hours and late pickup rules decide if you actually get the car.",
- ctaLabel: "Airport transfers & pickup ?",
- ctaHref: "/helsinki/airport-transfers",
- },
- {
- image: "/images/og/og-helsinki-city-mobility.jpg",
- title: "City driving vs public transport",
- description:
- "If you’re mostly in the center: parking + timing can cost more than tram/metro. Compare before committing.",
- ctaLabel: "City mobility checklist ?",
- ctaHref: "/helsinki/city-mobility",
- },
- {
- image: "/images/og/og-helsinki-sauna.jpg",
- title: "Sauna visits by car",
- description:
- "Sounds easy until parking and time slots collide. Route + buffer beats improvising.",
- ctaLabel: "Sauna routing ?",
- ctaHref: "/helsinki/sauna",
- },
- {
- image: "/images/og/og-helsinki-sightseeing.jpg",
- title: "Day-trip planning",
- description:
- "Car helps outside the center. For day trips, daylight + winter roads decide the real timeline.",
- ctaLabel: "Sightseeing routes ?",
- ctaHref: "/helsinki/sightseeing",
- },
- {
- image: "/images/og/og-helsinki-ferry-cruise.jpg",
- title: "Ferry timing & vehicle rules",
- description:
- "Rental + ferry is fine until check-in timing and vehicle category rules bite you.",
- ctaLabel: "Ferry & cruise planning ?",
- ctaHref: "/helsinki/ferry-cruise",
- },
- {
- image: "/images/og/og-helsinki-restaurants.jpg",
- title: "Restaurants without schedule stress",
- description:
- "Parking + peak hours create hidden friction. A tiny plan saves the whole evening.",
- ctaLabel: "Restaurant planning ?",
- ctaHref: "/helsinki/restaurants",
- },
- ];
+  const partners: [PartnerSlot, PartnerSlot, PartnerSlot] = [
+    {
+      name: "DiscoverCars",
+      kind: "aggregator",
+      blurb:
+        "Fast comparison across suppliers. Still: the desk rules win (card type, deposit hold, desk hours). Verify in writing before you pay.",
+      href: discoverCarsLink,
+      ctaLabel: "Check availability",
+    },
+    {
+      name: "Auto Europe",
+      kind: "aggregator",
+      blurb:
+        "A solid second check for rates and wording. Treat it as a cross-check, then confirm the supplier’s deposit and card rules directly.",
+      href: autoEuropeLink,
+      ctaLabel: "Open Auto Europe",
+    },
+    { empty: true, label: "Direct brand (Sixt / Europcar / Hertz etc.)" },
+  ];
 
- // English, snippet-friendly FAQ schema (matches the visible FAQ)
- const faqJsonLd = {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- mainEntity: [
- {
- "@type": "Question",
- name: "Can I rent a car in Helsinki with a debit card?",
- acceptedAnswer: {
- "@type": "Answer",
- text:
- "It depends on the supplier. Many big brands are credit-card-only, and debit cards often trigger a higher security hold (commonly €1,000–€2,000). Email the desk in advance and ask for the exact hold amount and the release timing after return.",
- },
- },
- {
- "@type": "Question",
- name: "Are studded tyres mandatory in Helsinki in winter?",
- acceptedAnswer: {
- "@type": "Answer",
- text:
- "Winter tyres are mandatory in winter conditions, and many travelers should treat November–April as the practical season. The key is not the month: it’s what tyres your booking actually includes. Confirm tyre type (studded vs non-studded) and confirm it’s included in the price.",
- },
- },
- {
- "@type": "Question",
- name: "What should I do if I hit a reindeer in Finland?",
- acceptedAnswer: {
- "@type": "Answer",
- text:
- "Call the emergency number 112 and follow official instructions. Do not move the animal. Take photos of the scene and the vehicle damage. Insurance outcomes depend on your deductible (excess) and exclusions, so check your terms for animal collisions and undercarriage coverage.",
- },
- },
- {
- "@type": "Question",
- name: "What are the typical car rental desk hours at HEL (Helsinki-Vantaa)?",
- acceptedAnswer: {
- "@type": "Answer",
- text:
- "Many airport desks operate roughly 07:00–00:00. If you arrive late, you need a written late pickup policy, otherwise you can end up with a closed desk and no car.",
- },
- },
- {
- "@type": "Question",
- name: "Do I need an International Driving Permit (IDP) in Helsinki?",
- acceptedAnswer: {
- "@type": "Answer",
- text:
- "EU/EEA licences are usually accepted without an IDP. For non-EU licences, suppliers often require an International Driving Permit or an official translation. Check your supplier’s terms before travel.",
- },
- },
- ],
- };
+  return (
+    <div className="bg-slate-50">
+      {/* subtle page tint so it’s not “white on white” */}
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(2,132,199,0.06),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(249,115,22,0.05),transparent_60%)]" />
 
- return (<div className="bg-white">
- <PageHero
- variant="home"
- title="Car rental in Helsinki, without the expensive surprises."
- subtitle="Partners first. Then the checks that decide whether pickup is smooth or a disaster."
- imageSrc="/images/hero/hero-helsinki-airport.jpg"
- primaryCta={{ href: "/car-rental-helsinki", label: "Compare car rental options" }}
- secondaryCta={{ href: "/rental-terms-prices", label: "Open terms checklist" }}
- />
+      {/* HERO & FAST-TRACK */}
+      <PageHero
+        variant="home"
+        title="Helsinki car rental: verified for 2026."
+        subtitle="Skip the desk friction at Helsinki-Vantaa Airport. From Terminal arrivals logistics to winter tyre rules—know what to verify before you pay."
+        imageSrc="/images/hero/hero-helsinki-airport.jpg"
+        primaryCta={{ href: discoverCarsLink, label: "Compare car rental options" }}
+        secondaryCta={{ href: "#paths", label: "City mobility & sauna routes" }}
+      />
 
- {/* INTRO */}
- <section className="mx-auto max-w-6xl px-4 py-10 md:py-12">
- <p className="text-xs font-semibold tracking-wide text-brand-text/60">
- Car rental / Helsinki
- </p>
+      <section className="mx-auto max-w-6xl px-4 py-8 md:py-10">
+        <TrustBox />
+      </section>
 
- <h2 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight">
- Car rental in Helsinki, without the expensive surprises.
- </h2>
+      {/* PARTNERS */}
+      <Section className="pt-0">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Recommended booking paths</h2>
+        <p className="mt-3 text-sm text-brand-text/80 max-w-3xl">
+          Compare partners for live rates and clearer terms. Then confirm the supplier’s deposit/card rules directly.
+        </p>
 
- <p className="mt-4 text-base md:text-lg text-brand-text/75 max-w-3xl">
- Helsinki rentals rarely fail because you picked the “wrong car”. They fail at the desk:
- card type, deposit hold, desk hours, and what “insurance included” actually means.
- </p>
+        <div className="mt-6">
+          <PartnerStrip
+            title="Compare partners"
+            subtitle="Use a marketplace for speed, use a second site as a cross-check, or go direct if you already trust a brand."
+            partners={partners}
+            intentHref="/rental-terms-prices"
+            intentLabel="Open terms checklist"
+          />
+        </div>
+      </Section>
 
- {/* DENSE LOCAL SIGNAL (clean, readable) */}
- <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
- <div className="flex flex-col gap-3">
- <div>
- <p className="text-sm font-semibold text-slate-900">
- HEL (Helsinki-Vantaa) pickup essentials
- </p>
- <p className="mt-1 text-sm text-brand-text/70 max-w-3xl">
- These details decide whether pickup is smooth or a mess after a delayed flight.
- </p>
- </div>
+      {/* POWER ROW (Pick your path) — anchor wrapper is OUTSIDE Section */}
+      <div id="paths">
+        <Section className="bg-slate-100/60">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Pick your path</h2>
+          <p className="mt-3 text-sm text-brand-text/80 max-w-3xl">
+            Clean options, no noise. Choose what you need right now.
+          </p>
 
- <div className="grid gap-3 md:grid-cols-2">
- <div className="rounded-xl bg-white/70 border border-slate-200 p-4">
- <p className="text-sm font-semibold text-slate-900">Where you actually pick up</p>
- <p className="mt-1 text-sm text-brand-text/70">
- Most rentals are handled at <strong>HEL Airport (P1 parking area)</strong>. Follow the “Car Rental” signs from arrivals.
- </p>
- </div>
+          <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <QuickStartCard
+              title="Helsinki Car Hire"
+              meta="Airport"
+              accent="orange"
+              imageSrc="/images/og/og-helsinki-airport-transfers.jpg"
+              description="Terminal arrivals desks for major brands. Avoid late-pickup surprises and card rejection by confirming the desk policy in writing."
+              href="/car-rental-helsinki"
+              ctaLabel="Check rates"
+            />
+            <QuickStartCard
+              title="Public Transport"
+              meta="City"
+              accent="blue"
+              imageSrc="/images/og/og-helsinki-city-mobility.jpg"
+              description="Airport-to-center travel is zone-based. For the center, tram/metro often beats driving + parking—compare once before committing."
+              href="/helsinki/city-mobility"
+              ctaLabel="HSL ticket guide"
+            />
+            <QuickStartCard
+              title="Sauna Access"
+              meta="Plan"
+              accent="amber"
+              imageSrc="/images/og/og-helsinki-sauna.jpg"
+              description="Löyly and Allas are in zone-based parking areas. Use EasyPark/ParkMan to avoid fines and time-waste."
+              href="/helsinki/sauna"
+              ctaLabel="Sauna routes & parking"
+            />
+            <QuickStartCard
+              title="Ferry Connections"
+              meta="Ferry"
+              accent="slate"
+              imageSrc="/images/og/og-helsinki-ferry-cruise.jpg"
+              description="Vehicle check-in closes before departure and varies by operator/route. Verify timing and cross-border rules before you book."
+              href="/helsinki/ferry-cruise"
+              ctaLabel="Ferry timing & rules"
+            />
+          </div>
 
- <div className="rounded-xl bg-white/70 border border-slate-200 p-4">
- <p className="text-sm font-semibold text-slate-900">Desk hours & late arrival</p>
- <p className="mt-1 text-sm text-brand-text/70">
- Many desks run roughly <strong>06:00–22:00</strong>. If you land late, get a <strong>written late pickup policy</strong>,
- otherwise you can meet the classic: “closed desk, no car”.
- </p>
- </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={discoverCarsLink}
+              rel="sponsored noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl bg-orange-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange-700"
+            >
+              Compare car rental options
+            </a>
+            <CtaButton href="/rental-terms-prices" variant="outline">
+              Open terms checklist
+            </CtaButton>
+          </div>
+        </Section>
+      </div>
 
- <div className="rounded-xl bg-white/70 border border-slate-200 p-4">
- <p className="text-sm font-semibold text-slate-900">Winter tyres reality</p>
- <p className="mt-1 text-sm text-brand-text/70">
- Treat <strong>November–April</strong> as the practical winter season.
- Confirm what tyres are included (studded vs non-studded) and confirm it’s <strong>included in price</strong>, not a desk add-on.
- </p>
- </div>
+      {/* VERIFY BEFORE YOU PAY (Truth layer) */}
+      <Section>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Verify before you pay</h2>
+        <p className="mt-3 text-sm text-brand-text/80 max-w-3xl">
+          This is where rentals are won or lost: pickup logistics, card/deposit rules, and winter equipment.
+        </p>
 
- <div className="rounded-xl bg-white/70 border border-slate-200 p-4">
- <p className="text-sm font-semibold text-slate-900">City costs</p>
- <p className="mt-1 text-sm text-brand-text/70">
- Central Helsinki parking can be around <strong>€4/hour</strong>. If you’re staying mostly in the city,
- tram/metro is often faster and cheaper.
- </p>
- </div>
- </div>
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
+          <VerifyTile step="1" title="Pickup at Helsinki-Vantaa Airport">
+            <p>
+              Follow the <strong>“Car Rental / Rental Cars”</strong> signs to the arrivals hall desks. Major suppliers
+              (Budget, Avis, Sixt, Hertz) have desks directly in the Terminal 2 arrivals hall — no shuttle bus required.
+              Always confirm your supplier’s exact pickup process.
+            </p>
+            <p>
+              If your flight lands late, get the late-pickup policy <strong>in writing</strong> before you pay.
+            </p>
+          </VerifyTile>
 
- <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5 pt-1">
- <Link
- href="/rental-terms-prices#helsinki"
- className="text-sm font-semibold text-slate-900 hover:underline"
- >
- Check card + deposit rules (Helsinki) ?
- </Link>
- <Link
- href="/helsinki/winter-driving"
- className="text-sm font-semibold text-slate-900 hover:underline"
- >
- Black ice + early darkness: winter driving checklist ?
- </Link>
- </div>
- </div>
- </div>
+          <VerifyTile step="2" title="The card rule (deposit hold)">
+            <p>
+              Credit cards are standard for deposits. Debit cards are often accepted but usually require higher holds
+              and additional ID. Email the desk and ask: “What is the exact hold amount for my car category with debit
+              at Helsinki-Vantaa?”
+            </p>
+            <p className="font-semibold text-slate-900">Email the desk:</p>
+            <p className="italic">
+              “What is the exact hold amount for my car category at Helsinki-Vantaa Airport with my card type?”
+            </p>
+          </VerifyTile>
 
- <div className="mt-8 flex flex-col sm:flex-row gap-3">
- <CtaButton href="/car-rental-helsinki" variant="primary">
- Compare car rental options
- </CtaButton>
- <CtaButton href="/rental-terms-prices" variant="outline">
- Open terms checklist
- </CtaButton>
- </div>
+          <VerifyTile step="3" title="Winter tyres (what you actually get)">
+            <p>
+              Winter tyres are required by law from Nov 1 to Mar 31 in wintry conditions. Helsinki rentals include
+              seasonally appropriate tyres (studded common mid-winter). Verify that no winter extras are added at the
+              desk.
+            </p>
+            <p>
+              Confirm <strong>studded vs non-studded</strong> and confirm it’s <strong>included in price</strong>.
+            </p>
+          </VerifyTile>
+        </div>
 
- <p className="mt-6 text-sm text-brand-text/70 max-w-3xl">
- Real-world note: late arrivals and debit cards are where Helsinki rentals most often break.
- Debit cards commonly trigger significantly higher security holds, and desk rules can change fast if you arrive late.
- Travelers who email ahead to confirm card acceptance, hold range, and late pickup policy avoid most of these failures.
- </p>
- </section>
+        <div className="mt-8">
+          <Callout title="Two-minute check that prevents desk friction">
+            <p>
+              Get the hold amount and late-pickup handling confirmed in writing. A simple email screenshot saves you
+              from “policy surprises” when you’re tired and in a queue.
+            </p>
+          </Callout>
+        </div>
+      </Section>
 
- {/* PARTNERS FIRST */}
- <Section>
- <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
- Our recommendations
- </h2>
+      {/* EXPERIENCE */}
+      <Section className="bg-slate-100/60">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Experience hub</h2>
+        <p className="mt-3 text-sm text-brand-text/80 max-w-3xl">
+          If you’re driving, these are the two places Helsinki plans most often break: parking and ferry timing.
+        </p>
 
- <PartnerStrip
- title="Compare partners"
- subtitle="Use a marketplace for speed, use Auto Europe as a second check, or go direct if you already trust a brand. Always confirm deposit + card acceptance in writing."
- partners={partners}
- intentHref="/rental-terms-prices"
- intentLabel="Open terms checklist"
- />
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
+          <Card className="border-slate-300/70 bg-slate-50/70 backdrop-blur">
+            <h3 className="text-lg font-semibold">Sauna &amp; parking</h3>
+            <p className="mt-3 text-sm text-brand-text/80">
+              Sauna plans go sideways when parking is improvised. Check zones and payment in apps before you arrive.
+            </p>
 
- <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
- <Card className="flex flex-col">
- <h3 className="text-lg font-semibold">Card &amp; deposit reality</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- The #1 failure mode: assuming the desk will “figure it out”.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Ask two blunt questions:
- <span className="block mt-2">
- <strong>1)</strong> “What is the hold amount for my car category?”
- </span>
- <span className="block mt-1">
- <strong>2)</strong> “When do you release it after return?”
- </span>
- <span className="block mt-2">
- If the card is rejected at the desk, ask what happens next (and get it in writing).
- </span>
- </p>
+            <div className="mt-4 rounded-2xl border border-slate-300/70 bg-white/60 p-4 backdrop-blur">
+              <p className="text-sm font-semibold text-slate-900">Quick note</p>
+              <p className="mt-2 text-sm text-brand-text/80">
+                Löyly and Allas use paid, zone-based parking (€2–4/hour). Use EasyPark or ParkMan to check zones and pay
+                in real time.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <Link href="/helsinki/sauna" className="text-sm font-semibold hover:underline">
+                  Sauna routes & parking →
+                </Link>
+                <CtaButton href="/helsinki/sauna" variant="outline">
+                  Book a sauna slot
+                </CtaButton>
+              </div>
+            </div>
+          </Card>
 
- <div className="mt-auto pt-4">
- <Link href="/rental-terms-prices#helsinki" className="text-sm font-semibold hover:underline">
- Open the Helsinki card/hold section ?
- </Link>
- </div>
- </Card>
+          <Card className="border-slate-300/70 bg-slate-50/70 backdrop-blur">
+            <h3 className="text-lg font-semibold">Ferry buffers</h3>
+            <p className="mt-3 text-sm text-brand-text/80">
+              Vehicle check-in typically closes around 45 minutes before departure (e.g. Viking Line). Always confirm
+              the cutoff time and that cross-border use is allowed in your rental contract.
+            </p>
 
- <Card className="flex flex-col">
- <h3 className="text-lg font-semibold">Winter requirements</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- In winter, “model” matters less than tyres, visibility, and buffers.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Confirm:
- <span className="block mt-2">• what tyres you get (and whether they’re included)</span>
- <span className="block mt-1">• what “optional” winter add-ons exist at the desk</span>
- <span className="block mt-1">• your realistic timeline if it’s dark early</span>
- </p>
+            <div className="mt-4 rounded-2xl border border-slate-300/70 bg-white/60 p-4 backdrop-blur">
+              <p className="text-sm font-semibold text-slate-900">Quick note</p>
+              <p className="mt-2 text-sm text-brand-text/80">
+                If your rental contract doesn’t explicitly allow cross-border travel, don’t assume you can take the car
+                onto a ferry. Confirm the rule and required paperwork before booking.
+              </p>
+              <div className="mt-4">
+                <Link href="/helsinki/ferry-cruise" className="text-sm font-semibold hover:underline">
+                  Ferry timing & rules →
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </Section>
 
- <div className="mt-auto pt-4">
- <Link href="/helsinki/winter-driving" className="text-sm font-semibold hover:underline">
- Open Helsinki winter driving checklist ?
- </Link>
- </div>
- </Card>
+      {/* FAQ */}
+      <Section>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Sourced FAQ</h2>
 
- <Card className="flex flex-col">
- <h3 className="text-lg font-semibold">Insurance wording traps</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- “Insurance included” can still mean a big deductible plus exclusions.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Focus on:
- <span className="block mt-2">• deductible (excess)</span>
- <span className="block mt-1">• exclusions (glass/tyres/undercarriage)</span>
- <span className="block mt-1">• claim handling (who you contact, what proof you need)</span>
- </p>
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
+          <AccordionItem q="Can I rent with a debit card?">
+            <p>
+              Supplier-dependent. Many require credit for the deposit. If debit is accepted, holds and extra checks can
+              differ by supplier and car category.
+            </p>
+            <p className="font-semibold text-slate-900">Action:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Email the desk before you pay.</li>
+              <li>Ask for the exact hold amount for your category with your card type.</li>
+              <li>Ask when the hold is released after return.</li>
+            </ul>
+          </AccordionItem>
 
- <div className="mt-auto pt-4">
- <Link href="/rental-terms-prices" className="text-sm font-semibold hover:underline">
- Read the insurance checklist ?
- </Link>
- </div>
- </Card>
- </div>
+          <AccordionItem q="Are studded tyres mandatory?">
+            <p>
+              Not always. Winter tyre rules depend on season and conditions. Studded tyres are common, but the correct
+              move is to verify what your booking includes.
+            </p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Confirm studded vs non-studded.</li>
+              <li>Confirm it’s included in the base price (not sold at the desk).</li>
+            </ul>
+          </AccordionItem>
 
- <div className="mt-10 grid gap-4 md:gap-6 md:grid-cols-2">
- <Card>
- <h3 className="text-lg font-semibold">Pickup timing &amp; desk hours</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- The classic Helsinki failure story: flight delay, “we’ll make it”, then… no desk, no car.
- Confirm desk hours for your exact location (airport vs city). If you land late, get the late pickup policy in writing.
- </p>
- </Card>
+          <AccordionItem q="What if I hit a moose (or another animal)?">
+            <p>
+              Call <strong>112</strong> and follow official instructions. Don’t move the animal. Photo the scene and
+              damage.
+            </p>
+            <p>Before you travel, verify excess/deductible and exclusions (undercarriage, tyres, animal collisions).</p>
+          </AccordionItem>
 
- <Card>
- <h3 className="text-lg font-semibold">If anything feels unclear</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- Don’t argue at the desk with zero documentation. Keep it practical and escalate cleanly.
- </p>
- <div className="mt-4">
- <CtaButton href="/get-help" variant="success" className="w-full">
- Get Help
- </CtaButton>
- </div>
- </Card>
- </div>
- </Section>
+          <AccordionItem q="Do I need an IDP?">
+            <p>
+              EU/EEA licences are typically fine. For non-EU licences, suppliers often require an International Driving
+              Permit together with the national licence. Always check your supplier’s terms before booking.
+            </p>
+          </AccordionItem>
+        </div>
 
- {/* HELSINKI PLANNING SHORTCUTS */}
- <Section className="bg-brand-bluegray">
- <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
- Helsinki planning shortcuts
- </h2>
- <p className="mt-3 text-sm text-brand-text/70 max-w-3xl">
- If your plan depends on timing (airport pickup, ferry schedules, sauna slots), route from here instead of guessing.
- </p>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      </Section>
 
- <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
- {helsinkiHubs.map((item) => (<HubTile key={item.title}  item={item} />))}
- </div>
- </Section>
+      {/* RELATED LINKS */}
+      <Section>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Related decision links</h2>
 
- {/* FAQ */}
- <Section>
- <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
- Helsinki car rental FAQ
- </h2>
-
- <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-2">
- <Card>
- <h3 className="text-lg font-semibold">Can I rent with a debit card?</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- It depends on the supplier. Many big brands are credit-card-only, and debit cards often trigger a higher hold.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- What to do:
- <span className="block mt-2">• Email the desk before paying.</span>
- <span className="block mt-1">• Ask for the exact hold amount for your car category.</span>
- <span className="block mt-1">• Ask when the hold is released after return.</span>
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Copy-paste question:
- <span className="block mt-2 italic">
- “What is your card policy at the HEL airport desk? Please confirm the exact deposit amount for my car category and the expected release time after return.”
- </span>
- </p>
- </Card>
-
- <Card>
- <h3 className="text-lg font-semibold">Are studded tyres mandatory in winter?</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- Winter tyres are mandatory in winter conditions. For many travelers, November–April is the practical season.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- The key check is simple:
- <span className="block mt-2">• Does your booking explicitly say which tyres are included?</span>
- <span className="block mt-1">• Are studded tyres included, or sold as a desk add-on?</span>
- </p>
- </Card>
-
- <Card>
- <h3 className="text-lg font-semibold">What if I hit a reindeer?</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- Call <strong>112</strong> and follow official instructions. Do not move the animal.
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Do this immediately:
- <span className="block mt-2">• Take photos of the scene and the vehicle damage.</span>
- <span className="block mt-1">• Keep all booking/insurance proof.</span>
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- Insurance outcome depends on your <strong>deductible (excess)</strong> and exclusions, so verify animal collision and undercarriage coverage.
- </p>
- </Card>
-
- <Card>
- <h3 className="text-lg font-semibold">What are typical HEL desk hours?</h3>
- <p className="mt-3 text-sm text-brand-text/70">
- Many airport desks operate roughly, some later. Always confirm your specific desk hours in writing.” <strong>07:00–00:00</strong>.
- “Hours vary by supplier. Always confirm your desk’s exact hours for your pickup location.”
- </p>
- <p className="mt-3 text-sm text-brand-text/70">
- If your flight arrives late:
- <span className="block mt-2">• Get a written late pickup policy. “Some suppliers charge an after-hours fee (often ~€50–€100). Confirm both availability and cost in writing.”</span>
- <span className="block mt-1">• Don’t assume “they will wait”.</span>
- <span className="block mt-1">• Without written confirmation, you can end up with a closed desk and no car.</span>
- </p>
- </Card>
- </div>
-
- <script
- type="application/ld+json"
- dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
- />
- </Section>
-
- {/* ROUTING */}
- <Section>
- <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
- Related decision links
- </h2>
-
- <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
- <Card>
- <p className="text-sm text-brand-text/70">
- <Link href="/rental-terms-prices" className="font-semibold hover:underline">
- Rental Terms &amp; Prices ?
- </Link>
- </p>
- </Card>
- <Card>
- <p className="text-sm text-brand-text/70">
- <Link href="/getting-around-finland" className="font-semibold hover:underline">
- Getting Around Finland ?
- </Link>
- </p>
- </Card>
- <Card>
- <p className="text-sm text-brand-text/70">
- <Link href="/lapland-tours" className="font-semibold hover:underline">
- Lapland Tours ?
- </Link>
- </p>
- </Card>
- </div>
- </Section>
- </div>);
+        <div className="mt-6 grid gap-4 md:gap-6 md:grid-cols-3">
+          <Card className="border-slate-300/70 bg-slate-50/70 backdrop-blur">
+            <p className="text-sm text-brand-text/80">
+              <Link href="/rental-terms-prices" className="font-semibold hover:underline">
+                Rental Terms &amp; Prices →
+              </Link>
+            </p>
+          </Card>
+          <Card className="border-slate-300/70 bg-slate-50/70 backdrop-blur">
+            <p className="text-sm text-brand-text/80">
+              <Link href="/getting-around-finland" className="font-semibold hover:underline">
+                Getting Around Finland →
+              </Link>
+            </p>
+          </Card>
+          <Card className="border-slate-300/70 bg-slate-50/70 backdrop-blur">
+            <p className="text-sm text-brand-text/80">
+              <Link href="/lapland-tours" className="font-semibold hover:underline">
+                Lapland Tours →
+              </Link>
+            </p>
+          </Card>
+        </div>
+      </Section>
+    </div>
+  );
 }
-
-
-
-
-
-
-
-
-
